@@ -17,3 +17,5 @@ Automated layout measurements: 48 states at 320×480, 360×640, 375×812, 390×8
 Visual review removed the central walking card, dark floating status box, six-button view strip and permanently visible equipment toolbar. Existing 3D labels and materials remain unchanged. No unrelated list/input features were added.
 
 Screenshots use desktop Chrome with emulated touch viewports. Physical phone / Safari testing and an independent human design review remain for a later iteration.
+
+Live deployment verified: https://lucianstuparu.github.io/casa-artlia-3d/ — v12.4.0. GitHub reports the gh-pages build successful; HTTP version metadata and the complete live HTML match the reviewed local build. Live Chromium checks cover both phases, interior/overview, embedded plan/photo dialogs, mouse look/pause/exit and a 390 px touch viewport, with no JavaScript errors.
