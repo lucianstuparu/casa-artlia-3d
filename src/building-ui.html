@@ -2,8 +2,8 @@
  <header id="buildingBar">
   <div class="brand"><strong>Casa Artlia</strong><span>Explorer le bâtiment</span></div>
   <div class="stateSwitch" role="group" aria-label="État des travaux"><button id="stateAvant" aria-pressed="false">Avant<span> travaux</span></button><button id="stateApres" aria-pressed="true">Après<span> travaux</span></button></div>
-  <div class="headerActions">
-   <button id="equipmentToggle" aria-expanded="false" aria-controls="liftPanel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h5v-5h5v-5h6M4 14 17 3m-6 0h6v6"/></svg><span>Plateforme</span></button>
+  <div class="headerActions"><select id="languageSelect" aria-label="Langue" title="Langue"><option value="fr" lang="fr">FR</option><option value="ro" lang="ro">RO</option><option value="en" lang="en">EN</option></select>
+   <button id="equipmentToggle" aria-label="Plateforme" aria-expanded="false" aria-controls="liftPanel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h5v-5h5v-5h6M4 14 17 3m-6 0h6v6"/></svg><span>Plateforme</span><span class="compactLabel" aria-hidden="true">GTLE</span></button>
    <button id="buildingToggle" aria-expanded="false" aria-controls="buildingPanel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M8 4v6m8 4v6"/></svg><span>Explorer</span></button>
   </div>
  </header>

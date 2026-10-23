@@ -1,6 +1,6 @@
 # Casa Artlia 3D
 
-Working repository for the interactive Casa Artlia building model. Current baseline: **v12.4.0**.
+Working repository for the interactive Casa Artlia building model. Current baseline: **v12.5.0**.
 
 It includes the ERP **avant / après** switch, RDC and R+1 reconstruction, the original entrance and telescopic door, interior staircase, Ganser GTLE animation, exterior stairs and landing, neighbouring building context, source-plan/photo viewers, and first-person walking.
 
@@ -53,6 +53,7 @@ node scripts/build.cjs
 node tests/model.test.cjs
 node tests/browser.test.cjs
 node tests/layout.test.cjs
+node tests/i18n.test.cjs
 ```
 
 The checks rebuild the app, validate geometry data, run it in Chromium, walk both states up and down the staircase, check the open landing, confirm wall mounting contact, exercise mouse look and capture fallback, and verify the original door/lift controls. The layout checks also start their own preview server and measure eight viewport sizes, light/dark, inspector, source dialog, walking states and plan picking. Screenshots and reports go into ignored `test-results/`.
@@ -89,3 +90,11 @@ npm run deploy
 ```
 
 The publish script splits the committed `dist/` tree and pushes it to `gh-pages` without switching the working checkout. It requires a clean `main` branch and normal Git push authentication. On the affected Windows setup, invoke `node scripts/publish.cjs` directly. Verify the GitHub Pages deployment and the live `/version.json` after publishing. Refresh the browser to load an update; downloaded standalone HTML remains a fixed offline copy.
+
+## Languages
+
+Use FR / RO / EN in the header to choose French, Romanian or English. The choice is saved locally and reflected in the link: append ?lang=ro or ?lang=en to share a language directly. Switching preserves the view, phase, door states and walking position. French is the default without a saved or linked choice.
+
+Controls, room names, 3D labels, dimensions, walking instructions, live lift diagnostics, tooltips, accessibility labels, photo observations and reconstruction assumptions are translated. Original plan/photo pixels and source geometry records remain unchanged. All translations are embedded in the standalone HTML and work offline; no translation service is used.
+
+Edit src/i18n-catalog.json for Romanian/English wording keyed by the canonical French text. src/i18n.js binds source DOM text and attributes, repaints registered label textures on language changes, and handles persistence. src/dimension-label.js adapts the original dimension labels at build time while preserving base-v10.html. New dynamic source text must have both translations. Run npm run test:i18n (or node tests/i18n.test.cjs directly on the affected Windows host).

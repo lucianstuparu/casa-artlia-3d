@@ -38,3 +38,7 @@ Critique before implementation: omit hero headers, extra floating cards, glass e
 ## Verification
 
 See SCREENS.md and ignored test-results for browser measurements and screenshots. Preserve existing checks of both phases, stairs, wall mounts, doors, lift and mouse/touch look. Check the inspector, equipment, walking, dialogs, light/dark, small screens, landscape and enlarged text. Real-device touch feel remains to be checked on the user's phone.
+
+## Language extension — v12.5.0
+
+Add a persistent FR / RO / EN selector in the header, available in every view. Keep the 3D scene and input state intact when switching. Translate all presentation text, including canvas textures and technical readouts, without rewriting original evidence. On narrow screens the equipment button uses its GTLE name and retains a translated accessible label. Check longer Romanian and English wording in overview, inspector and walking states; no additional panels or modal prompts.

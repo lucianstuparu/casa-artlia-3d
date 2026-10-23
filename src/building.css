@@ -156,3 +156,7 @@ dialog p{margin:0}#photoDialog>a{font-size:13px}
  #walkSettings{max-height:25dvh;overflow:auto}.walkStatus{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* Language selection remains visible in every exploration mode. */
+#languageSelect{width:64px;padding:8px;font-size:16px;background:var(--surface)}
+.compactLabel{display:none}
+@media(max-width:520px){#equipmentToggle span:not(.compactLabel){display:none}#equipmentToggle .compactLabel{display:inline}.brand{min-width:74px}.headerActions{gap:8px}#languageSelect{width:64px}}

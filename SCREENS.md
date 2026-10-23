@@ -19,3 +19,9 @@ Visual review removed the central walking card, dark floating status box, six-bu
 Screenshots use desktop Chrome with emulated touch viewports. Physical phone / Safari testing and an independent human design review remain for a later iteration.
 
 Live deployment verified: https://lucianstuparu.github.io/casa-artlia-3d/ — v12.4.0. GitHub reports the gh-pages build successful; HTTP version metadata and the complete live HTML match the reviewed local build. Live Chromium checks cover both phases, interior/overview, embedded plan/photo dialogs, mouse look/pause/exit and a 390 px touch viewport, with no JavaScript errors.
+
+## v12.5.0 languages
+
+FR / RO / EN checked in overview, inspector and active walking at 320×480, 375×812, 844×390 and 1440×900 (36 language/viewport states). Dynamic room details, plans, live diagnostics for both lift models, 55 canvas annotations, saved preference, link override and preserving walking/data state are covered. Original source images remain original. Offline standalone viewing and unavailable browser storage are checked. Phone screenshots are Chromium emulation; physical phone/Safari testing remains unverified.
+
+Latest language screenshots: [Romanian phone](docs/images/ui-ro-walk.png), [English desktop](docs/images/ui-en-walk.png). All model, navigation, layout and language checks passed on the final local v12.5.0 build.

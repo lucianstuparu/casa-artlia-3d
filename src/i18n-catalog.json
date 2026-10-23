@@ -1,0 +1,1386 @@
+{
+  "Explorer le bâtiment": {
+    "ro": "Explorează clădirea",
+    "en": "Explore the building"
+  },
+  "Avant": {
+    "ro": "Înainte",
+    "en": "Before"
+  },
+  "Après": {
+    "ro": "După",
+    "en": "After"
+  },
+  "travaux": {
+    "ro": "de lucrări",
+    "en": "works"
+  },
+  "Avant travaux": {
+    "ro": "Înainte de lucrări",
+    "en": "Before works"
+  },
+  "Après travaux": {
+    "ro": "După lucrări",
+    "en": "After works"
+  },
+  "Plateforme": {
+    "ro": "Platformă",
+    "en": "Platform lift"
+  },
+  "Explorer": {
+    "ro": "Explorează",
+    "en": "Explore"
+  },
+  "État des travaux": {
+    "ro": "Stadiul lucrărilor",
+    "en": "Works phase"
+  },
+  "Bâtiment en trois dimensions": {
+    "ro": "Clădire în trei dimensiuni",
+    "en": "Three-dimensional building"
+  },
+  "Fermer les détails": {
+    "ro": "Închide detaliile",
+    "en": "Close details"
+  },
+  "Pièces": {
+    "ro": "Încăperi",
+    "en": "Rooms"
+  },
+  "Affichage": {
+    "ro": "Afișare",
+    "en": "Display"
+  },
+  "Sources": {
+    "ro": "Surse",
+    "en": "Sources"
+  },
+  "Aller à une pièce": {
+    "ro": "Mergi într-o încăpere",
+    "en": "Go to a room"
+  },
+  "Choisir…": {
+    "ro": "Alege…",
+    "en": "Choose…"
+  },
+  "Pièces et surfaces": {
+    "ro": "Încăperi și suprafețe",
+    "en": "Rooms and floor areas"
+  },
+  "Ouvrir les portes R+1": {
+    "ro": "Deschide ușile de la etaj",
+    "en": "Open first-floor doors"
+  },
+  "Fermer les portes R+1": {
+    "ro": "Închide ușile de la etaj",
+    "en": "Close first-floor doors"
+  },
+  "Différences avant / après": {
+    "ro": "Diferențe înainte / după",
+    "en": "Before / after differences"
+  },
+  "Niveau": {
+    "ro": "Nivel",
+    "en": "Level"
+  },
+  "RDC + R+1": {
+    "ro": "Parter + etaj 1",
+    "en": "Ground + first floor"
+  },
+  "R+1": {
+    "ro": "E1",
+    "en": "1F"
+  },
+  "RDC": {
+    "ro": "P",
+    "en": "GF"
+  },
+  "RDC / entrée": {
+    "ro": "Parter / intrare",
+    "en": "Ground floor / entrance"
+  },
+  "Parois": {
+    "ro": "Pereți",
+    "en": "Walls"
+  },
+  "Hauteur entrée · 5,80 m": {
+    "ro": "Înălțimea intrării · 5,80 m",
+    "en": "Entrance height · 5.80 m"
+  },
+  "Coupe à 1 m": {
+    "ro": "Secțiune la 1 m",
+    "en": "Cut at 1 m"
+  },
+  "Sans parois": {
+    "ro": "Fără pereți",
+    "en": "Hide walls"
+  },
+  "Noms des pièces": {
+    "ro": "Numele încăperilor",
+    "en": "Room names"
+  },
+  "Escalier extérieur": {
+    "ro": "Scară exterioară",
+    "en": "Exterior staircase"
+  },
+  "Connexions": {
+    "ro": "Legături",
+    "en": "Connections"
+  },
+  "Travaux en couleur": {
+    "ro": "Lucrări evidențiate",
+    "en": "Highlight changes"
+  },
+  "Librairie": {
+    "ro": "Librărie",
+    "en": "Bookshop"
+  },
+  "Combles / balcon privé": {
+    "ro": "Mansardă / balcon privat",
+    "en": "Attic / private balcony"
+  },
+  "Toiture": {
+    "ro": "Acoperiș",
+    "en": "Roof"
+  },
+  "Plafond d’étude": {
+    "ro": "Plafon de studiu",
+    "en": "Study ceiling"
+  },
+  "Cotes bâtiment": {
+    "ro": "Dimensiunile clădirii",
+    "en": "Building dimensions"
+  },
+  "Interface": {
+    "ro": "Interfață",
+    "en": "Interface"
+  },
+  "Claire": {
+    "ro": "Luminoasă",
+    "en": "Light"
+  },
+  "Sombre": {
+    "ro": "Întunecată",
+    "en": "Dark"
+  },
+  "Selon l’appareil": {
+    "ro": "După dispozitiv",
+    "en": "Use device setting"
+  },
+  "Commandes d’origine": {
+    "ro": "Comenzile originale",
+    "en": "Original controls"
+  },
+  "Glisser pour tourner, molette pour zoomer. Maj + glisser pour déplacer. Sur écran tactile, pincer pour zoomer.": {
+    "ro": "Trage pentru rotire, folosește rotița pentru zoom. Shift + trage pentru deplasare. Pe ecran tactil, apropie sau depărtează două degete pentru zoom.",
+    "en": "Drag to orbit, scroll to zoom. Shift + drag to pan. On touchscreens, pinch to zoom."
+  },
+  "Plans déposés en mai 2026. Les cotes relevées, les corrections confirmées et les hypothèses restent distinguées dans les données.": {
+    "ro": "Planuri depuse în mai 2026. Dimensiunile măsurate, corecțiile confirmate și ipotezele sunt păstrate separat în date.",
+    "en": "Plans filed in May 2026. Surveyed dimensions, confirmed corrections and assumptions remain distinct in the data."
+  },
+  "Voir le plan source": {
+    "ro": "Vezi planul sursă",
+    "en": "View source plan"
+  },
+  "Photographies du site": {
+    "ro": "Fotografii ale clădirii",
+    "en": "Site photographs"
+  },
+  "Hypothèses de reconstruction (14)": {
+    "ro": "Ipoteze de reconstrucție (14)",
+    "en": "Reconstruction assumptions (14)"
+  },
+  "Exporter les données": {
+    "ro": "Exportă datele",
+    "en": "Export data"
+  },
+  "Fermer la pièce": {
+    "ro": "Închide detaliile încăperii",
+    "en": "Close room details"
+  },
+  "Vue": {
+    "ro": "Vedere",
+    "en": "View"
+  },
+  "Bâtiment": {
+    "ro": "Clădire",
+    "en": "Building"
+  },
+  "Intérieur": {
+    "ro": "Interior",
+    "en": "Interior"
+  },
+  "Plan R+1": {
+    "ro": "Plan etaj 1",
+    "en": "First-floor plan"
+  },
+  "Entrée / plateforme": {
+    "ro": "Intrare / platformă",
+    "en": "Entrance / platform lift"
+  },
+  "Visiter": {
+    "ro": "Vizitează",
+    "en": "Walk through"
+  },
+  "Plans et hypothèses": {
+    "ro": "Planuri și ipoteze",
+    "en": "Plans and assumptions"
+  },
+  "Commandes de la visite": {
+    "ro": "Comenzile vizitei",
+    "en": "Walkthrough controls"
+  },
+  "Visite à hauteur des yeux": {
+    "ro": "Vizită la nivelul ochilor",
+    "en": "Eye-level walkthrough"
+  },
+  "Les escaliers se montent en avançant. Échap pour faire une pause.": {
+    "ro": "Urcă scările mergând înainte. Apasă Esc pentru pauză.",
+    "en": "Walk forward to climb stairs. Press Esc to pause."
+  },
+  "Réglages": {
+    "ro": "Setări",
+    "en": "Settings"
+  },
+  "Pause": {
+    "ro": "Pauză",
+    "en": "Pause"
+  },
+  "Quitter": {
+    "ro": "Ieși",
+    "en": "Exit"
+  },
+  "Marcher": {
+    "ro": "Deplasare",
+    "en": "Walk"
+  },
+  "Avancer": {
+    "ro": "Mergi înainte",
+    "en": "Move forward"
+  },
+  "Reculer": {
+    "ro": "Mergi înapoi",
+    "en": "Move backward"
+  },
+  "Aller à gauche": {
+    "ro": "Mergi la stânga",
+    "en": "Move left"
+  },
+  "Aller à droite": {
+    "ro": "Mergi la dreapta",
+    "en": "Move right"
+  },
+  "Ouvrir ou fermer la porte visée": {
+    "ro": "Deschide sau închide ușa vizată",
+    "en": "Open or close the targeted door"
+  },
+  "Porte": {
+    "ro": "Ușă",
+    "en": "Door"
+  },
+  "Départ": {
+    "ro": "Pornire",
+    "en": "Start location"
+  },
+  "Devant l’entrée": {
+    "ro": "În fața intrării",
+    "en": "Outside the entrance"
+  },
+  "Entrée / café · RDC": {
+    "ro": "Intrare / cafenea · parter",
+    "en": "Entrance / café · ground floor"
+  },
+  "Palier intérieur · R+1": {
+    "ro": "Palier interior · etaj 1",
+    "en": "Interior landing · first floor"
+  },
+  "Jeu principal · R+1": {
+    "ro": "Sala principală de joacă · etaj 1",
+    "en": "Main playroom · first floor"
+  },
+  "Palier extérieur · R+1": {
+    "ro": "Palier exterior · etaj 1",
+    "en": "Exterior landing · first floor"
+  },
+  "Regard": {
+    "ro": "Privire",
+    "en": "Look"
+  },
+  "Glisser (gauche ou droit)": {
+    "ro": "Trage cu butonul stâng sau drept",
+    "en": "Drag with left or right button"
+  },
+  "Souris capturée · FPS": {
+    "ro": "Mouse capturat · FPS",
+    "en": "Captured mouse · FPS"
+  },
+  "Plan ERP": {
+    "ro": "Plan ERP",
+    "en": "ERP plan"
+  },
+  "Niveau du plan": {
+    "ro": "Nivelul planului",
+    "en": "Plan level"
+  },
+  "Fermer": {
+    "ro": "Închide",
+    "en": "Close"
+  },
+  "Plan ERP original": {
+    "ro": "Planul ERP original",
+    "en": "Original ERP plan"
+  },
+  "Aperçu du PDF original.": {
+    "ro": "Previzualizarea PDF-ului original.",
+    "en": "Preview of the original PDF."
+  },
+  "Ouvrir le PDF Drive": {
+    "ro": "Deschide PDF-ul în Drive",
+    "en": "Open PDF in Drive"
+  },
+  "Photos du site": {
+    "ro": "Fotografii ale clădirii",
+    "en": "Site photos"
+  },
+  "Photographie": {
+    "ro": "Fotografie",
+    "en": "Photograph"
+  },
+  "Photographie Casa Artlia": {
+    "ro": "Fotografie Casa Artlia",
+    "en": "Casa Artlia photograph"
+  },
+  "Photo originale dans Drive": {
+    "ro": "Fotografia originală în Drive",
+    "en": "Original photo in Drive"
+  },
+  "Langue": {
+    "ro": "Limbă",
+    "en": "Language"
+  },
+  "Bureau 1": {
+    "ro": "Birou 1",
+    "en": "Office 1"
+  },
+  "Bureau 2": {
+    "ro": "Birou 2",
+    "en": "Office 2"
+  },
+  "Bureau 3": {
+    "ro": "Birou 3",
+    "en": "Office 3"
+  },
+  "Bureau 3 / Espace jeu supp.": {
+    "ro": "Birou 3 / Spațiu suplimentar de joacă",
+    "en": "Office 3 / Additional play area"
+  },
+  "Bureau 4 / Ateliers créatifs": {
+    "ro": "Birou 4 / Ateliere creative",
+    "en": "Office 4 / Creative workshops"
+  },
+  "Dgt 2": {
+    "ro": "Circulație 2",
+    "en": "Circulation 2"
+  },
+  "Entrée / Dgt 1": {
+    "ro": "Intrare / Circulație 1",
+    "en": "Entrance / Circulation 1"
+  },
+  "Espace café": {
+    "ro": "Cafenea",
+    "en": "Café"
+  },
+  "Espace de jeu": {
+    "ro": "Spațiu de joacă",
+    "en": "Play area"
+  },
+  "Jeu principal": {
+    "ro": "Sala principală de joacă",
+    "en": "Main playroom"
+  },
+  "Toilette": {
+    "ro": "Toaletă",
+    "en": "Toilet"
+  },
+  "Toilette adaptée": {
+    "ro": "Toaletă accesibilă",
+    "en": "Accessible toilet"
+  },
+  "WC": {
+    "ro": "WC",
+    "en": "WC"
+  },
+  "Local info": {
+    "ro": "Încăpere info",
+    "en": "Info room"
+  },
+  "Cuisine": {
+    "ro": "Bucătărie",
+    "en": "Kitchen"
+  },
+  "Local": {
+    "ro": "Încăpere",
+    "en": "Room"
+  },
+  "Cuisine / Local": {
+    "ro": "Bucătărie / Încăpere",
+    "en": "Kitchen / Room"
+  },
+  "Box 1": {
+    "ro": "Cabină 1",
+    "en": "Booth 1"
+  },
+  "Box 2": {
+    "ro": "Cabină 2",
+    "en": "Booth 2"
+  },
+  "Vide sur RDC": {
+    "ro": "Gol deasupra parterului",
+    "en": "Void above ground floor"
+  },
+  "Surface imprimée ERP :": {
+    "ro": "Suprafața indicată în ERP:",
+    "en": "Printed ERP area:"
+  },
+  "Contour reconstruit :": {
+    "ro": "Contur reconstruit:",
+    "en": "Reconstructed outline:"
+  },
+  "Trémie, escalier inclus :": {
+    "ro": "Golul scării, inclusiv scara:",
+    "en": "Stairwell opening, stairs included:"
+  },
+  "Ces valeurs peuvent différer : A02 / A03.": {
+    "ro": "Aceste valori pot diferi: A02 / A03.",
+    "en": "These values may differ: A02 / A03."
+  },
+  "Position tracée, hauteurs et détails à confirmer.": {
+    "ro": "Poziție trasată; înălțimile și detaliile trebuie confirmate.",
+    "en": "Traced position; heights and details need confirmation."
+  },
+  "Centre repère x=": {
+    "ro": "Centrul de referință x=",
+    "en": "Reference centre x="
+  },
+  "coupe à 1 m": {
+    "ro": "secțiune la 1 m",
+    "en": "cut at 1 m"
+  },
+  "murs à 5,80 m": {
+    "ro": "pereți de 5,80 m",
+    "en": "5.80 m walls"
+  },
+  "sans parois": {
+    "ro": "fără pereți",
+    "en": "walls hidden"
+  },
+  "Librairie, étage supérieur et toiture : contexte indicatif": {
+    "ro": "Librăria, nivelul superior și acoperișul: context orientativ",
+    "en": "Bookshop, upper floor and roof: indicative context"
+  },
+  "Reconstruction ERP · raccords et cotes à confirmer": {
+    "ro": "Reconstrucție ERP · racorduri și dimensiuni de confirmat",
+    "en": "ERP reconstruction · connections and dimensions need confirmation"
+  },
+  "ERP avant": {
+    "ro": "ERP înainte",
+    "en": "ERP before"
+  },
+  "ERP après": {
+    "ro": "ERP după",
+    "en": "ERP after"
+  },
+  "Note technique": {
+    "ro": "Notă tehnică",
+    "en": "Technical note"
+  },
+  "Glisser dans la vue pour regarder.": {
+    "ro": "Trage în vedere pentru a privi în jur.",
+    "en": "Drag in the view to look around."
+  },
+  "Flèches à l’écran pour marcher · Porte pour ouvrir.": {
+    "ro": "Folosește săgețile de pe ecran pentru deplasare și Ușă pentru deschidere.",
+    "en": "Use on-screen arrows to walk and Door to open."
+  },
+  "Glisser pour regarder. Flèches ou WASD / ZQSD pour marcher.": {
+    "ro": "Trage pentru a privi în jur. Săgeți sau WASD / ZQSD pentru deplasare.",
+    "en": "Drag to look around. Arrows or WASD / ZQSD to walk."
+  },
+  "E ou clic bref : porte. Maj : accélérer.": {
+    "ro": "E sau clic scurt: ușă. Shift: mai repede.",
+    "en": "E or short click: door. Shift: move faster."
+  },
+  "Souris : regarder · flèches / WASD / ZQSD : marcher": {
+    "ro": "Mouse: privește · săgeți / WASD / ZQSD: deplasare",
+    "en": "Mouse: look · arrows / WASD / ZQSD: walk"
+  },
+  "Glisser pour regarder · flèches pour marcher": {
+    "ro": "Trage pentru a privi · săgeți pentru deplasare",
+    "en": "Drag to look · arrows to walk"
+  },
+  "Glisser gauche / droit : regarder · flèches / WASD / ZQSD : marcher": {
+    "ro": "Trage cu butonul stâng / drept: privește · săgeți / WASD / ZQSD: deplasare",
+    "en": "Left / right drag: look · arrows / WASD / ZQSD: walk"
+  },
+  "Souris capturée · Échap pour libérer": {
+    "ro": "Mouse capturat · Esc pentru eliberare",
+    "en": "Mouse captured · Esc to release"
+  },
+  "Capture en cours… · glisser possible": {
+    "ro": "Se capturează mouse-ul… · poți trage",
+    "en": "Capturing mouse… · dragging available"
+  },
+  "Glisser pour regarder": {
+    "ro": "Trage pentru a privi",
+    "en": "Drag to look around"
+  },
+  "En pause · souris libre": {
+    "ro": "Pauză · mouse liber",
+    "en": "Paused · mouse free"
+  },
+  "Capturer": {
+    "ro": "Capturează",
+    "en": "Capture"
+  },
+  "Extérieur · RDC": {
+    "ro": "Exterior · parter",
+    "en": "Outside · ground floor"
+  },
+  "Palier / escalier extérieur": {
+    "ro": "Palier / scară exterioară",
+    "en": "Exterior landing / staircase"
+  },
+  "Escalier / palier intérieur": {
+    "ro": "Scară / palier interior",
+    "en": "Interior staircase / landing"
+  },
+  "Ouvrir": {
+    "ro": "Deschide",
+    "en": "Open"
+  },
+  "bouton Porte": {
+    "ro": "butonul Ușă",
+    "en": "Door button"
+  },
+  "E / clic": {
+    "ro": "E / clic",
+    "en": "E / click"
+  },
+  "Vue 3D du bâtiment": {
+    "ro": "Vedere 3D a clădirii",
+    "en": "3D building view"
+  },
+  "Palier / raccord v10": {
+    "ro": "Palier / racord v10",
+    "en": "Landing / v10 connection"
+  },
+  "Contour raccordé · A02": {
+    "ro": "Contur racordat · A02",
+    "en": "Joined outline · A02"
+  },
+  "Béton · 110 cm · photos": {
+    "ro": "Beton · 110 cm · fotografii",
+    "en": "Concrete · 110 cm · photos"
+  },
+  "Palier": {
+    "ro": "Palier",
+    "en": "Landing"
+  },
+  "600 × 380 cm · photo": {
+    "ro": "600 × 380 cm · fotografie",
+    "en": "600 × 380 cm · photo"
+  },
+  "Rouge : cloisons supprimées": {
+    "ro": "Roșu: pereți eliminați",
+    "en": "Red: removed partitions"
+  },
+  "Avant → Après": {
+    "ro": "Înainte → După",
+    "en": "Before → After"
+  },
+  "Liaisons entre niveaux": {
+    "ro": "Legături între niveluri",
+    "en": "Connections between levels"
+  },
+  "Tracés indicatifs": {
+    "ro": "Trasee orientative",
+    "en": "Indicative routes"
+  },
+  "Contexte · baies arquées": {
+    "ro": "Context · vitrine arcuite",
+    "en": "Context · arched glazing"
+  },
+  "Contexte d’après photos · cotes supposées": {
+    "ro": "Context după fotografii · dimensiuni presupuse",
+    "en": "Photo-based context · assumed dimensions"
+  },
+  "Profil photographique · hauteurs supposées": {
+    "ro": "Profil după fotografii · înălțimi presupuse",
+    "en": "Photo-based profile · assumed heights"
+  },
+  "plan": {
+    "ro": "plan",
+    "en": "plan"
+  },
+  "Entrée/Dgt1 devient Espace café; Bureaux1/2/3 deviennent espaces de jeu.": {
+    "ro": "Intrarea / Circulația 1 devine cafenea; birourile 1/2/3 devin spații de joacă.",
+    "en": "Entrance / Circulation 1 becomes a café; offices 1/2/3 become play areas."
+  },
+  "Box1 et Box2: cloisons supprimées après travaux.": {
+    "ro": "Cabinele 1 și 2: pereții sunt eliminați după lucrări.",
+    "en": "Booths 1 and 2: partitions removed after works."
+  },
+  "Local et Cuisine réunis; surface imprimée12,50m².": {
+    "ro": "Încăperea și bucătăria sunt unite; suprafața indicată este de 12,50 m².",
+    "en": "Room and kitchen combined; printed area 12.50 m²."
+  },
+  "Toilette marquée adaptée, contour conservé.": {
+    "ro": "Toaleta este indicată ca accesibilă; conturul este păstrat.",
+    "en": "Toilet marked accessible; outline retained."
+  },
+  "Plateforme oblique - simulation": {
+    "ro": "Platformă înclinată – simulare",
+    "en": "Inclined platform lift – simulation"
+  },
+  "Modele": {
+    "ro": "Model",
+    "en": "Model"
+  },
+  "Vitesse demo": {
+    "ro": "Viteză demonstrație",
+    "en": "Demo speed"
+  },
+  "Axe plateforme / mur": {
+    "ro": "Axul platformei / perete",
+    "en": "Platform axis / wall"
+  },
+  "Station basse X": {
+    "ro": "Stația inferioară X",
+    "en": "Lower station X"
+  },
+  "Fixation voie": {
+    "ro": "Fixarea șinei",
+    "en": "Track mounting"
+  },
+  "Poteaux continus": {
+    "ro": "Stâlpi pe tot traseul",
+    "en": "Posts throughout"
+  },
+  "Mur + poteaux aux courbes": {
+    "ro": "Perete + stâlpi în curbe",
+    "en": "Wall + posts at bends"
+  },
+  "Poteaux bas + équerres murales ensuite": {
+    "ro": "Stâlpi jos + console de perete apoi",
+    "en": "Lower posts + wall brackets above"
+  },
+  "Mur continu": {
+    "ro": "Perete pe tot traseul",
+    "en": "Wall mounting throughout"
+  },
+  "Élargissement intérieur": {
+    "ro": "Lărgire spre interior",
+    "en": "Inner-edge widening"
+  },
+  "Existant — 120 cm": {
+    "ro": "Existent — 120 cm",
+    "en": "Existing — 120 cm"
+  },
+  "Option 1 — +5 cm, cornière continue": {
+    "ro": "Opțiunea 1 — +5 cm, cornier continuu",
+    "en": "Option 1 — +5 cm, continuous angle"
+  },
+  "Option 2 — +10 cm, consoles + poutre": {
+    "ro": "Opțiunea 2 — +10 cm, console + grindă",
+    "en": "Option 2 — +10 cm, brackets + beam"
+  },
+  "Option 2 — +10 cm, consoles + poutre de rive": {
+    "ro": "Opțiunea 2 — +10 cm, console + grindă de margine",
+    "en": "Option 2 — +10 cm, brackets + edge beam"
+  },
+  "Option 3 — +10 cm, limon indépendant": {
+    "ro": "Opțiunea 3 — +10 cm, vang independent",
+    "en": "Option 3 — +10 cm, independent stringer"
+  },
+  "Option 3 — +10 cm, limon acier indépendant": {
+    "ro": "Opțiunea 3 — +10 cm, vang independent din oțel",
+    "en": "Option 3 — +10 cm, independent steel stringer"
+  },
+  "Installation complète": {
+    "ro": "Instalația completă",
+    "en": "Complete installation"
+  },
+  "Supports": {
+    "ro": "Suporturi",
+    "en": "Supports"
+  },
+  "Balayage": {
+    "ro": "Anvelopă de mișcare",
+    "en": "Swept envelope"
+  },
+  "Zone porte": {
+    "ro": "Zona ușii",
+    "en": "Door zone"
+  },
+  "Fauteuil + personne": {
+    "ro": "Scaun rulant + persoană",
+    "en": "Wheelchair + person"
+  },
+  "Suivre": {
+    "ro": "Urmărește",
+    "en": "Follow"
+  },
+  "Optimiser voie murale": {
+    "ro": "Optimizează șina de perete",
+    "en": "Optimise wall track"
+  },
+  "Optimiser les 2": {
+    "ro": "Optimizează ambele",
+    "en": "Optimise both"
+  },
+  "Vue parcours": {
+    "ro": "Vezi traseul",
+    "en": "View route"
+  },
+  "Reinitialiser": {
+    "ro": "Resetează",
+    "en": "Reset"
+  },
+  "Exporter JSON IA": {
+    "ro": "Exportă JSON pentru IA",
+    "en": "Export AI JSON"
+  },
+  "Masquer l'élévateur": {
+    "ro": "Ascunde platforma",
+    "en": "Hide lift"
+  },
+  "Afficher l'élévateur": {
+    "ro": "Arată platforma",
+    "en": "Show lift"
+  },
+  "Élévateur : visible": {
+    "ro": "Platformă: vizibilă",
+    "en": "Lift: visible"
+  },
+  "Élévateur : masqué": {
+    "ro": "Platformă: ascunsă",
+    "en": "Lift: hidden"
+  },
+  "Porte : fermee": {
+    "ro": "Ușă: închisă",
+    "en": "Door: closed"
+  },
+  "Porte : ouverte": {
+    "ro": "Ușă: deschisă",
+    "en": "Door: open"
+  },
+  "Cotes 3D": {
+    "ro": "Dimensiuni 3D",
+    "en": "3D dimensions"
+  },
+  "Liste": {
+    "ro": "Listă",
+    "en": "List"
+  },
+  "Commande de la plateforme": {
+    "ro": "Comanda platformei",
+    "en": "Platform controls"
+  },
+  "Descendre": {
+    "ro": "Coboară",
+    "en": "Move down"
+  },
+  "Arrêter": {
+    "ro": "Oprește",
+    "en": "Stop"
+  },
+  "Monter": {
+    "ro": "Urcă",
+    "en": "Move up"
+  },
+  "Déployer la plateforme": {
+    "ro": "Desfă platforma",
+    "en": "Unfold platform"
+  },
+  "Replier la plateforme": {
+    "ro": "Pliază platforma",
+    "en": "Fold platform"
+  },
+  "Ouvrir les réglages": {
+    "ro": "Deschide setările",
+    "en": "Open settings"
+  },
+  "Fermer les réglages": {
+    "ro": "Închide setările",
+    "en": "Close settings"
+  },
+  "Ouvrir les réglages de la plateforme": {
+    "ro": "Deschide setările platformei",
+    "en": "Open platform settings"
+  },
+  "Fermer les réglages de la plateforme": {
+    "ro": "Închide setările platformei",
+    "en": "Close platform settings"
+  },
+  "Brochure technique PDF": {
+    "ro": "Broșură tehnică PDF",
+    "en": "Technical brochure PDF"
+  },
+  "Plan cote PDF": {
+    "ro": "Plan cotat PDF",
+    "en": "Dimensioned drawing PDF"
+  },
+  "Brochure technique PLG7 / PLK8 PDF": {
+    "ro": "Broșură tehnică PLG7 / PLK8 PDF",
+    "en": "PLG7 / PLK8 technical brochure PDF"
+  },
+  "Instructions officielles PLK8": {
+    "ro": "Instrucțiuni oficiale PLK8",
+    "en": "Official PLK8 instructions"
+  },
+  "Zone actuelle": {
+    "ro": "Zona curentă",
+    "en": "Current zone"
+  },
+  "Option escalier": {
+    "ro": "Opțiunea scării",
+    "en": "Stair option"
+  },
+  "Largeur volée droite simulée": {
+    "ro": "Lățimea simulată a rampei drepte",
+    "en": "Simulated straight-flight width"
+  },
+  "Stationnement normal": {
+    "ro": "Staționare normală",
+    "en": "Normal parking"
+  },
+  "palier haut": {
+    "ro": "palier superior",
+    "en": "upper landing"
+  },
+  "Optimisation voie murale": {
+    "ro": "Optimizarea șinei de perete",
+    "en": "Wall-track optimisation"
+  },
+  "solution trouvee": {
+    "ro": "soluție găsită",
+    "en": "solution found"
+  },
+  "aucune solution cible": {
+    "ro": "nicio soluție pentru țintă",
+    "en": "no target solution"
+  },
+  "Axe mural optimise (simulation)": {
+    "ro": "Axul optimizat la perete (simulare)",
+    "en": "Optimised wall axis (simulation)"
+  },
+  "Zone limitante simulee": {
+    "ro": "Zona limitativă simulată",
+    "en": "Simulated limiting zone"
+  },
+  "Passage volée droite, garé en haut": {
+    "ro": "Trecere pe rampa dreaptă, platforma parcată sus",
+    "en": "Straight-flight clearance, parked upstairs"
+  },
+  "Passage au palier haut, replié": {
+    "ro": "Trecere pe palierul superior, platforma pliată",
+    "en": "Upper-landing clearance, folded"
+  },
+  "Si replié sur la volée droite (calcul nominal)": {
+    "ro": "Dacă este pliată pe rampa dreaptă (calcul nominal)",
+    "en": "Folded on straight flight (nominal calculation)"
+  },
+  "Passage mini simulé, appareil replié": {
+    "ro": "Trecerea minimă simulată, platforma pliată",
+    "en": "Minimum simulated clearance, folded"
+  },
+  "Point limitant du passage replié": {
+    "ro": "Punctul limitativ al trecerii cu platforma pliată",
+    "en": "Limiting point of folded clearance"
+  },
+  "Profondeur repliée publiée": {
+    "ro": "Adâncimea publicată în stare pliată",
+    "en": "Published folded depth"
+  },
+  "Balayage 90° documenté": {
+    "ro": "Anvelopă documentată la 90°",
+    "en": "Documented 90° swept envelope"
+  },
+  "non publié — simulation": {
+    "ro": "nepublicat — simulare",
+    "en": "not published — simulation"
+  },
+  "Axe plateforme / mur simule": {
+    "ro": "Axul platformei / perete simulat",
+    "en": "Simulated platform axis / wall"
+  },
+  "Pente max du trace": {
+    "ro": "Panta maximă a traseului",
+    "en": "Maximum route slope"
+  },
+  "Garde-corps, jeu plan mini": {
+    "ro": "Joc minim în plan față de balustradă",
+    "en": "Minimum plan clearance to balustrade"
+  },
+  "Jeu mini murs, plateforme ouverte": {
+    "ro": "Joc minim la pereți, platforma desfăcută",
+    "en": "Minimum wall clearance, platform unfolded"
+  },
+  "Jeu mini murs, plateforme repliee": {
+    "ro": "Joc minim la pereți, platforma pliată",
+    "en": "Minimum wall clearance, platform folded"
+  },
+  "Enveloppes dans le batiment": {
+    "ro": "Anvelope în interiorul clădirii",
+    "en": "Envelopes within building"
+  },
+  "oui": {
+    "ro": "da",
+    "en": "yes"
+  },
+  "NON": {
+    "ro": "NU",
+    "en": "NO"
+  },
+  "Jeu mini sous plateforme / surfaces": {
+    "ro": "Joc minim sub platformă / suprafețe",
+    "en": "Minimum underside clearance / surfaces"
+  },
+  "Niveau dessus plateforme a la station basse": {
+    "ro": "Cota suprafeței platformei la stația inferioară",
+    "en": "Platform top level at lower station"
+  },
+  "Station basse / marche 1": {
+    "ro": "Stația inferioară / treapta 1",
+    "en": "Lower station / step 1"
+  },
+  "Rail + poteau permanents / zone porte": {
+    "ro": "Șină + stâlp permanent / zona ușii",
+    "en": "Permanent rail + post / door zone"
+  },
+  "chevauchement": {
+    "ro": "suprapunere",
+    "en": "overlap"
+  },
+  "degagee": {
+    "ro": "liberă",
+    "en": "clear"
+  },
+  "Station basse": {
+    "ro": "Stație inferioară",
+    "en": "Lower station"
+  },
+  "Courbe basse 90 deg": {
+    "ro": "Curbă inferioară 90°",
+    "en": "Lower bend 90°"
+  },
+  "Volee basse 120 cm": {
+    "ro": "Rampă inferioară 120 cm",
+    "en": "Lower flight 120 cm"
+  },
+  "Courbe haute 90 deg": {
+    "ro": "Curbă superioară 90°",
+    "en": "Upper bend 90°"
+  },
+  "Volee haute 130 cm": {
+    "ro": "Rampă superioară 130 cm",
+    "en": "Upper flight 130 cm"
+  },
+  "Palier R+1": {
+    "ro": "Palier etaj 1",
+    "en": "First-floor landing"
+  },
+  "Casa Artlia — cotes (cm)": {
+    "ro": "Casa Artlia — dimensiuni (cm)",
+    "en": "Casa Artlia — dimensions (cm)"
+  },
+  "Largeur intérieure": {
+    "ro": "Lățime interioară",
+    "en": "Internal width"
+  },
+  "Profondeur": {
+    "ro": "Adâncime",
+    "en": "Depth"
+  },
+  "Hauteur plafond": {
+    "ro": "Înălțimea plafonului",
+    "en": "Ceiling height"
+  },
+  "Plancher à plancher": {
+    "ro": "De la planșeu la planșeu",
+    "en": "Floor to floor"
+  },
+  "Façade": {
+    "ro": "Fațadă",
+    "en": "Façade"
+  },
+  "Mur côté escalier": {
+    "ro": "Perete pe latura scării",
+    "en": "Stair-side wall"
+  },
+  "Porte projetée": {
+    "ro": "Ușa propusă",
+    "en": "Proposed door"
+  },
+  "140 × 214 · télescopique 2 vantaux": {
+    "ro": "140 × 214 · telescopică, 2 foi",
+    "en": "140 × 214 · telescopic, 2 leaves"
+  },
+  "Escalier": {
+    "ro": "Scară",
+    "en": "Staircase"
+  },
+  "Marches": {
+    "ro": "Trepte",
+    "en": "Steps"
+  },
+  "CM moyenne": {
+    "ro": "Înălțimea medie a contratreptei",
+    "en": "Average riser height"
+  },
+  "Giron droites": {
+    "ro": "Adâncimea treptelor drepte",
+    "en": "Straight-tread going"
+  },
+  "Giron balancées (mini)": {
+    "ro": "Adâncimea minimă a treptelor balansate",
+    "en": "Minimum winder going"
+  },
+  "Largeur volée basse": {
+    "ro": "Lățimea rampei inferioare",
+    "en": "Lower-flight width"
+  },
+  "Largeur volée haute": {
+    "ro": "Lățimea rampei superioare",
+    "en": "Upper-flight width"
+  },
+  "Marche 1": {
+    "ro": "Treapta 1",
+    "en": "Step 1"
+  },
+  "Balustrade coin→pivot": {
+    "ro": "Balustradă colț→pivot",
+    "en": "Balustrade corner→pivot"
+  },
+  "Dimensions": {
+    "ro": "Dimensiuni",
+    "en": "Dimensions"
+  },
+  "Nez → mur en face": {
+    "ro": "Muchie → perete opus",
+    "en": "Nosing → facing wall"
+  },
+  "Recoin sous escalier": {
+    "ro": "Nișă sub scară",
+    "en": "Under-stair recess"
+  },
+  "Ouverture": {
+    "ro": "Deschidere",
+    "en": "Opening"
+  },
+  "Hauteur libre": {
+    "ro": "Înălțime liberă",
+    "en": "Clear height"
+  },
+  "Jambage": {
+    "ro": "Montant",
+    "en": "Jamb"
+  },
+  "Contraintes plateforme": {
+    "ro": "Constrângerile platformei",
+    "en": "Platform constraints"
+  },
+  "Passage résiduel mini": {
+    "ro": "Trecere liberă minimă",
+    "en": "Minimum residual clearance"
+  },
+  "Volée critique": {
+    "ro": "Rampa critică",
+    "en": "Critical flight"
+  },
+  "Repli maxi conforme": {
+    "ro": "Adâncimea pliată maximă admisă",
+    "en": "Maximum compliant folded depth"
+  },
+  "Norme": {
+    "ro": "Normă",
+    "en": "Standard"
+  },
+  "avant travaux · relevé 2026-07-10": {
+    "ro": "înainte de lucrări · măsurători 2026-07-10",
+    "en": "before works · survey 2026-07-10"
+  },
+  "façade 372": {
+    "ro": "fațadă 372",
+    "en": "façade 372"
+  },
+  "mur 400": {
+    "ro": "perete 400",
+    "en": "wall 400"
+  },
+  "312 plancher→plancher": {
+    "ro": "312 planșeu→planșeu",
+    "en": "312 floor→floor"
+  },
+  "plafond 580": {
+    "ro": "plafon 580",
+    "en": "ceiling 580"
+  },
+  "volée 120": {
+    "ro": "rampă 120",
+    "en": "flight 120"
+  },
+  "volée 130": {
+    "ro": "rampă 130",
+    "en": "flight 130"
+  },
+  "marche 1 · 149": {
+    "ro": "treapta 1 · 149",
+    "en": "step 1 · 149"
+  },
+  "balustrade 121": {
+    "ro": "balustradă 121",
+    "en": "balustrade 121"
+  },
+  "palier prof. 204*": {
+    "ro": "adâncime palier 204*",
+    "en": "landing depth 204*"
+  },
+  "palier vers mur": {
+    "ro": "palier spre perete",
+    "en": "landing to wall"
+  },
+  "nez→mur 248 côté vide": {
+    "ro": "muchie→perete 248 spre gol",
+    "en": "nosing→wall 248 void side"
+  },
+  "recoin ouv. 172": {
+    "ro": "deschidere nișă 172",
+    "en": "recess opening 172"
+  },
+  "recoin h 213": {
+    "ro": "înălțime nișă 213",
+    "en": "recess height 213"
+  },
+  "ouverture claire 140": {
+    "ro": "deschidere liberă 140",
+    "en": "clear opening 140"
+  },
+  "empilement 75": {
+    "ro": "suprapunere 75",
+    "en": "stack 75"
+  },
+  "h 214": {
+    "ro": "h 214",
+    "en": "h 214"
+  },
+  "Ganser GTLE — plateforme 80 x 100 cm, charge 300 kg, profondeur repliee publiee 24 cm, pente publiee 0-50 deg. Le chariot, les supports, le rayon exact et la voie restent des approximations geometriques.": {
+    "ro": "Ganser GTLE — platformă 80 x 100 cm, sarcină 300 kg, adâncime pliată publicată 24 cm, pantă publicată 0–50°. Căruciorul, suporturile, raza exactă și șina rămân aproximări geometrice.",
+    "en": "Ganser GTLE — 80 x 100 cm platform, 300 kg capacity, published folded depth 24 cm, published slope 0–50°. The carriage, supports, exact radius and track remain geometric approximations."
+  },
+  "Modèle géométrique d’étude. Les options 1 à 3 conservent les marches bois et ajoutent une bande métallique thermolaquée claire sur le bord intérieur: petite extension sur cornière, extension sur consoles avec poutre de rive, ou limon acier indépendant. Le garde-corps déplacé reste droit; aucun raccord oblique n’est créé au départ. Les détails d’ancrage sont indicatifs. L’optimiseur de voie ne réduit pas la profondeur repliée publiée du produit.": {
+    "ro": "Model geometric de studiu. Opțiunile 1–3 păstrează treptele din lemn și adaugă pe marginea interioară o bandă metalică vopsită în câmp electrostatic într-o culoare deschisă: extensie mică pe cornier, extensie pe console cu grindă de margine sau vang independent din oțel. Balustrada mutată rămâne dreaptă; la pornire nu se creează un racord oblic. Detaliile de ancorare sunt orientative. Optimizarea șinei nu reduce adâncimea pliată publicată a produsului.",
+    "en": "Geometric study model. Options 1–3 retain the timber steps and add a light powder-coated metal strip along the inner edge: a small angle-supported extension, brackets with an edge beam, or an independent steel stringer. The relocated balustrade remains straight; no diagonal connection is added at the start. Anchor details are indicative. Track optimisation does not reduce the product’s published folded depth."
+  },
+  "Calage R+1": {
+    "ro": "Alinierea etajului 1",
+    "en": "First-floor alignment"
+  },
+  "Raccord escalier / étage": {
+    "ro": "Racord scară / etaj",
+    "en": "Stair / floor connection"
+  },
+  "Cotes et surfaces ERP": {
+    "ro": "Dimensiuni și suprafețe ERP",
+    "en": "ERP dimensions and areas"
+  },
+  "Hauteurs et épaisseurs": {
+    "ro": "Înălțimi și grosimi",
+    "en": "Heights and thicknesses"
+  },
+  "Porte extérieure R+1": {
+    "ro": "Ușă exterioară la etajul 1",
+    "en": "First-floor exterior door"
+  },
+  "Menuiseries": {
+    "ro": "Tâmplărie",
+    "en": "Doors and windows"
+  },
+  "Équipements dans les deux états": {
+    "ro": "Echipamente în ambele variante",
+    "en": "Equipment in both phases"
+  },
+  "Étendue du RDC": {
+    "ro": "Întinderea parterului",
+    "en": "Ground-floor extent"
+  },
+  "Sanitaire après": {
+    "ro": "Grup sanitar după lucrări",
+    "en": "Toilet after works"
+  },
+  "Librairie voisine": {
+    "ro": "Librăria vecină",
+    "en": "Neighbouring bookshop"
+  },
+  "Étage supérieur et toiture": {
+    "ro": "Nivelul superior și acoperișul",
+    "en": "Upper floor and roof"
+  },
+  "Lecture des photographies": {
+    "ro": "Interpretarea fotografiilor",
+    "en": "Photograph interpretation"
+  },
+  "Mur séparant les escaliers": {
+    "ro": "Peretele dintre scări",
+    "en": "Wall between staircases"
+  },
+  "Entrée existante": {
+    "ro": "Intrarea existentă",
+    "en": "Existing entrance"
+  },
+  "Façade Ruelle des Jardins": {
+    "ro": "Fațadă spre Ruelle des Jardins",
+    "en": "Ruelle des Jardins façade"
+  },
+  "Pignon et balcons": {
+    "ro": "Fronton și balcoane",
+    "en": "Gable and balconies"
+  },
+  "Mur entre les deux escaliers": {
+    "ro": "Peretele dintre cele două scări",
+    "en": "Wall between the two staircases"
+  },
+  "Escalier extérieur annoté": {
+    "ro": "Scară exterioară cu adnotări",
+    "en": "Annotated exterior staircase"
+  },
+  "Palier annoté": {
+    "ro": "Palier cu adnotări",
+    "en": "Annotated landing"
+  },
+  "Annotations110 /27 /17 et550 /235. Interprétation de550 et datum de235 non confirmés.": {
+    "ro": "Adnotări 110 / 27 / 17 și 550 / 235. Interpretarea cotei 550 și reperul pentru 235 nu sunt confirmate.",
+    "en": "Annotations 110 / 27 / 17 and 550 / 235. The meaning of 550 and the datum for 235 are unconfirmed."
+  },
+  "Annotations600 et380; géométrie recalée sur la sortie R+1, implantation précise à confirmer.": {
+    "ro": "Adnotări 600 și 380; geometria este aliniată la ieșirea de la etajul 1, poziția exactă trebuie confirmată.",
+    "en": "Annotations 600 and 380; geometry aligned to the first-floor exit, exact placement needs confirmation."
+  },
+  "Certaines cotes (4,49/5,67/13,82) et surfaces imprimées ne concordent pas avec les cloisons dessinées. Les contours à échelle uniforme gouvernent; surfaces imprimées et calculées restent distinctes.": {
+    "ro": "Unele cote (4,49 / 5,67 / 13,82) și suprafețe indicate nu corespund pereților desenați. Se folosesc contururile la scară uniformă; suprafețele indicate și cele calculate sunt păstrate separat.",
+    "en": "Some dimensions (4.49 / 5.67 / 13.82) and printed areas do not match the drawn partitions. Uniformly scaled outlines govern; printed and calculated areas remain separate."
+  },
+  "ERP et relevé v10 diffèrent près de l’escalier. Enveloppe mesurée de l’escalier conservée: intérieur372x400cm, murs jusqu’à580cm, face latéralex0 et fondz400. Le palier reprend204x130cm; la limite avant de la pièce arrière est recalée localement contre le mur de fond, sans bande de circulation ajoutée (C02). Absence de cloison dans le débouché confirmée par l’utilisateur (C01). Épaisseur7cm du fond et raccord local à l’ERP restent interprétés; surfaces imprimées distinctes des contours recalés.": {
+    "ro": "Planul ERP și măsurătorile v10 diferă lângă scară. Anvelopa măsurată a scării este păstrată: interior 372 x 400 cm, pereți până la 580 cm, fața laterală x0 și peretele din spate z400. Palierul păstrează 204 x 130 cm; limita din față a încăperii din spate este aliniată local cu peretele din spate, fără o bandă suplimentară de circulație (C02). Utilizatorul a confirmat absența unui perete la ieșirea scării (C01). Grosimea de 7 cm a peretelui din spate și racordul local la ERP rămân interpretate; suprafețele indicate sunt distincte de contururile realiniate.",
+    "en": "The ERP plan and v10 survey differ near the staircase. The surveyed stair enclosure is retained: 372 x 400 cm inside, walls up to 580 cm, side face x0 and rear wall z400. The landing remains 204 x 130 cm; the front boundary of the rear room is locally aligned to the rear wall, without an extra circulation strip (C02). The user confirmed there is no partition across the stair exit (C01). The 7 cm rear-wall thickness and local ERP connection remain interpreted; printed areas are separate from the realigned outlines."
+  },
+  "Encadrement gris et profil vert; le mécanisme télescopique projeté v10 reste conservé.": {
+    "ro": "Ancadrament gri și profil verde; mecanismul telescopic propus în v10 este păstrat.",
+    "en": "Grey surround and green profile; the proposed v10 telescopic mechanism is retained."
+  },
+  "Enduit jaune, soubassement gris, vitrines en baies arquées et impostes décorées; égout de toiture juste au-dessus des fenêtres R+1.": {
+    "ro": "Tencuială galbenă, soclu gri, vitrine arcuite și supralumini decorate; streașina este imediat deasupra ferestrelor de la etajul 1.",
+    "en": "Yellow render, grey plinth, arched shop glazing and decorated transoms; roof eaves sit just above the first-floor windows."
+  },
+  "Façade jaune, socle gris, toiture à égout bas, baies arquées avec imposte décorée, escalier béton et garde-corps vert revus sur les photos d’avril/juillet2026. Les photos confirment les formes et matières visibles; elles ne constituent pas un relevé complet de géométrie.": {
+    "ro": "Fațada galbenă, soclul gri, acoperișul cu streașină joasă, golurile arcuite cu supralumini decorate, scara din beton și balustrada verde au fost revizuite după fotografiile din aprilie / iulie 2026. Fotografiile confirmă formele și materialele vizibile; nu reprezintă un releveu geometric complet.",
+    "en": "Yellow façade, grey plinth, low eaves, arched openings with decorated transoms, concrete stairs and green balustrades were reviewed against April / July 2026 photographs. The photos confirm visible shapes and materials; they are not a complete geometric survey."
+  },
+  "Façade, porte télescopique140cm et plateforme v10 gardées dans les DEUX états selon la demande. La porte avant ERP est différente; après ERP diffère aussi du dernier v10. Comparaison des distributions et usages, équipements v10 superposés.": {
+    "ro": "Fațada, ușa telescopică de 140 cm și platforma v10 sunt păstrate în AMBELE variante, conform cererii. Ușa din ERP înainte de lucrări diferă; și ERP după lucrări diferă de ultima versiune v10. Comparația privește compartimentarea și utilizările, cu echipamentele v10 suprapuse.",
+    "en": "The façade, 140 cm telescopic door and v10 platform are retained in BOTH phases as requested. The ERP before-works door differs; the after-works ERP also differs from the latest v10. Layouts and uses are compared with v10 equipment overlaid."
+  },
+  "Forme arrondie de toutes les fenêtres de Casa Artlia confirmée par l’utilisateur: même dessin que la fenêtre haute de l’entrée (bois brun, imposte arquée, entourage gris). Baies100x120cm cotées; allège90cm supposée. Largeurs de portes tracées/arrondies et rotations reconstruites.": {
+    "ro": "Forma arcuită a tuturor ferestrelor Casa Artlia a fost confirmată de utilizator: același model ca fereastra superioară a intrării (lemn brun, supralumină arcuită, ancadrament gri). Golurile de 100 x 120 cm sunt cotate; parapetul de 90 cm este presupus. Lățimile ușilor sunt trasate / rotunjite, iar sensurile de deschidere sunt reconstruite.",
+    "en": "The user confirmed all Casa Artlia windows have the same rounded design as the upper entrance window: brown timber, arched transom and grey surround. Openings are dimensioned 100 x 120 cm; 90 cm sill height is assumed. Door widths are traced / rounded and opening directions reconstructed."
+  },
+  "Le RDC extérieur à l’entrée est maintenant rempli par une enveloppe de contexte représentant la librairie, selon la précision de l’utilisateur. Aucun agencement intérieur ni dimension supplémentaire n’est vérifié.": {
+    "ro": "Parterul din afara intrării este acum completat cu o anvelopă de context pentru librărie, conform precizării utilizatorului. Amenajarea interioară și dimensiunile suplimentare nu sunt verificate.",
+    "en": "The ground floor beyond the entrance is now filled by a context shell representing the bookshop, as clarified by the user. No interior layout or additional dimensions are verified."
+  },
+  "Le plan de mai indique le sanitaire4,36m² adapté sans modifier son contour. Murs conservés; équipements sanitaires indicatifs. Les amendements de juillet ne remplacent pas les plans de mai demandés.": {
+    "ro": "Planul din mai indică grupul sanitar accesibil de 4,36 m² fără modificarea conturului. Pereții sunt păstrați; obiectele sanitare sunt orientative. Modificările din iulie nu înlocuiesc planurile din mai solicitate.",
+    "en": "The May plan marks the 4.36 m² toilet as accessible without changing its outline. Walls are retained; sanitary fittings are indicative. July amendments do not replace the requested May plans."
+  },
+  "Les photos montrent l’hébergement supérieur sous un pignon et des égouts bas côté Ruelle, avec balcon privé côté escalier. La bande de plein étage ajoutée en v12.1 est supprimée. Dalle580..594cm, égout rue600cm, faîtage1050cm àz980, retour arrière820cm et balcon privé sont des approximations de silhouette. La toiture non visible sur les photos reste interprétée.": {
+    "ro": "Fotografiile arată spațiul superior locuit sub un fronton, cu streșini joase spre Ruelle și balcon privat pe latura scării. Banda unui etaj complet adăugată în v12.1 este eliminată. Planșeul 580–594 cm, streașina străzii 600 cm, coama 1050 cm la z980, streașina din spate 820 cm și balconul privat sunt aproximări ale volumului. Partea acoperișului nevizibilă în fotografii rămâne interpretată.",
+    "en": "The photos show upper accommodation within a gable, low eaves towards Ruelle and a private balcony on the stair side. The full-storey strip added in v12.1 is removed. Slab 580–594 cm, street eaves 600 cm, ridge 1050 cm at z980, rear eaves 820 cm and the private balcony are approximate massing. Roof areas unseen in the photos remain interpreted."
+  },
+  "Librairie sous l’aile: vitrage majoritaire regroupé en trois baies arquées, comme la photo de façade; la porte reste sur le petit mur sous Jeu principal selon la précision de l’utilisateur. Espacements, largeurs et surfaces non relevés. Petit volume maçonné sous le palier représenté comme contexte voisin, sans affectation intérieure.": {
+    "ro": "Librăria de sub aripă: vitrinele principale sunt grupate în trei goluri arcuite, ca în fotografia fațadei; ușa rămâne în peretele scurt de sub sala principală de joacă, conform precizării utilizatorului. Distanțele, lățimile și suprafețele nu sunt măsurate. Micul volum zidit de sub palier reprezintă contextul vecin, fără atribuirea unei funcțiuni interioare.",
+    "en": "Bookshop beneath the wing: most glazing is grouped into three arched openings, as in the façade photo; the door remains in the short wall below the main playroom, as clarified by the user. Spacing, widths and areas are unmeasured. The small masonry volume below the landing represents neighbouring context, with no interior use assigned."
+  },
+  "Marches et paillasse en béton; garde-corps vert à barreaux verticaux.": {
+    "ro": "Trepte și placă înclinată din beton; balustradă verde cu bare verticale.",
+    "en": "Concrete steps and waist slab; green balustrade with vertical bars."
+  },
+  "Mur de maçonnerie opaque contre l’escalier extérieur; pas de transparence côté rue.": {
+    "ro": "Perete opac de zidărie lângă scara exterioară; fără transparență spre stradă.",
+    "en": "Opaque masonry wall beside the exterior staircase; no transparency towards the street."
+  },
+  "Mur plein entre escaliers rétabli à la face intérieurex0 surz0..400, désormais continu de y0 à580cm. Épaisseur25cm supposée. Mur de fond côté intérieur rétabli àz400 jusqu’à580cm; les marches aboutissent contre ce mur et les consoles murales du GTLE le touchent (C02). En coupe, les murs sont abaissés physiquement.": {
+    "ro": "Peretele plin dintre scări este restabilit la fața interioară x0, pe z0–400, continuu de la y0 la 580 cm. Grosimea de 25 cm este presupusă. Peretele din spate este restabilit la fața interioară z400 până la 580 cm; treptele ajung la acest perete, iar consolele murale GTLE îl ating (C02). În secțiune, înălțimea pereților este redusă fizic.",
+    "en": "The solid wall between staircases is restored at inner face x0 over z0–400, continuous from y0 to 580 cm. Its 25 cm thickness is assumed. The rear wall is restored at inner face z400 up to 580 cm; the steps meet this wall and the GTLE wall brackets touch it (C02). In cutaway mode the walls are physically lowered."
+  },
+  "Note technique: passage128cm; symbole plan:200cm. Passage128cm retenu au centre de la sortie dessinée. Cadre et sens de rotation reconstruits.": {
+    "ro": "Nota tehnică indică un pasaj de 128 cm; simbolul din plan indică 200 cm. Se păstrează pasajul de 128 cm în centrul ieșirii desenate. Cadrul și sensul de deschidere sunt reconstruite.",
+    "en": "The technical note gives 128 cm clear width; the plan symbol indicates 200 cm. A 128 cm opening is retained at the centre of the drawn exit. Frame and swing direction are reconstructed."
+  },
+  "Photos annotées: largeur110cm, giron27cm, contremarche17cm, palier600x380cm. Modèle:18 contremarches égales pour conserver le niveau312cm,17 girons de27cm soit459cm en plan. Départz100 et palierz559..1159 supposés pour conserver la porte ERP. Le550 annoté peut désigner la longueur inclinée; le235 sous palier a un datum non confirmé. Ces deux annotations sont conservées sans les assimiler à la cote312.": {
+    "ro": "Fotografii adnotate: lățime 110 cm, treaptă 27 cm, contratreaptă 17 cm, palier 600 x 380 cm. Model: 18 contratrepte egale pentru a păstra cota de 312 cm, 17 trepte de 27 cm, adică 459 cm în plan. Pornirea z100 și palierul z559–1159 sunt presupuse pentru a păstra ușa ERP. Cota 550 poate desemna lungimea înclinată; cota 235 de sub palier are un reper neconfirmat. Ambele adnotări sunt păstrate fără a fi echivalate cu cota 312.",
+    "en": "Annotated photos: width 110 cm, going 27 cm, riser 17 cm, landing 600 x 380 cm. Model: 18 equal risers to retain the 312 cm level, 17 goings of 27 cm giving 459 cm in plan. Start z100 and landing z559–1159 are assumed to retain the ERP door. The annotated 550 may be the inclined length; 235 below the landing has an unconfirmed datum. Both annotations are retained without equating them to the 312 cm level."
+  },
+  "Plans et v10 alignés sur façade z=0 et mur escalier x=0. Échelle uniforme calée sur largeur extérieure10,11m; aucun étirement indépendant des axes.": {
+    "ro": "Planurile și v10 sunt aliniate la fațada z=0 și peretele scării x=0. Scara uniformă este calibrată pe lățimea exterioară de 10,11 m; axele nu sunt întinse independent.",
+    "en": "Plans and v10 are aligned to façade z=0 and stair wall x=0. A uniform scale is calibrated to the 10.11 m external width; axes are not stretched independently."
+  },
+  "R+1 à312cm; murs relevés à580cm comme le haut de façade de l’entrée, selon la demande. Cloisons7cm cotées; murs extérieurs25cm supposés. Étage de contexte et toiture décrits en A12.": {
+    "ro": "Etajul 1 este la 312 cm; pereții sunt înălțați la 580 cm, la nivelul părții superioare a fațadei intrării, conform cererii. Pereții de compartimentare de 7 cm sunt cotați; pereții exteriori de 25 cm sunt presupuși. Nivelul de context și acoperișul sunt descrise în A12.",
+    "en": "First floor at 312 cm; walls raised to 580 cm to match the top of the entrance façade, as requested. The 7 cm partitions are dimensioned; 25 cm external walls are assumed. The context floor and roof are described in A12."
+  },
+  "Volume habité sous toiture, balcon privé supérieur et enduit continu du mur de côté.": {
+    "ro": "Volum locuit sub acoperiș, balcon privat superior și tencuială continuă pe peretele lateral.",
+    "en": "Accommodation within the roof, upper private balcony and continuous side-wall render."
+  },
+  "Bâtiment complet avant / après": {
+    "ro": "Clădire completă înainte / după lucrări",
+    "en": "Complete building before / after works"
+  },
+  "Ascendor PLK8 distribue notamment par Altica — configuration simulee 100 x 80 cm, 300 kg optionnel, pente 6-47 deg (50 deg optionnel), encombrement replie documente 31,5 cm en montage mural. Stationnement impose en haut. Balayage 90 deg documente: 117,5 cm mural, 124,5 cm sur poteaux. Dans la simulation, l’axe de plateforme est place a 14 cm du mur, donnant une enveloppe simulee conservatrice d’environ 118 cm sur la volee de 120 cm. La cote publiee de 9,2 cm correspond a la voie/fixation murale, pas a l’axe du plateau. Forme exacte du chariot et implantation des fixations approximees.": {
+    "ro": "Ascendor PLK8, distribuit inclusiv de Altica — configurație simulată 100 x 80 cm, 300 kg opțional, pantă 6–47° (50° opțional), adâncime pliată documentată 31,5 cm la montaj mural. Staționare impusă sus. Anvelopă documentată la 90°: 117,5 cm pe perete, 124,5 cm pe stâlpi. În simulare, axul platformei este la 14 cm de perete, rezultând o anvelopă simulată conservatoare de aproximativ 118 cm pe rampa de 120 cm. Cota publicată de 9,2 cm privește șina / fixarea murală, nu axul platformei. Forma exactă a căruciorului și pozițiile fixărilor sunt aproximative.",
+    "en": "Ascendor PLK8, distributed by Altica among others — simulated 100 x 80 cm configuration, optional 300 kg capacity, slope 6–47° (optional 50°), documented folded depth 31.5 cm for wall mounting. Parking required at the top. Documented 90° swept envelope: 117.5 cm wall-mounted, 124.5 cm on posts. In the simulation the platform axis is 14 cm from the wall, giving a conservative simulated envelope of about 118 cm on the 120 cm flight. The published 9.2 cm dimension refers to the track / wall mounting, not the deck axis. Exact carriage shape and fixing positions are approximate."
+  },
+  "Position": {
+    "ro": "Poziție",
+    "en": "Position"
+  },
+  "deg": {
+    "ro": "°",
+    "en": "°"
+  },
+  "FR": {
+    "ro": "FR",
+    "en": "FR"
+  },
+  "RO": {
+    "ro": "RO",
+    "en": "RO"
+  },
+  "EN": {
+    "ro": "EN",
+    "en": "EN"
+  },
+  "Explorez Casa Artlia en 3D : plans avant et après travaux, visite à pied et plateforme Ganser GTLE.": {
+    "ro": "Explorează Casa Artlia în 3D: planuri înainte și după lucrări, vizită la nivelul ochilor și platformă Ganser GTLE.",
+    "en": "Explore Casa Artlia in 3D: before and after plans, an eye-level walkthrough and Ganser GTLE platform lift."
+  },
+  "relevé": {
+    "ro": "măsurători",
+    "en": "survey"
+  },
+  "photo": {
+    "ro": "fotografie",
+    "en": "photo"
+  }
+}

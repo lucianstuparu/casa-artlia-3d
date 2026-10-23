@@ -19,8 +19,14 @@ function flat(parent,poly,y,depth,m,id,holes=[]){const s=shape(poly);for(const h
 function line(parent,points,color,id,dashed=false){const geo=new THREE.BufferGeometry().setFromPoints(points.map(p=>new THREE.Vector3(...p)));const m=dashed?new THREE.LineDashedMaterial({color,dashSize:12,gapSize:8}):new THREE.LineBasicMaterial({color});const l=new THREE.Line(geo,m);if(dashed)l.computeLineDistances();l.name=id;l.userData={semanticId:'building.'+id,subsystem:'building'};parent.add(l);return l;}
 function beam(parent,a,b,width,height,m,id){const av=new THREE.Vector3(...a),bv=new THREE.Vector3(...b);const o=boxTo(parent,width,height,av.distanceTo(bv),m,...av.clone().lerp(bv,.5).toArray(),id);o.lookAt(bv);return o;}
 function text(parent,lines,x,y,z,w=210,h=60,color='#e5edf4',id='label'){
- const c=document.createElement('canvas');c.width=640;c.height=160;const ctx=c.getContext('2d');ctx.fillStyle='rgba(24,27,31,.87)';ctx.fillRect(0,0,c.width,c.height);ctx.strokeStyle='rgba(159,180,199,.4)';ctx.strokeRect(1,1,638,158);ctx.textAlign='center';ctx.textBaseline='middle';const n=lines.length;lines.forEach((t,i)=>{ctx.font=(i?'400 ':'600 ')+(n>2?30:36)+'px Arial';ctx.fillStyle=i?'#acbac5':color;ctx.fillText(t,320,80+(i-(n-1)/2)*(n>2?42:56),616);});
- const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false,depthWrite:false}));sp.position.set(x,y,z);sp.scale.set(w,h,1);sp.renderOrder=12;sp.name=id;parent.add(sp);labels.push(sp);return sp;
+ const c=document.createElement('canvas');c.width=640;c.height=160;const ctx=c.getContext('2d');
+ const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false,depthWrite:false}));sp.position.set(x,y,z);sp.scale.set(w,h,1);sp.renderOrder=12;sp.name=id;parent.add(sp);labels.push(sp);sp.userData.sourceLabelLines=lines.slice();
+ CASA_I18N.registerCanvas(()=>{const translated=lines.map(s=>CASA_I18N.t(s)),drawLines=[];ctx.font='600 36px Arial';
+ for(const line of translated){let row='';for(const word of line.split(' ')){if(row&&ctx.measureText(row+' '+word).width>608){drawLines.push(row);row=word;}else row+=(row?' ':'')+word;}drawLines.push(row);}
+ ctx.clearRect(0,0,640,160);ctx.fillStyle='rgba(24,27,31,.87)';ctx.fillRect(0,0,640,160);ctx.strokeStyle='rgba(159,180,199,.4)';ctx.strokeRect(1,1,638,158);ctx.textAlign='center';ctx.textBaseline='middle';
+ const size=Math.min(36,Math.floor(128/drawLines.length)-4),lineHeight=Math.min(56,size+8);drawLines.forEach((s,i)=>{ctx.font=(i?'400 ':'600 ')+size+'px Arial';ctx.fillStyle=i?'#acbac5':color;ctx.fillText(s,320,80+(i-(drawLines.length-1)/2)*lineHeight,616);});
+ sp.userData.labelLines=translated;sp.userData.labelLanguage=CASA_I18N.language;sp.material.map.needsUpdate=true;
+ });return sp;
 }
 // Keep the surveyed staircase tight to its original full-height side and rear walls.
 matWallS.color.setHex(0xe1cf9b);outerMat.color.setHex(0xe1cf9b);const oldRoomChildren=ROOM_GROUP.children.slice(),oldCeilings=[];let stairSideWall=null,stairRearWall=null;
@@ -78,7 +84,7 @@ const trimMat=mat(0x667f5c),trimPath=[];for(let i=0;i<=40;i++){const t=i/40;trim
 const allPhaseNames=['avant','apres'];
 for(const phase of allPhaseNames){state.phase=phase;const g=group(root,'phase.'+phase),floors=group(g,'phase.'+phase+'.floors'),wallGroup=group(g,'phase.'+phase+'.walls'),roomLabels=group(g,'phase.'+phase+'.labels');phases[phase]={group:g,floors,walls:wallGroup,labels:roomLabels};
  for(const r of D.rooms.filter(r=>r.kind!=='void'&&(r.state==='both'||r.state===phase))){const color=phase==='avant'?(r.kind==='circulation'?0xaecfdb:r.kind==='service'?0x9bafb7:0xc9c1a6):(r.kind==='circulation'?0xa8d0df:r.kind==='service'?0x789aaa:0x8eabc6);const fm=mat(color);selectedMaterials.push(fm);const holes=(r.id==='main'&&phase==='avant')?D.rooms.filter(q=>['box1','box2'].includes(q.id)).map(q=>q.polygonCm):[];const floor=flat(floors,r.polygonCm,r.level==='RDC'?.65:313,0,fm,phase+'.room.'+r.id,holes);floor.userData.roomId=r.id;floor.userData.phase=phase;floor.userData.level=r.level;pickFloors.push(floor);
- const name=r.names[phase],parts=name.length>28?[name.slice(0,name.lastIndexOf(' ',28)),name.slice(name.lastIndexOf(' ',28)+1)]:[name];parts.push(r.printedAreaM2.toFixed(2).replace('.',',')+' m² · plan');const small=['wc','box1','box2'].includes(r.id);const lbl=text(roomLabels,parts,r.labelCm[0],r.level==='RDC'?45:355,r.labelCm[1],small?125:210,small?32:parts.length>2?68:54,'#e6edf2',phase+'.label.'+r.id);lbl.userData.level=r.level;
+ const name=r.names[phase],parts=[name];parts.push(r.printedAreaM2.toFixed(2).replace('.',',')+' m² · plan');const small=['wc','box1','box2'].includes(r.id);const lbl=text(roomLabels,parts,r.labelCm[0],r.level==='RDC'?45:355,r.labelCm[1],small?125:210,small?32:parts.length>2?68:54,'#e6edf2',phase+'.label.'+r.id);lbl.userData.level=r.level;
  }
  for(const w of D.walls.filter(w=>w.state==='both'||w.state===phase))makeWall(wallGroup,w);
  // May plan sanitary symbol; indicative fittings, no later layout substitution.
@@ -216,7 +222,7 @@ $('differencesList').innerHTML=D.differences.map(t=>'<li>'+t+'</li>').join('');$
 for(const id of ['liftVisibilityBtn','dimBtn','listBtn']){const b=$(id);b.removeAttribute('style');$('originalControls').appendChild(b);}
 $('dims').style.cssText='display:none';$('originalControls').appendChild($('dims'));for(const el of $('dims').querySelectorAll('[style]')){el.style.color='';el.style.borderColor='var(--border)';}
 $('entranceDoorBtn').removeAttribute('style');$('entranceDoorBtn').className='doorAction';$('equipmentDock').appendChild($('entranceDoorBtn'));
-$('dataExport').onclick=()=>{const blob=new Blob([JSON.stringify({data:D,state,doors:doorStates.map(d=>({id:d.id,phase:d.phase,open:d.open}))},null,2)],{type:'application/json'}),a=document.createElement('a'),u=URL.createObjectURL(blob);a.href=u;a.download='casa_artlia_v12_4_building_data.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
+$('dataExport').onclick=()=>{const blob=new Blob([JSON.stringify({data:D,state,doors:doorStates.map(d=>({id:d.id,phase:d.phase,open:d.open}))},null,2)],{type:'application/json'}),a=document.createElement('a'),u=URL.createObjectURL(blob);a.href=u;a.download='casa_artlia_v12_5_building_data.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
 // Canvas-only interactions preserve v10 orbit controls and add orthographic pan / touch gestures.
 const cv=renderer.domElement,ray=new THREE.Raycaster(),mouse=new THREE.Vector2();let down=null,planDrag=null;
 $('workspace').prepend(cv);$('workspace').append($('walkCrosshair'),$('walkInteract'));
@@ -308,6 +314,6 @@ walk=(()=>{
 })();
 
 
-window.CASA_BUILDING={walk,data:D,state,root,phases,doors:doorStates,archedWindows:archWindows,context:{bookshop,upper,roof},stairSideWall,stairRearWall,get activeCamera(){return activeCamera;},setPhase:phaseChange,setView,selectRoom,apply,exteriorGroup:ext,tick(now){const ds=doorStates.filter(d=>d.phase===state.phase),label=ds.some(d=>d.target===0)?'Ouvrir les portes R+1':'Fermer les portes R+1';if($('allDoorsBtn').textContent!==label)$('allDoorsBtn').textContent=label;const dt=Math.min(.1,Math.max(0,(now-last)/1000));last=now;for(const d of doorStates){d.open+=Math.sign(d.target-d.open)*Math.min(Math.abs(d.target-d.open),dt*1.6);d.pivot.rotation.y=d.base-d.open*Math.PI/2;}walk.tick(dt);}};
-CASA_MODEL_API.modelVersion='12.4.0';CASA_MODEL_API.buildingData=D;CASA_MODEL_API.buildingGroup=root;inventory();resizeStage();setView('global');assignHierarchyIds(CASA_ROOT,'casa_artlia');
+window.CASA_BUILDING={walk,data:D,state,root,phases,doors:doorStates,archedWindows:archWindows,context:{bookshop,upper,roof},stairSideWall,stairRearWall,get activeCamera(){return activeCamera;},setPhase:phaseChange,setView,selectRoom,apply,exteriorGroup:ext,tick(now){const ds=doorStates.filter(d=>d.phase===state.phase),label=ds.some(d=>d.target===0)?'Ouvrir les portes R+1':'Fermer les portes R+1';if($('allDoorsBtn').textContent!==CASA_I18N.t(label))$('allDoorsBtn').textContent=label;const dt=Math.min(.1,Math.max(0,(now-last)/1000));last=now;for(const d of doorStates){d.open+=Math.sign(d.target-d.open)*Math.min(Math.abs(d.target-d.open),dt*1.6);d.pivot.rotation.y=d.base-d.open*Math.PI/2;}walk.tick(dt);}};
+CASA_MODEL_API.modelVersion='12.5.0';CASA_MODEL_API.buildingData=D;CASA_MODEL_API.buildingGroup=root;inventory();resizeStage();setView('global');assignHierarchyIds(CASA_ROOT,'casa_artlia');
 })();
