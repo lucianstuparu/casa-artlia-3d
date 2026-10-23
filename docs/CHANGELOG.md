@@ -14,3 +14,5 @@ The repository starts with the complete current v12.3.3 state. Earlier HTML file
 Initial private repository packaging: 24 October 2026. Portable build/data split; no intended model behavior or geometry change during packaging.
 
 - v12.4.0: reviewed UI against my.design; neutral light default and optional dark/automatic; reserved header/stage/action regions, view selector, grouped inspector tabs, walking controls below the scene, responsive touch controls. Geometry retained from v12.3.3. Added viewport/picking checks and a committed-dist GitHub Pages publishing command.
+
+GitHub Pages enabled at https://lucianstuparu.github.io/casa-artlia-3d/ on 24 October 2026, publishing gh-pages root with HTTPS. Repository made public after GitHub rejected Pages on the private repository with the current plan; the user explicitly authorized this.

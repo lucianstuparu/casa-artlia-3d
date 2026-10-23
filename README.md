@@ -1,8 +1,12 @@
 # Casa Artlia 3D
 
-Private working repository for the interactive Casa Artlia building model. Current baseline: **v12.4.0**.
+Working repository for the interactive Casa Artlia building model. Current baseline: **v12.4.0**.
 
 It includes the ERP **avant / après** switch, RDC and R+1 reconstruction, the original entrance and telescopic door, interior staircase, Ganser GTLE animation, exterior stairs and landing, neighbouring building context, source-plan/photo viewers, and first-person walking.
+
+**Live model:** https://lucianstuparu.github.io/casa-artlia-3d/
+
+The repository is public, as authorized for sharing. GitHub Pages on the current account required a public repository.
 
 ## Open the model
 
@@ -70,7 +74,7 @@ Printed ERP areas and dimensions are preserved separately from calculated traced
 
 ## Reference material
 
-Original ERP PDFs and photographs are included for work inside this private repository. Their original Drive links are retained in `references/photos/sources.json` and the model data. The original source material and the user's later confirmations govern reconstruction decisions. The vendored Three.js runtime has its own MIT license; project/model/reference content has not been assigned an open-source license.
+Original ERP PDFs and photographs are included with the user’s authorization to publish this project. Their original Drive links are retained in `references/photos/sources.json` and the model data. The original source material and the user's later confirmations govern reconstruction decisions. The vendored Three.js runtime has its own MIT license; project/model/reference content has not been assigned an open-source license.
 
 ## Interface and publishing
 
