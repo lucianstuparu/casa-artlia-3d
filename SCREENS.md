@@ -25,3 +25,5 @@ Live deployment verified: https://lucianstuparu.github.io/casa-artlia-3d/ — v1
 FR / RO / EN checked in overview, inspector and active walking at 320×480, 375×812, 844×390 and 1440×900 (36 language/viewport states). Dynamic room details, plans, live diagnostics for both lift models, 55 canvas annotations, saved preference, link override and preserving walking/data state are covered. Original source images remain original. Offline standalone viewing and unavailable browser storage are checked. Phone screenshots are Chromium emulation; physical phone/Safari testing remains unverified.
 
 Latest language screenshots: [Romanian phone](docs/images/ui-ro-walk.png), [English desktop](docs/images/ui-en-walk.png). All model, navigation, layout and language checks passed on the final local v12.5.0 build.
+
+Live v12.5.0 verified on GitHub Pages: published HTML matches the reviewed build, all three languages switch correctly, translated room/source labels and the embedded plan viewer work, walking remains engaged through language changes, and the choice survives reload. No JavaScript errors in the live browser check.
