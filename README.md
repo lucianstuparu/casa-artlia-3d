@@ -1,6 +1,6 @@
 # Casa Artlia 3D
 
-Private working repository for the interactive Casa Artlia building model. Current baseline: **v12.3.3**.
+Private working repository for the interactive Casa Artlia building model. Current baseline: **v12.4.0**.
 
 It includes the ERP **avant / après** switch, RDC and R+1 reconstruction, the original entrance and telescopic door, interior staircase, Ganser GTLE animation, exterior stairs and landing, neighbouring building context, source-plan/photo viewers, and first-person walking.
 
@@ -48,15 +48,16 @@ On this Windows desktop, folder protection blocks writes by npm-spawned Node pro
 node scripts/build.cjs
 node tests/model.test.cjs
 node tests/browser.test.cjs
+node tests/layout.test.cjs
 ```
 
-The checks rebuild the app, validate geometry data, run it in Chromium, walk both states up and down the staircase, check the open landing, confirm wall mounting contact, exercise mouse look and capture fallback, and verify the original door/lift controls. Screenshots and reports go into ignored `test-results/`.
+The checks rebuild the app, validate geometry data, run it in Chromium, walk both states up and down the staircase, check the open landing, confirm wall mounting contact, exercise mouse look and capture fallback, and verify the original door/lift controls. The layout checks also start their own preview server and measure eight viewport sizes, light/dark, inspector, source dialog, walking states and plan picking. Screenshots and reports go into ignored `test-results/`.
 
 To use an existing Chrome installation instead of downloading Chromium, set `BROWSER_PATH` to its executable before `npm test`.
 
 ## Walking controls
 
-Choose **Visite → Explorer en glissant**. Hold either mouse button and drag to turn. Use arrows, WASD or ZQSD to walk, Shift to move faster, and E or a brief click to operate a nearby door. Escape pauses. The **Départ** selector offers several starting points. Optional unrestricted mouse look is under **Regard → Souris capturée · FPS**; blocked capture returns to dragging.
+Choose **Visiter → Explorer**. Hold either mouse button and drag to turn. Use arrows, WASD or ZQSD to walk, Shift to move faster, and E or a brief click to operate a nearby door. Escape pauses. Under **Réglages**, the **Départ** selector offers several starting points. Optional unrestricted mouse look is under **Regard → Souris capturée · FPS**; blocked capture returns to dragging.
 
 ## Geometry conventions and corrections
 
@@ -70,3 +71,17 @@ Printed ERP areas and dimensions are preserved separately from calculated traced
 ## Reference material
 
 Original ERP PDFs and photographs are included for work inside this private repository. Their original Drive links are retained in `references/photos/sources.json` and the model data. The original source material and the user's later confirmations govern reconstruction decisions. The vendored Three.js runtime has its own MIT license; project/model/reference content has not been assigned an open-source license.
+
+## Interface and publishing
+
+The v12.4 interface follows the applicable preferences in [my.design](https://github.com/lucianstuparu/my.design). It defaults to light, with optional dark/automatic under Explorer → Affichage. Rooms, display and sources share one inspector. See [design review](docs/design-review.md) and [screen checks](SCREENS.md).
+
+GitHub Pages publishes the root of the dedicated `gh-pages` branch. Only the generated `dist/` files are deployed; the working source, original references and archive remain on `main`. No custom build workflow or service worker is needed.
+
+For each iteration: rebuild, test, commit sources and generated files on `main`, push `main`, then run:
+
+```sh
+npm run deploy
+```
+
+The publish script splits the committed `dist/` tree and pushes it to `gh-pages` without switching the working checkout. It requires a clean `main` branch and normal Git push authentication. On the affected Windows setup, invoke `node scripts/publish.cjs` directly. Verify the GitHub Pages deployment and the live `/version.json` after publishing. Refresh the browser to load an update; downloaded standalone HTML remains a fixed offline copy.

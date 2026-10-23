@@ -8,5 +8,5 @@
 - Distinguish printed ERP dimensions/areas, measured v10 geometry, user-confirmed corrections and assumptions. Keep unverified geometry explicitly marked in A01–A14 or correction records.
 - Do not treat old HTML in `archive/releases/` as current verified geometry. The unavailable v11 HTML is not a geometric authority.
 - Use `npm test` for code/geometry changes and inspect meaningful changed views in a running browser. Geometry changes require both phase checks; preserve stair navigation and wall-mount contact. Do not add tests that merely repeat constant assignments.
-- Keep this repository private. Do not add public deployment, GitHub Pages or publish reference files without the user's request.
+- The user authorized public GitHub Pages sharing on 24 October 2026, including a public repository if required. Publish only the reviewed generated dist tree to gh-pages. Preserve source/reference provenance; do not upload unrelated private material.
 - Keep temporary downloads, credential material, local browser profiles and machine-specific runtime paths out of Git. Test outputs belong in ignored `test-results/`.

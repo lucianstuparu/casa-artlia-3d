@@ -1,27 +1,158 @@
-*{box-sizing:border-box}button,select,input{font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #8ebeff;outline-offset:3px}button:disabled{opacity:.5}button{color:#eee;background:#303036;border:1px solid #55555d;border-radius:7px;padding:7px 10px}button:hover{background:#41414a}button.selected,button[aria-pressed=true]{background:#28547b;border-color:#82b1db}#buildingBar{position:fixed;top:12px;left:72px;right:12px;z-index:10;display:flex;align-items:center;gap:12px;padding:8px 10px;background:rgba(23,23,26,.94);border:1px solid #4b4b52;border-radius:13px;box-shadow:0 6px 26px #0004;font-size:12px}.brand{margin-right:auto;min-width:150px}.brand strong{display:block;font-size:15px;font-weight:650}.brand span{color:#a8a8b1;font-size:10px}.stateSwitch{display:flex;gap:3px;background:#202024;padding:3px;border-radius:9px}.stateSwitch button{border-color:transparent;white-space:nowrap}.viewButtons{display:flex;gap:4px}.viewButtons button{background:transparent;white-space:nowrap}#buildingPanel{position:fixed;top:84px;right:12px;width:308px;max-height:calc(100dvh - 160px);overflow:auto;z-index:11;background:rgba(23,23,26,.97);border:1px solid #4b4b52;padding:12px;border-radius:12px;color:#ddd;font-size:12px;box-shadow:0 10px 28px #0006;scrollbar-width:thin}#buildingPanel[hidden],#roomCard[hidden]{display:none}.panelTitle{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.panelTitle button{padding:1px 8px;font-size:20px}.field{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0}.field select{max-width:185px;background:#303036;color:#eee;padding:6px;border:1px solid #555;border-radius:6px}.layerGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px 4px;margin:13px 0}.layerGrid label{display:flex;gap:4px;align-items:center;font-size:11px}.wide{width:100%}details{border-top:1px solid #3b3b43;padding:11px 0}summary{cursor:pointer;color:#c8d9e8}.small{font-size:11px;line-height:1.5;color:#a2a2ac}.sourceLinks a,dialog a{color:#8fc4ef}.sourceLinks{display:flex;gap:12px;margin:10px 0}.assumption{padding:8px 0;border-bottom:1px solid #333;line-height:1.4}.assumption strong{color:#e7b879;display:block;font-size:11px}.assumption p{font-size:11px;margin:4px 0;color:#b9b9c1}.panelActions{display:flex;gap:7px;padding:8px 0}.panelActions button{flex:1;font-size:11px}#roomInventory{max-height:140px;overflow:auto;margin:8px 0}.roomRow{display:flex;align-items:center;justify-content:space-between;gap:8px;border:0;border-radius:3px;width:100%;text-align:left;background:transparent;padding:5px}.roomRow span:last-child{font-size:10px;color:#a9afb7;white-space:nowrap}#originalControls{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:10px}#originalControls button{position:static!important;font-size:11px!important;padding:6px!important;white-space:normal}#hint{display:none}#modelStatus{position:fixed;left:14px;bottom:14px;z-index:6;display:flex;flex-direction:column;gap:4px;background:rgba(23,23,26,.88);border:1px solid #45454e;border-radius:10px;padding:10px 13px;font-size:11px;pointer-events:none;max-width:355px}#modelStatus strong{font-size:13px;color:#a7cbea}#modelStatus span{color:#c6c6ce}#modelStatus .statusNote{color:#c6a77d;font-size:10px}#sourceQuickBtn{font-size:10px;align-self:flex-start;margin-top:4px;padding:3px 7px;pointer-events:auto;background:transparent;border-color:#555}#roomCard{position:fixed;left:14px;bottom:135px;z-index:12;max-width:310px;background:rgba(23,23,26,.96);border:1px solid #70869e;border-radius:10px;padding:12px;font-size:12px;line-height:1.5;box-shadow:0 6px 20px #0007}#roomCardClose{float:right;margin-left:10px;padding:1px 7px}#roomCard h3{font-size:14px;margin:0 0 7px;color:#b7d4ef}#roomCard p{margin:4px 0}#roomCard .amber{color:#e1b47e}dialog{max-width:94vw;width:1250px;height:92dvh;background:#202024;border:1px solid #666;border-radius:12px;padding:12px;color:#eee;z-index:25}dialog::backdrop{background:#000b;backdrop-filter:blur(3px)}.dialogHead{display:flex;gap:10px;align-items:center;padding-bottom:10px}.dialogHead strong{margin-right:auto}.dialogHead select{background:#303036;color:white;padding:6px;border-radius:5px}.planScroll{height:calc(100% - 100px);overflow:auto;background:#fff;border-radius:5px}.planScroll img{display:block;width:100%;min-width:780px}dialog p{margin:8px 0}#dims{z-index:13!important;max-height:calc(100dvh - 150px);top:84px!important}#liftController{z-index:12}#liftPanel{z-index:14}body>canvas{display:block;touch-action:none}#ui{display:none!important}
-@media(max-width:1050px){#buildingBar{gap:6px}.brand{min-width:105px}.brand span{display:none}.viewButtons button{padding:6px;font-size:11px}.stateSwitch button{padding:6px}.viewButtons{gap:2px}}
-@media(max-width:780px){#buildingBar{left:66px;flex-wrap:wrap;gap:5px;padding:7px}.brand{min-width:100px}.brand strong{font-size:13px}.viewButtons{order:4;width:100%;justify-content:space-between}.viewButtons button{flex:1}.stateSwitch{margin-left:auto}#buildingToggle{padding:6px;font-size:11px}#buildingPanel{top:118px;max-height:calc(100dvh - 195px);width:min(308px,calc(100vw - 24px))}#modelStatus{bottom:66px;max-width:280px;padding:7px 10px}#roomCard{bottom:174px;max-width:280px}#liftController{left:12px;right:auto;bottom:10px}#liftPanel{max-height:calc(100dvh - 25px)}#liftBody{max-height:calc(100dvh - 82px)}}
-@media(max-width:520px){.brand{min-width:75px}.brand strong{font-size:12px}.stateSwitch button{font-size:10px;padding:6px}.stateSwitch{gap:0}.statusNote{max-width:240px}#buildingBar{right:7px;left:64px}#modelStatus{left:10px}dialog{max-width:98vw;padding:9px}#buildingPanel{right:8px}}
-@media(max-height:530px){#modelStatus{display:none}#buildingPanel{top:80px;max-height:calc(100dvh - 140px)}#buildingBar .brand{display:none}#buildingBar{flex-wrap:nowrap}.viewButtons{width:auto;order:0}.stateSwitch{margin-left:0}#roomCard{bottom:68px}}
-.doorAction{position:fixed;right:13px;bottom:73px;z-index:9;background:rgba(35,39,45,.94);font-size:12px;padding:8px 14px;border-color:#7d8b98}@media(max-width:780px){.doorAction{bottom:12px;right:10px;font-size:11px;padding:9px}#liftController{gap:2px;padding:4px}#liftController button{width:32px;height:32px}#liftController .controllerSep{margin:0 1px}#modelStatus{bottom:64px}}
-@media(max-width:520px){.viewButtons button{padding:6px 3px;font-size:10px}.viewButtons{gap:2px}.brand{min-width:70px}.stateSwitch button{padding:6px 4px}#buildingPanel .field select{max-width:185px}}
-.photoView{height:calc(100% - 155px);display:flex;align-items:center;justify-content:center;background:#151518;overflow:auto;border-radius:6px}.photoView img{max-width:100%;max-height:100%;object-fit:contain}#photoSelect{max-width:48%}#photoButtons{margin:8px 0}#photoDialog .dialogHead{flex-wrap:wrap}
-
-/* First-person mode keeps the existing scene and provides its own eye-level camera. */
-#walkHUD[hidden],#walkWelcome[hidden],#walkCrosshair[hidden],#walkInteract[hidden]{display:none}
-#walkWelcome{position:fixed;top:48%;left:50%;transform:translate(-50%,-50%);z-index:16;width:min(370px,calc(100vw - 32px));padding:22px;background:rgba(23,23,26,.95);border:1px solid #6d879e;border-radius:14px;text-align:center;color:#e7edf2;box-shadow:0 10px 45px #0008;font-size:13px;line-height:1.65}
-#walkWelcome strong{font-size:18px;color:#b9daf8}#walkWelcome p{margin:12px 0}#walkStart{padding:12px 22px;background:#28547b;border-color:#82b1db;font-size:14px;min-height:46px}
-#walkHUD{position:fixed;bottom:12px;left:12px;z-index:15;width:min(530px,calc(100vw - 24px));display:flex;flex-direction:column;gap:9px;background:rgba(23,23,26,.94);border:1px solid #4b4b52;border-radius:12px;padding:11px 13px;font-size:12px;color:#d8dce1;box-shadow:0 5px 22px #0005}
-.walkStatus{display:flex;justify-content:space-between;gap:8px;align-items:center}.walkStatus strong{color:#b9daf8}.walkStatus span{font-size:10px;color:#aaaeb7}.walkActions{display:flex;align-items:center;gap:7px}.walkActions label{font-size:11px}.walkActions select{background:#303036;border:1px solid #55555d;color:#eee;border-radius:6px;padding:7px;min-width:0;flex:1}.walkActions button{font-size:11px;padding:7px 9px}#walkControlHint{font-size:10px;line-height:1.4;color:#afb7c1}
-#walkCrosshair{position:fixed;left:50%;top:50%;width:24px;height:24px;transform:translate(-50%,-50%);pointer-events:none;z-index:14;color:#fff;filter:drop-shadow(0 1px 2px #000)}#walkCrosshair svg{width:100%;height:100%;stroke:currentColor;stroke-width:1.5;fill:none}#walkCrosshair.canInteract{color:#a8d6ff}#walkInteract{position:fixed;left:50%;top:calc(50% + 26px);transform:translateX(-50%);z-index:14;pointer-events:none;padding:6px 10px;background:#17171ae8;border:1px solid #6d879e;border-radius:6px;color:#d1e7fa;font-size:12px;white-space:nowrap}
-body.walkMode #modelStatus,body.walkMode #liftController,body.walkMode .doorAction,body.walkMode #roomCard{display:none!important}body.walkMode>canvas{outline:none}#walkTouch{display:none}#walkTouch svg{height:23px;width:23px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
-@media(max-width:1050px){.viewButtons{flex-wrap:wrap}.viewButtons button{padding:6px 5px}#buildingBar{gap:5px}.brand{min-width:85px}}
-@media(max-width:780px){.viewButtons{flex-wrap:nowrap}.viewButtons button{font-size:9px;padding:7px 2px}#walkHUD{bottom:10px;gap:7px;padding:9px 10px}.walkStatus{align-items:flex-start}.walkStatus span{max-width:120px;text-align:right}.walkActions{gap:5px}#walkWelcome{padding:17px;font-size:12px;top:46%}}
-@media(pointer:coarse){body.walkMode #walkTouch{display:grid;position:fixed;right:14px;bottom:157px;z-index:15;grid-template-columns:44px 44px 44px;grid-template-rows:44px 44px;gap:4px;touch-action:none}#walkTouch button{padding:8px;background:#202028db;border-color:#8093a6;touch-action:none}#walkTouch button.pressed{background:#28547b}#walkTouch button:first-child{grid-column:2}#walkTouch button:nth-child(2){grid-row:2;grid-column:1}#walkTouch button:nth-child(3){grid-row:2;grid-column:2}#walkTouch button:nth-child(4){grid-row:2;grid-column:3}#walkTouchDoor{grid-column:1;grid-row:1;font-size:10px}#walkWelcome .small{font-size:10px}}
-@media(max-height:530px){#walkWelcome{top:52%;padding:12px;width:330px;font-size:11px}#walkWelcome p{margin:5px 0}#walkWelcome .small{display:none}#walkWelcome strong{font-size:15px}#walkHUD{width:370px;gap:5px;padding:8px;font-size:11px}#walkControlHint{display:none}body.walkMode #walkTouch{bottom:14px;right:14px}}
-
-@media(max-width:360px) and (min-height:531px){.viewButtons{flex-wrap:wrap}.viewButtons button{flex:1 0 30%}#buildingPanel{top:154px;max-height:calc(100dvh - 180px)}}
-
-@media(pointer:coarse){#walkInteract{top:calc(50% - 40px)}}
-
-.walkLookOptions{display:flex;align-items:center;gap:8px;font-size:11px}.walkLookOptions select{flex:1;min-width:0;background:#303036;border:1px solid #55555d;color:#eee;border-radius:6px;padding:6px}.walkLookOptions span{color:#aeb6bf;font-size:10px}body.walkMode>canvas{cursor:grab}body.walkMode>canvas:active{cursor:grabbing}@media(pointer:coarse) and (min-height:531px){body.walkMode #walkTouch{bottom:190px}}@media(max-width:520px){.walkLookOptions{font-size:10px;gap:6px}.walkLookOptions span{font-size:9px}}
+/* Canvas workspace: reserved header / stage / action regions. */
+:root {
+ color-scheme:light;--base:#fff;--surface:#f1f1f4;--elevated:#fff;
+ --text:#1c1c1e;--text-2:#3a3a3c;--muted:#64646b;--border:#dedee3;
+ --accent:#146f65;--accent-soft:#e7f1ef;--on-accent:#fff;--warning:#82520d;
+ --shadow:0 8px 24px #0000001f;--radius-s:8px;--radius-m:12px;--radius-l:20px;
+ --font:-apple-system,BlinkMacSystemFont,"SF Pro Text",Roboto,"Segoe UI",system-ui,sans-serif;
+}
+:root[data-theme=dark] {color-scheme:dark;--base:#1c1c1e;--surface:#2c2c2e;--elevated:#242426;--text:#f2f2f7;--text-2:#d1d1d6;--muted:#afafb6;--border:#45454b;--accent:#77cbbd;--accent-soft:#28423e;--on-accent:#102923;--warning:#edc58c;--shadow:0 8px 24px #0006}
+*{box-sizing:border-box}
+html,body{height:100%;height:100dvh;margin:0;font-family:var(--font);font-size:15px;color:var(--text);background:var(--surface);overflow:hidden}
+#workspace>canvas{position:absolute;inset:0;pointer-events:auto;touch-action:none;display:block}
+button,select,input{font:inherit}
+button,select{min-height:40px;border:1px solid var(--border);border-radius:var(--radius-s);background:var(--surface);color:var(--text);padding:8px 12px}
+button{cursor:pointer;touch-action:manipulation;font-weight:600;transition:background 150ms,transform 100ms}
+button:hover{background:var(--accent-soft)}
+button:active{transform:scale(.97)}
+button:disabled{opacity:.55;cursor:default}
+button:focus-visible,select:focus-visible,summary:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+button svg,.iconButton svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+button.selected,button[aria-pressed=true]{color:var(--accent);background:var(--accent-soft);border-color:transparent}
+button.primary{height:56px;min-width:128px;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:var(--on-accent);border:0;font-size:16px}
+button.primary:hover{filter:brightness(.93)}
+a{color:var(--accent);text-underline-offset:3px}
+[hidden]{display:none!important}
+#appShell{position:fixed;inset:0;z-index:10;display:grid;grid-template-rows:auto minmax(0,1fr) auto;pointer-events:none}
+#buildingBar{display:flex;align-items:center;gap:24px;padding:12px max(16px,env(safe-area-inset-right)) 12px max(16px,env(safe-area-inset-left));padding-top:max(12px,env(safe-area-inset-top));background:var(--base);border-bottom:1px solid var(--border);pointer-events:auto}
+.brand{margin-right:auto;min-width:130px}.brand strong{display:block;font-size:17px;font-weight:700}.brand span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.stateSwitch{display:flex;gap:8px;background:var(--surface);padding:4px;border-radius:var(--radius-m)}
+.stateSwitch button{border:0;background:transparent;padding:8px 16px;font-size:13px}
+.stateSwitch button[aria-pressed=true]{background:var(--elevated);box-shadow:0 2px 6px #00000012;color:var(--accent)}
+.headerActions{display:flex;gap:8px}.headerActions button{display:flex;align-items:center;gap:8px;background:transparent}
+#workspace{position:relative;min-height:0;display:flex;justify-content:flex-end;gap:12px;padding:12px;overflow:hidden}
+#buildingPanel,#liftPanel{position:relative;inset:auto;width:360px;max-width:100%;height:100%;max-height:100%;background:var(--elevated);border:0;border-radius:var(--radius-l);padding:0;box-shadow:var(--shadow);backdrop-filter:none;pointer-events:auto;overflow:hidden;color:var(--text);font-size:13px;z-index:14;transition:none}
+#buildingPanel{display:flex;flex-direction:column}
+.panelTitle{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 8px}
+.panelTitle h2,dialog h2{font-size:22px;font-weight:700;margin:0}
+.iconButton{display:grid;place-items:center;width:40px;padding:8px;border:0;background:transparent}
+.inspectorTabs{display:flex;gap:8px;margin:0 16px 12px;padding:4px;background:var(--surface);border-radius:var(--radius-m)}
+.inspectorTabs button{flex:1;min-width:0;font-size:13px;border:0;background:transparent;padding:8px}
+.inspectorTabs button[aria-selected=true]{background:var(--elevated);color:var(--accent);box-shadow:0 2px 6px #00000012}
+.panelScroll{padding:0 16px 16px;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.field{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:56px;margin:0;border-bottom:1px solid var(--border);font-size:13px}
+.field select{min-width:0;max-width:72%;font-size:16px}
+.field.stacked{display:block;border:0;padding-bottom:12px}.field.stacked select{display:block;width:100%;max-width:none;margin-top:8px}
+.layerGrid{display:flex;flex-direction:column;margin:12px 0}
+.layerGrid label{display:flex;align-items:center;gap:12px;min-height:44px;border-bottom:1px solid var(--border);font-size:15px}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent);flex-shrink:0}
+.wide{width:100%;margin:12px 0}
+details{border-top:1px solid var(--border);padding:4px 0}
+summary{cursor:pointer;min-height:44px;padding:12px 0;font-size:13px;font-weight:600;line-height:1.5}
+.small{font-size:12px;line-height:1.6;color:var(--muted)}
+.sourceLinks{display:flex;flex-wrap:wrap;gap:12px;padding:12px 0}.sourceLinks a{padding:8px 0}
+.assumption{padding:12px 0;border-bottom:1px solid var(--border);line-height:1.6}.assumption strong{color:var(--warning);display:block;font-size:13px}.assumption p{margin:4px 0;font-size:13px}
+#roomInventory{margin-bottom:16px}
+.roomRow{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;border:0;border-bottom:1px solid var(--border);border-radius:0;width:100%;text-align:left;background:transparent;padding:12px 0;font-weight:400;font-size:15px}
+.roomRow span:last-child{font-size:12px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+#originalControls{display:grid;gap:8px;margin:8px 0}
+#originalControls button{position:static!important;font-size:13px!important;padding:8px!important;white-space:normal}
+#roomCard{position:absolute;left:12px;bottom:12px;max-width:min(330px,calc(100% - 24px));max-height:calc(100% - 24px);overflow:auto;background:var(--elevated);box-shadow:var(--shadow);border-radius:var(--radius-l);padding:16px;pointer-events:auto;font-size:13px;line-height:1.6;z-index:12}
+#roomCardClose{float:right}#roomCard h3{font-size:17px;margin:0 0 8px}#roomCard p{margin:8px 0}#roomCard .amber{color:var(--warning)}
+#actionRegion{pointer-events:auto;background:var(--base);border-top:1px solid var(--border);padding:12px max(16px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));max-height:55dvh;overflow:auto;overscroll-behavior:contain}
+#navigationDock{display:flex;align-items:center;gap:24px}
+.viewButtons{display:flex;align-items:center;gap:12px}.viewButtons label{font-size:13px;color:var(--muted)}#viewSelect{font-size:16px;width:200px;height:48px}
+#modelStatus{margin-left:auto;display:grid;grid-template-columns:auto auto;align-items:center;column-gap:16px;font-size:12px;line-height:1.5}
+#modelStatus strong{font-weight:600}#statusView{color:var(--muted)}#modelStatus .statusNote{grid-column:1;color:var(--muted)}#sourceQuickBtn{grid-column:2;grid-row:2;justify-self:end;background:transparent;border:0;padding:0;min-height:40px;color:var(--accent);font-size:12px}
+#equipmentDock{display:none;align-items:center;gap:12px;flex-wrap:wrap}
+body[data-view=rdc] #equipmentDock{display:flex}body[data-view=rdc] #modelStatus{display:none}
+#liftController{position:static;inset:auto;display:flex;gap:8px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none}
+#liftController .controllerModel{font-size:12px;color:var(--muted)}#liftController .controllerSep{background:var(--border);margin:0}
+#liftController button{width:40px;height:40px;background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:var(--radius-s)}
+#liftController button.active{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.doorAction{font-size:13px;min-height:40px}
+#liftPanel{display:flex;flex-direction:column;padding:16px;width:360px}
+#liftPanel.collapsed{display:none}
+#liftPanel .liftHead{margin:0 0 12px}#liftPanel h2{color:var(--text);font-size:17px}
+#liftToggle{width:40px;height:40px;border-radius:var(--radius-s)!important}
+#liftBody{min-height:0;max-height:none;overflow:auto;overscroll-behavior:contain;padding:0 4px 0 0}
+#liftPanel button{min-height:40px;background:var(--surface);color:var(--text);border-color:var(--border);border-radius:var(--radius-s);font-size:13px}
+#liftPanel button:hover{background:var(--accent-soft)}
+#liftPanel button.active{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+#liftPanel .liftRow{margin:12px 0;gap:8px}#liftPanel .liftRow label,#liftPanel .liftCheck,#liftPanel .liftMetric span:first-child{color:var(--text-2)}
+#liftPanel .liftRow select{background:var(--surface);color:var(--text);border-color:var(--border);font-size:16px}
+#liftPanel .liftNote{color:var(--muted);font-size:12px;line-height:1.5}
+#liftPanel .liftValue,#liftPanel .liftDocs a{color:var(--accent)}
+#liftPanel .liftMetric{border-color:var(--border);padding:4px 0}#liftPanel .liftReadout{border-color:var(--border)}
+#liftPanel .good{color:var(--accent)}#liftPanel .warn{color:var(--warning)}#liftPanel .bad{color:#b13d37}
+#walkHUD{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px}
+.walkMain{display:flex;align-items:center;gap:24px;min-width:0}.walkStatus{display:flex;flex-direction:column;gap:4px;margin-right:auto;min-width:0;font-size:15px}.walkStatus span{font-size:12px;color:var(--muted)}
+.walkActions{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}.walkPrimary{width:128px;flex-shrink:0}.walkPrimary button{width:100%}
+#walkWelcome{flex:1;min-width:0;max-width:580px;font-size:13px;line-height:1.5}
+#walkWelcome strong{display:none}#walkWelcome p{margin:0}#walkWelcome .small{margin-top:4px}
+body.visitPaused .walkStatus{display:none}
+#walkSettings{grid-column:1/-1;display:flex;align-items:center;gap:24px;border-top:1px solid var(--border);padding-top:8px}
+#walkSettings .field{flex:1;border:0}#walkSettings .small{max-width:250px}
+#walkTouch{display:none}
+#walkTouch svg{width:24px;height:24px}
+body.walkMode #navigationDock,body.walkMode #equipmentToggle,body.walkMode #roomCard{display:none!important}
+#walkCrosshair{position:absolute;left:50%;top:50%;width:24px;height:24px;transform:translate(-50%,-50%);pointer-events:none;z-index:4;color:#fff;filter:drop-shadow(0 1px 2px #000)}
+#walkCrosshair svg{width:100%;height:100%;stroke:currentColor;stroke-width:1.5;fill:none}#walkCrosshair.canInteract{color:#a7efdf}
+#walkInteract{position:absolute;left:50%;top:calc(50% + 28px);transform:translateX(-50%);z-index:5;pointer-events:none;padding:8px 12px;background:var(--base);border-radius:var(--radius-s);color:var(--text);font-size:13px;box-shadow:var(--shadow);max-width:90vw;text-align:center}
+body.walkMode>canvas{cursor:grab}body.walkMode>canvas:active{cursor:grabbing}
+dialog{width:1250px;max-width:calc(100vw - 32px);height:calc(100dvh - 32px);max-height:calc(100dvh - 32px);background:var(--base);color:var(--text);border:0;border-radius:var(--radius-l);padding:16px;box-shadow:var(--shadow)}
+dialog[open]{display:flex;flex-direction:column;gap:12px}
+dialog::backdrop{background:#18182066}
+.dialogHead{display:flex;align-items:center;gap:12px;flex-shrink:0}.dialogHead h2{margin-right:auto;font-size:17px}.dialogHead select{font-size:16px;min-width:0;max-width:45%}
+.planScroll{flex:1;min-height:0;overflow:auto;background:white;overscroll-behavior:contain}
+.planScroll img{display:block;width:100%;min-width:780px}
+.photoView{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:var(--surface);overflow:auto}
+.photoView img{max-width:100%;max-height:100%;object-fit:contain}
+dialog p{margin:0}#photoDialog>a{font-size:13px}
+#ui,#hint{display:none!important}#dims{position:static!important;inset:auto!important;width:auto!important;max-height:none;background:transparent!important;border:0!important;padding:8px 0!important;color:var(--text);font-size:13px}
+@media(max-width:1100px){
+ #navigationDock{flex-wrap:wrap;gap:8px 24px}#modelStatus{display:flex;align-items:center;gap:12px;font-size:12px}#statusState,#statusView{display:none}
+ body[data-view=rdc] #navigationDock{gap:12px}.controllerModel{display:none}
+}
+@media(max-width:760px){
+ #buildingBar{gap:8px;flex-wrap:wrap;padding:8px 12px;padding-top:max(8px,env(safe-area-inset-top))}
+ .brand{min-width:100px}.brand span{display:none}.brand strong{font-size:17px}
+ .stateSwitch{order:3;width:100%;gap:8px}.stateSwitch button{flex:1}
+ .headerActions button{padding:8px;font-size:13px}.headerActions button svg{display:none}
+ #actionRegion{padding:8px 12px max(8px,env(safe-area-inset-bottom))}
+ #navigationDock{gap:4px;display:block}.viewButtons{gap:8px}.viewButtons label{display:none}#viewSelect{flex:1;min-width:0;width:0}
+ #modelStatus{justify-content:space-between;gap:8px;line-height:1.4}#modelStatus .statusNote{max-width:60%;font-size:12px}#sourceQuickBtn{font-size:12px;white-space:nowrap}
+ #workspace{padding:8px}#buildingPanel,#liftPanel{width:360px}#roomCard{left:8px;bottom:8px}
+ body[data-view=rdc] #equipmentDock{margin-top:8px;gap:8px}.doorAction{flex:1}
+ .walkMain{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}.walkStatus{gap:2px}
+ .walkActions{justify-content:flex-end}.walkActions button:not(.primary){font-size:13px}.walkPrimary{width:128px}
+ #walkWelcome{font-size:12px}#walkWelcome .small{display:none}
+ #walkSettings{display:block;max-height:30dvh;overflow:auto}#walkSettings .field{min-height:48px}#walkSettings .small{display:none}
+ dialog{max-width:calc(100vw - 16px);height:calc(100dvh - 16px);max-height:calc(100dvh - 16px);padding:12px}
+ .dialogHead{flex-wrap:wrap;gap:8px}.dialogHead h2{font-size:15px}.dialogHead select{max-width:55%}
+}
+@media(pointer:coarse){
+ body.walkMode #walkTouch{display:grid;grid-template-columns:40px 40px 40px;grid-template-rows:40px 40px;gap:8px;align-self:center}
+ #walkTouch button{padding:8px;touch-action:none;display:grid;place-items:center}#walkTouch button.pressed{background:var(--accent-soft);color:var(--accent)}
+ #walkTouch button:first-child{grid-column:2}#walkTouch button:nth-child(2){grid-row:2;grid-column:1}#walkTouch button:nth-child(3){grid-row:2;grid-column:2}#walkTouch button:nth-child(4){grid-row:2;grid-column:3}#walkTouchDoor{grid-column:1;grid-row:1;font-size:10px}
+}
+@media(max-width:420px){
+ .headerActions button{font-size:12px;padding:8px}.brand strong{font-size:15px}.brand{min-width:90px}
+}
+@media(pointer:coarse) and (max-width:760px){
+ .walkActions{display:grid;grid-template-columns:minmax(104px,1fr) auto;gap:8px;width:100%;margin:0}
+ .walkPrimary{grid-column:1;grid-row:1;width:100%}.walkPrimary .primary{min-width:104px}
+ #walkExit{grid-column:2;grid-row:1;padding:8px}
+ #walkSettingsToggle{grid-column:1/-1;grid-row:2;justify-self:start}
+ #walkHUD{column-gap:12px}.walkStatus span{display:none}
+}
+@media(pointer:coarse) and (max-width:359px){
+ #walkHUD .walkMain{display:contents}.walkStatus,#walkWelcome{grid-column:1;grid-row:1}.walkActions{grid-column:1/-1;grid-row:2;display:flex;justify-content:space-between;gap:8px}.walkPrimary{width:112px}#walkTouch{grid-column:2;grid-row:1}#walkSettings{grid-row:3}
+}
+@media(max-height:530px) and (min-width:600px){
+ #buildingBar{flex-wrap:nowrap;padding:8px 12px}.brand span{display:none}.stateSwitch{order:0;width:auto}.stateSwitch button{padding:8px 12px}
+ .stateSwitch span{display:none}#actionRegion{padding:8px 12px}#modelStatus{display:none}
+ .walkMain{display:flex;gap:16px}#walkWelcome{font-size:12px}#walkWelcome .small{display:none}
+ #walkSettings{max-height:25dvh;overflow:auto}.walkStatus{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}

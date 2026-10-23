@@ -12,3 +12,5 @@ The repository starts with the complete current v12.3.3 state. Earlier HTML file
 - v12.3.3: C02 restored the full-height measured stair enclosure and wall-mounted GTLE contact; removed the false rear strip and adjusted the adjoining boundary.
 
 Initial private repository packaging: 24 October 2026. Portable build/data split; no intended model behavior or geometry change during packaging.
+
+- v12.4.0: reviewed UI against my.design; neutral light default and optional dark/automatic; reserved header/stage/action regions, view selector, grouped inspector tabs, walking controls below the scene, responsive touch controls. Geometry retained from v12.3.3. Added viewport/picking checks and a committed-dist GitHub Pages publishing command.

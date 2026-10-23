@@ -1,0 +1,29 @@
+'use strict';
+const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('fs'),path=require('path'),{spawn}=require('node:child_process');
+(async()=>{const browser=await chromium.launch({headless:true,...(process.env.BROWSER_PATH?{executablePath:process.env.BROWSER_PATH}:{})});let server,url=process.env.APP_URL;if(!url){server=spawn(process.execPath,[path.resolve(__dirname,'../scripts/serve.cjs')],{env:{...process.env,PORT:'0'},stdio:['ignore','pipe','pipe'],windowsHide:true});url=await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('Preview server did not start')),10000);server.once('error',reject);server.stdout.on('data',b=>{const m=String(b).match(/http:\/\/127\.0\.0\.1:\d+/);if(m){clearTimeout(timer);resolve(m[0]);}});});}const results=path.resolve(__dirname,'../test-results'),report=[];fs.mkdirSync(results,{recursive:true});
+try{
+ for(const [w,h] of [[320,480],[360,640],[375,812],[390,844],[844,390],[768,1024],[1280,720],[1440,900]]){
+  const page=await browser.newPage({viewport:{width:w,height:h},hasTouch:w<800,isMobile:w<600});const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(url);await page.waitForFunction(()=>!!window.CASA_BUILDING);
+  async function check(state){await page.waitForTimeout(80);const m=await page.evaluate(()=>{
+   const box=id=>{const r=document.getElementById(id).getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height,b:r.bottom,r:r.right};},head=box('buildingBar'),stage=box('workspace'),footer=box('actionRegion'),canvas=renderer.domElement.getBoundingClientRect();
+   const primary=document.querySelector('body.walkMode #walkStart:not([hidden]),body.walkMode #walkPause:not([hidden]),body:not(.walkMode) [data-view=walk]').getBoundingClientRect();
+   return{width:innerWidth,height:innerHeight,overflow:document.documentElement.scrollWidth>innerWidth,head,stage,footer,canvas:{y:canvas.y,b:canvas.bottom,w:canvas.width,h:canvas.height},primary:{x:primary.x,y:primary.y,r:primary.right,b:primary.bottom,h:primary.height},panel:document.getElementById('buildingPanel').hidden?null:box('buildingPanel')};
+  });assert(!m.overflow,w+' '+state+' horizontal overflow');assert(m.stage.h>80,w+' '+state+' no viewing space');assert(Math.abs(m.canvas.y-m.head.b)<1&&Math.abs(m.canvas.b-m.footer.y)<1,w+' '+state+' canvas overlaps controls');assert(m.primary.x>=0&&m.primary.r<=w&&m.primary.b<=h+.5&&m.primary.y>=m.footer.y,w+' '+state+' primary clipped');assert(m.primary.h>=55,w+' '+state+' primary too small');if(m.panel)assert(m.panel.y>=m.stage.y&&m.panel.b<=m.stage.b+.5,w+' inspector exceeds stage');report.push({viewport:[w,h],state,stageHeight:Math.round(m.stage.h)});}
+  await check('overview');await page.click('#buildingToggle');await check('inspector');
+  await page.click('#tabDisplay');await page.selectOption('#themeSelect','dark');assert.equal(await page.evaluate(()=>document.documentElement.dataset.theme),'dark');await page.keyboard.press('Escape');
+  await page.waitForTimeout(200);if([375,1440].includes(w))await page.screenshot({path:path.join(results,'ui-'+w+'-dark.png')});
+  await page.click('#buildingToggle');await page.click('#tabDisplay');await page.selectOption('#themeSelect','light');await page.click('#tabSources');await page.click('#planSourceBtn');assert(await page.locator('#sourcePlan').evaluate(im=>im.complete&&im.naturalWidth>0));await page.keyboard.press('Escape');await page.click('#panelClose');
+  if([375,1440].includes(w))await page.screenshot({path:path.join(results,'ui-'+w+'-light.png')});
+  await page.selectOption('#viewSelect','rdc');await page.click('#equipmentToggle');assert(!(await page.locator('#buildingPanel').isVisible()));await check('equipment');await page.click('#liftToggle');
+  await page.click('[data-view=walk]');await check('walking paused');await page.click('#walkStart');await check('walking active');
+  if([375,1440].includes(w))await page.screenshot({path:path.join(results,'ui-'+w+'-walk.png')});
+  await page.click('#walkSettingsToggle');await check('walking settings');await page.click('#walkSettingsToggle');await page.click('#walkPause');await page.click('#walkExit');
+  await page.selectOption('#viewSelect','plan');
+  const p=await page.evaluate(()=>{const A=CASA_BUILDING,r=A.data.rooms.find(r=>r.names.apres==='Jeu principal'),v=new THREE.Vector3(r.labelCm[0],312,r.labelCm[1]).project(A.activeCamera),b=renderer.domElement.getBoundingClientRect();return{id:r.id,x:b.x+(v.x+1)*b.width/2,y:b.y+(1-v.y)*b.height/2};});
+  await page.mouse.click(p.x,p.y);assert.equal(await page.evaluate(()=>CASA_BUILDING.state.selected),p.id,'Plan picking must account for header/stage bounds');
+  assert.equal(errors.length,0,errors.join('\n'));await page.close();
+ }
+ const big=await browser.newPage({viewport:{width:390,height:844},hasTouch:true});await big.goto(url);await big.waitForFunction(()=>!!window.CASA_BUILDING);await big.addStyleTag({content:'button,select,label,.small{font-size:20px!important}'});await big.click('#buildingToggle');await big.click('#tabDisplay');assert.equal(await big.evaluate(()=>document.documentElement.scrollWidth),390);await big.screenshot({path:path.join(results,'ui-large-text.png')});await big.close();
+ fs.writeFileSync(path.join(results,'layout-report.json'),JSON.stringify({passed:true,checks:report},null,2));console.log('Layout checks passed: '+report.length+' states at 8 viewport sizes; large text; theme, inspector, dialogs and plan picking.');
+}finally{await browser.close();if(server)server.kill();}
+})().catch(e=>{console.error(e);process.exitCode=1;});
