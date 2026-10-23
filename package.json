@@ -1,6 +1,6 @@
 {
   "name": "casa-artlia-3d",
-  "version": "12.3.3",
+  "version": "12.4.0",
   "private": true,
   "description": "Interactive Casa Artlia building reconstruction, ERP avant/apres, Ganser GTLE and first-person exploration",
   "engines": {
@@ -12,7 +12,9 @@
     "preview": "node scripts/serve.cjs",
     "test:data": "node tests/model.test.cjs",
     "test:browser": "node tests/browser.test.cjs",
-    "test": "npm run build && npm run test:data && npm run test:browser"
+    "test": "npm run build && npm run test:data && npm run test:browser && npm run test:layout",
+    "test:layout": "node tests/layout.test.cjs",
+    "deploy": "node scripts/publish.cjs"
   },
   "devDependencies": {
     "playwright": "1.62.1"
