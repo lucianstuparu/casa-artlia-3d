@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Casa Artlia — Modèle 3D machine-readable v10.0</title>
+<style>
+  html,body{margin:0;height:100%;font-family:system-ui,Segoe UI,Arial,sans-serif;background:#1c1c1e;color:#eee;overflow:hidden}
+  #ui{position:fixed;top:10px;left:10px;background:rgba(28,28,30,.92);border:1px solid #444;border-radius:10px;padding:12px 14px;width:270px;z-index:5;font-size:13px}
+  #ui h1{font-size:14px;margin:0 0 8px}
+  #ui .val{float:right;color:#7fb3ff}
+  #ui .warn{color:#ff9f6e}
+  #ui .ok{color:#8fdc97}
+  #hint{position:fixed;bottom:10px;left:10px;color:#888;font-size:12px;z-index:5}
+
+
+  /* Inclined platform simulator */
+  #liftPanel{position:fixed;top:12px;left:12px;width:310px;max-height:calc(100vh - 24px);overflow:hidden;background:rgba(23,23,26,.94);border:1px solid #4b4b52;border-radius:14px;padding:10px;z-index:7;font-size:12.5px;box-shadow:0 10px 32px rgba(0,0,0,.30);backdrop-filter:blur(10px);transition:width .18s ease,max-height .18s ease,padding .18s ease,border-radius .18s ease,background .18s ease}
+  #liftPanel.collapsed{width:46px;max-height:46px;padding:0;border-radius:13px;background:rgba(23,23,26,.88)}
+  #liftPanel.collapsed #liftBody,#liftPanel.collapsed .liftTitle{display:none}
+  #liftPanel h2{font-size:14px;margin:0;color:#f2f0ea;white-space:nowrap}
+  .liftHead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+  #liftPanel.collapsed .liftHead{margin:0;width:46px;height:46px}
+  #liftBody{max-height:calc(100vh - 78px);overflow:auto;padding:0 2px 2px 0;scrollbar-width:thin}
+  #liftToggle{display:grid;place-items:center;flex:0 0 auto;width:32px;height:32px;padding:0!important;border-radius:9px!important}
+  #liftPanel.collapsed #liftToggle{width:46px;height:46px;border:0;background:transparent;border-radius:13px!important}
+  #liftToggle svg{width:18px;height:18px;display:block;pointer-events:none}
+  #liftToggle .iconSettings{display:none}
+  #liftPanel.collapsed #liftToggle .iconSettings{display:block}
+  #liftPanel.collapsed #liftToggle .iconClose{display:none}
+  .liftRow{display:flex;align-items:center;gap:7px;margin:7px 0}
+  .liftRow label{color:#b8b8bf;min-width:86px}
+  .liftRow select,.liftRow input[type=range]{flex:1;min-width:0}
+  .liftRow select{background:#303036;color:#eee;border:1px solid #555;border-radius:6px;padding:5px}
+  .liftGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0}
+  .liftGrid.two{grid-template-columns:repeat(2,1fr)}
+  #liftPanel button{border:1px solid #5c5c64;background:#303036;color:#eee;border-radius:7px;padding:6px 7px;cursor:pointer}
+  #liftPanel button:hover{background:#3b3b42}
+  #liftPanel button.active{background:#274c72;border-color:#5f9bd3}
+  .liftCheck{display:grid;grid-template-columns:1fr 1fr;gap:5px 10px;margin:8px 0;color:#c6c6cc}
+  .liftCheck label{display:flex;align-items:center;gap:6px}
+  .liftNote{color:#8e8e96;font-size:11px;line-height:1.35;margin:5px 0 8px}
+  .liftReadout{border-top:1px solid #3d3d43;margin-top:8px;padding-top:7px;line-height:1.45}
+  .liftMetric{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #303036;padding:2px 0}
+  .liftMetric span:first-child{color:#a9a9b0}
+  .liftMetric .good{color:#8fdc97}.liftMetric .warn{color:#ffbd75}.liftMetric .bad{color:#ff7c70}
+  .liftDocs a{color:#83b9ff;text-decoration:none;margin-right:8px}.liftDocs a:hover{text-decoration:underline}
+  .liftValue{min-width:50px;text-align:right;color:#7fb3ff;font-variant-numeric:tabular-nums}
+  @media(max-width:760px){#liftPanel{width:min(290px,calc(100vw - 24px));max-height:calc(100vh - 24px)}#liftPanel.collapsed{width:46px;max-height:46px}}
+
+
+  /* Always-visible compact lift controller */
+  #liftController{position:fixed;right:12px;bottom:12px;z-index:9;display:flex;align-items:center;gap:5px;padding:6px;background:rgba(23,23,26,.91);border:1px solid #505057;border-radius:13px;box-shadow:0 8px 24px rgba(0,0,0,.28);backdrop-filter:blur(9px)}
+  #liftController .controllerModel{min-width:44px;padding:0 5px;color:#aeb3ba;font-size:10px;text-align:center;line-height:1.05;letter-spacing:.02em}
+  #liftController .controllerSep{width:1px;height:27px;background:#48484f;margin:0 2px}
+  #liftController button{display:grid;place-items:center;width:38px;height:38px;padding:0;border:1px solid #56565f;border-radius:9px;background:#303036;color:#eee;cursor:pointer}
+  #liftController button:hover{background:#3b3b42}
+  #liftController button.active{background:#27547d;border-color:#6aa4d7}
+  #liftController button:focus-visible{outline:2px solid #83b9ff;outline-offset:2px}
+  #liftController svg{width:20px;height:20px;display:block;pointer-events:none}
+  @media(max-width:620px){#liftController{right:8px;bottom:8px;gap:3px;padding:5px}#liftController .controllerModel{display:none}#liftController button{width:36px;height:36px}}
+
+</style>
+<script type="application/json" id="survey-data">
+{
+  "project": {
+    "name": "Casa Artlia",
+    "address": "1B Ruelle des Jardins, 01210 Ferney-Voltaire, France",
+    "parcelle": "AE 247",
+    "purpose": "ERP type R cat.5 - centre de loisirs familial; evaluation d'une plateforme elevatrice oblique (PMR) sur escalier existant",
+    "units": "cm",
+    "state": "avant travaux",
+    "survey_date": "2026-07-10",
+    "coordinate_system": "x: 0 = mur cote escalier (mur est reel), 372 = mur oppose; z: 0 = facade rue, 400 = mur du fond; y: 0 = plancher RDC, vertical"
+  },
+  "room": {
+    "interior_width_x": 372,
+    "interior_depth_z": 400,
+    "ceiling_height": 580,
+    "floor_to_floor_RDC_R1": 312,
+    "vide_full_height_zone": "au-dessus de l'entree, z < 270",
+    "r1_slab": {"top_y": 312, "thickness": 14, "zone": "z 270..400, du nez de palier x=250 vers x=454 (deborde l'emprise RDC)"}
+  },
+  "facade": {
+    "total_width": 372,
+    "mur_segment_cote_escalier": 72,
+    "porte_coulissante": {"width_avant_travaux": 90, "width_modeled": 140, "height": 214, "center_x": 302, "leaves": 2, "leaf_width": 75, "stack_width": 75, "type": "telescopique unilaterale exterieure", "note": "projet d etude: ouverture claire 140 cm placee cote oppose a l escalier; deux vantaux telescopiques de 75 cm se superposent a l exterieur devant le vitrage fixe"},
+    "reste": "vitrines fixes",
+    "arche_exterieure": {"modeled": true, "material": "habillage gris", "dimensions": "approximatives d apres photo", "projection": 20, "transom": "vitrage fixe sous arche", "upper_window": "fenetre plus haute et plus compacte avec encadrement arque exterieur"}
+  },
+  "staircase": {
+    "type": "double quart tournant en L, marches balancees aux deux tournants, balustrade interieure continue",
+    "total_rise": 312,
+    "risers_count_convention": 17,
+    "riser_height_avg": 18.35,
+    "riser_height_measured_typical": "17-18 (non uniformes)",
+    "treads_count": 17,
+    "going_straight": "28-30",
+    "going_winders_walkline_min": 25,
+    "width_lower_flight": 120,
+    "width_upper_flight": 130,
+    "sequence_bottom_to_top": [
+      {"treads": "1", "type": "droite large", "nosing_length": 149, "note": "dans l'axe de la balustrade, quasi empilee avec 2 cote facade"},
+      {"treads": "2-4", "type": "balancees (tournant bas, pivot P1)", "pivot": {"x": 122, "z": 149}},
+      {"treads": "5-8", "type": "droites", "width": 120},
+      {"treads": "9-13", "type": "balancees (tournant haut, pivot P2)", "pivot": {"x": 122, "z": 270}},
+      {"treads": "14-17", "type": "droites", "width": 130, "nosings_x": [134, 163, 192, 221], "palier_nez_x": 250}
+    ],
+    "balustrade": {"length_corner_to_newel": 121, "height": 90, "side": "interieure, continue", "constraint": "ne pas modifier"},
+    "landing_palier": {"depth": 204, "width": 130, "level_y": 312, "nez_to_facing_wall": 248}
+  },
+  "understair_recess": {
+    "opening_width": 172, "opening_width_measured": 173.6, "clear_height": 213,
+    "position": "affleure le mur oppose a l'escalier (x=372), jambage 78 cote escalier", "depth": 130
+  },
+  "platform_evaluation_constraints": {
+    "rule_residual_passage_min": 90,
+    "critical_flight_width": 120,
+    "max_folded_depth_for_compliance": 30,
+    "norm": "NF EN 81-40",
+    "turns": "2 x 90 deg (demi-tour total) avec balancees; rail courbe requis",
+    "headroom_min_above_tread17": 268,
+    "boarding_rdc": "zone genereuse (marche 1 = 149, RDC libre 250 de large)",
+    "alighting_r1": "palier 204 x 130",
+    "regulatory_context": "derogation art. R.164-2 CCH / arrete 8 dec 2014 art 7.2-II-4 demandee; batiment en zone ABF (PDA)"
+  },
+  "provenance": {
+    "measured_on_site": ["312", "120", "130", "121", "149(derive 270-121)", "248", "204x130", "173.6", "213", "72", "214 porte", "372", "250", "25 giron balancees", "28-30 giron droites", "17-18 contremarches"],
+    "reconstructed": ["angles des balancees (balancement progressif)", "position exacte des nez 14-17", "epaisseurs de murs", "hauteur balustrade 90"],
+    "conventions": ["17 contremarches egales de 18.35 dans le modele; la realite varie, seul le total 312 est mesure"]
+  }
+}
+</script>
+<script type="application/json" id="scene-manifest">
+{
+  "schema": "casa-artlia-scene-manifest",
+  "schema_version": "1.0.0",
+  "model_version": "10.0",
+  "language": "fr with English machine keys",
+  "units": {
+    "length": "cm",
+    "angle": "degrees",
+    "time": "seconds"
+  },
+  "coordinate_system": {
+    "handedness": "Three.js right-handed",
+    "x": "0 at staircase-side interior wall; +x toward opposite wall; interior width 372 cm",
+    "y": "0 at ground-floor finished floor; +y upward",
+    "z": "0 at street facade plane; +z toward rear wall; room depth 400 cm",
+    "facade_exterior": "negative z"
+  },
+  "scene_roots": [
+    {
+      "id": "room",
+      "name": "Existing room and architectural proposal",
+      "toggle": "always independent from lift",
+      "content": [
+        "floor",
+        "walls",
+        "facade",
+        "doors",
+        "arches",
+        "upper window",
+        "stairs",
+        "landing",
+        "under-stair recess",
+        "balustrades",
+        "stair extensions"
+      ]
+    },
+    {
+      "id": "lift_system",
+      "name": "Inclined platform lift system",
+      "toggle_control_ids": [
+        "liftSystemVisible",
+        "liftVisibilityBtn"
+      ],
+      "content": [
+        "rails",
+        "rack",
+        "supports",
+        "wall brackets",
+        "carriage",
+        "folding platform",
+        "safety arms",
+        "optional wheelchair/person",
+        "clearance diagnostics"
+      ]
+    },
+    {
+      "id": "diagnostics",
+      "name": "Room dimensions and labels",
+      "toggle_control_ids": [
+        "dimBtn"
+      ],
+      "content": [
+        "dimension lines",
+        "dimension labels"
+      ]
+    }
+  ],
+  "measurement_quality": {
+    "measured_on_site": "Values explicitly listed in survey-data.provenance.measured_on_site.",
+    "manufacturer_published": "Lift product values in LIFT_MODELS, with source URLs in each model docs array.",
+    "reconstructed": "Geometry inferred from photographs or fitted to measured endpoints.",
+    "simulation_assumption": "Rail route, supports, platform envelope and collision clearances are preliminary study geometry."
+  },
+  "assemblies": {
+    "room.shell": {
+      "interior_dimensions_cm": {
+        "width_x": 372,
+        "depth_z": 400,
+        "ceiling_y": 580,
+        "floor_to_floor_y": 312
+      },
+      "status": "mixed_measured_and_reconstructed"
+    },
+    "room.facade": {
+      "total_width_cm": 372,
+      "opaque_left_segment_cm": 72,
+      "glazed_span_cm": 300,
+      "door": {
+        "id": "room.facade.entrance.telescopic_door",
+        "clear_opening_cm": 140,
+        "height_cm": 214,
+        "x_range_cm": [
+          232,
+          372
+        ],
+        "type": "two-leaf unilateral telescopic automatic sliding door on exterior parallel tracks",
+        "leaf_nominal_width_cm": 75,
+        "stack_zone_x_cm": [
+          157,
+          232
+        ],
+        "operation": "animated; sensor/button concept"
+      },
+      "entrance_arch": {
+        "id": "room.facade.entrance.exterior_arch",
+        "inner_x_cm": [
+          72,
+          372
+        ],
+        "outer_x_cm": [
+          46,
+          398
+        ],
+        "inner_spring_y_cm": 224,
+        "inner_crown_y_cm": 260,
+        "outer_spring_y_cm": 238,
+        "outer_crown_y_cm": 296,
+        "projection_depth_cm": 20,
+        "status": "approximate_from_photo"
+      },
+      "upper_window": {
+        "id": "room.facade.upper_window",
+        "inner_x_cm": [
+          174,
+          272
+        ],
+        "bottom_y_cm": 405,
+        "inner_spring_y_cm": 482,
+        "inner_crown_y_cm": 515,
+        "outer_x_cm": [
+          160,
+          286
+        ],
+        "outer_bottom_y_cm": 393,
+        "outer_spring_y_cm": 492,
+        "outer_crown_y_cm": 533,
+        "status": "approximate_from_photo"
+      },
+      "under_arch_area": "fixed glass except door leaves/frames/operator"
+    },
+    "room.staircase": {
+      "id": "room.staircase",
+      "type": "double quarter-turn stair with winders",
+      "total_rise_cm": 312,
+      "model_risers": 17,
+      "model_riser_height_cm": 18.352941,
+      "lower_flight_width_cm": 120,
+      "upper_flight_width_cm": 130,
+      "lower_turn_pivot_cm": {
+        "x": 122,
+        "z": 149
+      },
+      "upper_turn_pivot_cm": {
+        "x": 122,
+        "z": 270
+      },
+      "steps": [
+        {
+          "id": "room.staircase.step.01",
+          "number": 1,
+          "top_elevation_y_cm": 18.3529,
+          "riser_height_model_cm": 18.3529,
+          "description": "large lower tread at ground entrance; nosing length 149 cm",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.02",
+          "number": 2,
+          "top_elevation_y_cm": 36.7059,
+          "riser_height_model_cm": 18.3529,
+          "description": "lower winder in first 90 degree turn",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.03",
+          "number": 3,
+          "top_elevation_y_cm": 55.0588,
+          "riser_height_model_cm": 18.3529,
+          "description": "lower winder in first 90 degree turn",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.04",
+          "number": 4,
+          "top_elevation_y_cm": 73.4118,
+          "riser_height_model_cm": 18.3529,
+          "description": "lower winder in first 90 degree turn",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.05",
+          "number": 5,
+          "top_elevation_y_cm": 91.7647,
+          "riser_height_model_cm": 18.3529,
+          "description": "lower straight flight, nominal width 120 cm",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.06",
+          "number": 6,
+          "top_elevation_y_cm": 110.1176,
+          "riser_height_model_cm": 18.3529,
+          "description": "lower straight flight, nominal width 120 cm",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.07",
+          "number": 7,
+          "top_elevation_y_cm": 128.4706,
+          "riser_height_model_cm": 18.3529,
+          "description": "lower straight flight, nominal width 120 cm",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.08",
+          "number": 8,
+          "top_elevation_y_cm": 146.8235,
+          "riser_height_model_cm": 18.3529,
+          "description": "lower straight flight, nominal width 120 cm",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.09",
+          "number": 9,
+          "top_elevation_y_cm": 165.1765,
+          "riser_height_model_cm": 18.3529,
+          "description": "upper winder in second 90 degree turn",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.10",
+          "number": 10,
+          "top_elevation_y_cm": 183.5294,
+          "riser_height_model_cm": 18.3529,
+          "description": "upper winder in second 90 degree turn",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.11",
+          "number": 11,
+          "top_elevation_y_cm": 201.8824,
+          "riser_height_model_cm": 18.3529,
+          "description": "upper winder in second 90 degree turn",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.12",
+          "number": 12,
+          "top_elevation_y_cm": 220.2353,
+          "riser_height_model_cm": 18.3529,
+          "description": "upper winder in second 90 degree turn",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.13",
+          "number": 13,
+          "top_elevation_y_cm": 238.5882,
+          "riser_height_model_cm": 18.3529,
+          "description": "upper winder in second 90 degree turn",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.14",
+          "number": 14,
+          "top_elevation_y_cm": 256.9412,
+          "riser_height_model_cm": 18.3529,
+          "description": "upper straight flight, nominal width 130 cm",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.15",
+          "number": 15,
+          "top_elevation_y_cm": 275.2941,
+          "riser_height_model_cm": 18.3529,
+          "description": "upper straight flight, nominal width 130 cm",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.16",
+          "number": 16,
+          "top_elevation_y_cm": 293.6471,
+          "riser_height_model_cm": 18.3529,
+          "description": "upper straight flight, nominal width 130 cm",
+          "status": "measured_and_reconstructed"
+        },
+        {
+          "id": "room.staircase.step.17",
+          "number": 17,
+          "top_elevation_y_cm": 312.0,
+          "riser_height_model_cm": 18.3529,
+          "description": "upper straight flight, nominal width 130 cm",
+          "status": "measured_and_reconstructed"
+        }
+      ],
+      "landing": {
+        "id": "room.staircase.upper_landing",
+        "level_y_cm": 312,
+        "nominal_size_cm": [
+          204,
+          130
+        ],
+        "modeled_region_cm": {
+          "x": [
+            250,
+            454
+          ],
+          "z": [
+            270,
+            400
+          ]
+        }
+      },
+      "balustrade": {
+        "id": "room.staircase.balustrade",
+        "lower_section_horizontal_span_cm": 121,
+        "nominal_height_cm": 90,
+        "status": "photo_reconstruction_plus_measured_span"
+      }
+    },
+    "room.understair_recess": {
+      "opening_width_measured_cm": 173.6,
+      "clear_height_cm": 213,
+      "depth_cm": 130,
+      "status": "measured"
+    },
+    "lift_system": {
+      "id": "lift_system",
+      "separate_from_room": true,
+      "normal_parking": "upper landing",
+      "route": "outer-wall route with two rising 90 degree curves",
+      "available_models": [
+        "ganser_gtle",
+        "ascendor_plk8"
+      ],
+      "dynamic_geometry": "generated at runtime from LIFT_MODELS and liftState; export using CASA_MODEL_API.exportSceneManifest()",
+      "visibility": "toggle hides the complete lift system without hiding room geometry"
+    }
+  },
+  "machine_interface": {
+    "global_api": "window.CASA_MODEL_API",
+    "export_function": "CASA_MODEL_API.exportSceneManifest()",
+    "download_button_id": "modelExport",
+    "object_records": "Every scene object receives a stable hierarchy-derived semantic_id, parent_id, subsystem, transform, world bounding box, local geometry bounds, material summary and userData.",
+    "embedded_sources": [
+      "survey-data",
+      "scene-manifest"
+    ]
+  },
+  "limitations": [
+    "This is a geometric feasibility model, not a manufacturer execution drawing.",
+    "Arches, upper window, balustrade details and several wall thicknesses are reconstructed from photographs.",
+    "The platform route/support design must be validated by the selected lift manufacturer and structural engineer.",
+    "Runtime object bounds include current animated door/platform state."
+  ]
+}
+</script>
+
+</head>
+<body>
+
+<div id="liftPanel" class="collapsed">
+  <div class="liftHead">
+    <h2 class="liftTitle">Plateforme oblique - simulation</h2>
+    <button id="liftToggle" type="button" title="Ouvrir les réglages" aria-label="Ouvrir les réglages de la plateforme" aria-expanded="false">
+      <svg class="iconSettings" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.14 12.94a7.7 7.7 0 0 0 .05-.94 7.7 7.7 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.25 7.25 0 0 0-1.63-.94L14.38 2.8a.5.5 0 0 0-.5-.4h-3.84a.5.5 0 0 0-.5.4l-.36 2.52c-.58.24-1.13.56-1.63.94L5.16 5.3a.5.5 0 0 0-.61.22L2.63 8.84a.5.5 0 0 0 .12.64l2.03 1.58c-.03.31-.05.63-.05.94s.02.63.05.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32a.5.5 0 0 0 .61.22l2.39-.96c.5.38 1.05.7 1.63.94l.36 2.52a.5.5 0 0 0 .5.4h3.84a.5.5 0 0 0 .5-.4l.36-2.52c.58-.24 1.13-.56 1.63-.94l2.39.96a.5.5 0 0 0 .61-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z"/></svg>
+      <svg class="iconClose" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div id="liftBody">
+    <div class="liftRow"><label for="liftModel">Modele</label><select id="liftModel"></select></div>
+    <div id="liftModelInfo" class="liftNote"></div>
+    <div id="liftDocs" class="liftDocs liftNote"></div>
+    <div class="liftRow"><label for="liftPos">Position</label><input id="liftPos" type="range" min="0" max="1000" value="1000"><span id="liftPosVal" class="liftValue">100%</span></div>
+    <div class="liftRow"><label for="liftSpeed">Vitesse demo</label><input id="liftSpeed" type="range" min="10" max="90" value="42"><span id="liftSpeedVal" class="liftValue">42</span></div>
+    <div class="liftRow"><label for="liftOffset">Axe plateforme / mur</label><input id="liftOffset" type="range" min="7" max="22" step="0.25" value="15"><span id="liftOffsetVal" class="liftValue">15 cm</span></div>
+    <div class="liftRow"><label for="liftStationX">Station basse X</label><input id="liftStationX" type="range" min="122" max="240" step="1" value="195"><span id="liftStationXVal" class="liftValue">195 cm</span></div>
+    <div class="liftRow"><label for="liftSupportMode">Fixation voie</label><select id="liftSupportMode"><option value="posts">Poteaux continus</option><option value="hybrid">Mur + poteaux aux courbes</option><option value="wall_local" selected>Poteaux bas + équerres murales ensuite</option><option value="wall">Mur continu</option></select></div>
+    <div class="liftRow"><label for="stairExtensionMode">Élargissement intérieur</label><select id="stairExtensionMode"><option value="none" selected>Existant — 120 cm</option><option value="option1">Option 1 — +5 cm, cornière continue</option><option value="option2">Option 2 — +10 cm, consoles + poutre</option><option value="option3">Option 3 — +10 cm, limon indépendant</option></select></div>
+    <div class="liftCheck">
+      <label><input id="liftSystemVisible" type="checkbox" checked> Installation complète</label>
+      <label><input id="liftSupports" type="checkbox" checked> Supports</label>
+      <label><input id="liftSweep" type="checkbox"> Balayage</label>
+      <label><input id="liftDoorZone" type="checkbox" checked> Zone porte</label>
+      <label><input id="liftPayload" type="checkbox"> Fauteuil + personne</label>
+      <label><input id="liftFollow" type="checkbox"> Suivre</label>
+    </div>
+    <div class="liftGrid two"><button id="liftOptimize">Optimiser voie murale</button><button id="liftOptimizeAll">Optimiser les 2</button></div>
+    <div class="liftGrid two"><button id="liftViewRoute">Vue parcours</button><button id="liftReset">Reinitialiser</button></div>
+    <div class="liftGrid two"><button id="modelExport">Exporter JSON IA</button><button id="liftOnlyToggle">Masquer l'élévateur</button></div>
+    <div class="liftNote">Modèle géométrique d’étude. Les options 1 à 3 conservent les marches bois et ajoutent une bande métallique thermolaquée claire sur le bord intérieur: petite extension sur cornière, extension sur consoles avec poutre de rive, ou limon acier indépendant. Le garde-corps déplacé reste droit; aucun raccord oblique n’est créé au départ. Les détails d’ancrage sont indicatifs. L’optimiseur de voie ne réduit pas la profondeur repliée publiée du produit.</div>
+    <div id="liftReadout" class="liftReadout"></div>
+  </div>
+</div>
+
+<div id="liftController" role="group" aria-label="Commande de la plateforme">
+  <div id="liftControllerModel" class="controllerModel">GTLE</div>
+  <button id="liftDown" type="button" title="Descendre" aria-label="Descendre">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v15m-6-6 6 6 6-6"/></svg>
+  </button>
+  <button id="liftStop" type="button" title="Arrêter" aria-label="Arrêter">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5" fill="currentColor"/></svg>
+  </button>
+  <button id="liftUp" type="button" title="Monter" aria-label="Monter">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 20V5m-6 6 6-6 6 6"/></svg>
+  </button>
+  <span class="controllerSep" aria-hidden="true"></span>
+  <button id="liftOpen" type="button" title="Déployer la plateforme" aria-label="Déployer la plateforme">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 5v14m0 0h13M10 9l-4-4-4 4"/></svg>
+  </button>
+  <button id="liftFold" type="button" title="Replier la plateforme" aria-label="Replier la plateforme">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 5v14m0 0h13M2 15l4 4 4-4"/></svg>
+  </button>
+</div>
+
+<button id="liftVisibilityBtn" style="position:fixed;top:10px;right:330px;z-index:6;padding:8px 12px;border-radius:8px;border:1px solid #555;background:#2e2e33;color:#eee;cursor:pointer">Élévateur : visible</button><button id="entranceDoorBtn" style="position:fixed;top:10px;right:170px;z-index:6;padding:8px 12px;border-radius:8px;border:1px solid #555;background:#2e2e33;color:#eee;cursor:pointer">Porte : fermee</button><button id="dimBtn" style="position:fixed;top:10px;right:10px;z-index:6;padding:8px 12px;border-radius:8px;border:1px solid #555;background:#2e2e33;color:#eee;cursor:pointer">Cotes 3D</button><button id="listBtn" style="position:fixed;top:10px;right:100px;z-index:6;padding:8px 12px;border-radius:8px;border:1px solid #555;background:#2e2e33;color:#eee;cursor:pointer">Liste</button>
+<div id="dims" style="display:none;position:fixed;top:52px;right:10px;bottom:12px;width:330px;overflow:auto;background:rgba(28,28,30,.95);border:1px solid #444;border-radius:10px;padding:12px 14px;z-index:6;font-size:12.5px;line-height:1.45"></div>
+<div id="hint">v10.0 modèle IA · pièce et élévateur séparés · manifeste JSON intégré · ouverture claire 140 cm · Glisser: orbite · Molette: zoom · Clic droit / molette-clic / Maj+glisser: déplacement · Flèches: déplacement</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const RISE=312,NRIS=17,RH=RISE/NRIS;
+const BAL=122,SWALL=0,OWALL=372,BACK=400,CEIL=580;
+const P1={x:BAL,z:149},P2={x:BAL,z:270};
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x232326);
+// Machine-readable scene hierarchy. Architecture and lift are independent roots.
+const CASA_ROOT=new THREE.Group();CASA_ROOT.name='Casa Artlia model root';CASA_ROOT.userData={semanticId:'casa_artlia',subsystem:'root',units:'cm'};scene.add(CASA_ROOT);
+const ROOM_GROUP=new THREE.Group();ROOM_GROUP.name='Room and architecture';ROOM_GROUP.userData={semanticId:'room',subsystem:'room',sourceStatus:'mixed_measured_reconstructed'};
+const LIFT_SYSTEM_GROUP=new THREE.Group();LIFT_SYSTEM_GROUP.name='Inclined platform lift system';LIFT_SYSTEM_GROUP.userData={semanticId:'lift_system',subsystem:'lift_system',sourceStatus:'manufacturer_data_plus_simulation'};
+const DIAGNOSTICS_GROUP=new THREE.Group();DIAGNOSTICS_GROUP.name='Diagnostics and dimensions';DIAGNOSTICS_GROUP.userData={semanticId:'diagnostics',subsystem:'diagnostics'};
+CASA_ROOT.add(ROOM_GROUP,LIFT_SYSTEM_GROUP,DIAGNOSTICS_GROUP);
+function labelObject(obj,name,userData={}){if(name)obj.name=name;obj.userData=Object.assign({},obj.userData||{},userData);return obj;}
+function topSubsystem(obj){let n=obj;while(n&&n.parent&&n.parent!==CASA_ROOT)n=n.parent;return n===ROOM_GROUP?'room':n===LIFT_SYSTEM_GROUP?'lift_system':n===DIAGNOSTICS_GROUP?'diagnostics':'other';}
+
+const camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,1,6000);
+const renderer=new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(innerWidth,innerHeight);document.body.appendChild(renderer.domElement);
+scene.add(new THREE.AmbientLight(0xffffff,.6));
+const s1=new THREE.DirectionalLight(0xffffff,.7);s1.position.set(500,700,-200);scene.add(s1);
+const s2=new THREE.DirectionalLight(0xffe8c8,.3);s2.position.set(-300,300,500);scene.add(s2);
+const DS=THREE.DoubleSide;
+const matWall=new THREE.MeshLambertMaterial({color:0xd8d4c8,transparent:true,opacity:.35,side:DS});
+const matWallS=new THREE.MeshLambertMaterial({color:0xd8d4c8,side:DS});
+const matWhite=new THREE.MeshLambertMaterial({color:0xf4f2ec,side:DS});
+const matFloor=new THREE.MeshLambertMaterial({color:0x9d9486,side:DS});
+const wood1=new THREE.MeshLambertMaterial({color:0xc89a63,side:DS});
+const wood2=new THREE.MeshLambertMaterial({color:0xb98a55,side:DS});
+const matSlab=new THREE.MeshLambertMaterial({color:0xb8b2a4,side:DS});
+const matRail=new THREE.MeshLambertMaterial({color:0xf2f0ea,side:DS});
+function box(w,h,d,mat,x,y,z,name='',userData={}){const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);m.position.set(x,y,z);ROOM_GROUP.add(m);return labelObject(m,name,Object.assign({primitive:'box',dimensionsCm:{x:w,y:h,z:d},subsystem:'room'},userData));}
+box(372,4,400,matFloor,186,-2,200);
+box(372,CEIL,4,matWall,186,CEIL/2,BACK+2);
+box(4,CEIL,400,matWall,SWALL-2,CEIL/2,200);
+box(4,CEIL,400,matWall,OWALL+2,CEIL/2,200);
+// Façade projetée: mur opaque de 72 cm + vitrage fixe + porte télescopique extérieure.
+// L'ouverture claire de 140 cm est placée à l'extrémité opposée à l'escalier.
+// Deux vantaux de 75 cm, sur deux plans extérieurs parallèles, se superposent devant le vitrage fixe.
+const DOOR_X0=232,DOOR_X1=372,DOOR_CX=302,DOOR_W=140,DOOR_H=214;
+const DOOR_STACK_X0=157,DOOR_STACK_X1=232,DOOR_STACK_CX=194.5,DOOR_LEAF_W=75,DOOR_OVERLAP=10;
+const matFacadeGlass=new THREE.MeshLambertMaterial({color:0x89b8dc,transparent:true,opacity:.30,side:DS,depthWrite:false});
+const matDoorGlass=new THREE.MeshLambertMaterial({color:0x78b2df,transparent:true,opacity:.42,side:DS,depthWrite:false});
+const matDoorFrame=new THREE.MeshLambertMaterial({color:0xd7d9dc,side:DS});
+const matDoorHeader=new THREE.MeshLambertMaterial({color:0xbfc3c7,side:DS});
+function facadeGlazedPanel(x0,x1){
+  const w=x1-x0,c=(x0+x1)/2;
+  box(Math.max(1,w-6),DOOR_H-6,2,matFacadeGlass,c,DOOR_H/2,-1);
+  box(3,DOOR_H,4,matDoorFrame,x0+1.5,DOOR_H/2,-2);
+  box(3,DOOR_H,4,matDoorFrame,x1-1.5,DOOR_H/2,-2);
+  box(w,3,4,matDoorFrame,c,1.5,-2);
+  box(w,3,4,matDoorFrame,c,DOOR_H-1.5,-2);
+}
+function telescopicLeaf(zOff){
+  const g=new THREE.Group();
+  addBoxTo(g,DOOR_LEAF_W-5,DOOR_H-6,2,matDoorGlass,0,DOOR_H/2,0);
+  addBoxTo(g,2.5,DOOR_H,4,matDoorFrame,-DOOR_LEAF_W/2+1.25,DOOR_H/2,-1);
+  addBoxTo(g,2.5,DOOR_H,4,matDoorFrame, DOOR_LEAF_W/2-1.25,DOOR_H/2,-1);
+  addBoxTo(g,DOOR_LEAF_W,2.5,4,matDoorFrame,0,1.25,-1);
+  addBoxTo(g,DOOR_LEAF_W,2.5,4,matDoorFrame,0,DOOR_H-1.25,-1);
+  g.position.z=zOff;ROOM_GROUP.add(g);return labelObject(g,'Entrance telescopic door leaf',{assembly:'room.facade.entrance.telescopic_door',subsystem:'room'});
+}
+box(72,CEIL,4,matWallS,36,CEIL/2,-2);
+// vitrage fixe continu derrière la zone d'empilement extérieure
+facadeGlazedPanel(72,DOOR_X0);
+// montants de l'ouverture claire et seuil
+box(4,DOOR_H,5,matDoorFrame,DOOR_X0,DOOR_H/2,-2.2);
+box(4,DOOR_H,5,matDoorFrame,DOOR_X1,DOOR_H/2,-2.2);
+box(DOOR_W,2,6,matDoorFrame,DOOR_CX,1,-2.4);
+// opérateur automatique extérieur au-dessus de l'ouverture et de la zone d'empilement
+box(DOOR_X1-DOOR_STACK_X0,10,10,matDoorHeader,(DOOR_STACK_X0+DOOR_X1)/2,DOOR_H+5,-7.5);
+box(16,4,5,new THREE.MeshLambertMaterial({color:0x3d4145,side:DS}),DOOR_CX,DOOR_H+6,-14);
+const entranceDoor={open:0,target:0,speed:1.3,tail:null,lead:null};
+entranceDoor.tail=telescopicLeaf(-5.5);
+entranceDoor.lead=telescopicLeaf(-10.5);
+const DOOR_TAIL_CLOSED=(DOOR_X0+DOOR_X0+DOOR_LEAF_W)/2;
+const DOOR_LEAD_CLOSED=(DOOR_X1-DOOR_LEAF_W+DOOR_X1)/2;
+function setEntranceDoorPose(){
+  const t=entranceDoor.open;
+  entranceDoor.tail.position.x=DOOR_TAIL_CLOSED+(DOOR_STACK_CX-DOOR_TAIL_CLOSED)*t;
+  entranceDoor.lead.position.x=DOOR_LEAD_CLOSED+(DOOR_STACK_CX-DOOR_LEAD_CLOSED)*t;
+  const b=document.getElementById('entranceDoorBtn');
+  if(b)b.textContent=t>.5?'Porte : ouverte':'Porte : fermee';
+}
+setEntranceDoorPose();
+
+// Arche / encadrement extérieur visible sur la photographie de la façade.
+// Les dimensions restent indicatives, mais la baie vitrée est maintenant alignée
+// exactement avec l'ouverture intérieure de l'arche: plus de bande vide latérale.
+const archGroup=new THREE.Group();
+archGroup.name='Arches extérieures';
+ROOM_GROUP.add(archGroup);archGroup.userData={semanticId:'room.facade.exterior_arches',subsystem:'room',sourceStatus:'approximate_from_photo'};
+const matExteriorArch=new THREE.MeshLambertMaterial({color:0x66717c,side:DS});
+const matUpperArch=new THREE.MeshLambertMaterial({color:0x7a8791,side:DS});
+const matTransomGlass=new THREE.MeshLambertMaterial({color:0x7898ad,transparent:true,opacity:.34,side:DS,depthWrite:false});
+const matUpperGlass=new THREE.MeshLambertMaterial({color:0x7296b1,transparent:true,opacity:.34,side:DS,depthWrite:false});
+const matUpperDecorativeGlass=new THREE.MeshLambertMaterial({color:0xd8ddd2,transparent:true,opacity:.58,side:DS,depthWrite:false});
+const matWindowWood=new THREE.MeshLambertMaterial({color:0x513327,side:DS});
+
+// Main entrance surround. The inner legs coincide with the 300 cm glazed span.
+const ARCH_IN_L=72,ARCH_IN_R=372,ARCH_MID=(ARCH_IN_L+ARCH_IN_R)/2;
+const ARCH_OUT_L=46,ARCH_OUT_R=398;
+const ARCH_IN_SPRING=224,ARCH_IN_CROWN=260;
+const ARCH_OUT_SPRING=238,ARCH_OUT_CROWN=296;
+const ARCH_DEPTH=20,ARCH_Z=-24;
+
+// Upper window: smaller and higher than in v9.8, with its own exterior arched trim.
+const WIN_IN_L=174,WIN_IN_R=272,WIN_MID=(WIN_IN_L+WIN_IN_R)/2;
+const WIN_BOTTOM=405,WIN_IN_SPRING=482,WIN_IN_CROWN=515;
+const WIN_OUT_L=160,WIN_OUT_R=286;
+const WIN_OUT_BOTTOM=393,WIN_OUT_SPRING=492,WIN_OUT_CROWN=533;
+const WIN_ARCH_DEPTH=9,WIN_ARCH_Z=-13;
+
+function extrudeXY(shape,depth,mat,z,parent=ROOM_GROUP,segments=40,name='',userData={}){
+  const geom=new THREE.ExtrudeGeometry(shape,{depth,bevelEnabled:false,curveSegments:segments});
+  const mesh=new THREE.Mesh(geom,mat);
+  mesh.position.z=z;
+  parent.add(mesh);
+  return labelObject(mesh,name,Object.assign({primitive:'extruded_shape',extrusionDepthCm:depth,subsystem:topSubsystem(mesh)},userData));
+}
+function archCapShape(l,r,spring,crown,bottom){
+  const mid=(l+r)/2;
+  const sh=new THREE.Shape();
+  sh.moveTo(l,bottom);
+  sh.lineTo(r,bottom);
+  sh.lineTo(r,spring);
+  sh.quadraticCurveTo(mid,2*crown-spring,l,spring);
+  sh.lineTo(l,bottom);
+  sh.closePath();
+  return sh;
+}
+function portalSurroundShape(outL,outR,outBottom,outSpring,outCrown,inL,inR,inBottom,inSpring,inCrown){
+  const outMid=(outL+outR)/2, inMid=(inL+inR)/2;
+  const sh=new THREE.Shape();
+  sh.moveTo(outL,outBottom);
+  sh.lineTo(outL,outSpring);
+  sh.quadraticCurveTo(outMid,2*outCrown-outSpring,outR,outSpring);
+  sh.lineTo(outR,outBottom);
+  sh.closePath();
+  const opening=new THREE.Path();
+  opening.moveTo(inL,inBottom);
+  opening.lineTo(inR,inBottom);
+  opening.lineTo(inR,inSpring);
+  opening.quadraticCurveTo(inMid,2*inCrown-inSpring,inL,inSpring);
+  opening.lineTo(inL,inBottom);
+  opening.closePath();
+  sh.holes.push(opening);
+  return sh;
+}
+function addEntranceArchAndGlass(){
+  extrudeXY(
+    portalSurroundShape(
+      ARCH_OUT_L,ARCH_OUT_R,0,ARCH_OUT_SPRING,ARCH_OUT_CROWN,
+      ARCH_IN_L,ARCH_IN_R,0,ARCH_IN_SPRING,ARCH_IN_CROWN
+    ),
+    ARCH_DEPTH,matExteriorArch,ARCH_Z,archGroup,48
+  );
+
+  // Fixed glass fills the complete zone between the horizontal door head and arch.
+  extrudeXY(
+    archCapShape(ARCH_IN_L,ARCH_IN_R,ARCH_IN_SPRING,ARCH_IN_CROWN,DOOR_H),
+    1.5,matTransomGlass,-4.4,archGroup,48
+  );
+
+  // Mullion between the telescopic door and the fixed arched transom.
+  const mullion=new THREE.Mesh(new THREE.BoxGeometry(300,4,5),matDoorFrame);
+  mullion.position.set(ARCH_MID,DOOR_H+2,-4.8);
+  archGroup.add(mullion);
+}
+
+function addUpperFacadeWall(){
+  // Main upper wall from the entrance-arch crown to the ceiling, with an arched
+  // opening cut for the real upper window.
+  const sh=new THREE.Shape();
+  sh.moveTo(72,ARCH_IN_CROWN);
+  sh.lineTo(372,ARCH_IN_CROWN);
+  sh.lineTo(372,CEIL);
+  sh.lineTo(72,CEIL);
+  sh.closePath();
+  const windowHole=new THREE.Path();
+  windowHole.moveTo(WIN_IN_L,WIN_BOTTOM);
+  windowHole.lineTo(WIN_IN_R,WIN_BOTTOM);
+  windowHole.lineTo(WIN_IN_R,WIN_IN_SPRING);
+  windowHole.quadraticCurveTo(WIN_MID,2*WIN_IN_CROWN-WIN_IN_SPRING,WIN_IN_L,WIN_IN_SPRING);
+  windowHole.lineTo(WIN_IN_L,WIN_BOTTOM);
+  windowHole.closePath();
+  sh.holes.push(windowHole);
+  extrudeXY(sh,4,matWallS,-4,ROOM_GROUP,48,'Upper facade wall with upper-window opening',{assembly:'room.facade'});
+
+  // Small masonry corners above the entrance arch curve. There is no wall behind
+  // the transom glass anymore.
+  const leftCorner=new THREE.Shape();
+  leftCorner.moveTo(72,ARCH_IN_CROWN);
+  leftCorner.lineTo(ARCH_MID,ARCH_IN_CROWN);
+  leftCorner.quadraticCurveTo((72+ARCH_MID)/2,ARCH_IN_CROWN,72,ARCH_IN_SPRING);
+  leftCorner.lineTo(72,ARCH_IN_CROWN);
+  leftCorner.closePath();
+  extrudeXY(leftCorner,4,matWallS,-4,ROOM_GROUP,32,'Entrance arch upper-left masonry corner',{assembly:'room.facade.entrance'});
+
+  const rightCorner=new THREE.Shape();
+  rightCorner.moveTo(ARCH_MID,ARCH_IN_CROWN);
+  rightCorner.lineTo(372,ARCH_IN_CROWN);
+  rightCorner.lineTo(372,ARCH_IN_SPRING);
+  rightCorner.quadraticCurveTo((ARCH_MID+372)/2,ARCH_IN_CROWN,ARCH_MID,ARCH_IN_CROWN);
+  rightCorner.closePath();
+  extrudeXY(rightCorner,4,matWallS,-4,ROOM_GROUP,32,'Entrance arch upper-right masonry corner',{assembly:'room.facade.entrance'});
+}
+
+function addUpperWindow(){
+  // Exterior grey arched surround and a shallow projecting sill.
+  extrudeXY(
+    portalSurroundShape(
+      WIN_OUT_L,WIN_OUT_R,WIN_OUT_BOTTOM,WIN_OUT_SPRING,WIN_OUT_CROWN,
+      WIN_IN_L,WIN_IN_R,WIN_BOTTOM,WIN_IN_SPRING,WIN_IN_CROWN
+    ),
+    WIN_ARCH_DEPTH,matUpperArch,WIN_ARCH_Z,archGroup,40
+  );
+  const sill=new THREE.Mesh(new THREE.BoxGeometry(WIN_OUT_R-WIN_OUT_L+8,8,15),matUpperArch);
+  sill.position.set(WIN_MID,WIN_OUT_BOTTOM+1,-8);
+  archGroup.add(sill);
+
+  // One continuous glazed opening, split visually into a rectangular lower window
+  // and the small fixed arched transom visible in the photograph.
+  extrudeXY(
+    archCapShape(WIN_IN_L,WIN_IN_R,WIN_IN_SPRING,WIN_IN_CROWN,WIN_BOTTOM),
+    1.5,matUpperGlass,-4.6,archGroup,40
+  );
+  const upperGlassShape=archCapShape(WIN_IN_L+3,WIN_IN_R-3,WIN_IN_SPRING,WIN_IN_CROWN-3,WIN_IN_SPRING-3);
+  extrudeXY(upperGlassShape,1.2,matUpperDecorativeGlass,-5.2,archGroup,40);
+
+  // Dark wooden frame, closer to the actual upper window.
+  const lowerH=WIN_IN_SPRING-WIN_BOTTOM;
+  const sideW=5;
+  addBoxTo(archGroup,sideW,lowerH,5,matWindowWood,WIN_IN_L+sideW/2,WIN_BOTTOM+lowerH/2,-5.2);
+  addBoxTo(archGroup,sideW,lowerH,5,matWindowWood,WIN_IN_R-sideW/2,WIN_BOTTOM+lowerH/2,-5.2);
+  addBoxTo(archGroup,WIN_IN_R-WIN_IN_L,5,5,matWindowWood,WIN_MID,WIN_BOTTOM+2.5,-5.2);
+  addBoxTo(archGroup,WIN_IN_R-WIN_IN_L,5,5,matWindowWood,WIN_MID,WIN_IN_SPRING-2.5,-5.2);
+  addBoxTo(archGroup,4,lowerH,5,matWindowWood,WIN_MID,WIN_BOTTOM+lowerH/2,-5.2);
+}
+
+addEntranceArchAndGlass();
+addUpperFacadeWall();
+addUpperWindow();
+box(372,4,400,new THREE.MeshLambertMaterial({color:0xefece4,transparent:true,opacity:.18,side:DS}),186,CEIL+2,200);
+box(204,14,130,matSlab,352,312-7,335); // palier: du nez (x=250) vers le débord
+function prism(pts,y0,y1,mat,name='',userData={}){const sh=new THREE.Shape(pts.map(p=>new THREE.Vector2(p.x,p.z)));
+ const g=new THREE.ExtrudeGeometry(sh,{depth:y1-y0,bevelEnabled:false});
+ const m=new THREE.Mesh(g,mat);m.rotation.x=Math.PI/2;m.position.y=y1;ROOM_GROUP.add(m);return labelObject(m,name,Object.assign({primitive:'extruded_plan_polygon',planPolygonCm:pts.map(p=>({x:p.x,z:p.z})),verticalRangeCm:[y0,y1],subsystem:'room'},userData));}
+// marche = bloc bois (giron+contremarche RH), dessous rempli blanc jusqu'au sol
+const STAIR_TOP_REGIONS=[];let STAIR_STEP_INDEX=0;
+function step(pts,top,mat){
+ const stepNo=++STAIR_STEP_INDEX;
+ STAIR_TOP_REGIONS.push({stepNo,pts:pts.map(p=>({x:p.x,z:p.z})),top});
+ prism(pts,Math.max(0,top-RH),top,mat,'Stair step '+stepNo+' wood',{semanticId:'room.staircase.step.'+String(stepNo).padStart(2,'0')+'.wood',assembly:'room.staircase',stepNumber:stepNo,measurementStatus:'measured_endpoints_reconstructed_polygon'});
+ if(top-RH>1)prism(pts,0,top-RH,matWhite,'Stair step '+stepNo+' support fill',{semanticId:'room.staircase.step.'+String(stepNo).padStart(2,'0')+'.fill',assembly:'room.staircase',stepNumber:stepNo,measurementStatus:'model_construction'});
+}
+const T=[];for(let i=1;i<=17;i++)T[i]=RH*i;
+step([{x:BAL,z:0},{x:SWALL,z:0},{x:SWALL,z:117},{x:P1.x,z:149}],T[1],wood1);
+step([{x:P1.x,z:P1.z},{x:53,z:0},{x:SWALL,z:0},{x:SWALL,z:49}],T[2],wood1);
+step([{x:P1.x,z:P1.z},{x:SWALL,z:49},{x:SWALL,z:117}],T[3],wood2);
+step([{x:P1.x,z:P1.z},{x:SWALL,z:117},{x:SWALL,z:154},{x:BAL,z:154}],T[4],wood1);
+const zs=[154,183,212,241];
+for(let i=0;i<3;i++)step([{x:BAL,z:zs[i]},{x:SWALL,z:zs[i]},{x:SWALL,z:zs[i+1]},{x:BAL,z:zs[i+1]}],T[5+i],i%2?wood2:wood1);
+step([{x:BAL,z:241},{x:SWALL,z:241},{x:SWALL,z:280},{x:P2.x,z:270}],T[8],wood2);
+step([{x:P2.x,z:P2.z},{x:SWALL,z:280},{x:SWALL,z:339}],T[9],wood1);
+step([{x:P2.x,z:P2.z},{x:SWALL,z:339},{x:SWALL,z:BACK},{x:31,z:BACK}],T[10],wood2);
+step([{x:P2.x,z:P2.z},{x:31,z:BACK},{x:87,z:BACK}],T[11],wood1);
+step([{x:P2.x,z:P2.z},{x:87,z:BACK},{x:117,z:BACK}],T[12],wood2);
+step([{x:P2.x,z:P2.z},{x:117,z:BACK},{x:134,z:BACK},{x:134,z:270}],T[13],wood1);
+const xs=[134,163,192,221,250];
+for(let i=0;i<4;i++){const stepNo=14+i,p=[{x:xs[i],z:270},{x:xs[i+1],z:270},{x:xs[i+1],z:BACK},{x:xs[i],z:BACK}];
+ STAIR_TOP_REGIONS.push({stepNo,pts:p.map(q=>({x:q.x,z:q.z})),top:T[stepNo]});
+ prism(p,T[stepNo]-RH,T[stepNo],i%2?wood1:wood2,'Stair step '+stepNo+' wood',{semanticId:'room.staircase.step.'+String(stepNo).padStart(2,'0')+'.wood',assembly:'room.staircase',stepNumber:stepNo,measurementStatus:'measured_endpoints_reconstructed_polygon'});
+ prism(p,213,T[stepNo]-RH,matWhite,'Stair step '+stepNo+' support fill',{semanticId:'room.staircase.step.'+String(stepNo).padStart(2,'0')+'.fill',assembly:'room.staircase',stepNumber:stepNo,measurementStatus:'model_construction'});}                    // remplissage au-dessus du plafond de l'alcôve
+// recoin sous escalier: ouverture 173,6 x 213 face à l'entrée (plan z=270), alcôve derrière
+box(78,298,4,matWhite,161,149,270);                 // jambage côté escalier x122..200
+box(172,85,4,matWhite,286,255.5,270);               // linteau y213..298 (x200..372)
+box(172,3,128,matWhite,286,213,335);                // plafond alcôve à 213
+box(4,213,130,new THREE.MeshLambertMaterial({color:0xb9c2cb,side:DS}),201,106.5,335);   // paroi grise côté escalier
+// Balustrade intérieure et trois variantes d'élargissement de la volée 120 cm.
+const STAIR_EXTENSION_OPTIONS={
+  none:{label:'Existant — 120 cm',width:0,type:'none'},
+  option1:{label:'Option 1 — +5 cm, cornière continue',width:5,type:'angle'},
+  option2:{label:'Option 2 — +10 cm, consoles + poutre de rive',width:10,type:'cantilever'},
+  option3:{label:'Option 3 — +10 cm, limon acier indépendant',width:10,type:'stringer'}
+};
+const lowerBalustradeGroup=new THREE.Group();lowerBalustradeGroup.name='Balustrade basse mobile';lowerBalustradeGroup.userData={semanticId:'room.staircase.balustrade.lower',subsystem:'room',sourceStatus:'photo_reconstruction_plus_measured_span'};ROOM_GROUP.add(lowerBalustradeGroup);
+const upperBalustradeGroup=new THREE.Group();upperBalustradeGroup.name='Balustrade haute fixe';upperBalustradeGroup.userData={semanticId:'room.staircase.balustrade.upper',subsystem:'room',sourceStatus:'photo_reconstruction'};ROOM_GROUP.add(upperBalustradeGroup);
+const stairExtensionGroup=new THREE.Group();stairExtensionGroup.name='Elargissement escalier';stairExtensionGroup.userData={semanticId:'room.staircase.optional_extension',subsystem:'room',sourceStatus:'design_option'};ROOM_GROUP.add(stairExtensionGroup);
+const matExtensionTop=new THREE.MeshLambertMaterial({color:0xf0f1ee,side:DS});
+const matExtensionSteel=new THREE.MeshLambertMaterial({color:0xd8dbdc,side:DS});
+const matExtensionDark=new THREE.MeshLambertMaterial({color:0x747b7f,side:DS});
+// Balustrade materials reconstructed from the site photographs: broad white
+// decorative blades outside the tread edge, with two slimmer welded steel rails
+// on the stair-facing side.
+const matBalBlade=new THREE.MeshLambertMaterial({color:0xf2f1ec,side:DS});
+const matBalSteel=new THREE.MeshLambertMaterial({color:0xe2e3df,side:DS});
+const matBalSteelShadow=new THREE.MeshLambertMaterial({color:0xc4c8c6,side:DS});
+const matBalWoodHelper=new THREE.MeshLambertMaterial({color:0xb28a62,side:DS});
+function clearGroupGeometry(group){
+  group.traverse(o=>{if(o.geometry)o.geometry.dispose();});
+  while(group.children.length)group.remove(group.children[group.children.length-1]);
+}
+function groupBox(group,w,h,d,mat,x,y,z,name='',userData={}){const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);m.position.set(x,y,z);group.add(m);return labelObject(m,name,Object.assign({primitive:'box',dimensionsCm:{x:w,y:h,z:d},assembly:group.userData?.semanticId||group.name||null},userData));}
+function groupPrism(group,pts,y0,y1,mat,name='',userData={}){const sh=new THREE.Shape(pts.map(p=>new THREE.Vector2(p.x,p.z)));const g=new THREE.ExtrudeGeometry(sh,{depth:y1-y0,bevelEnabled:false});const m=new THREE.Mesh(g,mat);m.rotation.x=Math.PI/2;m.position.y=y1;group.add(m);return labelObject(m,name,Object.assign({primitive:'extruded_plan_polygon',planPolygonCm:pts.map(p=>({x:p.x,z:p.z})),verticalRangeCm:[y0,y1],assembly:group.userData?.semanticId||group.name||null},userData));}
+function groupRailBar(group,x1,y1,z1,x2,y2,z2,mat=matRail,w=4,h=7,name='',userData={}){const L=Math.hypot(x2-x1,y2-y1,z2-z1);const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,L),mat);m.position.set((x1+x2)/2,(y1+y2)/2,(z1+z2)/2);m.lookAt(new THREE.Vector3(x2,y2,z2));group.add(m);return labelObject(m,name,Object.assign({primitive:'beam_between_points',crossSectionCm:{x:w,y:h},lengthCm:L,startCm:{x:x1,y:y1,z:z1},endCm:{x:x2,y:y2,z:z2},assembly:group.userData?.semanticId||group.name||null},userData));}
+function groupBeamBetween(group,a,b,w,h,mat,name='',userData={}){const L=a.distanceTo(b);const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,L),mat);m.position.copy(a).lerp(b,.5);m.lookAt(b);group.add(m);return labelObject(m,name,Object.assign({primitive:'beam_between_points',crossSectionCm:{x:w,y:h},lengthCm:L,startCm:{x:a.x,y:a.y,z:a.z},endCm:{x:b.x,y:b.y,z:b.z},assembly:group.userData?.semanticId||group.name||null},userData));}
+function activeStairExtension(){const el=document.getElementById('stairExtensionMode');return STAIR_EXTENSION_OPTIONS[(el&&el.value)||'none']||STAIR_EXTENSION_OPTIONS.none;}
+// The metal strip begins square at step 5. There is deliberately no tapered
+// triangular infill over the first winders, and the relocated balustrade remains
+// straight in plan until the upper corner.
+function lowerBalustradeShiftAtZ(z,width=activeStairExtension().width){
+  if(width<=0||z<154||z>269)return 0;
+  return width;
+}
+function stairExtensionWidthAtZ(z,width=activeStairExtension().width){
+  if(width<=0||z<154||z>269)return 0;
+  return width;
+}
+function lowerBalustradeBaseAtZ(z){const k=Math.min(3,Math.max(0,Math.floor((z-154)/29)));const yb=z<154?T[4]:T[5+k];return Math.min(yb,T[8]);}
+function lowerBalustradeRailY(z){if(z<=243)return T[4]+92+(T[8]-T[4])*(z-150)/(243-150);return T[8]+92+(T[13]-T[8])*(z-243)/(269-243);}
+function currentBalustradeSegments(){
+  // Collision/reference line is the stair-facing face of the welded frame.
+  // The broad decorative blades are rendered a few centimetres farther into
+  // the void and therefore do not reduce the measured tread width.
+  const width=activeStairExtension().width;
+  const x=BAL+width;
+  if(width<=0){
+    return [
+      [{x,z:150},{x,z:243}],
+      [{x,z:243},{x:124,z:269}],
+      [{x:126,z:270},{x:372,z:270}]
+    ];
+  }
+  return [
+    [{x,z:154},{x,z:269}],
+    [{x,z:269},{x:124,z:269}],
+    [{x:124,z:269},{x:126,z:270}],
+    [{x:126,z:270},{x:372,z:270}]
+  ];
+}
+function upperFlightBaseAtX(x){
+  if(x<163)return T[14];
+  if(x<192)return T[15];
+  if(x<221)return T[16];
+  return 312;
+}
+function upperFlightUpperRailY(x){
+  const u=Math.max(0,Math.min(1,(x-126)/(248-126)));
+  return (T[14]+67)+(312-T[14])*u;
+}
+function addUpperBlade(x,baseY,topY,zCenter){
+  groupBox(upperBalustradeGroup,10,Math.max(20,topY-baseY),5,matBalBlade,x,(baseY+topY)/2,zCenter);
+}
+function buildUpperBalustrade(){
+  clearGroupGeometry(upperBalustradeGroup);
+  const bladeZ=267.2;       // broad boards outside the tread/landing edge
+  const railZ=270.2;        // welded steel bars on the stair-facing side
+
+  // Shared corner post visible in the photographs, bearing on the corner tread.
+  const cornerBase=T[13]-1,cornerTop=312+94;
+  groupBox(upperBalustradeGroup,8,cornerTop-cornerBase,7,matBalSteel,124,(cornerBase+cornerTop)/2,bladeZ);
+  groupBox(upperBalustradeGroup,12,2.4,10,matBalSteelShadow,124,cornerBase+1.2,bladeZ);
+
+  // Five broad blades on the rising upper stair section.
+  [139,164,189,214,239].forEach(x=>{
+    const stepBase=upperFlightBaseAtX(x);
+    const upper=upperFlightUpperRailY(x);
+    addUpperBlade(x,stepBase-20,upper+54,bladeZ);
+  });
+  // Five broad blades on the horizontal landing guard.
+  [260,287,314,341,368].forEach(x=>addUpperBlade(x,312-20,312+142,bladeZ));
+
+  // Two continuous welded bars, inside the blades as seen from the stairs.
+  groupRailBar(upperBalustradeGroup,126,T[14]+18,railZ,248,312+18,railZ,matBalSteel,3.0,4.5);
+  groupRailBar(upperBalustradeGroup,126,T[14]+66,railZ,248,312+66,railZ,matBalSteel,3.0,4.5);
+  groupRailBar(upperBalustradeGroup,248,312+18,railZ,372,312+18,railZ,matBalSteel,3.0,4.5);
+  groupRailBar(upperBalustradeGroup,248,312+66,railZ,372,312+66,railZ,matBalSteel,3.0,4.5);
+
+  // End post at the wall side of the landing.
+  groupBox(upperBalustradeGroup,7,142,7,matBalSteel,371,312-20+71,bladeZ);
+}
+function buildTreadExtensions(cfg){
+  if(cfg.width<=0)return;
+  // Existing timber is left untouched. These are separate powder-coated metal
+  // plates added beside it, from step 5 to the upper end of the lower section.
+  const defs=[
+    {z0:154,z1:183,top:T[5]},
+    {z0:183,z1:212,top:T[6]},
+    {z0:212,z1:241,top:T[7]},
+    {z0:241,z1:269,top:T[8]}
+  ];
+  const outerPts=[];
+  for(const d of defs){
+    const w0=stairExtensionWidthAtZ(d.z0,cfg.width),w1=stairExtensionWidthAtZ(d.z1,cfg.width);
+    if(Math.max(w0,w1)<.15)continue;
+    const pts=[{x:BAL,z:d.z0},{x:BAL+w0,z:d.z0},{x:BAL+w1,z:d.z1},{x:BAL,z:d.z1}];
+    // Thin neutral-colour top plate, visibly distinct from the timber tread.
+    groupPrism(stairExtensionGroup,pts,d.top-2.4,d.top,matExtensionTop);
+    const zc=(d.z0+d.z1)/2,wc=(w0+w1)/2;
+    // Closed outside fascia and a darker anti-slip/nosing line at the front.
+    groupBox(stairExtensionGroup,1.6,RH-1.5,d.z1-d.z0-1.2,matExtensionSteel,BAL+wc-.8,d.top-RH/2,zc);
+    groupBox(stairExtensionGroup,Math.max(1,wc),1.2,1.5,matExtensionDark,BAL+wc/2,d.top+.15,d.z0+.75);
+    if(cfg.type==='angle'){
+      groupBox(stairExtensionGroup,wc+7,2.5,3.5,matExtensionSteel,BAL+(wc-7)/2,d.top-4,zc);
+      groupBox(stairExtensionGroup,2.8,5,d.z1-d.z0-1,matExtensionSteel,BAL+wc-1.4,d.top-4.7,zc);
+    }else if(cfg.type==='cantilever'){
+      groupBox(stairExtensionGroup,wc+9,3.2,4.5,matExtensionSteel,BAL+(wc-9)/2,d.top-5.3,zc);
+      groupBox(stairExtensionGroup,5,8,d.z1-d.z0-1,matExtensionDark,BAL+wc-2.5,d.top-7,zc);
+    }else if(cfg.type==='stringer'){
+      groupBox(stairExtensionGroup,wc+10,3.4,5,matExtensionSteel,BAL+(wc-10)/2,d.top-5.5,zc);
+      outerPts.push(new THREE.Vector3(BAL+wc+2,d.top-9,zc));
+    }
+  }
+  if(cfg.type==='stringer'&&outerPts.length>1){
+    for(let i=0;i<outerPts.length-1;i++)groupBeamBetween(stairExtensionGroup,outerPts[i],outerPts[i+1],7,12,matExtensionDark);
+    [0,Math.floor((outerPts.length-1)/2),outerPts.length-1].forEach(idx=>{
+      const p=outerPts[idx],h=Math.max(8,p.y-1);groupBox(stairExtensionGroup,6,h,6,matExtensionDark,p.x,h/2,p.z);groupBox(stairExtensionGroup,12,1.8,12,matExtensionSteel,p.x,.9,p.z);
+    });
+  }
+}
+function lowerUpperBarY(z){return lowerBalustradeRailY(z)-25;}
+function lowerLowerBarY(z){return lowerBalustradeRailY(z)-74;}
+function addLowerBlade(x,z){
+  const base=lowerBalustradeBaseAtZ(z);
+  const bottom=Math.max(20,base-24);
+  const top=lowerUpperBarY(z)+55;
+  groupBox(lowerBalustradeGroup,5,Math.max(25,top-bottom),10.5,matBalBlade,x,(bottom+top)/2,z);
+}
+function rebuildStairExtension(){
+  const cfg=activeStairExtension();
+  clearGroupGeometry(lowerBalustradeGroup);
+  clearGroupGeometry(stairExtensionGroup);
+  buildTreadExtensions(cfg);
+
+  const shift=cfg.width;
+  const frameX=BAL+shift;       // stair-facing welded rails / nominal width line
+  const bladeX=frameX+3.2;      // broad boards fixed on the void-facing side
+
+  // The original tall first post is floor-bearing and visibly wider than the
+  // intermediate blades. It remains part of every visual option.
+  const firstTop=lowerUpperBarY(154)+31;
+  groupBox(lowerBalustradeGroup,7,firstTop,10,matBalSteel,bladeX,firstTop/2,149);
+  groupBox(lowerBalustradeGroup,12,2.4,14,matBalSteelShadow,bladeX,1.2,149);
+  groupBox(lowerBalustradeGroup,9,2.8,13,matBalSteel,bladeX,firstTop-1.4,149);
+
+  // Narrow timber helper/spacer immediately behind the first steel post,
+  // visible in the close-up photographs.
+  groupBox(lowerBalustradeGroup,3.5,112,4.5,matBalWoodHelper,frameX+1.5,56,158);
+
+  // Six broad vertical blades across the approximately 121 cm lower panel.
+  [166,184,203,222,241,260].forEach(z=>addLowerBlade(bladeX,z));
+
+  // Two continuous welded rails on the stair-facing side of the blades.
+  groupRailBar(lowerBalustradeGroup,frameX,lowerLowerBarY(154),154,frameX,lowerLowerBarY(243),243,matBalSteel,3.0,4.5);
+  groupRailBar(lowerBalustradeGroup,frameX,lowerLowerBarY(243),243,frameX,lowerLowerBarY(269),269,matBalSteel,3.0,4.5);
+  groupRailBar(lowerBalustradeGroup,frameX,lowerUpperBarY(154),154,frameX,lowerUpperBarY(243),243,matBalSteel,3.0,4.5);
+  groupRailBar(lowerBalustradeGroup,frameX,lowerUpperBarY(243),243,frameX,lowerUpperBarY(269),269,matBalSteel,3.0,4.5);
+
+  // Shared welded corner support, sitting on the corner tread and receiving
+  // both the rising lower panel and the upper-floor guard.
+  const cornerBase=T[13]-1,cornerTop=312+94;
+  groupBox(lowerBalustradeGroup,8,cornerTop-cornerBase,7,matBalSteel,bladeX,(cornerBase+cornerTop)/2,269);
+  groupBox(lowerBalustradeGroup,12,2.4,10,matBalSteelShadow,bladeX,cornerBase+1.2,269);
+
+  // For widening options the photo-based panel is translated as one assembly.
+  // The existing upper balustrade remains fixed, so use a short square return.
+  if(shift>0){
+    groupRailBar(lowerBalustradeGroup,frameX,lowerLowerBarY(269),269,124,lowerLowerBarY(269),269,matBalSteel,3.0,4.5);
+    groupRailBar(lowerBalustradeGroup,frameX,lowerUpperBarY(269),269,124,lowerUpperBarY(269),269,matBalSteel,3.0,4.5);
+  }
+}
+buildUpperBalustrade();rebuildStairExtension();
+// caméra: à la porte, regard +z
+let target=new THREE.Vector3(186,150,220);
+let theta=Math.atan2(20-220,223-186),phi=1.44,radius=205,drag=false,pan=false,px=0,py=0;
+function cam(){camera.position.set(target.x+radius*Math.sin(phi)*Math.cos(theta),target.y+radius*Math.cos(phi),target.z+radius*Math.sin(phi)*Math.sin(theta));camera.lookAt(target);}
+cam();
+addEventListener('mousedown',e=>{pan=e.button===2||e.button===1||(e.button===0&&e.shiftKey);drag=e.button===0&&!pan;px=e.clientX;py=e.clientY;if(e.button===1)e.preventDefault();});
+addEventListener('mouseup',()=>{drag=pan=false;});
+addEventListener('contextmenu',e=>e.preventDefault());
+addEventListener('mousemove',e=>{const dx=e.clientX-px,dy=e.clientY-py;px=e.clientX;py=e.clientY;
+ if(drag){theta+=dx*.005;phi=Math.min(2.8,Math.max(.15,phi-dy*.005));cam();}
+ if(pan){const s=radius/800;target.x-=dx*s*Math.cos(theta+Math.PI/2);target.z-=dx*s*Math.sin(theta+Math.PI/2);target.y+=dy*s;cam();}});
+addEventListener('keydown',e=>{const s=radius/40;
+ if(e.key==='ArrowLeft'){target.x+=s*Math.cos(theta+Math.PI/2);target.z+=s*Math.sin(theta+Math.PI/2);cam();}
+ if(e.key==='ArrowRight'){target.x-=s*Math.cos(theta+Math.PI/2);target.z-=s*Math.sin(theta+Math.PI/2);cam();}
+ if(e.key==='ArrowUp'){target.y+=s;cam();}
+ if(e.key==='ArrowDown'){target.y-=s;cam();}});
+addEventListener('wheel',e=>{radius=Math.min(2600,Math.max(120,radius*(1+e.deltaY*.001)));cam();});
+addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+
+// cotes 3D superposées
+const dimGroup=new THREE.Group();dimGroup.name='Room dimension annotations';dimGroup.userData={semanticId:'diagnostics.room_dimensions',subsystem:'diagnostics'};dimGroup.visible=false;DIAGNOSTICS_GROUP.add(dimGroup);
+function mkLabel(txt,x,y,z,sc){const c=document.createElement('canvas');c.width=256;c.height=64;
+ const g=c.getContext('2d');g.fillStyle='rgba(20,20,22,.72)';g.fillRect(0,0,256,64);
+ g.font='bold 34px Arial';g.fillStyle='#ffd9a0';g.textAlign='center';g.textBaseline='middle';g.fillText(txt,128,34);
+ const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false}));
+ sp.scale.set(46*(sc||1),11.5*(sc||1),1);sp.position.set(x,y,z);dimGroup.add(sp);}
+function dline(a,b){const g=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(...a),new THREE.Vector3(...b)]);
+ dimGroup.add(new THREE.Line(g,new THREE.LineBasicMaterial({color:0xffa94d,depthTest:false})));}
+function dim(a,b,txt,off,sc){dline(a,b);const m=[(a[0]+b[0])/2+(off?off[0]:0),(a[1]+b[1])/2+(off?off[1]:0),(a[2]+b[2])/2+(off?off[2]:0)];mkLabel(txt,m[0],m[1],m[2],sc);}
+dim([0,2,8],[372,2,8],'façade 372',[0,14,0]);
+dim([372,2,395],[372,2,8],'mur 400',[0,16,0]);          
+dim([0,2,395],[0,2,270],'—',[0,0,0]);
+dim([250,312,270],[250,0,270],'312 plancher→plancher',[46,0,-6],1.2);
+dim([368,0,200],[368,580,200],'plafond 580',[0,0,26]);
+dim([0,120,183],[122,120,183],'volée 120',[0,16,0]);
+dim([134,270,300],[134,270,398],'—',[0,0,0]);
+dim([134,300,335],[250,300,335],'volée 130',[0,18,0]);
+dim([122,20,0],[122,20,149],'marche 1 · 149',[24,8,0]);
+dim([122,150,149],[122,150,270],'balustrade 121',[26,10,0]);
+dim([250,320,270],[250,320,400],'palier prof. 204*',[30,8,0]);
+dim([250,330,335],[372,330,335],'palier vers mur',[0,16,0]);
+dim([250,318,270],[372,318,270],'nez→mur 248 côté vide',[0,-16,0]);
+dim([200,2,270],[372,2,270],'recoin ouv. 172',[0,14,6]);
+dim([378,0,335],[378,213,335],'recoin h 213',[0,0,22]);
+dim([232,2,-16],[372,2,-16],'ouverture claire 140',[0,12,0]);
+dim([157,2,-16],[232,2,-16],'empilement 75',[0,-12,0],.8);
+dim([277,0,-6],[277,214,-6],'h 214',[16,0,0]);
+document.getElementById('dimBtn').onclick=()=>{dimGroup.visible=!dimGroup.visible;};
+// panneau cotes depuis survey-data
+(function(){
+ const D=JSON.parse(document.getElementById('survey-data').textContent);
+ const el=document.getElementById('dims'),btn=document.getElementById('dimBtn');
+ const row=(k,v)=>'<div style="display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #333;padding:3px 0"><span style="color:#aaa">'+k+'</span><span style="color:#7fb3ff;text-align:right">'+v+'</span></div>';
+ const h=t=>'<div style="margin:10px 0 4px;font-weight:600;color:#e8e6df">'+t+'</div>';
+ let s='<div style="font-weight:700;margin-bottom:2px">'+D.project.name+' — cotes (cm)</div><div style="color:#888;font-size:11px">'+D.project.state+' · relevé '+D.project.survey_date+'</div>';
+ s+=h('Local');
+ s+=row('Largeur intérieure',D.room.interior_width_x)+row('Profondeur',D.room.interior_depth_z)+row('Hauteur plafond',D.room.ceiling_height)+row('Plancher à plancher',D.room.floor_to_floor_RDC_R1);
+ s+=h('Façade');
+ s+=row('Mur côté escalier',D.facade.mur_segment_cote_escalier)+row('Porte projetée',D.facade.porte_coulissante.width_modeled+' × '+D.facade.porte_coulissante.height+' · télescopique 2 vantaux');
+ s+=h('Escalier');
+ s+=row('Marches',D.staircase.treads_count)+row('CM moyenne',D.staircase.riser_height_avg)+row('Giron droites',D.staircase.going_straight)+row('Giron balancées (mini)',D.staircase.going_winders_walkline_min)+row('Largeur volée basse',D.staircase.width_lower_flight)+row('Largeur volée haute',D.staircase.width_upper_flight)+row('Marche 1',D.staircase.sequence_bottom_to_top[0].nosing_length)+row('Balustrade coin→pivot',D.staircase.balustrade.length_corner_to_newel);
+ s+=h('Palier R+1');
+ s+=row('Dimensions',D.staircase.landing_palier.depth+' × '+D.staircase.landing_palier.width)+row('Nez → mur en face',D.staircase.landing_palier.nez_to_facing_wall)+row('Niveau',D.staircase.landing_palier.level_y);
+ s+=h('Recoin sous escalier');
+ s+=row('Ouverture',D.understair_recess.opening_width_measured)+row('Hauteur libre',D.understair_recess.clear_height)+row('Jambage',78)+row('Profondeur',D.understair_recess.depth);
+ s+=h('Contraintes plateforme');
+ s+=row('Passage résiduel mini',D.platform_evaluation_constraints.rule_residual_passage_min)+row('Volée critique',D.platform_evaluation_constraints.critical_flight_width)+row('Repli maxi conforme',D.platform_evaluation_constraints.max_folded_depth_for_compliance)+row('Norme',D.platform_evaluation_constraints.norm);
+ el.innerHTML=s;
+ document.getElementById('listBtn').onclick=()=>{el.style.display=el.style.display==='none'?'block':'none';};
+})();
+
+
+// -----------------------------------------------------------------------------
+// Inclined platform simulator. The registry is intentionally data-driven so a
+// future model can be added with CASA_LIFT_SIM.registerModel(id, specification).
+// All dimensions are in centimetres, matching the staircase model.
+// -----------------------------------------------------------------------------
+const LIFT_MODELS={
+  ganser_gtle:{
+    label:'Ganser GTLE',enabled:true,visualStyle:'ganser',
+    platformWidth:80,platformLength:100,envelopeWidth:88,envelopeLength:106,foldedEnvelopeLength:100,
+    foldedDepth:24,fixedTrackDepth:15,parkingWidth:130,capacity:300,maxSlope:50,
+    railLower:43,railUpper:69,railDiameter:4.2,rackStyle:'offset',rackOffset:10,
+    deckThickness:4,rampDepth:8,guardHeight:82,bodyHeight:58,bodyLength:23,
+    railColor:0xbfc5c9,lowerRailColor:0xbfc5c9,bodyColor:0x3e6d88,deckColor:0x6f7f88,
+    defaultWallOffset:15,defaultStationX:195,defaultSupportMode:'wall_local',parkAtTop:true,
+    minSimulatedAxisOffset:7,wallClearanceTarget:1,balustradeClearanceTarget:1,
+    note:'Ganser GTLE — plateforme 80 x 100 cm, charge 300 kg, profondeur repliee publiee 24 cm, pente publiee 0-50 deg. Le chariot, les supports, le rayon exact et la voie restent des approximations geometriques.',
+    docs:[
+      ['Brochure technique PDF','https://www.hoegglift.ch/wp-content/uploads/2025/06/Monte_escaliers_a_plateforme_GTLE.pdf'],
+      ['Plan cote PDF','https://www.hoegglift.ch/wp-content/uploads/2025/04/zeichnung-plattformlift-ganser-GTLE-wandmontage.pdf']
+    ]
+  },
+  ascendor_plk8:{
+    label:'Ascendor PLK8 (Altica)',enabled:true,visualStyle:'ascendor',
+    platformWidth:80,platformLength:100,envelopeWidth:104,envelopeLength:100,foldedEnvelopeLength:100,
+    foldedDepth:31.5,fixedTrackDepthWall:9.2,fixedTrackDepthSupports:16.2,parkingWidth:130,capacity:300,maxSlope:47,optionalMaxSlope:50,
+    railLower:39,railUpper:68,railDiameter:4.8,rackStyle:'lower',
+    deckThickness:4,rampDepth:8,guardHeight:83,bodyHeight:72,bodyLength:29,
+    railColor:0xc7c9ca,lowerRailColor:0x8c9295,bodyColor:0xb7b9ba,deckColor:0x777b7d,
+    defaultWallOffset:14,defaultStationX:195,defaultSupportMode:'wall_local',parkAtTop:true,
+    minSimulatedAxisOffset:9.2,wallClearanceTarget:1,balustradeClearanceTarget:1,
+    turnSweepWall:117.5,turnSweepSupports:124.5,
+    note:'Ascendor PLK8 distribue notamment par Altica — configuration simulee 100 x 80 cm, 300 kg optionnel, pente 6-47 deg (50 deg optionnel), encombrement replie documente 31,5 cm en montage mural. Stationnement impose en haut. Balayage 90 deg documente: 117,5 cm mural, 124,5 cm sur poteaux. Dans la simulation, l’axe de plateforme est place a 14 cm du mur, donnant une enveloppe simulee conservatrice d’environ 118 cm sur la volee de 120 cm. La cote publiee de 9,2 cm correspond a la voie/fixation murale, pas a l’axe du plateau. Forme exacte du chariot et implantation des fixations approximees.',
+    docs:[
+      ['Brochure technique PLG7 / PLK8 PDF','https://www.ascendor.com/fileadmin/user_upload/Dokumente/PDFs/Prospekt-PLG7-PLK8.pdf'],
+      ['Instructions officielles PLK8','https://www.ascendor.com/fr/instructions/']
+    ]
+  }
+};
+
+class SampledRoute extends THREE.Curve{
+  constructor(samples){
+    super();
+    this.samples=samples;
+    this.points=samples.map(s=>new THREE.Vector3(s.x,s.y,s.z));
+    this.cumulative=[0];
+    for(let i=1;i<this.points.length;i++)this.cumulative.push(this.cumulative[i-1]+this.points[i].distanceTo(this.points[i-1]));
+    this.totalLength=this.cumulative[this.cumulative.length-1]||1;
+  }
+  locate(t){
+    const d=Math.max(0,Math.min(1,t))*this.totalLength;
+    let lo=0,hi=this.cumulative.length-1;
+    while(lo+1<hi){const m=(lo+hi)>>1;if(this.cumulative[m]<=d)lo=m;else hi=m;}
+    const span=this.cumulative[hi]-this.cumulative[lo]||1;
+    return {i:lo,u:(d-this.cumulative[lo])/span};
+  }
+  getPoint(t,target=new THREE.Vector3()){
+    const q=this.locate(t),a=this.points[q.i],b=this.points[Math.min(q.i+1,this.points.length-1)];
+    return target.copy(a).lerp(b,q.u);
+  }
+  getPointAt(t,target){return this.getPoint(t,target);}
+  getTangent(t,target=new THREE.Vector3()){
+    const e=0.0007,a=this.getPoint(Math.max(0,t-e),new THREE.Vector3()),b=this.getPoint(Math.min(1,t+e),new THREE.Vector3());
+    return target.copy(b).sub(a).normalize();
+  }
+  getTangentAt(t,target){return this.getTangent(t,target);}
+  getLength(){return this.totalLength;}
+  getMeta(t){const q=this.locate(t);return this.samples[q.i].label||'';}
+}
+class OffsetYRoute extends THREE.Curve{
+  constructor(base,dy){super();this.base=base;this.dy=dy;}
+  getPoint(t,target=new THREE.Vector3()){this.base.getPoint(t,target);target.y+=this.dy;return target;}
+  getPointAt(t,target){return this.getPoint(t,target);}
+  getTangent(t,target=new THREE.Vector3()){return this.base.getTangent(t,target);}
+  getTangentAt(t,target){return this.getTangent(t,target);}
+}
+
+const liftState={
+  modelId:'ganser_gtle',route:null,progress:1,direction:0,fold:1,foldTarget:1,
+  speed:42,wallOffset:15,stationX:195,follow:false,
+  root:null,deckPivot:null,barrierGroup:null,payload:null,railGroup:null,supportGroup:null,sweepGroup:null,doorGroup:null,
+  analysis:null,optimizationCache:{},limitGroup:null,lastTime:performance.now()
+};
+
+function pushSample(out,x,y,z,label){
+  const last=out[out.length-1];
+  if(last&&Math.abs(last.x-x)<1e-7&&Math.abs(last.y-y)<1e-7&&Math.abs(last.z-z)<1e-7)return;
+  out.push({x,y,z,label});
+}
+function addLineSamples(out,a,b,n,label){
+  for(let i=0;i<n;i++){const t=i/(n-1);pushSample(out,a.x+(b.x-a.x)*t,a.y+(b.y-a.y)*t,a.z+(b.z-a.z)*t,label);}
+}
+function addEllipseSamples(out,c,rx,rz,a0,a1,y0,y1,n,label){
+  for(let i=0;i<n;i++){const t=i/(n-1),a=a0+(a1-a0)*t;pushSample(out,c.x+rx*Math.cos(a),y0+(y1-y0)*t,c.z+rz*Math.sin(a),label);}
+}
+function surfaceHeightAt(x,z){
+  let top=0;
+  // Upper landing. The modelled slab starts at x=250 and occupies z=270..400.
+  if(x>=250&&x<=454&&z>=270&&z<=400)top=RISE;
+  const p={x,z};
+  for(const r of STAIR_TOP_REGIONS)if(pointInPoly(p,r.pts))top=Math.max(top,r.top);
+  const ew=stairExtensionWidthAtZ(z);
+  if(ew>0&&x>=BAL&&x<=BAL+ew){
+    if(z>=149&&z<154)top=Math.max(top,T[4]);
+    else if(z<183)top=Math.max(top,T[5]);
+    else if(z<212)top=Math.max(top,T[6]);
+    else if(z<241)top=Math.max(top,T[7]);
+    else if(z<=269)top=Math.max(top,T[8]);
+  }
+  return top;
+}
+function planFrame(samples,i){
+  const a=samples[Math.max(0,i-1)],b=samples[Math.min(samples.length-1,i+1)];
+  let hx=b.x-a.x,hz=b.z-a.z,hl=Math.hypot(hx,hz);
+  if(hl<1e-8){hx=1;hz=0;hl=1;}
+  hx/=hl;hz/=hl;
+  return {hx,hz,nx:hz,nz:-hx};
+}
+function requiredDeckHeight(samples,i,spec){
+  const f=planFrame(samples,i),p=samples[i];
+  let highest=0;
+  // Sample the complete deck footprint, including a small allowance beyond the
+  // nominal deck. This models the horizontal platform bridging several treads.
+  const w=spec.platformWidth+2,l=spec.platformLength+4;
+  for(let iu=0;iu<=8;iu++)for(let iv=0;iv<=10;iv++){
+    const u=w*iu/8,v=-l/2+l*iv/10;
+    const x=p.x+f.nx*u+f.hx*v,z=p.z+f.nz*u+f.hz*v;
+    highest=Math.max(highest,surfaceHeightAt(x,z));
+  }
+  // p.y is the centre of the deck. Keep the underside and ramp clear of tread
+  // nosings. The clearance is an explicit modelling assumption, not a GTLE spec.
+  return highest+spec.deckThickness/2+(highest>0?3.5:1.0);
+}
+function cumulativePlanDistance(samples){
+  const s=[0];
+  for(let i=1;i<samples.length;i++)s.push(s[i-1]+Math.hypot(samples[i].x-samples[i-1].x,samples[i].z-samples[i-1].z));
+  return s;
+}
+function pchipSlopes(xs,ys){
+  const n=xs.length,m=new Array(n).fill(0),h=[],d=[];
+  if(n<2)return m;
+  for(let i=0;i<n-1;i++){h[i]=xs[i+1]-xs[i];d[i]=(ys[i+1]-ys[i])/h[i];}
+  if(n===2){m[0]=m[1]=d[0];return m;}
+  const endpoint=(h0,h1,d0,d1)=>{
+    let v=((2*h0+h1)*d0-h0*d1)/(h0+h1);
+    if(Math.sign(v)!==Math.sign(d0))v=0;
+    else if(Math.sign(d0)!==Math.sign(d1)&&Math.abs(v)>Math.abs(3*d0))v=3*d0;
+    return v;
+  };
+  m[0]=endpoint(h[0],h[1],d[0],d[1]);
+  for(let i=1;i<n-1;i++){
+    if(d[i-1]===0||d[i]===0||Math.sign(d[i-1])!==Math.sign(d[i]))m[i]=0;
+    else{
+      const w1=2*h[i]+h[i-1],w2=h[i]+2*h[i-1];
+      m[i]=(w1+w2)/(w1/d[i-1]+w2/d[i]);
+    }
+  }
+  m[n-1]=endpoint(h[n-2],h[n-3],d[n-2],d[n-3]);
+  return m;
+}
+function pchipValue(xs,ys,ms,x){
+  let lo=0,hi=xs.length-1;
+  while(lo+1<hi){const mid=(lo+hi)>>1;if(xs[mid]<=x)lo=mid;else hi=mid;}
+  const i=Math.max(0,Math.min(xs.length-2,lo)),h=xs[i+1]-xs[i],u=Math.max(0,Math.min(1,(x-xs[i])/h));
+  const u2=u*u,u3=u2*u;
+  return (2*u3-3*u2+1)*ys[i]+(u3-2*u2+u)*h*ms[i]+(-2*u3+3*u2)*ys[i+1]+(u3-u2)*h*ms[i+1];
+}
+function applySmoothRailProfile(samples,spec){
+  const s=cumulativePlanDistance(samples),L=s[s.length-1];
+  const required=samples.map((_,i)=>requiredDeckHeight(samples,i,spec));
+
+  // Reference profile developed for the measured staircase. It deliberately
+  // uses only broad transitions: lower approach, first turn/flight, second
+  // turn, upper flight, and level landing. Values are deck-centre heights.
+  const refL=751.2860699480775;
+  const refX=[0,23,50,75,150,230,263,320,350,375,384,460,525,558,600,620,refL];
+  const refY=[5,26,48,60,90,118,135,178,198,212,216,270,295,302,317.5,317.5,317.5];
+  const xs=refX.map(v=>v/refL*L),ys=refY.slice();
+
+  // If an offset or station adjustment changes the exact collision envelope,
+  // raise nearby control heights while retaining the broad C1 profile. This
+  // avoids the artificial hump above every tread used in v8.2.
+  for(let pass=0;pass<18;pass++){
+    for(let i=1;i<ys.length;i++)ys[i]=Math.max(ys[i],ys[i-1]);
+    const ms=pchipSlopes(xs,ys),need=new Array(ys.length).fill(0);
+    let maxDeficit=0;
+    for(let i=0;i<s.length;i++){
+      const y=pchipValue(xs,ys,ms,s[i]),def=required[i]-y;
+      if(def>0.02){
+        maxDeficit=Math.max(maxDeficit,def);
+        let j=1;while(j<xs.length&&xs[j]<s[i])j++;
+        const a=Math.max(1,j-1),b=Math.min(xs.length-2,j);
+        need[a]=Math.max(need[a],def+0.25);need[b]=Math.max(need[b],def+0.25);
+      }
+    }
+    if(maxDeficit<=0.02)break;
+    for(let j=1;j<ys.length-1;j++)ys[j]=Math.min(317.5,ys[j]+need[j]);
+  }
+
+  const ms=pchipSlopes(xs,ys);
+  for(let i=0;i<samples.length;i++)samples[i].y=pchipValue(xs,ys,ms,s[i]);
+  return samples;
+}
+function buildOuterWallPlanRoute(spec,wallOffset,stationX){
+  const o=wallOffset,sx=Math.max(122,stationX),out=[];
+  addLineSamples(out,{x:sx,y:0,z:o},{x:122,y:0,z:o},20,'Station basse');
+  addEllipseSamples(out,{x:P1.x,z:P1.z},P1.x-o,P1.z-o,-Math.PI/2,-Math.PI,0,0,90,'Courbe basse 90 deg');
+  addLineSamples(out,{x:o,y:0,z:P1.z},{x:o,y:0,z:P2.z},55,'Volee basse 120 cm');
+  addEllipseSamples(out,{x:P2.x,z:P2.z},P2.x-o,BACK-o-P2.z,Math.PI,Math.PI/2,0,0,100,'Courbe haute 90 deg');
+  addLineSamples(out,{x:P2.x,y:0,z:BACK-o},{x:250,y:0,z:BACK-o},60,'Volee haute 130 cm');
+  addLineSamples(out,{x:250,y:0,z:BACK-o},{x:315,y:0,z:BACK-o},30,'Palier R+1');
+  return new SampledRoute(out);
+}
+function planRoutePose(route,t){
+  const p=route.getPoint(t,new THREE.Vector3()),tg=route.getTangent(t,new THREE.Vector3());
+  const h=new THREE.Vector3(tg.x,0,tg.z);if(h.lengthSq()<1e-8)h.set(1,0,0);h.normalize();
+  return {p,h,inward:new THREE.Vector3(h.z,0,-h.x).normalize()};
+}
+function platformEnvelopeDimsAtOffset(spec,mode,wallOffset){
+  if(mode==='folded')return {w:Math.max(spec.deckThickness||4,spec.foldedDepth-wallOffset),l:spec.foldedEnvelopeLength||spec.platformLength};
+  return {w:spec.envelopeWidth,l:spec.envelopeLength};
+}
+function platformPolyOnRoute(route,t,spec,mode,wallOffset){
+  const pose=planRoutePose(route,t),d=platformEnvelopeDimsAtOffset(spec,mode,wallOffset),w=d.w,l=d.l;
+  return [[0,-l/2],[w,-l/2],[w,l/2],[0,l/2]].map(v=>({x:pose.p.x+pose.inward.x*v[0]+pose.h.x*v[1],z:pose.p.z+pose.inward.z*v[0]+pose.h.z*v[1]}));
+}
+function analyzePlanCandidate(route,spec,wallOffset){
+  const bal=currentBalustradeSegments();
+  let openWallClear=Infinity,foldedWallClear=Infinity,balClear=Infinity,openWorstT=0,foldedWorstT=0,balWorstT=0;
+  for(let i=0;i<=360;i++){
+    const t=i/360,openPoly=platformPolyOnRoute(route,t,spec,'open',wallOffset),foldedPoly=platformPolyOnRoute(route,t,spec,'folded',wallOffset);
+    const oc=wallBoundaryClearance(openPoly),fc=wallBoundaryClearance(foldedPoly);
+    if(oc<openWallClear){openWallClear=oc;openWorstT=t;}
+    if(fc<foldedWallClear){foldedWallClear=fc;foldedWorstT=t;}
+    for(const seg of bal){const bc=polySegmentDistance(openPoly,seg[0],seg[1]);if(bc<balClear){balClear=bc;balWorstT=t;}}
+  }
+  return {openWallClear,foldedWallClear,balClear,openWorstT,foldedWorstT,balWorstT};
+}
+function optimizeWallRouteForModel(id,apply=false){
+  const spec=LIFT_MODELS[id];if(!spec)return null;
+  const minOffset=spec.minSimulatedAxisOffset??7,maxOffset=24,step=.25,stationX=spec.defaultStationX??195;
+  const wallTarget=spec.wallClearanceTarget??1,balTarget=spec.balustradeClearanceTarget??1;
+  let best=null,bestFallback=null;
+  for(let raw=minOffset;raw<=maxOffset+1e-8;raw+=step){
+    const o=Math.round(raw*100)/100,route=buildOuterWallPlanRoute(spec,o,stationX),a=analyzePlanCandidate(route,spec,o);
+    const turnOk=!Number.isFinite(spec.turnSweepWall)||spec.turnSweepWall<=120;
+    const feasible=a.openWallClear>=wallTarget&&a.foldedWallClear>=wallTarget&&a.balClear>=balTarget&&turnOk;
+    const margin=Math.min(a.openWallClear-wallTarget,a.foldedWallClear-wallTarget,a.balClear-balTarget);
+    const candidate={wallOffset:o,stationX,feasible,margin,turnOk,...a};
+    if(feasible&&(!best||o<best.wallOffset||(o===best.wallOffset&&margin>best.margin)))best=candidate;
+    if(!bestFallback||margin>bestFallback.margin)bestFallback=candidate;
+  }
+  const result=best||bestFallback;
+  result.modelId=id;result.label=spec.label;result.targetWall=wallTarget;result.targetBal=balTarget;
+  result.limitingT=result.openWallClear<=result.foldedWallClear&&result.openWallClear<=result.balClear?result.openWorstT:(result.foldedWallClear<=result.balClear?result.foldedWorstT:result.balWorstT);
+  result.limitingZone=buildOuterWallPlanRoute(spec,result.wallOffset,stationX).getMeta(result.limitingT);
+  spec.optimization=result;liftState.optimizationCache[id]=result;
+  if(apply&&liftState.modelId===id){
+    liftState.wallOffset=result.wallOffset;liftState.stationX=result.stationX;
+    document.getElementById('liftOffset').value=result.wallOffset;document.getElementById('liftStationX').value=result.stationX;
+    document.getElementById('liftSupportMode').value='wall_local';rebuildLift();
+  }
+  return result;
+}
+function optimizeAllModels(applyCurrent=true){
+  Object.keys(LIFT_MODELS).forEach(id=>optimizeWallRouteForModel(id,false));
+  if(applyCurrent){const r=LIFT_MODELS[liftState.modelId].optimization;if(r){liftState.wallOffset=r.wallOffset;liftState.stationX=r.stationX;document.getElementById('liftOffset').value=r.wallOffset;document.getElementById('liftStationX').value=r.stationX;document.getElementById('liftSupportMode').value='wall_local';rebuildLift();}}
+}
+
+function buildOuterWallRoute(spec){
+  const o=liftState.wallOffset,sx=Math.max(122,liftState.stationX),out=[];
+  // Initial heights are only a plan-route scaffold. applySmoothRailProfile()
+  // replaces them with a smooth, monotone deck-centre trajectory.
+  const y0=5,y4=T[4]+5,y8=T[8]+5,y13=T[13]+5,yTop=RISE+5;
+  addLineSamples(out,{x:sx,y:y0,z:o},{x:122,y:y0,z:o},20,'Station basse');
+  addEllipseSamples(out,{x:P1.x,z:P1.z},P1.x-o,P1.z-o,-Math.PI/2,-Math.PI,y0,y4,90,'Courbe basse 90 deg');
+  addLineSamples(out,{x:o,y:y4,z:P1.z},{x:o,y:y8,z:P2.z},55,'Volee basse 120 cm');
+  addEllipseSamples(out,{x:P2.x,z:P2.z},P2.x-o,BACK-o-P2.z,Math.PI,Math.PI/2,y8,y13,100,'Courbe haute 90 deg');
+  addLineSamples(out,{x:P2.x,y:y13,z:BACK-o},{x:250,y:yTop,z:BACK-o},60,'Volee haute 130 cm');
+  addLineSamples(out,{x:250,y:yTop,z:BACK-o},{x:315,y:yTop,z:BACK-o},30,'Palier R+1');
+  return new SampledRoute(applySmoothRailProfile(out,spec));
+}
+
+function disposeTree(obj){
+  if(!obj)return;
+  obj.traverse(n=>{if(n.geometry)n.geometry.dispose();if(n.material){if(Array.isArray(n.material))n.material.forEach(m=>m.dispose());else n.material.dispose();}});
+  if(obj.parent)obj.parent.remove(obj);
+}
+function addBoxTo(group,w,h,d,mat,x=0,y=0,z=0,name='',userData={}){
+  const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);m.position.set(x,y,z);group.add(m);const sub=topSubsystem(m);return labelObject(m,name,Object.assign({primitive:'box',dimensionsCm:{x:w,y:h,z:d}},sub==='other'?{}:{subsystem:sub},userData));
+}
+function addCylinderBetween(group,a,b,r,mat){
+  const dir=new THREE.Vector3().subVectors(b,a),len=dir.length();if(len<0.01)return null;
+  const m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,len,10),mat);
+  m.position.copy(a).add(b).multiplyScalar(.5);
+  m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),dir.normalize());group.add(m);const sub=topSubsystem(m);return labelObject(m,'Cylindrical connector',Object.assign({primitive:'cylinder_between_points',radiusCm:r,lengthCm:len},sub==='other'?{}:{subsystem:sub}));
+}
+function routePose(t){
+  const p=liftState.route.getPoint(t,new THREE.Vector3());
+  const tg=liftState.route.getTangent(t,new THREE.Vector3());
+  const h=new THREE.Vector3(tg.x,0,tg.z);if(h.lengthSq()<1e-8)h.set(1,0,0);h.normalize();
+  const inward=new THREE.Vector3(h.z,0,-h.x).normalize();
+  const basis=new THREE.Matrix4().makeBasis(inward,new THREE.Vector3(0,1,0),h);
+  return {p,tg,h,inward,q:new THREE.Quaternion().setFromRotationMatrix(basis)};
+}
+
+function createRails(spec){
+  disposeTree(liftState.railGroup);disposeTree(liftState.supportGroup);
+  const upperRailMat=new THREE.MeshLambertMaterial({color:spec.railColor});
+  const lowerRailMat=new THREE.MeshLambertMaterial({color:spec.lowerRailColor||spec.railColor});
+  const rackMat=new THREE.MeshLambertMaterial({color:0x676d70});
+  const g=new THREE.Group();g.name=spec.label+' rails';g.userData={semanticId:'lift_system.rails',subsystem:'lift_system',modelId:liftState.modelId};LIFT_SYSTEM_GROUP.add(g);liftState.railGroup=g;
+  const c1=new OffsetYRoute(liftState.route,spec.railLower),c2=new OffsetYRoute(liftState.route,spec.railUpper);
+  g.add(new THREE.Mesh(new THREE.TubeGeometry(c1,420,spec.railDiameter/2,9,false),lowerRailMat));
+  g.add(new THREE.Mesh(new THREE.TubeGeometry(c2,420,spec.railDiameter/2,9,false),upperRailMat));
+  if(spec.rackStyle==='offset'){
+    const rack=new OffsetYRoute(liftState.route,spec.railLower+(spec.rackOffset||10));
+    g.add(new THREE.Mesh(new THREE.TubeGeometry(rack,420,1.15,7,false),rackMat));
+  }else if(spec.rackStyle==='lower'){
+    // PLK8: the lower stainless guide incorporates the round rack. A thin dark
+    // line on the lower tube is only a visual cue, not a tooth-by-tooth model.
+    const rack=new OffsetYRoute(liftState.route,spec.railLower+1.2);
+    g.add(new THREE.Mesh(new THREE.TubeGeometry(rack,420,0.75,6,false),rackMat));
+  }
+
+  const sg=new THREE.Group();sg.name=spec.label+' supports';sg.userData={semanticId:'lift_system.supports',subsystem:'lift_system',modelId:liftState.modelId};LIFT_SYSTEM_GROUP.add(sg);liftState.supportGroup=sg;
+  const supportMat=new THREE.MeshLambertMaterial({color:0x7f878c});
+  const bracketMat=new THREE.MeshLambertMaterial({color:0x555d62});
+
+  function addFloorPostAt(t){
+    const p=liftState.route.getPoint(t,new THREE.Vector3());
+    const railLow=p.clone();railLow.y+=spec.railLower;
+    const railHigh=p.clone();railHigh.y+=spec.railUpper;
+    const baseY=surfaceHeightAt(p.x,p.z);
+    const plateH=2.5;
+    addBoxTo(sg,11,plateH,11,supportMat,p.x,baseY+plateH/2,p.z);
+    addCylinderBetween(sg,new THREE.Vector3(p.x,baseY+plateH,p.z),railLow,2.1,supportMat);
+    // Small fork connecting the post to both guide rails, so the support is
+    // visually and structurally continuous rather than ending below one rail.
+    addCylinderBetween(sg,railLow,railHigh,1.6,supportMat);
+  }
+
+  function addWallBracketAt(t,wall){
+    const p=liftState.route.getPoint(t,new THREE.Vector3());
+    const low=p.clone();low.y+=spec.railLower;
+    const high=p.clone();high.y+=spec.railUpper;
+    if(wall==='nearest'){
+      const choices=[['x0',Math.abs(p.x)],['z0',Math.abs(p.z)],['back',Math.abs(BACK-p.z)]];
+      wall=choices.sort((a,b)=>a[1]-b[1])[0][0];
+    }
+    if(wall==='x0'){
+      const plateX=1.8;
+      addBoxTo(sg,5,18,12,bracketMat,plateX,(low.y+high.y)/2,p.z);
+      addCylinderBetween(sg,new THREE.Vector3(3.5,low.y,p.z),low,2.0,bracketMat);
+      addCylinderBetween(sg,new THREE.Vector3(3.5,high.y,p.z),high,2.0,bracketMat);
+    }else if(wall==='z0'){
+      const plateZ=1.8;
+      addBoxTo(sg,12,18,5,bracketMat,p.x,(low.y+high.y)/2,plateZ);
+      addCylinderBetween(sg,new THREE.Vector3(p.x,low.y,3.5),low,2.0,bracketMat);
+      addCylinderBetween(sg,new THREE.Vector3(p.x,high.y,3.5),high,2.0,bracketMat);
+    }else{
+      const plateZ=BACK-1.8;
+      addBoxTo(sg,12,18,5,bracketMat,p.x,(low.y+high.y)/2,plateZ);
+      addCylinderBetween(sg,new THREE.Vector3(p.x,low.y,BACK-3.5),low,2.0,bracketMat);
+      addCylinderBetween(sg,new THREE.Vector3(p.x,high.y,BACK-3.5),high,2.0,bracketMat);
+    }
+  }
+
+  // Deterministic support layout. v8.5 mixed an interval loop with extra
+  // curve posts, which produced duplicates on some treads and still left a
+  // visually unsupported span. v8.6 creates one ordered candidate list,
+  // enforces a maximum route gap, and deduplicates by route distance and tread.
+  const L=liftState.route.totalLength;
+  const supportMode=(document.getElementById('liftSupportMode')||{}).value||'posts';
+  const candidates=[];
+
+  function candidateAtDistance(d,type,wall){
+    d=Math.max(5,Math.min(L-5,d));
+    candidates.push({d,t:d/L,type,wall:wall||null});
+  }
+  function segmentRanges(){
+    const ranges=[];
+    let from=0,label=liftState.route.samples[0].label;
+    for(let i=1;i<liftState.route.samples.length;i++){
+      const next=liftState.route.samples[i].label;
+      if(next!==label){
+        ranges.push({label,d0:liftState.route.cumulative[from],d1:liftState.route.cumulative[i-1]});
+        from=i;label=next;
+      }
+    }
+    ranges.push({label,d0:liftState.route.cumulative[from],d1:L});
+    return ranges;
+  }
+  function supportType(label){
+    if(supportMode==='posts')return {type:'post'};
+    if(supportMode==='wall')return {type:'bracket',wall:'nearest'};
+    if(supportMode==='wall_local'){
+      if(label.indexOf('Station basse')>=0)return {type:'post'};
+      if(label.indexOf('Courbe basse')>=0)return {type:'mixed_lower'};
+      if(label.indexOf('Volee basse')>=0)return {type:'bracket',wall:'x0'};
+      if(label.indexOf('Courbe haute')>=0)return {type:'bracket',wall:'nearest'};
+      return {type:'bracket',wall:'back'};
+    }
+    if(label.indexOf('Volee basse')>=0)return {type:'bracket',wall:'x0'};
+    if(label.indexOf('Volee haute')>=0||label.indexOf('Palier')>=0)return {type:'bracket',wall:'back'};
+    return {type:'post'};
+  }
+
+  // Populate every route segment independently. Points are centred within each
+  // segment, so adjacent segments cannot create two supports at one boundary.
+  const TARGET_GAP=46;
+  for(const r of segmentRanges()){
+    const len=Math.max(1,r.d1-r.d0),n=Math.max(1,Math.ceil(len/TARGET_GAP));
+    const kind=supportType(r.label);
+    for(let i=0;i<n;i++){
+      const d=r.d0+(i+.5)*len/n,t=d/L,p=liftState.route.getPoint(t,new THREE.Vector3());
+      if(kind.type==='mixed_lower'){
+        // Avoid attachments to the glazed facade. Use a floor/tread support in
+        // the first sector, then switch to brackets on the solid side wall.
+        if(p.x>58&&p.z<72)candidateAtDistance(d,'post');
+        else candidateAtDistance(d,'bracket','x0');
+      }else candidateAtDistance(d,kind.type,kind.wall);
+    }
+  }
+
+  // Add only the support needed to close any remaining long span. This replaces
+  // the old explicit 25/50/75% curve loop that caused duplicate posts.
+  candidates.sort((a,b)=>a.d-b.d);
+  let changed=true;
+  while(changed){
+    changed=false;
+    const edges=[{d:0},...candidates,{d:L}];
+    for(let i=0;i<edges.length-1;i++){
+      if(edges[i+1].d-edges[i].d>58){
+        const d=(edges[i+1].d+edges[i].d)/2,t=d/L,label=liftState.route.getMeta(t),kind=supportType(label),p=liftState.route.getPoint(t,new THREE.Vector3());
+        if(kind.type==='mixed_lower')candidateAtDistance(d,(p.x>58&&p.z<72)?'post':'bracket',(p.x>58&&p.z<72)?null:'x0');
+        else candidateAtDistance(d,kind.type,kind.wall);
+        candidates.sort((a,b)=>a.d-b.d);changed=true;break;
+      }
+    }
+  }
+
+  // Final deduplication: minimum 25 cm along the route. For freestanding posts,
+  // permit at most one post on the same tread level, except on the ground floor
+  // and upper landing where separated posts can be structurally useful.
+  const accepted=[],usedTreads=[];
+  for(const c of candidates.sort((a,b)=>a.d-b.d)){
+    if(accepted.some(a=>Math.abs(a.d-c.d)<25))continue;
+    if(c.type==='post'){
+      const p=liftState.route.getPoint(c.t,new THREE.Vector3());
+      const baseY=surfaceHeightAt(p.x,p.z);
+      const same=usedTreads.find(u=>Math.abs(u.baseY-baseY)<1&&Math.hypot(u.x-p.x,u.z-p.z)<70);
+      if(same&&baseY>1&&baseY<RISE-1)continue;
+      usedTreads.push({baseY,x:p.x,z:p.z});
+    }
+    accepted.push(c);
+  }
+
+  for(const c of accepted){
+    if(c.type==='bracket')addWallBracketAt(c.t,c.wall);
+    else addFloorPostAt(c.t);
+  }
+  sg.visible=document.getElementById('liftSupports').checked;
+}
+
+function createPlatform(spec){
+  disposeTree(liftState.root);
+  const root=new THREE.Group();root.name=spec.label+' carriage and moving platform';root.userData={semanticId:'lift_system.moving_platform',subsystem:'lift_system',modelId:liftState.modelId};LIFT_SYSTEM_GROUP.add(root);liftState.root=root;
+  const bodyMat=new THREE.MeshLambertMaterial({color:spec.bodyColor});
+  const deckMat=new THREE.MeshLambertMaterial({color:spec.deckColor});
+  const edgeMat=new THREE.MeshLambertMaterial({color:0xd7d9da});
+  const guardMat=new THREE.MeshLambertMaterial({color:0xc7cbcd});
+  const foldedBody=Math.max(2,spec.foldedDepth-liftState.wallOffset);
+  const bodyH=spec.bodyHeight||58,bodyL=spec.bodyLength||23;
+  addBoxTo(root,foldedBody,bodyH,bodyL,bodyMat,foldedBody/2,spec.railLower+8,0);
+  addBoxTo(root,foldedBody+4,9,bodyL+7,edgeMat,(foldedBody+4)/2,spec.railLower-7,0);
+  for(const yy of [spec.railLower,spec.railUpper])for(const zz of [-bodyL*.55,bodyL*.55]){
+    const wheel=new THREE.Mesh(new THREE.CylinderGeometry(3.4,3.4,2.4,12),edgeMat);
+    wheel.rotation.z=Math.PI/2;wheel.position.set(0,yy,zz);root.add(wheel);
+  }
+  if(spec.visualStyle==='ascendor'){
+    const screenMat=new THREE.MeshLambertMaterial({color:0x26333a});
+    const ledMat=new THREE.MeshLambertMaterial({color:0x7aa8b8});
+    addBoxTo(root,2.2,16,12,screenMat,foldedBody+1.2,spec.railLower+22,0);
+    addBoxTo(root,2.8,2.2,bodyL-4,ledMat,foldedBody+1.5,spec.railLower-1,0);
+  }
+
+  const pivot=new THREE.Group();pivot.name='folding platform';root.add(pivot);liftState.deckPivot=pivot;
+  addBoxTo(pivot,spec.platformWidth,spec.deckThickness,spec.platformLength,deckMat,spec.platformWidth/2,0,0);
+  addBoxTo(pivot,spec.rampDepth,2.5,spec.platformLength,edgeMat,spec.platformWidth+spec.rampDepth/2,-1,0);
+
+  const barriers=new THREE.Group();barriers.name='retracting safety barriers';pivot.add(barriers);liftState.barrierGroup=barriers;
+  // Open safety arms instead of full-height side panels.
+  const outerX=spec.platformWidth-2.2, endZ=spec.platformLength/2-4;
+  for(const zz of [-endZ,endZ]){
+    addBoxTo(barriers,3.6,spec.guardHeight-8,3.6,guardMat,outerX,(spec.guardHeight-8)/2,zz);
+  }
+  addBoxTo(barriers,3.6,3.6,spec.platformLength-10,guardMat,outerX,52,0);
+  addBoxTo(barriers,3.6,3.6,spec.platformLength-10,guardMat,outerX,72,0);
+  addBoxTo(barriers,spec.platformWidth-9,3.2,3.2,guardMat,(spec.platformWidth-9)/2+4.5,58,-spec.platformLength/2+1.6);
+  addBoxTo(barriers,spec.platformWidth-9,3.2,3.2,guardMat,(spec.platformWidth-9)/2+4.5,58,spec.platformLength/2-1.6);
+  addBoxTo(pivot,3.2,9,spec.platformLength+5,edgeMat,1.6,4.5,0);
+
+  // Optional translucent wheelchair and seated person. This is a visual aid,
+  // not part of the lift geometry or collision envelope.
+  const payload=new THREE.Group();payload.name='optional wheelchair and person';pivot.add(payload);liftState.payload=payload;
+  const chairMat=new THREE.MeshLambertMaterial({color:0x3f6f91,transparent:true,opacity:.48,depthWrite:false,side:DS});
+  const chairFrameMat=new THREE.MeshLambertMaterial({color:0x294b63,transparent:true,opacity:.58,depthWrite:false,side:DS});
+  const personMat=new THREE.MeshLambertMaterial({color:0x6aa8d2,transparent:true,opacity:.34,depthWrite:false,side:DS});
+  const personDarkMat=new THREE.MeshLambertMaterial({color:0x477b9d,transparent:true,opacity:.40,depthWrite:false,side:DS});
+
+  // Wheelchair, oriented across the platform width; wheel axes run along Z.
+  const chairX=43;
+  for(const zz of [-27,27]){
+    const rear=new THREE.Mesh(new THREE.TorusGeometry(20,2.4,10,28),chairFrameMat);
+    rear.position.set(chairX-8,22,zz);payload.add(rear);
+    const front=new THREE.Mesh(new THREE.TorusGeometry(6.2,1.7,8,20),chairFrameMat);
+    front.position.set(chairX+23,7,zz);payload.add(front);
+  }
+  addBoxTo(payload,34,3.5,48,chairMat,chairX,43,0);                 // seat
+  addBoxTo(payload,4,34,48,chairMat,chairX-16,61,0);              // backrest
+  addBoxTo(payload,28,2.8,44,chairFrameMat,chairX+12,18,0);       // foot support
+  for(const zz of [-22,22]){
+    addCylinderBetween(payload,new THREE.Vector3(chairX-12,42,zz),new THREE.Vector3(chairX-8,22,zz),1.7,chairFrameMat);
+    addCylinderBetween(payload,new THREE.Vector3(chairX+12,42,zz),new THREE.Vector3(chairX+23,8,zz),1.7,chairFrameMat);
+    addCylinderBetween(payload,new THREE.Vector3(chairX-12,72,zz),new THREE.Vector3(chairX-16,44,zz),1.5,chairFrameMat);
+  }
+
+  // Seated person: torso, head, arms and bent legs.
+  addBoxTo(payload,22,38,28,personMat,chairX-2,72,0);
+  const head=new THREE.Mesh(new THREE.SphereGeometry(10,18,14),personMat);head.position.set(chairX-5,102,0);payload.add(head);
+  for(const side of [-1,1]){
+    const z=side*12;
+    addCylinderBetween(payload,new THREE.Vector3(chairX-7,86,z),new THREE.Vector3(chairX+8,62,z),3.2,personDarkMat);
+    addCylinderBetween(payload,new THREE.Vector3(chairX+2,50,z),new THREE.Vector3(chairX+20,33,z),4.2,personMat);
+    addCylinderBetween(payload,new THREE.Vector3(chairX+20,33,z),new THREE.Vector3(chairX+24,13,z),3.8,personMat);
+    addBoxTo(payload,14,3.5,7,personDarkMat,chairX+29,8,z);
+  }
+  payload.visible=document.getElementById('liftPayload').checked&&liftState.fold<0.08;
+}
+
+function createDoorZone(){
+  disposeTree(liftState.doorGroup);
+  const g=new THREE.Group(),mat=new THREE.MeshLambertMaterial({color:0xffa64a,transparent:true,opacity:.17,side:DS,depthWrite:false});
+  addBoxTo(g,DOOR_W,1.2,110,mat,DOOR_CX,.8,55);
+  const e=new THREE.EdgesGeometry(new THREE.BoxGeometry(DOOR_W,1.2,110));
+  const l=new THREE.LineSegments(e,new THREE.LineBasicMaterial({color:0xffb56b,transparent:true,opacity:.8}));l.position.set(DOOR_CX,.8,55);g.add(l);
+  g.name='Lift entrance clearance diagnostic';g.userData={semanticId:'lift_system.diagnostics.entrance_clearance',subsystem:'lift_system'};LIFT_SYSTEM_GROUP.add(g);liftState.doorGroup=g;g.visible=document.getElementById('liftDoorZone').checked;
+}
+
+function pointSegDist(p,a,b){
+  const vx=b.x-a.x,vz=b.z-a.z,wx=p.x-a.x,wz=p.z-a.z,den=vx*vx+vz*vz;
+  const q=den?Math.max(0,Math.min(1,(wx*vx+wz*vz)/den)):0,dx=p.x-(a.x+q*vx),dz=p.z-(a.z+q*vz);
+  return Math.hypot(dx,dz);
+}
+function cross2(a,b,c){return (b.x-a.x)*(c.z-a.z)-(b.z-a.z)*(c.x-a.x);}
+function segIntersect(a,b,c,d){
+  const c1=cross2(a,b,c),c2=cross2(a,b,d),c3=cross2(c,d,a),c4=cross2(c,d,b),e=1e-8;
+  if(Math.abs(c1)<e&&pointSegDist(c,a,b)<e)return true;if(Math.abs(c2)<e&&pointSegDist(d,a,b)<e)return true;
+  if(Math.abs(c3)<e&&pointSegDist(a,c,d)<e)return true;if(Math.abs(c4)<e&&pointSegDist(b,c,d)<e)return true;
+  return (c1>0)!=(c2>0)&&(c3>0)!=(c4>0);
+}
+function pointInPoly(p,poly){
+  let inside=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){
+    const a=poly[i],b=poly[j];if(((a.z>p.z)!=(b.z>p.z))&&(p.x<(b.x-a.x)*(p.z-a.z)/(b.z-a.z)+a.x))inside=!inside;
+  }return inside;
+}
+function polysIntersect(a,b){
+  for(let i=0;i<a.length;i++)for(let j=0;j<b.length;j++)if(segIntersect(a[i],a[(i+1)%a.length],b[j],b[(j+1)%b.length]))return true;
+  return pointInPoly(a[0],b)||pointInPoly(b[0],a);
+}
+function platformEnvelopeDims(spec,mode='open',wallOffset=liftState.wallOffset){
+  if(mode==='folded'){
+    // The route point is the platform hinge/carriage reference, already offset
+    // from the wall. Only the remaining folded body depth extends inward.
+    return {
+      w:Math.max(spec.deckThickness||4,spec.foldedDepth-wallOffset),
+      l:spec.foldedEnvelopeLength||spec.platformLength
+    };
+  }
+  return {w:spec.envelopeWidth,l:spec.envelopeLength};
+}
+function platformPolyAt(t,spec,mode='open'){
+  const pose=routePose(t),p=pose.p,n=pose.inward,h=pose.h,d=platformEnvelopeDims(spec,mode),w=d.w,l=d.l;
+  return [[0,-l/2],[w,-l/2],[w,l/2],[0,l/2]].map(v=>({x:p.x+n.x*v[0]+h.x*v[1],z:p.z+n.z*v[0]+h.z*v[1]}));
+}
+function wallBoundaryClearance(poly){
+  let d=Infinity;
+  for(const p of poly)d=Math.min(d,p.x,OWALL-p.x,p.z,BACK-p.z);
+  return d;
+}
+function polySegmentDistance(poly,a,b){
+  for(let i=0;i<poly.length;i++)if(segIntersect(poly[i],poly[(i+1)%poly.length],a,b))return 0;
+  let d=Infinity;for(const p of poly)d=Math.min(d,pointSegDist(p,a,b));
+  for(let i=0;i<poly.length;i++){d=Math.min(d,pointSegDist(a,poly[i],poly[(i+1)%poly.length]),pointSegDist(b,poly[i],poly[(i+1)%poly.length]));}
+  return d;
+}
+function analyzeCurrent(spec){
+  const bal=currentBalustradeSegments();
+  let openWallClear=Infinity,foldedWallClear=Infinity,balClear=Infinity,foldedBalClear=Infinity,maxSlope=0,treadClear=Infinity;
+  let openWorstT=0,foldedWorstT=0,foldedBalWorstT=0;
+  for(let i=0;i<=280;i++){
+    const t=i/280,openPoly=platformPolyAt(t,spec,'open'),foldedPoly=platformPolyAt(t,spec,'folded'),tg=liftState.route.getTangent(t,new THREE.Vector3()),pose=routePose(t);
+    maxSlope=Math.max(maxSlope,THREE.MathUtils.radToDeg(Math.atan2(Math.abs(tg.y),Math.hypot(tg.x,tg.z))));
+    const oc=wallBoundaryClearance(openPoly),fc=wallBoundaryClearance(foldedPoly);
+    if(oc<openWallClear){openWallClear=oc;openWorstT=t;}
+    if(fc<foldedWallClear){foldedWallClear=fc;foldedWorstT=t;}
+    for(const seg of bal){
+      balClear=Math.min(balClear,polySegmentDistance(openPoly,seg[0],seg[1]));
+      const fbc=polySegmentDistance(foldedPoly,seg[0],seg[1]);if(fbc<foldedBalClear){foldedBalClear=fbc;foldedBalWorstT=t;}
+    }
+    let highest=0;
+    for(const p of openPoly)highest=Math.max(highest,surfaceHeightAt(p.x,p.z));
+    highest=Math.max(highest,surfaceHeightAt(pose.p.x+pose.inward.x*spec.platformWidth/2,pose.p.z+pose.inward.z*spec.platformWidth/2));
+    treadClear=Math.min(treadClear,pose.p.y-spec.deckThickness/2-highest);
+  }
+  const station=platformPolyAt(0,spec,'open');
+  const door=[{x:DOOR_X0,z:0},{x:DOOR_X1,z:0},{x:DOOR_X1,z:110},{x:DOOR_X0,z:110}];
+  const permanentLift=[{x:122,z:0},{x:liftState.stationX,z:0},{x:liftState.stationX,z:35},{x:122,z:35}];
+  const step1=[{x:122,z:0},{x:0,z:0},{x:0,z:117},{x:122,z:149}];
+  const supportMode=(document.getElementById('liftSupportMode')||{}).value||spec.defaultSupportMode||'posts';
+  const fixedTrackDepth=Number.isFinite(spec.fixedTrackDepthWall)?(supportMode==='posts'?spec.fixedTrackDepthSupports:spec.fixedTrackDepthWall):(spec.fixedTrackDepth||liftState.wallOffset+spec.railDiameter/2);
+  const stairExt=activeStairExtension(),midFlightWidth=120+stairExt.width;
+  const midFlightResidual=midFlightWidth-spec.foldedDepth;
+  const flightResidualParkedTop=midFlightWidth-fixedTrackDepth;
+  const topParkingResidual=(spec.parkingWidth||130)-spec.foldedDepth;
+  let turnSweep=null;
+  if(Number.isFinite(spec.turnSweepWall))turnSweep=(supportMode==='wall'||supportMode==='wall_local')?spec.turnSweepWall:spec.turnSweepSupports;
+  return {
+    residual:midFlightResidual,midFlightWidth,stairExtension:stairExt,midFlightResidual,flightResidualParkedTop,topParkingResidual,turnSweep,maxSlope,
+    wallCollision:openWallClear<0||foldedWallClear<0,openWallCollision:openWallClear<0,foldedWallCollision:foldedWallClear<0,
+    openWallClear,foldedWallClear,openWorstT,foldedWorstT,
+    balClear,foldedBalClear,foldedBalWorstT,foldedBalWorstZone:liftState.route.getMeta(foldedBalWorstT),treadClear,stationDeckTop:liftState.route.getPoint(0,new THREE.Vector3()).y+spec.deckThickness/2,
+    doorOverlap:polysIntersect(permanentLift,door),platformDoorOverlap:polysIntersect(station,door),stepOverlap:polysIntersect(station,step1),
+    slopeOk:maxSlope<=spec.maxSlope+0.01,residualOk:flightResidualParkedTop>=90&&topParkingResidual>=90,
+    midFlightResidualOk:midFlightResidual>=90,foldedPassageOk:foldedBalClear>=90,turnOk:turnSweep===null||turnSweep<=120,
+    wallEnvelopeOk:openWallClear>=0&&foldedWallClear>=0,
+    treadOk:treadClear>=0.5,stationOk:(liftState.route.getPoint(0,new THREE.Vector3()).y+spec.deckThickness/2)<=8
+  };
+}
+
+function createSweep(spec){
+  disposeTree(liftState.sweepGroup);
+  const g=new THREE.Group();g.name='Lift swept envelopes';g.userData={semanticId:'lift_system.diagnostics.swept_envelopes',subsystem:'lift_system'};LIFT_SYSTEM_GROUP.add(g);liftState.sweepGroup=g;
+  for(let i=0;i<=42;i++){
+    const t=i/42,pose=routePose(t);
+    for(const mode of ['open','folded']){
+      const poly=platformPolyAt(t,spec,mode),clear=wallBoundaryClearance(poly),bad=clear<0,d=platformEnvelopeDims(spec,mode);
+      const geo=new THREE.EdgesGeometry(new THREE.BoxGeometry(d.w,mode==='open'?3.5:6,d.l));
+      const baseColor=mode==='open'?0xffb15c:0x68b7d8;
+      const lines=new THREE.LineSegments(geo,new THREE.LineBasicMaterial({color:bad?0xff4b45:baseColor,transparent:true,opacity:bad?.95:(mode==='open'?.27:.20)}));
+      lines.position.set(d.w/2,mode==='open'?0:8,0);
+      const holder=new THREE.Group();holder.position.copy(pose.p);holder.quaternion.copy(pose.q);holder.add(lines);g.add(holder);
+    }
+  }
+  g.visible=document.getElementById('liftSweep').checked;
+}
+
+function rebuildLift(){
+  const spec=LIFT_MODELS[liftState.modelId];
+  liftState.route=buildOuterWallRoute(spec);
+  createRails(spec);createPlatform(spec);createSweep(spec);createDoorZone();
+  liftState.analysis=analyzeCurrent(spec);setPlatformPose();assignHierarchyIds(CASA_ROOT,'casa_artlia');refreshLiftPanel();
+}
+function setPlatformPose(){
+  if(!liftState.root||!liftState.route)return;
+  const pose=routePose(liftState.progress);liftState.root.position.copy(pose.p);liftState.root.quaternion.copy(pose.q);
+
+  // Folding is staged: first retract the safety barriers, then raise the deck.
+  // This prevents the barrier geometry from rotating outward through a wall.
+  const barrierRetract=Math.min(1,liftState.fold/0.28);
+  const deckFold=Math.max(0,Math.min(1,(liftState.fold-0.20)/0.80));
+  if(liftState.barrierGroup){
+    liftState.barrierGroup.scale.y=Math.max(0.025,1-barrierRetract);
+    liftState.barrierGroup.visible=barrierRetract<0.985;
+  }
+  if(liftState.deckPivot)liftState.deckPivot.rotation.z=deckFold*Math.PI/2;
+  if(liftState.payload)liftState.payload.visible=document.getElementById('liftPayload').checked&&liftState.fold<0.08;
+}
+function metric(label,value,cls){return '<div class="liftMetric"><span>'+label+'</span><span class="'+cls+'">'+value+'</span></div>';}
+function refreshLiftPanel(){
+  const spec=LIFT_MODELS[liftState.modelId],a=liftState.analysis,meta=liftState.route?liftState.route.getMeta(liftState.progress):'';
+  document.getElementById('liftPos').value=Math.round(liftState.progress*1000);
+  document.getElementById('liftPosVal').textContent=Math.round(liftState.progress*100)+'%';
+  document.getElementById('liftSpeedVal').textContent=Math.round(liftState.speed);
+  document.getElementById('liftOffsetVal').textContent=liftState.wallOffset+' cm';
+  document.getElementById('liftStationXVal').textContent=liftState.stationX+' cm';
+  document.getElementById('liftModelInfo').textContent=spec.note;
+  document.getElementById('liftDocs').innerHTML=spec.docs.map(d=>'<a target="_blank" rel="noopener" href="'+d[1]+'">'+d[0]+'</a>').join('');
+  const ctlModel=document.getElementById('liftControllerModel');if(ctlModel)ctlModel.textContent=spec.visualStyle==='ascendor'?'PLK8':'GTLE';
+  document.getElementById('liftUp').classList.toggle('active',liftState.direction>0);
+  document.getElementById('liftDown').classList.toggle('active',liftState.direction<0);
+  document.getElementById('liftStop').classList.toggle('active',liftState.direction===0);
+  document.getElementById('liftOpen').classList.toggle('active',liftState.foldTarget===0);
+  document.getElementById('liftFold').classList.toggle('active',liftState.foldTarget===1);
+  if(!a)return;
+  let html='';
+  html+=metric('Zone actuelle',meta,'good');
+  html+=metric('Option escalier',a.stairExtension.label,a.stairExtension.width>0?'warn':'good');
+  html+=metric('Largeur volée droite simulée',a.midFlightWidth.toFixed(1)+' cm',a.midFlightWidth>=125?'good':'warn');
+  html+=metric('Stationnement normal','palier haut','good');
+  const opt=spec.optimization;
+  if(opt){
+    html+=metric('Optimisation voie murale',opt.feasible?'solution trouvee':'aucune solution cible',opt.feasible?'good':'bad');
+    html+=metric('Axe mural optimise (simulation)',opt.wallOffset.toFixed(2)+' cm',opt.feasible?'good':'warn');
+    html+=metric('Zone limitante simulee',opt.limitingZone||'—','warn');
+  }
+  html+=metric('Passage volée droite, garé en haut',a.flightResidualParkedTop.toFixed(1)+' cm',a.flightResidualParkedTop>=90?'good':'bad');
+  html+=metric('Passage au palier haut, replié',a.topParkingResidual.toFixed(1)+' cm',a.topParkingResidual>=90?'good':'bad');
+  html+=metric('Si replié sur la volée droite (calcul nominal)',a.midFlightResidual.toFixed(1)+' cm',a.midFlightResidualOk?'good':'bad');
+  html+=metric('Passage mini simulé, appareil replié',a.foldedBalClear.toFixed(1)+' cm',a.foldedPassageOk?'good':'bad');
+  html+=metric('Point limitant du passage replié',a.foldedBalWorstZone||'—',a.foldedPassageOk?'good':'bad');
+  html+=metric('Profondeur repliée publiée',spec.foldedDepth.toFixed(1)+' cm','warn');
+  if(a.turnSweep!==null)html+=metric('Balayage 90° documenté',a.turnSweep.toFixed(1)+' / 120 cm',a.turnOk?'good':'bad');
+  else html+=metric('Balayage 90° documenté','non publié — simulation','warn');
+  html+=metric('Axe plateforme / mur simule',liftState.wallOffset.toFixed(1)+' cm',a.wallEnvelopeOk?'good':'bad');
+  html+=metric('Pente max du trace',a.maxSlope.toFixed(1)+' / '+spec.maxSlope+' deg',a.slopeOk?'good':'bad');
+  html+=metric('Garde-corps, jeu plan mini',a.balClear.toFixed(1)+' cm',a.balClear>=5?'good':a.balClear>0?'warn':'bad');
+  html+=metric('Jeu mini murs, plateforme ouverte',a.openWallClear.toFixed(1)+' cm',a.openWallClear>=1?'good':a.openWallClear>=0?'warn':'bad');
+  html+=metric('Jeu mini murs, plateforme repliee',a.foldedWallClear.toFixed(1)+' cm',a.foldedWallClear>=1?'good':a.foldedWallClear>=0?'warn':'bad');
+  html+=metric('Enveloppes dans le batiment',a.wallEnvelopeOk?'oui':'NON',a.wallEnvelopeOk?'good':'bad');
+  html+=metric('Jeu mini sous plateforme / surfaces',a.treadClear.toFixed(1)+' cm',a.treadOk?'good':'bad');
+  html+=metric('Niveau dessus plateforme a la station basse',a.stationDeckTop.toFixed(1)+' cm',a.stationOk?'good':'warn');
+  html+=metric('Station basse / marche 1',a.stepOverlap?'chevauchement':'degagee',a.stepOverlap?'bad':'good');
+  html+=metric('Rail + poteau permanents / zone porte',a.doorOverlap?'chevauchement':'degagee',a.doorOverlap?'bad':'good');
+  document.getElementById('liftReadout').innerHTML=html;
+}
+function applyModelDefaults(id,resetPosition=true){
+  const spec=LIFT_MODELS[id];if(!spec)return;
+  const opt=spec.optimization||liftState.optimizationCache[id];
+  liftState.wallOffset=opt?.wallOffset??spec.defaultWallOffset??15;
+  liftState.stationX=opt?.stationX??spec.defaultStationX??195;
+  const offset=document.getElementById('liftOffset'),station=document.getElementById('liftStationX'),support=document.getElementById('liftSupportMode');
+  if(offset)offset.value=liftState.wallOffset;
+  if(station)station.value=liftState.stationX;
+  if(support)support.value=spec.defaultSupportMode||'posts';
+  if(resetPosition){liftState.progress=spec.parkAtTop?1:0;liftState.direction=0;liftState.fold=1;liftState.foldTarget=1;}
+}
+function populateModels(){
+  const sel=document.getElementById('liftModel');sel.innerHTML='';
+  Object.keys(LIFT_MODELS).filter(k=>LIFT_MODELS[k].enabled!==false).forEach(k=>{const o=document.createElement('option');o.value=k;o.textContent=LIFT_MODELS[k].label;sel.appendChild(o);});
+  sel.value=liftState.modelId;
+}
+function setRouteView(){target.set(105,180,220);theta=-2.2;phi=1.05;radius=485;cam();}
+
+window.CASA_LIFT_SIM={
+  models:LIFT_MODELS,
+  registerModel(id,spec){LIFT_MODELS[id]=Object.assign({enabled:true},spec);populateModels();},
+  selectModel(id){if(LIFT_MODELS[id]){liftState.modelId=id;document.getElementById('liftModel').value=id;applyModelDefaults(id,true);rebuildLift();}},
+  rebuild:rebuildLift,optimizeModel:optimizeWallRouteForModel,optimizeAll:optimizeAllModels,stairExtensions:STAIR_EXTENSION_OPTIONS,
+  setStairExtension(mode){const el=document.getElementById('stairExtensionMode');if(el&&STAIR_EXTENSION_OPTIONS[mode]){el.value=mode;rebuildStairExtension();rebuildLift();}},state:liftState,
+  roomGroup:ROOM_GROUP,liftSystemGroup:LIFT_SYSTEM_GROUP
+};
+
+
+function setLiftSystemVisible(visible){
+  LIFT_SYSTEM_GROUP.visible=!!visible;
+  const cb=document.getElementById('liftSystemVisible');if(cb)cb.checked=!!visible;
+  const topBtn=document.getElementById('liftVisibilityBtn');if(topBtn)topBtn.textContent=visible?'Élévateur : visible':'Élévateur : masqué';
+  const panelBtn=document.getElementById('liftOnlyToggle');if(panelBtn)panelBtn.textContent=visible?"Masquer l'élévateur":"Afficher l'élévateur";
+}
+function roundNumber(v){return Number.isFinite(v)?Math.round(v*10000)/10000:null;}
+function vecRecord(v){return {x:roundNumber(v.x),y:roundNumber(v.y),z:roundNumber(v.z)};}
+function quatRecord(q){return {x:roundNumber(q.x),y:roundNumber(q.y),z:roundNumber(q.z),w:roundNumber(q.w)};}
+function safePlain(value,depth=0){
+  if(depth>4)return '[max-depth]';
+  if(value===null||typeof value==='string'||typeof value==='boolean')return value;
+  if(typeof value==='number')return roundNumber(value);
+  if(Array.isArray(value))return value.slice(0,200).map(v=>safePlain(v,depth+1));
+  if(typeof value==='object'){
+    const out={};for(const [k,v] of Object.entries(value)){if(typeof v!=='function'&&k!=='uuid')out[k]=safePlain(v,depth+1);}return out;
+  }
+  return String(value);
+}
+function slugId(text){return String(text||'object').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'.').replace(/^\.|\.$/g,'')||'object';}
+function assignHierarchyIds(root,rootId){
+  root.userData=root.userData||{};root.userData.semanticId=root.userData.semanticId||rootId;
+  const walk=(parent)=>{
+    const counts={};
+    parent.children.forEach((child,index)=>{
+      const base=slugId(child.name||child.type||'object');counts[base]=(counts[base]||0)+1;
+      child.userData=child.userData||{};
+      if(!child.userData.semanticId)child.userData.semanticId=parent.userData.semanticId+'/'+base+'.'+String(counts[base]).padStart(3,'0');
+      child.userData.parentId=parent.userData.semanticId;
+      child.userData.subsystem=child.userData.subsystem||topSubsystem(child);
+      walk(child);
+    });
+  };walk(root);
+}
+function materialRecord(material){
+  if(!material)return null;
+  const one=m=>({type:m.type,name:m.name||null,color:m.color?'#'+m.color.getHexString():null,opacity:roundNumber(m.opacity),transparent:!!m.transparent,visible:m.visible!==false,side:m.side});
+  return Array.isArray(material)?material.map(one):one(material);
+}
+function ancestorsVisible(obj){let n=obj;while(n){if(n.visible===false)return false;n=n.parent;}return true;}
+function objectRecord(obj){
+  obj.updateMatrixWorld(true);
+  const worldBox=new THREE.Box3().setFromObject(obj),worldSize=new THREE.Vector3(),worldCenter=new THREE.Vector3();
+  const empty=worldBox.isEmpty();if(!empty){worldBox.getSize(worldSize);worldBox.getCenter(worldCenter);}
+  let geometry=null;
+  if(obj.geometry){obj.geometry.computeBoundingBox();const b=obj.geometry.boundingBox,sz=new THREE.Vector3(),ct=new THREE.Vector3();if(b){b.getSize(sz);b.getCenter(ct);}geometry={type:obj.geometry.type,parameters:safePlain(obj.geometry.parameters||{}),localBoundsCm:b?{min:vecRecord(b.min),max:vecRecord(b.max),size:vecRecord(sz),center:vecRecord(ct)}:null};}
+  return {
+    semantic_id:obj.userData?.semanticId||null,parent_id:obj.userData?.parentId||null,name:obj.name||null,three_type:obj.type,subsystem:(obj.userData?.subsystem&&obj.userData.subsystem!=='other')?obj.userData.subsystem:topSubsystem(obj),
+    visible:obj.visible,rendered_visible:ancestorsVisible(obj),
+    transform:{position_cm:vecRecord(obj.position),rotation_euler_rad:vecRecord(obj.rotation),quaternion:quatRecord(obj.quaternion),scale:vecRecord(obj.scale),matrix_world:Array.from(obj.matrixWorld.elements).map(roundNumber)},
+    world_bounds_cm:empty?null:{min:vecRecord(worldBox.min),max:vecRecord(worldBox.max),size:vecRecord(worldSize),center:vecRecord(worldCenter)},
+    geometry,material:materialRecord(obj.material),metadata:safePlain(obj.userData||{})
+  };
+}
+function exportSceneManifest(){
+  assignHierarchyIds(CASA_ROOT,'casa_artlia');
+  const objects=[];CASA_ROOT.traverse(o=>objects.push(objectRecord(o)));
+  return {
+    generated_at:new Date().toISOString(),
+    survey:JSON.parse(document.getElementById('survey-data').textContent),
+    static_manifest:JSON.parse(document.getElementById('scene-manifest').textContent),
+    active_state:{entrance_door_open_fraction:roundNumber(entranceDoor.open),lift_system_visible:LIFT_SYSTEM_GROUP.visible,lift_model_id:liftState.modelId,lift_progress_0_bottom_1_top:roundNumber(liftState.progress),platform_fold_0_open_1_folded:roundNumber(liftState.fold),wall_axis_offset_cm:roundNumber(liftState.wallOffset),lower_station_x_cm:roundNumber(liftState.stationX),support_mode:(document.getElementById('liftSupportMode')||{}).value||null,stair_extension_mode:(document.getElementById('stairExtensionMode')||{}).value||null},
+    lift_models:safePlain(LIFT_MODELS),
+    active_route_samples_cm:liftState.route?liftState.route.samples.map((p,i)=>({index:i,x:roundNumber(p.x),y:roundNumber(p.y),z:roundNumber(p.z),zone:p.label||null})):[],
+    object_count:objects.length,
+    objects
+  };
+}
+function downloadSceneManifest(){
+  const data=exportSceneManifest(),blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='casa_artlia_v10_scene_manifest.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+window.CASA_MODEL_API={
+  modelVersion:'10.0',units:'cm',roomGroup:ROOM_GROUP,liftSystemGroup:LIFT_SYSTEM_GROUP,diagnosticsGroup:DIAGNOSTICS_GROUP,
+  survey:JSON.parse(document.getElementById('survey-data').textContent),staticManifest:JSON.parse(document.getElementById('scene-manifest').textContent),
+  liftModels:LIFT_MODELS,get liftState(){return liftState;},setLiftVisible:setLiftSystemVisible,exportSceneManifest,downloadSceneManifest,
+  findObject(id){let found=null;CASA_ROOT.traverse(o=>{if(o.userData?.semanticId===id)found=o;});return found;}
+};
+
+(function initLiftUI(){
+  populateModels();
+  const liftPanel=document.getElementById('liftPanel');
+  const liftToggle=document.getElementById('liftToggle');
+  const setLiftPanelCollapsed=(collapsed)=>{
+    liftPanel.classList.toggle('collapsed',collapsed);
+    liftToggle.setAttribute('aria-expanded',String(!collapsed));
+    liftToggle.setAttribute('aria-label',collapsed?'Ouvrir les réglages de la plateforme':'Fermer les réglages de la plateforme');
+    liftToggle.title=collapsed?'Ouvrir les réglages':'Fermer les réglages';
+  };
+  liftToggle.onclick=()=>setLiftPanelCollapsed(!liftPanel.classList.contains('collapsed'));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!liftPanel.classList.contains('collapsed'))setLiftPanelCollapsed(true);});
+  document.getElementById('liftModel').onchange=e=>{liftState.modelId=e.target.value;applyModelDefaults(liftState.modelId,true);rebuildLift();};
+  document.getElementById('liftUp').onclick=()=>{liftState.direction=1;};
+  document.getElementById('liftDown').onclick=()=>{liftState.direction=-1;};
+  document.getElementById('liftStop').onclick=()=>{liftState.direction=0;};
+  document.getElementById('liftOpen').onclick=()=>{liftState.direction=0;liftState.foldTarget=0;};
+  document.getElementById('liftFold').onclick=()=>{liftState.direction=0;liftState.foldTarget=1;};
+  document.getElementById('liftPos').oninput=e=>{liftState.direction=0;liftState.progress=Number(e.target.value)/1000;setPlatformPose();refreshLiftPanel();};
+  document.getElementById('liftSpeed').oninput=e=>{liftState.speed=Number(e.target.value);refreshLiftPanel();};
+  document.getElementById('liftOffset').oninput=e=>{liftState.wallOffset=Number(e.target.value);document.getElementById('liftOffsetVal').textContent=liftState.wallOffset+' cm';};
+  document.getElementById('liftOffset').onchange=()=>rebuildLift();
+  document.getElementById('liftStationX').oninput=e=>{liftState.stationX=Number(e.target.value);document.getElementById('liftStationXVal').textContent=liftState.stationX+' cm';};
+  document.getElementById('liftStationX').onchange=()=>rebuildLift();
+  document.getElementById('liftSupportMode').onchange=()=>rebuildLift();
+  document.getElementById('stairExtensionMode').onchange=()=>{rebuildStairExtension();rebuildLift();};
+  document.getElementById('liftSystemVisible').onchange=e=>setLiftSystemVisible(e.target.checked);
+  document.getElementById('liftVisibilityBtn').onclick=()=>setLiftSystemVisible(!LIFT_SYSTEM_GROUP.visible);
+  document.getElementById('liftOnlyToggle').onclick=()=>setLiftSystemVisible(!LIFT_SYSTEM_GROUP.visible);
+  document.getElementById('modelExport').onclick=downloadSceneManifest;
+  document.getElementById('liftSupports').onchange=e=>{if(liftState.supportGroup)liftState.supportGroup.visible=e.target.checked;};
+  document.getElementById('liftSweep').onchange=e=>{if(liftState.sweepGroup)liftState.sweepGroup.visible=e.target.checked;};
+  document.getElementById('liftDoorZone').onchange=e=>{if(liftState.doorGroup)liftState.doorGroup.visible=e.target.checked;};
+  document.getElementById('liftPayload').onchange=()=>setPlatformPose();
+  document.getElementById('liftFollow').onchange=e=>{liftState.follow=e.target.checked;};
+  document.getElementById('liftOptimize').onclick=()=>optimizeWallRouteForModel(liftState.modelId,true);
+  document.getElementById('liftOptimizeAll').onclick=()=>optimizeAllModels(true);
+  document.getElementById('liftViewRoute').onclick=setRouteView;
+  document.getElementById('liftReset').onclick=()=>{applyModelDefaults(liftState.modelId,true);rebuildLift();setRouteView();};
+  document.getElementById('entranceDoorBtn').onclick=()=>{entranceDoor.target=entranceDoor.target>.5?0:1;};
+  optimizeAllModels(false);
+  applyModelDefaults(liftState.modelId,true);rebuildLift();setLiftSystemVisible(true);assignHierarchyIds(CASA_ROOT,'casa_artlia');setRouteView();
+})();
+
+function updateLift(now){
+  const dt=Math.min(.05,Math.max(0,(now-liftState.lastTime)/1000));liftState.lastTime=now;
+  const dd=entranceDoor.target-entranceDoor.open;if(Math.abs(dd)>.001)entranceDoor.open+=Math.sign(dd)*Math.min(Math.abs(dd),dt*entranceDoor.speed);else entranceDoor.open=entranceDoor.target;
+  setEntranceDoorPose();
+  if(liftState.direction){
+    liftState.progress=Math.max(0,Math.min(1,liftState.progress+liftState.direction*liftState.speed*dt/liftState.route.totalLength));
+    if(liftState.progress===0||liftState.progress===1){
+      const arrivedTop=liftState.progress===1&&liftState.direction>0;liftState.direction=0;
+      if(arrivedTop&&LIFT_MODELS[liftState.modelId].parkAtTop)liftState.foldTarget=1;
+    }
+  }
+  const fd=liftState.foldTarget-liftState.fold;if(Math.abs(fd)>.001)liftState.fold+=Math.sign(fd)*Math.min(Math.abs(fd),dt*1.25);else liftState.fold=liftState.foldTarget;
+  setPlatformPose();
+  if(liftState.follow&&liftState.root){const p=liftState.root.position;target.lerp(new THREE.Vector3(p.x,p.y+35,p.z),Math.min(1,dt*4));cam();}
+  refreshLiftPanel();
+}
+
+(function an(now){requestAnimationFrame(an);updateLift(now||performance.now());renderer.render(scene,camera);})();
+</script>
+
+<!--
+CASA ARTLIA MODEL HANDOFF (v10.0)
+- Units: centimetres. Coordinate system is documented in #survey-data and #scene-manifest.
+- Architecture is under scene group semanticId="room".
+- The complete inclined lift is under semanticId="lift_system" and can be hidden independently.
+- Static dimensions/assumptions: JSON script elements #survey-data and #scene-manifest.
+- Runtime full object export: window.CASA_MODEL_API.exportSceneManifest().
+- User download button: "Exporter JSON IA".
+- This remains a feasibility model, not an execution drawing.
+-->
+</body>
+</html>

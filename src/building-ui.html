@@ -1,0 +1,39 @@
+<div id="buildingBar" role="toolbar" aria-label="Bâtiment Casa Artlia">
+ <div class="brand"><strong>Casa Artlia</strong><span>Bâtiment complet · v12.3.3</span></div>
+ <div class="stateSwitch" role="group" aria-label="État des travaux"><button id="stateAvant" aria-pressed="false">Avant travaux</button><button id="stateApres" aria-pressed="true" class="selected">Après travaux</button></div>
+ <div class="viewButtons"><button data-view="global">Bâtiment</button><button data-view="walk" title="Marcher à hauteur des yeux">Visite</button><button data-view="interior">Intérieur</button><button data-view="plan">Plan R+1</button><button data-view="rdc">Entrée / GTLE</button><button data-view="exterior">Escalier ext.</button></div>
+ <button id="buildingToggle" aria-expanded="false" title="Pièces, couches et sources">Détails</button>
+</div>
+<aside id="buildingPanel" hidden aria-label="Pièces et réglages du bâtiment">
+ <div class="panelTitle"><strong>Explorer le bâtiment</strong><button id="panelClose" aria-label="Fermer les détails">×</button></div>
+ <label class="field">Niveau<select id="levelSelect"><option value="all">RDC + R+1</option><option value="r1">R+1</option><option value="rdc">RDC / entrée</option></select></label>
+ <label class="field">Parois<select id="wallMode"><option value="full" selected>Hauteur entrée · 5,80 m</option><option value="cut">Coupe à 1 m</option><option value="none">Sans parois</option></select></label>
+ <div class="layerGrid"><label><input id="labelsCheck" type="checkbox" checked> Noms des pièces</label><label><input id="exteriorCheck" type="checkbox" checked> Escalier extérieur</label><label><input id="routesCheck" type="checkbox"> Connexions</label><label><input id="changesCheck" type="checkbox"> Travaux en couleur</label><label><input id="bookshopCheck" type="checkbox" checked> Librairie (contexte)</label><label><input id="upperCheck" type="checkbox" checked> Combles / balcon privé</label><label><input id="roofCheck" type="checkbox" checked> Toiture</label><label><input id="ceilingCheck" type="checkbox"> Plafond d'étude</label><label><input id="dimensionsCheck" type="checkbox"> Cotes bâtiment</label></div>
+ <button id="allDoorsBtn" class="wide">Ouvrir les portes R+1</button>
+ <label class="field">Aller à une pièce<select id="roomSelect"><option value="">Choisir…</option></select></label>
+ <div id="roomInventory"></div>
+ <details><summary>Différences avant / après</summary><ul id="differencesList"></ul></details>
+ <details><summary>Sources et hypothèses (14)</summary><p class="small">Équipement v10 conservé dans les deux états. Les contours R+1 sont reconstruits depuis les plans de mai; les cotes contradictoires restent signalées.</p><div id="assumptionsList"></div><div class="sourceLinks"></div></details>
+ <div class="panelActions"><button id="planSourceBtn">Voir le plan source</button><button id="dataExport">Exporter les données</button></div>
+ <details><summary>Photographies de référence</summary><p class="small">Façades, mur séparatif et escalier vérifiés sur les photos Drive.</p><div id="photoButtons"></div></details><details><summary>Commandes d'origine v10</summary><div id="originalControls"></div></details>
+ <p class="small">Glisser : tourner · molette : zoom · Maj + glisser : déplacer. Toucher une pièce : détails. Toucher une porte : ouvrir.</p>
+</aside>
+<div id="modelStatus"><strong id="statusState">Après travaux</strong><span id="statusView">RDC + R+1 · murs à 5,80 m</span><span class="statusNote">Reconstruction ERP · raccords et cotes à confirmer</span><button id="sourceQuickBtn">Plans & hypothèses</button></div>
+<div id="roomCard" hidden><button id="roomCardClose" aria-label="Fermer">×</button><div id="roomCardContent"></div></div>
+<dialog id="planDialog"><div class="dialogHead"><strong id="planTitle">Plan ERP</strong><select id="planLevel"><option value="1">R+1</option><option value="0">RDC</option></select><button id="dialogClose">Fermer</button></div><div class="planScroll"><img id="sourcePlan" alt="Plan ERP original"></div><p class="small">Image du PDF original. La porte et la plateforme v10 sont conservées comme équipements d'étude dans les deux états. <a id="planOriginalLink" target="_blank" rel="noopener">Ouvrir le PDF Drive</a></p></dialog>
+
+<dialog id="photoDialog"><div class="dialogHead"><strong>Photos du site</strong><select id="photoSelect"></select><button id="photoClose">Fermer</button></div><div class="photoView"><img id="referencePhoto" alt="Photographie Casa Artlia"></div><p id="photoObservation" class="small"></p><a id="photoDriveLink" target="_blank" rel="noopener">Photo originale dans Drive</a></dialog>
+<div id="walkCrosshair" hidden aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v5m0 8v5M3 12h5m8 0h5"/></svg></div>
+<div id="walkInteract" hidden aria-live="polite"></div>
+<section id="walkWelcome" hidden aria-label="Démarrer la visite à pied">
+ <strong>Visite à hauteur des yeux</strong>
+ <p id="walkIntro">Maintenir le clic gauche ou droit et glisser pour regarder.<br>Flèches ou WASD / ZQSD pour marcher · Maj pour accélérer.<br>E ou clic bref pour ouvrir une porte proche.</p>
+ <p class="small">Les escaliers se montent en avançant.<br>Échap libère la souris et met la visite en pause.</p>
+ <button id="walkStart">Explorer en glissant</button>
+</section>
+<aside id="walkHUD" hidden aria-label="Commandes de la visite">
+ <div class="walkStatus"><strong id="walkLocation"></strong><span id="walkLockState"></span></div>
+ <div class="walkActions"><label for="walkSpawn">Départ</label><select id="walkSpawn"><option value="street">Devant l’entrée</option><option value="entrance">Entrée / café · RDC</option><option value="landing">Palier intérieur · R+1</option><option value="main">Jeu principal · R+1</option><option value="outside">Palier extérieur · R+1</option></select><button id="walkPause">Pause</button><button id="walkExit">Quitter</button></div>
+ <div class="walkLookOptions"><label for="walkMouseMode">Regard</label><select id="walkMouseMode"><option value="drag">Glisser (gauche ou droit)</option><option value="capture">Souris capturée · FPS</option></select><span>Échap : pause</span></div><span id="walkControlHint"></span>
+</aside>
+<div id="walkTouch" aria-label="Marcher"><button data-key="ArrowUp" aria-label="Avancer"><svg viewBox="0 0 24 24"><path d="m5 14 7-7 7 7"/></svg></button><button data-key="ArrowLeft" aria-label="Aller à gauche"><svg viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></svg></button><button data-key="ArrowDown" aria-label="Reculer"><svg viewBox="0 0 24 24"><path d="m5 10 7 7 7-7"/></svg></button><button data-key="ArrowRight" aria-label="Aller à droite"><svg viewBox="0 0 24 24"><path d="m10 5 7 7-7 7"/></svg></button><button id="walkTouchDoor" aria-label="Ouvrir ou fermer la porte visée">Porte</button></div>

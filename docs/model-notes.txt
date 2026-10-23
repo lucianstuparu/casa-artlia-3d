@@ -1,0 +1,47 @@
+Casa Artlia — v12.3.3 — stairs against wall and wall-mounted GTLE
+
+Open/reload casa_artlia_3d_full_building_v12_3_avant_apres.html. The same filename is retained for the already-open browser tab.
+
+Current corrections
+C01: removed the reconstructed play_lower partition crossing the upper stair exit, in both avant and après.
+C02: restored the original full-height side and rear walls around the surveyed interior staircase. The side inner face is x=0, and the rear inner face is z=400 cm, matching the stair endpoints. Both extend to y=580 cm. The previous ERP-derived rear boundary at z=467.67 left a false 67.67 cm floor strip beside the upper flight. That strip is removed from the stair enclosure; the adjoining room boundary and floor are registered locally to the restored wall.
+
+The Ganser route and its brackets retain their original positions. Their wall plates now contact the restored masonry, including the upper-flight brackets that previously floated above the truncated wall.
+
+The native side wall thickness remains an assumed 25 cm. The rear partition uses the 7 cm ERP partition convention; that wall's thickness has not been separately surveyed. Inner faces and stair endpoints are retained from the original v10 geometry. The upper landing is the original 204 x 130 cm, without the preliminary rear floor extension.
+
+The adjacent room's traced floor outline changes locally to meet the restored partition. Printed ERP areas and dimensions remain recorded as source labels separately from the computed reconstructed areas. Original traces and the rationale for changes are retained in reconstructionCorrections in the exported JSON. A02 and A14 describe the corrected stair enclosure and remaining interpretation.
+
+Walking controls
+- Visite, then Explorer en glissant.
+- Hold either mouse button and drag to look around.
+- Arrows, WASD or ZQSD move relative to the viewing direction; Shift moves faster.
+- E or a brief left click operates a nearby door under the crosshair.
+- Escape pauses and releases the mouse. Quitter restores the prior building/plan view.
+- Regard > Souris capturée · FPS enables optional unrestricted mouse capture. Rejected, ignored or unresolved capture requests return to drag mode after 900 ms.
+- Touch devices: drag to look, directional buttons to move, Porte to operate a targeted door.
+
+Preserved
+Avant/après switch, original entrance façade and telescopic-door animation, all 17 original interior stair treads, Ganser route and animations, exterior stairs/landing, arched windows, building/context layers, source plans/photos, exports, and offline operation.
+
+Verification in running Chrome
+- Rear wall bounds x0..372, y0..580, z400..407 cm; side wall x-25..0, y0..580, z0..400 cm.
+- Ray checks place the visible inner faces precisely on the stair-edge planes x0/z400.
+- All 17 existing side/rear wall-mount plates intersect the restored walls.
+- Complete ascent and descent of the original staircase, plus the corrected straight landing passage, pass in both states.
+- Ganser position and folding controls and telescopic entrance-door animation pass.
+- First-person stair-side and orthographic plan views inspected. No JavaScript errors.
+- Mouse-look repair was verified with left/right dragging, zero movementX/movementY, rejected/silent capture requests, real pointer lock, a sandboxed iframe that forbids pointer lock, and touch events.
+- Direct control of the Codex in-app browser was unavailable due to its automation runtime sandbox startup failure. The browser verification above used Chrome.
+
+Sources and assumptions
+ERP folder: https://drive.google.com/drive/folders/1BHYbGG0kDveUCYCFL33CF1Bk_rL4vC0_
+Photo folder: https://drive.google.com/drive/folders/10rH8jbg-Uw-wkw7p1ta1iAuvNbpBhbjl
+Original v10 surveyed entrance/stair geometry and subsequent user corrections take precedence at the stair connection. A01–A14, per-photo source links and correction history are embedded in the model and JSON. Roof heights/unseen roof returns, private balcony, bookshop context and unresolved ERP/survey registration remain approximate.
+
+Maintenance
+Canonical sources: src/model-data.cjs, src/building.js, src/building-ui.html, src/building.css and scripts/build.cjs.
+Rebuild with npm run build.
+Verification: npm test (tests/model.test.cjs and tests/browser.test.cjs).
+Earlier model snapshots are retained under archive/releases/.
+

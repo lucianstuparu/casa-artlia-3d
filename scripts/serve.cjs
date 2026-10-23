@@ -1,0 +1,5 @@
+'use strict';
+const http=require('http'),fs=require('fs'),path=require('path'),root=path.resolve(__dirname,'..'),port=Number(process.env.PORT||3000);
+const types={'.html':'text/html; charset=utf-8','.json':'application/json; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.pdf':'application/pdf'};
+const server=http.createServer((req,res)=>{try{const u=new URL(req.url,'http://127.0.0.1'),rel=decodeURIComponent(u.pathname)==='/'?'dist/index.html':decodeURIComponent(u.pathname).slice(1),file=path.resolve(root,rel);if(!file.startsWith(root+path.sep)||rel.split(/[\\/]/).some(p=>p==='.git'||p==='node_modules'||p.startsWith('.env'))){res.writeHead(403);res.end();return;}if(!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404);res.end('Not found. Run npm run build first.');return;}res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});fs.createReadStream(file).pipe(res);}catch{res.writeHead(400);res.end();}});
+server.listen(port,'127.0.0.1',()=>console.log('Casa Artlia: http://127.0.0.1:'+server.address().port));
