@@ -69,57 +69,15 @@ const slide=group(upper,'house.slide');const slideShape=new T.Shape();slideShape
 const slideGeo=new T.ExtrudeGeometry(slideShape,{depth:64,bevelEnabled:false,curveSegments:24});slideGeo.translate(0,312,245);const slideMesh=new T.Mesh(slideGeo,mats.sage);slideMesh.name='v1.house.slide.bed';slide.add(slideMesh);
 for(const z of[245,309]){rod(slide,[1515,323,z],[1575,336,z],3.3,'butter','slide.edge');rod(slide,[1575,336,z],[1660,396,z],3.3,'butter','slide.edge');rod(slide,[1660,396,z],[1760,437,z],3.3,'butter','slide.edge');}
 rug(upper,1470,277,100,110,0xdcbf90);
-// Parent seating keeps a view towards the playhouse.
-sofa(upper,1110,390,220,0);rounded(upper,120,3,135,1,'cream',1110,313.8,270,'parents.rug');table(upper,1110,270,72,54,48);
-for(const x of[1093,1124])cyl(upper,4,9,'cream',x,369,270,'parent.cup');
-person(upperPeople,1054,392,167,'cream',2,'sit',0);
-person(upperPeople,1150,392,174,'terra',3,'sit',0);
-const bench=group(upper,'parent_bench',1200,312,51);rounded(bench,240,12,55,4,'oak',0,43,0,'bench.seat');rounded(bench,240,33,8,4,'cream',0,65,-23,'bench.back');for(const x of[-104,104])box(bench,9,37,40,'oak',x,18.5,0,'bench.leg');
-plant(upper,980,50);plant(upper,1880,435,.0+312,.75);
-table(upper,1370,180,120,100,52);for(const[x,z,col]of[[1295,180,'butter'],[1445,180,'sage'],[1370,108,'terra'],[1370,252,'blue']])stool(upper,x,z,col);
-for(let i=0;i<7;i++)box(upper,12,8,12,i%2?'butter':'terra',1345+(i%3)*17,368+Math.floor(i/3)*8,166+Math.floor(i/3)*14,'main.blocks');
-person(upperPeople,1295,180,110,'butter',4,'sit',-Math.PI/2);
-person(upperPeople,1470,295,118,'blue',5,'stand',-Math.PI/2);
-person(upperPeople,1815,220,100,'terra',6,'stand',Math.PI/2,427);
-person(upperPeople,1640,190,166,'green',7,'stand',Math.PI/2);
-shelf(upper,1490,35,160,80,34,0);
-wallSigns.push(sign(upper,'IMAGINER · JOUER · GRANDIR',230,27,1370,500,14,0));
-// Pretend-play room: market, little kitchen, round gathering rug.
-const village=group(upper,'village');groups.play=village;
-shelf(village,545,56,150,70,48);
-for(const x of[475,615])box(village,5,145,5,'oak',x,384,40,'market.post');
-box(village,155,7,64,'cream',545,459,50,'market.canopy');for(let i=0;i<10;i++)box(village,15,4,65,i%2?'sage':'cream',477+i*15,464,50,'market.stripe');
-sign(village,'LE PETIT MARCHÉ',132,22,545,446,14,0);
-for(let i=0;i<12;i++)sphere(village,5,i%2?'butter':'terra',499+(i%6)*17,389,46+Math.floor(i/6)*13,'market.fruit');
-box(village,150,70,48,'oak',785,347,55,'kitchen.base');rounded(village,154,4,52,1,'cream',785,384,55,'kitchen.top');
-for(const x of[752,777])cyl(village,8,1,'charcoal',x,387,55,'kitchen.hob');box(village,30,3,23,'charcoal',824,386,55,'kitchen.sink');
-rounded(village,50,38,3,3,'sage',770,350,29,'kitchen.oven');sign(village,'BONJOUR !',100,22,785,428,14);
-rug(village,680,205,230,170,0xd6c6a1);table(village,700,195,78,60,45);stool(village,644,195,'butter',28);stool(village,750,245,'terra',28);
-person(upperPeople,644,195,102,'pink',8,'sit',-Math.PI/2);person(upperPeople,800,180,166,'sage',9,'stand',.5);
-// Art workshop and construction / reading rooms.
-const atelier=group(upper,'atelier');groups.atelier=atelier;
-shelf(atelier,45,630,240,88,38,Math.PI/2);
-table(atelier,200,590,180,90,58);for(const[x,z,c]of[[140,515,'sage'],[250,515,'butter'],[140,665,'terra'],[250,665,'blue']])stool(atelier,x,z,c);
-for(let i=0;i<4;i++){box(atelier,25,1,34,'cream',145+i*35,374,590,'art.paper');cyl(atelier,4,12,'butter',145+i*35,380,568,'pencil.pot');}
-wallSigns.push(sign(atelier,'PETITS CRÉATEURS',230,30,180,500,482));
-person(upperPeople,140,665,110,'butter',10,'sit',Math.PI);person(upperPeople,250,515,108,'blue',11,'sit',0);person(upperPeople,340,610,170,'terra',12,'reach',Math.PI/2);
-const build=group(upper,'build_read');groups.bureau3=build;
-rug(build,250,1035,330,280,0xc4cdb7);table(build,215,1155,190,90,55);
-for(const[x,z,c]of[[150,1080,'terra'],[270,1080,'sage'],[150,1230,'butter'],[270,1230,'blue']])stool(build,x,z,c);
-for(let i=0;i<12;i++)box(build,15,12,15,['sage','butter','terra'][i%3],155+i%5*25,378+Math.floor(i/5)*12,1140+Math.floor(i/5)*20,'construction.block');
-sofa(build,58,1450,190,Math.PI/2);shelf(build,230,1575,230,76,32,0);
-for(let i=0;i<10;i++)box(build,5,26,20,['sage','terra','butter','blue'][i%4],150+i*15,412,1574,'book');
-wallSigns.push(sign(build,'UNE HISTOIRE, MILLE IDÉES',245,28,245,480,1594,Math.PI));
-person(upperPeople,67,1435,168,'cream',13,'sit',-Math.PI/2);
-person(upperPeople,198,1340,100,'sage',14,'stand',.3);
+/* Upstairs furnishing study */
 // Back-of-house remains recognisable and intentionally quiet.
 const back=group(upper,'back_of_house');shelf(back,900,1020,210,100,45,Math.PI/2);table(back,765,1090,130,50,74);
 box(back,55,90,245,'cream',918,357,1410,'office.kitchen_units');box(back,60,5,250,'oak',915,405,1410,'office.worktop');rounded(back,62,170,64,4,'cream',910,397,1230,'office.fridge');
 function sync(){const key=[A.state.phase,A.state.level,A.state.walls,$('v1Furniture')?.checked,$('v1People')?.checked].join(':');if(key===visibilityKey)return;visibilityKey=key;for(const o of wallSigns)o.visible=A.state.walls==='full';const furnishing=$('v1Furniture')?.checked??true,showPeople=$('v1People')?.checked??true;upper.visible=ground.visible=furnishing&&A.state.phase==='apres';ground.visible=ground.visible&&A.state.level!=='r1';upperPeople.visible=showPeople&&furnishing&&A.state.phase==='apres'&&A.state.level!=='rdc';groundPeople.visible=showPeople&&furnishing&&A.state.phase==='apres'&&A.state.level!=='r1';A.walk.invalidate();}
 const oldApply=A.apply;A.apply=function(){oldApply();sync();};
-const oldTick=A.tick;A.tick=function(now){oldTick(now);sync();updateCoffeeStudy();};
+const oldTick=A.tick;A.tick=function(now){oldTick(now);sync();updateCoffeeStudy();updateUpstairsStudy();};
 const oldSetPhase=A.setPhase;A.setPhase=function(p){oldSetPhase(p);sync();};
-// Upstairs figures remain illustrative; downstairs has body-sized collision proxies.
+// Occupied figures on both levels have body-sized collision proxies.
 const ui=document.createElement('nav');ui.id='conceptNav';ui.setAttribute('aria-label','Variante 1');
 ui.innerHTML='<label for="conceptView">Découvrir</label><select id="conceptView"><option value="main">La grande salle</option><option value="coffee">Le petit café</option><option value="play">Le petit village</option><option value="atelier">L’atelier</option><option value="bureau3">Construire et lire</option><option value="overview">Vue d’ensemble</option></select><div class="conceptSwitches"><label><input type="checkbox" id="v1Furniture" checked>Mobilier</label><label><input type="checkbox" id="v1People" checked>Personnes</label></div><button id="v1Info" class="conceptInfo" aria-label="À propos du concept">i</button><a id="v1Base" href="index.html">Modèle de base</a>';
 const note=document.createElement('div');note.id='conceptNote';note.innerHTML='<strong>Variante 1 · Maison de jeu & café</strong><span id="conceptDescription"></span>';
@@ -128,7 +86,7 @@ const dialog=document.createElement('dialog');dialog.id='conceptDialog';dialog.i
 $('v1Info').onclick=()=>dialog.showModal();$('v1Close').onclick=()=>dialog.close();
 let current='main';
 const views={main:{room:'main',target:[1430,370,230],radius:1020,theta:-2.20,phi:.65},coffee:{room:'rdc',target:[330,110,265],radius:300,theta:-2.43,phi:1.05},play:{room:'play',target:[680,360,170],radius:650,theta:-1.9,phi:.63},atelier:{room:'atelier',target:[225,355,615],radius:700,theta:-.8,phi:.62},bureau3:{room:'bureau3',target:[240,355,1240],radius:1000,theta:-.8,phi:.58}};
-function view(id){current=id;$('conceptView').value=id;if(A.walk.active)A.walk.stop(false);A.setPhase('apres');A.setView('interior');A.state.labels=false;A.state.accessibility=false;$('labelsCheck').checked=false;$('accessibilityCheck').checked=false;A.state.bookshop=false;A.state.upper=false;A.state.roof=false;A.state.walls='cut';$('wallMode').value='cut';if(id!=='overview'){const v=views[id];A.selectRoom(v.room,true);$('roomCard').hidden=true;A.state.selected=null;A.state.walls='cut';target.set(...v.target);radius=v.radius*Math.max(1,1.15/(document.querySelector('#workspace').clientWidth/document.querySelector('#workspace').clientHeight));theta=v.theta;phi=v.phi;cam();}for(const g of[A.phases.apres.floors,ROOM_GROUP])g.traverse(o=>{if(o.isMesh&&o.userData.roomId&&o.material.emissive)o.material.emissive.setHex(0);});A.apply();if(id==='coffee')coffeeCamera();else updateCoffeeStudy();const z=V.zones.find(z=>z.id===id);$('conceptDescription').textContent=z?z.description[CASA_I18N.language]:({fr:'Jeu, création et moments partagés.',ro:'Joacă, creație și timp împreună.',en:'Play, creativity and time together.'})[CASA_I18N.language];}
+function view(id){current=id;$('conceptView').value=id;if(A.walk.active)A.walk.stop(false);A.setPhase('apres');A.setView('interior');A.state.labels=false;A.state.accessibility=false;$('labelsCheck').checked=false;$('accessibilityCheck').checked=false;A.state.bookshop=false;A.state.upper=false;A.state.roof=false;A.state.walls='cut';$('wallMode').value='cut';if(id==='overview'){A.state.level='r1';$('levelSelect').value='r1';}if(id!=='overview'){const v=views[id];A.selectRoom(v.room,true);$('roomCard').hidden=true;A.state.selected=null;A.state.walls='cut';target.set(...v.target);radius=v.radius*Math.max(1,1.15/(document.querySelector('#workspace').clientWidth/document.querySelector('#workspace').clientHeight));theta=v.theta;phi=v.phi;cam();}for(const g of[A.phases.apres.floors,ROOM_GROUP])g.traverse(o=>{if(o.isMesh&&o.userData.roomId&&o.material.emissive)o.material.emissive.setHex(0);});A.apply();if(id==='coffee')coffeeCamera();else updateCoffeeStudy();updateUpstairsStudy();const z=V.zones.find(z=>z.id===id);$('conceptDescription').textContent=z?z.description[CASA_I18N.language]:({fr:'Jeu, création et moments partagés.',ro:'Joacă, creație și timp împreună.',en:'Play, creativity and time together.'})[CASA_I18N.language];}
 for(const z of V.zones){const o=document.createElement('option');o.value='v1_'+z.id;o.textContent='Variante 1 · '+z.title.fr;$('walkSpawn').append(o);}
 $('conceptView').onchange=e=>view(e.target.value);
 for(const id of['v1Furniture','v1People'])$(id).onchange=sync;
@@ -136,7 +94,7 @@ function tour(){const id=current==='coffee'?'entrance':current==='overview'?'mai
 for(const b of document.querySelectorAll('[data-view=walk]'))b.onclick=tour;
 function language(){document.querySelector('.brand strong').textContent='Casa Artlia · V1';document.querySelector('.brand span').textContent=CASA_I18N.t('Un lieu à imaginer');document.title='Casa Artlia · '+CASA_I18N.t('Variante 1 · Maison de jeu & café');const z=V.zones.find(z=>z.id===current);$('conceptDescription').textContent=z?z.description[CASA_I18N.language]:({fr:'Jeu, création et moments partagés.',ro:'Joacă, creație și timp împreună.',en:'Play, creativity and time together.'})[CASA_I18N.language];$('v1Base').href='index.html?lang='+CASA_I18N.language;}
 addEventListener('casa-language-change',language);
-window.CASA_VARIANT={downstairs:{metrics:downstairsMetrics,setQueue:setCoffeeQueue,setView:coffeeCamera,adults:adultBoxes,get count(){return downstairsCount;}},data:V,groups:{upper,ground,upperPeople,groundPeople,...groups},people,view,sync,get current(){return current;}};
+window.CASA_VARIANT={upstairs:{metrics:upstairsMetrics,setPairs:setUpperPairs,setView:upperCamera,actors:upActors,seats:adultSeats,furniture:upFurniture},downstairs:{metrics:downstairsMetrics,setQueue:setCoffeeQueue,setView:coffeeCamera,adults:adultBoxes,get count(){return downstairsCount;}},data:V,groups:{upper,ground,upperPeople,groundPeople,...groups},people,view,sync,get current(){return current;}};
 addEventListener('resize',()=>{if(!A.walk.active&&A.state.view==='room')view(current);});
-installCoffeeStudy();view('coffee');language();
+installCoffeeStudy();installUpstairsStudy();view('overview');language();
 })();

@@ -202,5 +202,97 @@
   "Un comptoir partagé : inscriptions à gauche, café à droite. Un équipier derrière, cinq clients dans deux files courtes. Le sixième encombre le virage d’entrée. Libérer la file pour utiliser la plateforme.": {
     "ro": "Un blat comun: înscrieri în stânga, cafea în dreapta. Un angajat în spate, cinci clienți în două cozi scurte. Al șaselea aglomerează virajul de la intrare. Eliberează coada pentru folosirea platformei.",
     "en": "One shared counter: check-in on the left, coffee on the right. One staff member behind it, five customers in two short queues. The sixth crowds the entrance turn. Clear the queue for platform use."
+  },
+  "Fréquentation": {
+    "ro": "Ocupare",
+    "en": "Occupancy"
+  },
+  "30 enfants + 30 parents": {
+    "ro": "30 copii + 30 părinți",
+    "en": "30 children + 30 parents"
+  },
+  "24 enfants + 24 parents": {
+    "ro": "24 copii + 24 părinți",
+    "en": "24 children + 24 parents"
+  },
+  "20 enfants + 20 parents": {
+    "ro": "20 copii + 20 părinți",
+    "en": "20 children + 20 parents"
+  },
+  "Espaces en 3D": {
+    "ro": "Spații în 3D",
+    "en": "Rooms in 3D"
+  },
+  "Plan et parcours": {
+    "ro": "Plan și trasee",
+    "en": "Plan and routes"
+  },
+  "Emprises": {
+    "ro": "Amprente",
+    "en": "Footprints"
+  },
+  "Répartition et surfaces": {
+    "ro": "Distribuție și suprafețe",
+    "en": "Allocation and areas"
+  },
+  "30 enfants et leurs parents": {
+    "ro": "30 de copii și părinții lor",
+    "en": "30 children and their parents"
+  },
+  "Les adultes sont des parents accompagnants. Trois équipiers à l’étage sont comptés en plus.": {
+    "ro": "Adulții sunt părinți însoțitori. Trei angajați de la etaj sunt numărați separat.",
+    "en": "Adults are accompanying parents. Three upstairs staff are additional."
+  },
+  "Les quatre salles font 96,27 m² au plan, contre 129,41 m² dans le tracé actuel. Les rectangles pointillés limitent l’étude du mobilier à des surfaces inférieures aux surfaces imprimées. Ils ne remplacent pas un relevé du bâtiment.": {
+    "ro": "Cele patru săli au 96,27 m² în plan, față de 129,41 m² în conturul actual. Dreptunghiurile punctate limitează studiul mobilierului la suprafețe mai mici decât cele înscrise. Nu înlocuiesc o măsurătoare a clădirii.",
+    "en": "The four rooms total 96.27 m² on the plans versus 129.41 m² in the current trace. Dashed rectangles constrain the furnishing study to areas smaller than the printed room areas. They do not replace a building survey."
+  },
+  "Soixante visiteurs constituent une configuration chargée. Comparer avec 20 ou 24 familles ; ce modèle ne certifie ni le confort quotidien ni l’effectif autorisé à l’ouverture.": {
+    "ro": "Șaizeci de vizitatori reprezintă o configurație aglomerată. Compară cu 20 sau 24 de familii; modelul nu certifică nici confortul zilnic, nici capacitatea autorizată la deschidere.",
+    "en": "Sixty visitors is a busy configuration. Compare 20 or 24 families; this model certifies neither daily comfort nor the opening occupancy."
+  },
+  "Les couloirs, le sanitaire et le palier extérieur restent sans places d’attente. La cabane est conservée ; son étage ne crée pas de surface supplémentaire dans ce calcul.": {
+    "ro": "Coridoarele, toaleta și palierul exterior rămân fără locuri de așteptare. Căsuța este păstrată; nivelul ei superior nu adaugă suprafață în acest calcul.",
+    "en": "Corridors, the toilet and exterior landing have no waiting seats. The house is retained; its upper deck adds no extra room area to this calculation."
+  },
+  "Décision ERP du 18 septembre 2026": {
+    "ro": "Decizia ERP din 18 septembrie 2026",
+    "en": "ERP decision of 18 September 2026"
+  },
+  "Pièce": {
+    "ro": "Încăpere",
+    "en": "Room"
+  },
+  "Enfants": {
+    "ro": "Copii",
+    "en": "Children"
+  },
+  "Parents": {
+    "ro": "Părinți",
+    "en": "Parents"
+  },
+  "Places adultes": {
+    "ro": "Locuri adulți",
+    "en": "Adult seats"
+  },
+  "Plan · m²": {
+    "ro": "Plan · m²",
+    "en": "Plan · m²"
+  },
+  "enfants": {
+    "ro": "copii",
+    "en": "children"
+  },
+  "parents assis": {
+    "ro": "părinți așezați",
+    "en": "seated parents"
+  },
+  "3 équipiers": {
+    "ro": "3 angajați",
+    "en": "3 staff"
+  },
+  "surfaces à confirmer": {
+    "ro": "suprafețe de confirmat",
+    "en": "areas to verify"
   }
 }

@@ -1,18 +1,18 @@
 # Variant 1 — Playhouse & coffee
 
-Current version: **v1.1.0**, with a downstairs-only check-in/coffee study. Upstairs furnishings remain as in v1.0.1.
+Current furnishing study: v1.2.0 — upstairs 30 children +30 parents, with three staff additional.
 
 A separate furnishing concept built over the after-works state of base v12.8.0. The base HTML, building data, source geometry and base version are unchanged.
 
 - Live concept: https://lucianstuparu.github.io/casa-artlia-3d/variant-1.html
 - Original base: https://lucianstuparu.github.io/casa-artlia-3d/
-- Drive concept archive: https://drive.google.com/drive/folders/1EJVyl-whP-kUA930vQGsq82UIAwOfEE7
+- Drive concept archive: https://drive.google.com/drive/folders/1H_5D9ETEAC7A2yrxjFIZtUG3Lti70JHN
 
 ## The proposal
 
 At the far east end of Jeu principal, a raised wooden house echoes the user's reference: soft multicolour pitched roof, stairs on one side and a slide on the other. There is no bed. Floor cushions and a rug sit in the open play alcove underneath. The nominal body is210 ×270cm, with a115cm deck and approximately250cm overall height; roof overhangs are separate from its nominal footprint.
 
-Parents have a sofa and shared coffee table in the same room, plus a window-side bench. A central low table leaves room for free play and routes between the main entrance and the house.
+Thirty parent seats now use perimeter benches across the four activity rooms. Child-sized tables, floor play and the retained house create activity zones, with separate entrance routes. The upstairs controls compare 20, 24 and 30 families and show the printed-area furnishing envelopes. See [the detailed upstairs study](upstairs-study.md).
 
 Espace de jeu becomes a little pretend-play village with a market and kitchen. The atelier has a shared creative table, low storage and materials. Bureau3 combines construction, a flexible table and reading. Rear service rooms receive modest storage and kitchen units.
 
@@ -30,13 +30,13 @@ No private financial forecasts, personnel records or full business documents wer
 
 ## Assumptions and practical limits
 
-V1-A01–A07 distinguish the furnishing concept from surveyed geometry. Furniture dimensions, service connections, fittings and material choices are provisional. The raised house, guarding, stairs, slide and headroom need specialist development before fabrication. The upper play deck is visual only in the walking simulation, which stays on the existing building levels. People are illustrative scale figures, not an occupancy or staffing calculation.
+V1-A01–A10 distinguish the furnishing concept from surveyed geometry. Furniture dimensions, service connections, fittings and material choices are provisional. The raised house, guarding, stairs, slide and headroom need specialist development before fabrication. The upper play deck is visual only in the walking simulation, which stays on the existing building levels. The upstairs target is 30 children plus 30 accompanying parents, with three staff additional. It is a busy spatial study, with explicit real-area uncertainty, rather than confirmed daily comfort or opening capacity.
 
-Furniture and downstairs people block walking; upstairs figures retain their previous illustrative behaviour. Existing doors, stairs, GTLE and source viewers remain available. Furniture/people appear in after works only. FR, RO and EN remain available. Optional furniture/people switches are in the concept details panel, away from the scene.
+Furniture and occupied figures on both levels block walking. Existing doors, stairs, GTLE and source viewers remain available. Furniture/people appear in after works only. FR, RO and EN remain available. Optional furniture/people switches are in the concept details panel, away from the scene.
 
 ## Iterate
 
-Edit src/variant-1.js, src/variant-1-data.json, src/variant-1.css and src/variant-1-translations.json, then run:
+Edit src/variant-1.js, src/variant-1-upstairs.js, src/variant-1-data.json, src/variant-1.css and src/variant-1-translations.json, then run:
 
     node scripts/build-variant.cjs
     node tests/variant-1.test.cjs

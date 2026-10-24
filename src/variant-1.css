@@ -45,3 +45,16 @@ body.walkMode #conceptNote,body.walkMode #conceptNav{display:none}
 @media(max-height:550px){#coffeeQueueStatus{display:none}#coffeeStudyControls{gap:4px;padding:4px 0}body.coffeeStudyActive #modelStatus{display:none}body:has(#liftPanel:not(.collapsed)) #coffeeStudyControls{display:none}}
 
 @media(max-height:550px) and (max-width:600px){#coffeeQueue{width:150px}#coffeeStudyView{width:120px}}
+
+/* Upstairs occupancy controls reserve space; the downstairs study styles remain unchanged. */
+#upperStudyControls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 0;background:var(--base);pointer-events:auto;border-bottom:1px solid var(--border);font-size:12px}
+#upperStudyControls>label{display:flex;align-items:center;gap:6px;color:var(--muted)}
+#upperStudyControls select,#upperStudyControls button{font-size:12px;min-height:40px}
+#upperStudyControls input{width:17px;height:17px;accent-color:var(--accent)}
+#upperOccupancyStatus{color:var(--warning);flex:1;min-width:210px;line-height:1.4}
+#upperStudyDialog{width:720px;max-width:95vw}#upperStudyDialog .conceptContent{padding:0 20px 20px;max-height:65dvh;overflow:auto}
+#upperStudyDialog table{width:100%;border-collapse:collapse;font-size:13px}#upperStudyDialog th,#upperStudyDialog td{text-align:left;padding:9px 5px;border-bottom:1px solid var(--border)}
+#upperStudyDialog .areaCaution{padding:12px;background:var(--accent-soft);border-radius:8px;line-height:1.5}
+@media(max-width:600px){#upperStudyControls{gap:6px;padding:6px 0}#upperStudyControls>label{font-size:0}#upperStudyControls .upperCheck{font-size:12px}#upperOccupancy{width:174px}#upperStudyView{width:150px}#upperOccupancyStatus{font-size:11px}}
+@media(max-height:550px){#upperOccupancyStatus{display:none}#upperStudyControls{padding:4px 0;gap:4px}body.upperStudyActive #modelStatus{display:none}}
+@media(max-height:550px) and (max-width:600px){#upperOccupancy{width:150px}#upperStudyView{width:120px}}

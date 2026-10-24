@@ -18,3 +18,5 @@ Archive tracked source/reference/build/documentation files plus user-facing loos
 Separate furnishing study: Variant1 v1.0.1 — https://drive.google.com/drive/folders/1_93wAlnxau-BQDxzD9aAwAiDWor3slhv. Base v12.8.0 remains the current reconstruction.
 
 Current furnishing study: Variant1 v1.1.0 (RDC-only revision) — https://drive.google.com/drive/folders/1EJVyl-whP-kUA930vQGsq82UIAwOfEE7. Previous v1.0.1 and base archives are retained.
+
+Current furnishing study: Variant1 v1.2.0 (upstairs 30 children +30 parents +3 staff; RDC preserved) — https://drive.google.com/drive/folders/1H_5D9ETEAC7A2yrxjFIZtUG3Lti70JHN. v1.1.0 is retained as the previous downstairs iteration.

@@ -1,6 +1,6 @@
 {
   "id": "variant-1",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "baseVersion": "12.8.0",
   "units": "cm",
   "phase": "apres",
@@ -26,6 +26,11 @@
       "title": "Origo by LAMA Arhitectura",
       "url": "https://www.lama.ro/portofolio/origo-coffee-shop/",
       "use": "Natural oak, dark metal, white ceramics, a coffee-focused counter; interpreted at smaller scale."
+    },
+    {
+      "title": "Signed ERP works decision, 18 September 2026",
+      "url": "https://drive.google.com/file/d/1Qj401UmMJVD3-M9Kdfd2UkMioZepjgdw/view",
+      "use": "Primary scanned decision and attached SDIS report visually checked: establishment-wide 100 public +4 staff, conditions and opening inspection. No inferred R+1 allocation or approval of this furniture study."
     }
   ],
   "assumptions": [
@@ -43,11 +48,11 @@
     },
     {
       "id": "V1-A04",
-      "description": "Upstairs people remain unchanged. Downstairs: five or six waiting adults, plus one operator, with actual mesh stature and breadth normalized independently. This is a spatial study, not an authorized occupancy/staffing calculation."
+      "description": "Downstairs positions and counter retained from1.1.0. Upstairs now models30children and30seatedparents plus3staff, independently sized; an occupancy study, not a verified capacity certificate."
     },
     {
       "id": "V1-A05",
-      "description": "Upstairs playhouse and navigation remain unchanged. Downstairs customers have body-sized collision proxies when shown. Queue must clear for platform boarding."
+      "description": "Playhouse retained; upper deck remains visual only. Furnishings and shown people have collision proxies; routes are reserved and actual movement is tested. Downstairs queue/GTLE boarding operation unchanged."
     },
     {
       "id": "V1-A06",
@@ -56,6 +61,18 @@
     {
       "id": "V1-A07",
       "description": "Coffee plan/overview temporarily clips the existing facade and hides the alcove ceiling for a cutaway. Those original surfaces return in first person and other views; their geometry is unchanged. Staff hatch60cm nominal, alcove headroom211.5cm and services require site verification."
+    },
+    {
+      "id": "V1-A08",
+      "description": "Upstairs 30 children +30 accompanying adults, plus 3 staff. The four activity-room areas printed on ERP total 96.27 m2, versus 129.405 m2 in the retained trace. Compact furniture/people rectangles individually stay within those printed areas; their shape/registration is a furnishing assumption, not surveyed walls. Geometry A03 remains unresolved."
+    },
+    {
+      "id": "V1-A09",
+      "description": "Thirty parent seats and room allocations14/4/4/8 are a busy occupancy proposal. Parent stature and breadth are independent; seated pose height is not scaled to standing stature. Child ages/statures and poses are illustrative. Corridors, toilets, exterior landing and service rooms contribute no visitor seats or spillover play."
+    },
+    {
+      "id": "V1-A10",
+      "description": "20/24/30-family comparisons change visible counts without resizing figures. The target of 60 visitors plus 3 upstairs staff is not certified daily comfort or a new opening authorisation. The signed 18 September 2026 record states 100 public +4 staff for the establishment and conditions remain applicable."
     }
   ],
   "zones": [
@@ -67,9 +84,9 @@
         "en": "The main room"
       },
       "description": {
-        "fr": "Cabane au fond, jeu libre au centre et parents à proximité.",
-        "ro": "Căsuță în capăt, joacă liberă în centru și părinți aproape.",
-        "en": "A playhouse at the far end, open play in the centre and parents nearby."
+        "fr": "14 enfants, 14 parents assis et un équipier dans le scénario complet.",
+        "ro": "14 copii, 14 părinți așezați și un angajat în scenariul complet.",
+        "en": "14 children,14 seated parents and one staff member in the full scenario."
       }
     },
     {
@@ -179,7 +196,8 @@
         350,
         430
       ],
-      "height": 88
+      "height": 88,
+      "status": "superseded_by_upstairs_study_1.2.0"
     },
     {
       "id": "parent-bench",
@@ -190,7 +208,8 @@
         24,
         79
       ],
-      "height": 80
+      "height": 80,
+      "status": "superseded_by_upstairs_study_1.2.0"
     },
     {
       "id": "main-round-table",
@@ -201,7 +220,8 @@
         120,
         240
       ],
-      "height": 52
+      "height": 52,
+      "status": "superseded_by_upstairs_study_1.2.0"
     },
     {
       "id": "pretend-market",
@@ -212,7 +232,8 @@
         30,
         80
       ],
-      "height": 150
+      "height": 150,
+      "status": "superseded_by_upstairs_study_1.2.0"
     },
     {
       "id": "pretend-kitchen",
@@ -223,7 +244,8 @@
         30,
         80
       ],
-      "height": 105
+      "height": 105,
+      "status": "superseded_by_upstairs_study_1.2.0"
     },
     {
       "id": "workshop-table",
@@ -234,7 +256,8 @@
         545,
         635
       ],
-      "height": 58
+      "height": 58,
+      "status": "superseded_by_upstairs_study_1.2.0"
     },
     {
       "id": "workshop-storage",
@@ -245,7 +268,8 @@
         505,
         755
       ],
-      "height": 88
+      "height": 88,
+      "status": "superseded_by_upstairs_study_1.2.0"
     },
     {
       "id": "build-table",
@@ -256,7 +280,8 @@
         1110,
         1200
       ],
-      "height": 55
+      "height": 55,
+      "status": "superseded_by_upstairs_study_1.2.0"
     },
     {
       "id": "reading-bench",
@@ -267,7 +292,8 @@
         1360,
         1550
       ],
-      "height": 85
+      "height": 85,
+      "status": "superseded_by_upstairs_study_1.2.0"
     }
   ],
   "downstairs": {
@@ -403,5 +429,554 @@
       "url": "https://stacks.cdc.gov/view/cdc/222379/cdc_222379_DS1.pdf",
       "use": "Reference range for adult statures; heights and breadths are independent illustrative dimensions, not a certified population model."
     }
+  },
+  "upstairs": {
+    "revision": "thirty_children_thirty_parents",
+    "requestedChildren": 30,
+    "requestedAdults": 30,
+    "staff": 3,
+    "defaultPairs": 30,
+    "rooms": {
+      "main": {
+        "target": 14,
+        "comparison20": 9,
+        "comparison24": 12,
+        "printedAreaM2": 45.78,
+        "tracedAreaM2": 56.37,
+        "compactRect": [
+          970,
+          1941,
+          20,
+          470
+        ],
+        "seats": [
+          {
+            "x": 1015,
+            "z": 55,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 1075,
+            "z": 55,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 1135,
+            "z": 55,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 1195,
+            "z": 55,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 1255,
+            "z": 55,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 1315,
+            "z": 55,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 1375,
+            "z": 55,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 1435,
+            "z": 55,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 1015,
+            "z": 370,
+            "yaw": 0
+          },
+          {
+            "x": 1075,
+            "z": 370,
+            "yaw": 0
+          },
+          {
+            "x": 1135,
+            "z": 370,
+            "yaw": 0
+          },
+          {
+            "x": 1195,
+            "z": 370,
+            "yaw": 0
+          },
+          {
+            "x": 1255,
+            "z": 370,
+            "yaw": 0
+          },
+          {
+            "x": 1315,
+            "z": 370,
+            "yaw": 0
+          }
+        ],
+        "children": [
+          {
+            "x": 1175,
+            "z": 145,
+            "h": 108,
+            "pose": "sit",
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 1285,
+            "z": 145,
+            "h": 116,
+            "pose": "sit",
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 1175,
+            "z": 275,
+            "h": 124,
+            "pose": "sit",
+            "yaw": 0
+          },
+          {
+            "x": 1285,
+            "z": 275,
+            "h": 132,
+            "pose": "sit",
+            "yaw": 0
+          },
+          {
+            "x": 1030,
+            "z": 190,
+            "h": 98,
+            "pose": "floor"
+          },
+          {
+            "x": 1100,
+            "z": 190,
+            "h": 108,
+            "pose": "floor"
+          },
+          {
+            "x": 1030,
+            "z": 260,
+            "h": 116,
+            "pose": "floor"
+          },
+          {
+            "x": 1100,
+            "z": 260,
+            "h": 104,
+            "pose": "floor"
+          },
+          {
+            "x": 1370,
+            "z": 180,
+            "h": 120,
+            "pose": "stand"
+          },
+          {
+            "x": 1450,
+            "z": 180,
+            "h": 130,
+            "pose": "stand"
+          },
+          {
+            "x": 1815,
+            "z": 150,
+            "h": 90,
+            "pose": "floor",
+            "location": "under_house"
+          },
+          {
+            "x": 1815,
+            "z": 265,
+            "h": 105,
+            "pose": "floor",
+            "location": "under_house"
+          },
+          {
+            "x": 1800,
+            "z": 220,
+            "h": 95,
+            "pose": "stand",
+            "y": 427,
+            "location": "loft"
+          },
+          {
+            "x": 1550,
+            "z": 200,
+            "h": 138,
+            "pose": "stand"
+          }
+        ]
+      },
+      "play": {
+        "target": 4,
+        "comparison20": 3,
+        "comparison24": 3,
+        "printedAreaM2": 11.84,
+        "tracedAreaM2": 16.92,
+        "compactRect": [
+          470,
+          870,
+          20,
+          300
+        ],
+        "seats": [
+          {
+            "x": 540,
+            "z": 55,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 620,
+            "z": 55,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 700,
+            "z": 55,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 780,
+            "z": 55,
+            "yaw": 3.141592653589793
+          }
+        ],
+        "children": [
+          {
+            "x": 565,
+            "z": 180,
+            "h": 95,
+            "pose": "stand",
+            "yaw": 1.5707963267948966
+          },
+          {
+            "x": 775,
+            "z": 180,
+            "h": 116,
+            "pose": "stand",
+            "yaw": -1.5707963267948966
+          },
+          {
+            "x": 645,
+            "z": 235,
+            "h": 103,
+            "pose": "floor"
+          },
+          {
+            "x": 685,
+            "z": 155,
+            "h": 125,
+            "pose": "stand"
+          }
+        ]
+      },
+      "atelier": {
+        "target": 4,
+        "comparison20": 3,
+        "comparison24": 3,
+        "printedAreaM2": 12.05,
+        "tracedAreaM2": 19.085,
+        "compactRect": [
+          40,
+          420,
+          515,
+          825
+        ],
+        "seats": [
+          {
+            "x": 85,
+            "z": 550,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 145,
+            "z": 550,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 205,
+            "z": 550,
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 265,
+            "z": 550,
+            "yaw": 3.141592653589793
+          }
+        ],
+        "children": [
+          {
+            "x": 105,
+            "z": 630,
+            "h": 108,
+            "pose": "sit",
+            "yaw": -1.5707963267948966
+          },
+          {
+            "x": 105,
+            "z": 690,
+            "h": 118,
+            "pose": "sit",
+            "yaw": -1.5707963267948966
+          },
+          {
+            "x": 305,
+            "z": 630,
+            "h": 124,
+            "pose": "sit",
+            "yaw": 1.5707963267948966
+          },
+          {
+            "x": 305,
+            "z": 690,
+            "h": 134,
+            "pose": "sit",
+            "yaw": 1.5707963267948966
+          }
+        ]
+      },
+      "bureau3": {
+        "target": 8,
+        "comparison20": 5,
+        "comparison24": 6,
+        "printedAreaM2": 26.6,
+        "tracedAreaM2": 37.03,
+        "compactRect": [
+          20,
+          450,
+          950,
+          1568
+        ],
+        "seats": [
+          {
+            "x": 55,
+            "z": 1350,
+            "yaw": -1.5707963267948966
+          },
+          {
+            "x": 55,
+            "z": 1410,
+            "yaw": -1.5707963267948966
+          },
+          {
+            "x": 55,
+            "z": 1470,
+            "yaw": -1.5707963267948966
+          },
+          {
+            "x": 55,
+            "z": 1530,
+            "yaw": -1.5707963267948966
+          },
+          {
+            "x": 415,
+            "z": 1350,
+            "yaw": 1.5707963267948966
+          },
+          {
+            "x": 415,
+            "z": 1410,
+            "yaw": 1.5707963267948966
+          },
+          {
+            "x": 415,
+            "z": 1470,
+            "yaw": 1.5707963267948966
+          },
+          {
+            "x": 415,
+            "z": 1530,
+            "yaw": 1.5707963267948966
+          }
+        ],
+        "children": [
+          {
+            "x": 190,
+            "z": 1110,
+            "h": 106,
+            "pose": "sit",
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 280,
+            "z": 1110,
+            "h": 114,
+            "pose": "sit",
+            "yaw": 3.141592653589793
+          },
+          {
+            "x": 190,
+            "z": 1290,
+            "h": 125,
+            "pose": "sit"
+          },
+          {
+            "x": 280,
+            "z": 1290,
+            "h": 136,
+            "pose": "sit"
+          },
+          {
+            "x": 155,
+            "z": 1420,
+            "h": 90,
+            "pose": "floor"
+          },
+          {
+            "x": 300,
+            "z": 1420,
+            "h": 105,
+            "pose": "floor"
+          },
+          {
+            "x": 155,
+            "z": 1510,
+            "h": 116,
+            "pose": "floor"
+          },
+          {
+            "x": 300,
+            "z": 1510,
+            "h": 128,
+            "pose": "floor"
+          }
+        ]
+      }
+    },
+    "staffPositions": [
+      {
+        "room": "main",
+        "x": 1380,
+        "z": 360,
+        "h": 178,
+        "yaw": 0
+      },
+      {
+        "room": "atelier",
+        "x": 100,
+        "z": 745,
+        "h": 174,
+        "yaw": 3.141592653589793
+      },
+      {
+        "room": "bureau3",
+        "x": 380,
+        "z": 1095,
+        "h": 180,
+        "yaw": 1.5707963267948966
+      }
+    ],
+    "printedActivityAreaM2": 96.27,
+    "tracedActivityAreaM2": 129.405,
+    "areaStatus": "A03 conflict; printed room areas govern density discussion; unchanged trace is not verified site geometry",
+    "adultSeatCount": 30,
+    "adultSeatPitchCm": 60,
+    "adultSeatHeightCm": 44,
+    "childSeatHeightCm": 30,
+    "assumptions": [
+      "30 adults means accompanying parents;3 upstairs staff are additional. Current downstairs queue and operator are separate.",
+      "Child standing statures90–138cm are illustrative for the1–9 programme; poses are seated, floor-sitting or standing. Adult standing statures160–188cm, independently sized widths50–58cm; seated pose height is not stretched to standing stature.",
+      "Compact furnishing rectangles sum to about93.25m² and individually do not exceed the printed activity-room areas. They are an inset furnishing/people study, not surveyed replacement walls or proof of continuous accessibility.",
+      "All30 adult places are seats; corridors, toilet, service rooms and exterior landing provide no overflow seating. The loft contributes no additional room area and remains an unverified play-equipment concept.",
+      "30+30 is a busy target illustration, not a comfort or regulatory certification. Compare20+20 and24+24 without resizing figures."
+    ],
+    "approvalEvidence": {
+      "url": "https://drive.google.com/file/d/1Qj401UmMJVD3-M9Kdfd2UkMioZepjgdw/view",
+      "pages": [
+        1,
+        8,
+        9,
+        10
+      ],
+      "facts": "Signed 18 September 2026 works authorisation; attached SDIS report states 100 public + 4 staff overall. Conditions and an opening inspection still apply. This furnishing study has not been independently approved.",
+      "status": "visually_read_primary_scan"
+    },
+    "routes": [
+      {
+        "id": "main_exit",
+        "room": "main",
+        "points": [
+          [
+            810,
+            510
+          ],
+          [
+            1000,
+            480
+          ],
+          [
+            1450,
+            435
+          ],
+          [
+            1900,
+            420
+          ]
+        ],
+        "width": 90
+      },
+      {
+        "id": "atelier_entry",
+        "room": "atelier",
+        "points": [
+          [
+            260,
+            810
+          ],
+          [
+            380,
+            755
+          ],
+          [
+            380,
+            560
+          ]
+        ],
+        "width": 90
+      },
+      {
+        "id": "bureau_cross",
+        "room": "bureau3",
+        "points": [
+          [
+            35,
+            968
+          ],
+          [
+            260,
+            985
+          ],
+          [
+            440,
+            1003
+          ]
+        ],
+        "width": 90
+      },
+      {
+        "id": "bureau_atelier",
+        "room": "bureau3",
+        "points": [
+          [
+            260,
+            850
+          ],
+          [
+            260,
+            985
+          ]
+        ],
+        "width": 80
+      }
+    ]
   }
 }

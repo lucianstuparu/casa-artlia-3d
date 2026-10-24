@@ -10,9 +10,9 @@ The repository is public, as authorized for sharing. GitHub Pages on the current
 
 ## Furnished Variant 1
 
-A separate playhouse-and-coffee concept: [open Variant 1](https://lucianstuparu.github.io/casa-artlia-3d/variant-1.html). The base model above stays unchanged. Use the room selector to explore, or walk at eye level. The current downstairs study has a dual check-in/coffee counter and five/six-adult waiting comparison; upstairs is unchanged. Furniture/people switches and concept limits are in the information panel. See docs/variant-1.md.
+A separate playhouse-and-coffee concept: [open Variant 1](https://lucianstuparu.github.io/casa-artlia-3d/variant-1.html). The base model above stays unchanged. Use the room selector to explore, or walk at eye level. Variant 1 v1.2.0 adds a busy upstairs arrangement for 30 children, 30 seated parents and 3 staff, with 20/24-family comparisons. Printed activity-room areas total 96.27 m² versus 129.405 m² in the retained trace, so comfort and final fit remain conditional on site measurements. The downstairs dual check-in/coffee counter and five/six-adult waiting comparison are unchanged. See [the upstairs study](docs/upstairs-study.md). Furniture/people switches and concept limits are in the information panel. See docs/variant-1.md.
 
-Build it separately with `node scripts/build-variant.cjs`; check it with `node tests/variant-1.test.cjs`.
+Build it separately with `node scripts/build-variant.cjs`; check it with `node tests/variant-1.test.cjs`, `node tests/downstairs.test.cjs` and `node tests/upstairs.test.cjs`.
 
 ## Open the model
 
