@@ -1,6 +1,6 @@
 {
   "schema": "casa-artlia-full-building",
-  "version": "12.7.2",
+  "version": "12.7.3",
   "units": "cm",
   "coordinateSystem": {
     "origin": "v10 stair-side interior wall / street facade / RDC finished floor",
@@ -56,7 +56,8 @@
       "Interior stairs are directly against the wall; no extra strip beside them; platform brackets attach to that wall.",
       "Space to the left at the top of the stairs: use the site photo, ignore the selling sign (C04).",
       "Ruelle des Jardins façade is continuous: no depth step at the entrance/bookshop junction; grey edge is paint on the dividing wall (C05).",
-      "The main access to the big room is on the straight wall going down from the corner in plan, not on the diagonal wall (C06)."
+      "The main access to the big room is on the straight wall going down from the corner in plan, not on the diagonal wall (C06).",
+      "The horizontal wall below Espace de jeu shown in the ERP plan crop is missing and must be restored; C07 refines the overly broad C01 removal."
     ],
     "photoFolder": "https://drive.google.com/drive/folders/10rH8jbg-Uw-wkw7p1ta1iAuvNbpBhbjl",
     "photoEvidence": [
@@ -280,6 +281,12 @@
       "affects": "Accès principal à la grande salle",
       "status": "user_confirmed_wall; exact_offset_and_swing_assumed",
       "description": "Porte principale de la grande salle déplacée du pan diagonal vers la cloison droite du dégagement, selon la correction utilisateur (C06), dans les deux états. Largeur nominale100cm et hauteur210cm conservées du modèle précédent; départ30cm après l’angle, position exacte, paumelles et débattement restent provisoires. Le pan diagonal est refermé; contours des salles et autres portes conservés."
+    },
+    {
+      "id": "A19",
+      "affects": "Cloison basse de l’espace de jeu",
+      "status": "user_confirmed_partition; landing_side_registration_assumed",
+      "description": "La cloison horizontale indiquée sur le plan est rétablie dans les deux états. La suppression C01 était trop étendue: seul le passage au débouché de l’escalier doit rester libre. Épaisseur7cm reprise du plan; retour local raccordé au contour de la salle, hors du palier mesuré x250..454. Position du raccord interprétée avec A02/A16; la cote ERP1,22m reste une cote source, non une largeur vérifiée du raccord local. Porte de la salle et accès principal C06 conservés."
     },
     {
       "id": "A15",
@@ -1846,6 +1853,51 @@
       "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
     },
     {
+      "id": "play_boundary_link",
+      "a": [
+        432.5,
+        266.5
+      ],
+      "b": [
+        457.5,
+        266.5
+      ],
+      "thicknessCm": 7,
+      "state": "both",
+      "openings": [],
+      "sourceStatus": "C07: lower partition confirmed by user ERP crop; landing-side return registered to existing local room outline, A19"
+    },
+    {
+      "id": "play_boundary_return",
+      "a": [
+        457.5,
+        266.5
+      ],
+      "b": [
+        457.5,
+        337
+      ],
+      "thicknessCm": 7,
+      "state": "both",
+      "openings": [],
+      "sourceStatus": "C07: lower partition confirmed by user ERP crop; landing-side return registered to existing local room outline, A19"
+    },
+    {
+      "id": "play_boundary_lower",
+      "a": [
+        457.5,
+        337
+      ],
+      "b": [
+        632.73,
+        337
+      ],
+      "thicknessCm": 7,
+      "state": "both",
+      "openings": [],
+      "sourceStatus": "C07: lower partition confirmed by user ERP crop; landing-side return registered to existing local room outline, A19"
+    },
+    {
       "id": "pmr_north",
       "a": [
         774.87,
@@ -2280,7 +2332,8 @@
         "balustrade",
         "exterior staircase separating masonry",
         "other room partitions and doors"
-      ]
+      ],
+      "refinedBy": "C07_play_boundary_restore; retain landing clearance but restore the room partition beyond it"
     },
     {
       "id": "C02_stair_wall_contact",
@@ -2485,6 +2538,47 @@
         "other doors and partitions",
         "C01/C02/C03/C04/C05",
         "stairs and GTLE"
+      ]
+    },
+    {
+      "id": "C07_play_boundary_restore",
+      "appliesTo": [
+        "avant",
+        "apres"
+      ],
+      "source": "user ERP plan crop and confirmation24 October2026",
+      "sourceImage": "references/corrections/play-wall-user-correction.png",
+      "action": "restore_lower_partition_and_local_return_outside_surveyed_landing",
+      "walls": [
+        "play_boundary_link",
+        "play_boundary_return",
+        "play_boundary_lower"
+      ],
+      "originalRemovedBoundary": {
+        "id": "play_lower",
+        "a": [
+          332.41,
+          337
+        ],
+        "b": [
+          632.73,
+          337
+        ],
+        "thicknessCm": 7,
+        "state": "both",
+        "openings": [],
+        "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+      },
+      "landingClearToXCm": 454,
+      "assumptions": [
+        "A19"
+      ],
+      "preserved": [
+        "C01 clear stair exit",
+        "original stairs/landing/GTLE",
+        "C02/C03/C04/C05/C06",
+        "play door and main room access",
+        "room polygons and printed areas"
       ]
     },
     {
