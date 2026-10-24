@@ -39,3 +39,5 @@ Live v12.6.0 checked on GitHub Pages: HTML matches the reviewed build, PMR cutaw
 ## v12.7.0 upper landing recess
 
 C04 uses the 50 cm annotation on photo20260710_140700. The provisional recess depth/registration are explicit in A16. Verified first-person entry/return and actual mesh floor height, guard/partition containment, cutaway and first-person views in both phases. Existing17-step interior and exterior stair routes,17 GTLE wall contacts, door/lift animations,48 responsive states,36 language states, source-photo/assumption translations and C03 PMR checks passed. Independent comparison confirms all other room/wall records and PMR data are unchanged. No JavaScript errors. [Walk view](docs/images/landing-recess-walk.png), [cutaway](docs/images/landing-recess-cutaway.png).
+
+Live v12.7.0 verified after Pages deployment3e993350dd693a363b1d73eee284be4916f8fddc: served HTML matches the reviewed build; both-phase recess entry/return, guard/partition containment, mesh floor height and FR/RO/EN source/assumption presentation pass in Chrome. No JavaScript errors.
