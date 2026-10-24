@@ -14,3 +14,5 @@ The user requested that all outputs also be stored in the Casa Artlia Drive KB o
 For each future release, store the standalone HTML, building data, release/verification notes and useful previews in Drive, together with a source/reference archive. Include earlier deliverables in archival coverage and preserve them as historical, unverified geometry. Verify destination parents, file sizes and provider checksums where available. Record Drive IDs and update the artifact register. Reuse existing exact-name/version files on retries instead of creating duplicates.
 
 Archive tracked source/reference/build/documentation files plus user-facing loose outputs. Exclude dependency installs, Git internals, credentials, local browser profiles, test scratch files and temporary downloads. GitHub remains the development source of truth; Drive is the requested deliverable copy. This is a release workflow instruction, not an unattended scheduled sync.
+
+Separate furnishing study: Variant1 v1.0.0 — https://drive.google.com/drive/folders/1_93wAlnxau-BQDxzD9aAwAiDWor3slhv. Base v12.8.0 remains the current reconstruction.

@@ -32,3 +32,5 @@ GitHub Pages enabled at https://lucianstuparu.github.io/casa-artlia-3d/ on 24 Oc
 - v12.7.4: C08 corrects the59.5cm hall pinch to the ERP122cm clearance. Workshop front partition and floors form a stepped join beyond the unchanged stair core. C07 separator, C06 access, stair/GTLE positions and PMR geometry retained.
 
 - v12.8.0: C09 separates entrance equipment by phase. Before works has the ERP-style100cm hinged glazed door and no lift system or lift controls. After works retains the original telescopic entrance and GTLE. Fixed glazing is registered to the retained facade aperture under A21.
+
+- Variant1 v1.0.0 (separate from base v12.8.0): furnished family-play concept, far-end raised house without a bed, coffee counter downstairs, parent seating and illustrative people. All base model files unchanged.

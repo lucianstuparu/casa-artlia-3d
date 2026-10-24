@@ -28,3 +28,5 @@
 - Preserve C08: landing-to-hall clearance is122cm between finished faces. The workshop partition is independent of the surveyed stair rear wall atz400, with a stepped return outside the core. Do not collapse those walls into one line again. Registration is A20; C03 retains the corrected hall tail.
 
 - C09 supersedes the initial A08 equipment overlay: avant uses the ERP-style100cm inward hinged entrance and has no visible platform/rails/brackets or active lift controls. Apres preserves the original v10 telescopic door and inclined GTLE. Fixed glazing registration is A21.
+
+- Variant1 is a separate furnishing study over v12.8.0: src/variant-1* and scripts/build-variant.cjs produce dist/variant-1* without editing the base HTML/data/version. Preserve that separation. V1-A01–A05 mark furnishing assumptions. Furniture appears after works only; retain base navigation, translations and controls. Run tests/variant-1.test.cjs and verify unchanged base hashes.
