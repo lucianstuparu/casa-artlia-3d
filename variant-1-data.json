@@ -1,6 +1,6 @@
 {
   "id": "variant-1",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "baseVersion": "12.8.0",
   "units": "cm",
   "phase": "apres",
@@ -39,15 +39,23 @@
     },
     {
       "id": "V1-A03",
-      "description": "A single-wall50cm-deep counter on the east side of RDC avoids a central island. Compact espresso equipment, water, drainage, power, extraction and service operation are provisional. No downstairs seating."
+      "description": "Dual-purpose transverse counter:60cm low registration hatch and102cm coffee cabinet, both55cm deep; one operator behind with85cm floor aisle in the retained211.5cm-high alcove. Water, drainage, power and equipment remain provisional."
     },
     {
       "id": "V1-A04",
-      "description": "Parent seating is upstairs in the same room as play. People illustrate atmosphere, not authorised capacity, staffing or supervision coverage."
+      "description": "Upstairs people remain unchanged. Downstairs: five or six waiting adults, plus one operator, with actual mesh stature and breadth normalized independently. This is a spatial study, not an authorized occupancy/staffing calculation."
     },
     {
       "id": "V1-A05",
-      "description": "The playhouse upper deck is visual only; the walking simulation stays on existing building floors. Furniture collision is included; scale figures are non-blocking."
+      "description": "Upstairs playhouse and navigation remain unchanged. Downstairs customers have body-sized collision proxies when shown. Queue must clear for platform boarding."
+    },
+    {
+      "id": "V1-A06",
+      "description": "Queue study uses60x60cm waiting cells and a90cm local passage/entrance-turn target. Five adults fit tightly in two short files; the sixth intrudes into the entrance turning target. No stroller, luggage, whole-family or regulatory capacity allowance."
+    },
+    {
+      "id": "V1-A07",
+      "description": "Coffee plan/overview temporarily clips the existing facade and hides the alcove ceiling for a cutaway. Those original surfaces return in first person and other views; their geometry is unchanged. Staff hatch60cm nominal, alcove headroom211.5cm and services require site verification."
     }
   ],
   "zones": [
@@ -72,9 +80,9 @@
         "en": "The little coffee bar"
       },
       "description": {
-        "fr": "Un comptoir mural, café de spécialité à emporter ou à savourer à l’étage.",
-        "ro": "Un blat pe perete, cafea de specialitate la pachet sau pentru părinții de la etaj.",
-        "en": "A wall counter for specialty coffee, takeaway or for parents upstairs."
+        "fr": "Accueil et café : cinq clients en attente, un équipier. Comparer avec six.",
+        "ro": "Recepție și cafea: cinci clienți în așteptare, un angajat. Compară cu șase.",
+        "en": "Check-in and coffee: five waiting customers, one staff member. Compare with six."
       }
     },
     {
@@ -122,10 +130,10 @@
       "id": "coffee-counter",
       "room": "rdc",
       "bounds": [
-        317,
-        367,
-        155,
-        375
+        205,
+        369,
+        257,
+        315
       ],
       "height": 95
     },
@@ -262,5 +270,139 @@
       "height": 85
     }
   ],
+  "downstairs": {
+    "revision": "downstairs-dual-counter",
+    "counter": {
+      "registration": {
+        "x0": 205,
+        "x1": 265,
+        "z0": 258,
+        "z1": 313,
+        "heightCm": 78,
+        "liftUpStaffAccess": true
+      },
+      "coffee": {
+        "x0": 265,
+        "x1": 367,
+        "z0": 258,
+        "z1": 313,
+        "heightCm": 95
+      },
+      "staffAisleCm": 85,
+      "nominalStaffGateCm": 60,
+      "alcoveCeilingUndersideCm": 211.5,
+      "equipment": "compact one-group espresso machine, grinder, combined admission/payment terminal, under-counter fridge; services provisional"
+    },
+    "operator": {
+      "x": 286,
+      "z": 355,
+      "height": 176,
+      "width": 54,
+      "depth": 36,
+      "yaw": 0,
+      "color": "charcoal",
+      "role": "operator"
+    },
+    "customers": [
+      {
+        "number": 1,
+        "x": 260,
+        "z": 225,
+        "height": 172,
+        "width": 54,
+        "depth": 36,
+        "yaw": 3.141592653589793,
+        "color": "terra",
+        "role": "check_in"
+      },
+      {
+        "number": 2,
+        "x": 339,
+        "z": 225,
+        "height": 183,
+        "width": 52,
+        "depth": 34,
+        "yaw": 3.141592653589793,
+        "color": "green",
+        "role": "coffee"
+      },
+      {
+        "number": 3,
+        "x": 339,
+        "z": 162,
+        "height": 188,
+        "width": 58,
+        "depth": 40,
+        "yaw": 3.141592653589793,
+        "color": "blue",
+        "role": "coffee"
+      },
+      {
+        "number": 4,
+        "x": 339,
+        "z": 100,
+        "height": 162,
+        "width": 50,
+        "depth": 34,
+        "yaw": 3.141592653589793,
+        "color": "pink",
+        "role": "coffee"
+      },
+      {
+        "number": 5,
+        "x": 260,
+        "z": 162,
+        "height": 177,
+        "width": 56,
+        "depth": 38,
+        "yaw": 3.141592653589793,
+        "color": "butter",
+        "role": "check_in"
+      },
+      {
+        "number": 6,
+        "x": 260,
+        "z": 100,
+        "height": 184,
+        "width": 58,
+        "depth": 42,
+        "yaw": 3.141592653589793,
+        "color": "sage",
+        "role": "check_in"
+      }
+    ],
+    "waitingCellCm": [
+      60,
+      60
+    ],
+    "circulationTarget": {
+      "sideStripX": [
+        135,
+        225
+      ],
+      "entranceTurn": {
+        "center": [
+          277,
+          45
+        ],
+        "diameterCm": 90
+      },
+      "status": "planning_target_not_ERP_compliance_verification"
+    },
+    "platformBoarding": {
+      "circleCenter": [
+        260,
+        155
+      ],
+      "circleDiameterCm": 150,
+      "operation": "clear all waiting customers; existing platform/door controls unchanged"
+    },
+    "defaultQueue": 5,
+    "finding": "Five waiting adults plus one operator fit tightly in two short files with the specified90cm local entrance-turn target. A sixth waiting adult at the same scale intrudes into that turn. Queue must clear for platform boarding; no stroller, luggage or whole-family allowance.",
+    "anthropometrySource": {
+      "url": "https://stacks.cdc.gov/view/cdc/222379/cdc_222379_DS1.pdf",
+      "use": "Reference range for adult statures; heights and breadths are independent illustrative dimensions, not a certified population model."
+    }
+  },
   "baseHtmlSha256": "38ebbcb912c00d93f60adb67f0a782c14f173b2288f4624a79b9ea1a775cd0b3"
 }
