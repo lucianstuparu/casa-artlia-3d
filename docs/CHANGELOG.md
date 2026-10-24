@@ -24,3 +24,5 @@ GitHub Pages enabled at https://lucianstuparu.github.io/casa-artlia-3d/ on 24 Oc
 - v12.7.0: C04 restores the photo-supported 50 cm recess to the left at the upper stair landing in both phases, with a floor, return guard and adjacent partition registration. Depth/position remain A16 assumptions. Original stairs, GTLE contacts and C03 PMR geometry preserved. Selling sign omitted.
 
 - v12.7.1: C05 aligns rendered street walls with the entrance, removes the projecting entrance surround in favour of grey paint, and covers false slab ledges. Original apertures, door motion, ERP traces, stairs, GTLE and C01–C04 preserved. Render/backing depths are A17.
+
+- v12.7.2: C06 moves the main access to the big room from the diagonal to the straight corridor partition in both phases. The diagonal is closed. Existing nominal door width/height retained; precise offset and swing are A18 assumptions. Other room geometry and corrections preserved.

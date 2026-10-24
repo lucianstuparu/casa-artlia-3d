@@ -1470,5 +1470,13 @@
   "Façade Ruelle des Jardins continue, sans décroché entre entrée et librairie. Entourage gris de la porte peint sur la maçonnerie, selon la photo et la précision utilisateur. Alignement visuel sur le plan extérieur v10 z=-4cm; épaisseur des murs voisins25cm et couche de rendu0,08cm supposées. C05 ajuste les faces rendues et masque les faux nez de dalle; contours ERP, niveaux et mécanismes conservés.": {
     "ro": "Fațada de pe Ruelle des Jardins este continuă, fără decalaj între intrare și librărie. Conturul gri al ușii este vopsit pe zidărie, conform fotografiei și precizării utilizatorului. Fețele sunt aliniate vizual pe planul exterior v10 z=-4cm; grosimea pereților vecini de25cm și stratul de finisaj de0,08cm sunt presupuse. C05 ajustează fețele randate și acoperă muchiile false ale planșeelor; contururile ERP, nivelurile și mecanismele sunt păstrate.",
     "en": "The Ruelle des Jardins façade is continuous, with no setback between entrance and bookshop. The grey door surround is painted onto the masonry, as confirmed by the photograph and user. Rendered faces align to the v10 exterior plane z=-4cm; neighbouring wall thickness25cm and render layer0.08cm are assumed. C05 adjusts rendered faces and covers false slab edges; ERP outlines, levels and mechanisms are retained."
+  },
+  "Accès principal à la grande salle": {
+    "ro": "Accesul principal în sala mare",
+    "en": "Main access to the big room"
+  },
+  "Porte principale de la grande salle déplacée du pan diagonal vers la cloison droite du dégagement, selon la correction utilisateur (C06), dans les deux états. Largeur nominale100cm et hauteur210cm conservées du modèle précédent; départ30cm après l’angle, position exacte, paumelles et débattement restent provisoires. Le pan diagonal est refermé; contours des salles et autres portes conservés.": {
+    "ro": "Ușa principală a sălii mari este mutată de pe peretele diagonal pe peretele drept al coridorului, conform corecției utilizatorului (C06), în ambele versiuni. Lățimea nominală de100cm și înălțimea de210cm sunt păstrate din modelul anterior; distanța de30cm de la colț, poziția exactă, balamalele și sensul deschiderii rămân provizorii. Peretele diagonal este închis; contururile încăperilor și celelalte uși sunt păstrate.",
+    "en": "The big room’s main door is moved from the diagonal to the straight corridor partition, following the user correction (C06), in both phases. The previous model’s nominal100cm width and210cm height are retained; the30cm offset from the corner, exact position, hinges and swing remain provisional. The diagonal is closed; room outlines and other doors are retained."
   }
 }

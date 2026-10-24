@@ -252,7 +252,7 @@ $('differencesList').innerHTML=D.differences.map(t=>'<li>'+t+'</li>').join('');$
 for(const id of ['liftVisibilityBtn','dimBtn','listBtn']){const b=$(id);b.removeAttribute('style');$('originalControls').appendChild(b);}
 $('dims').style.cssText='display:none';$('originalControls').appendChild($('dims'));for(const el of $('dims').querySelectorAll('[style]')){el.style.color='';el.style.borderColor='var(--border)';}
 $('entranceDoorBtn').removeAttribute('style');$('entranceDoorBtn').className='doorAction';$('equipmentDock').appendChild($('entranceDoorBtn'));
-$('dataExport').onclick=()=>{const blob=new Blob([JSON.stringify({data:D,state,doors:doorStates.map(d=>({id:d.id,phase:d.phase,open:d.open}))},null,2)],{type:'application/json'}),a=document.createElement('a'),u=URL.createObjectURL(blob);a.href=u;a.download='casa_artlia_v12_7_1_building_data.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
+$('dataExport').onclick=()=>{const blob=new Blob([JSON.stringify({data:D,state,doors:doorStates.map(d=>({id:d.id,phase:d.phase,open:d.open}))},null,2)],{type:'application/json'}),a=document.createElement('a'),u=URL.createObjectURL(blob);a.href=u;a.download='casa_artlia_v12_7_2_building_data.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
 // Canvas-only interactions preserve v10 orbit controls and add orthographic pan / touch gestures.
 const cv=renderer.domElement,ray=new THREE.Raycaster(),mouse=new THREE.Vector2();let down=null,planDrag=null;
 $('workspace').prepend(cv);$('workspace').append($('walkCrosshair'),$('walkInteract'));
@@ -346,5 +346,5 @@ walk=(()=>{
 
 
 window.CASA_BUILDING={walk,data:D,state,root,phases,doors:doorStates,archedWindows:archWindows,context:{bookshop,upper,roof},stairSideWall,stairRearWall,get activeCamera(){return activeCamera;},setPhase:phaseChange,setView,selectRoom,apply,exteriorGroup:ext,tick(now){const ds=doorStates.filter(d=>d.phase===state.phase),label=ds.some(d=>d.target===0)?'Ouvrir les portes R+1':'Fermer les portes R+1';if($('allDoorsBtn').textContent!==CASA_I18N.t(label))$('allDoorsBtn').textContent=label;const dt=Math.min(.1,Math.max(0,(now-last)/1000));last=now;for(const d of doorStates){d.open+=Math.sign(d.target-d.open)*Math.min(Math.abs(d.target-d.open),dt*1.6);if(d.motion==='sliding')d.carriage.position.x=d.open*d.opening.slideTravelCm;else d.pivot.rotation.y=d.base-d.open*Math.PI/2;}walk.tick(dt);}};
-CASA_MODEL_API.modelVersion='12.7.1';CASA_MODEL_API.buildingData=D;CASA_MODEL_API.buildingGroup=root;inventory();resizeStage();setView('global');assignHierarchyIds(CASA_ROOT,'casa_artlia');
+CASA_MODEL_API.modelVersion='12.7.2';CASA_MODEL_API.buildingData=D;CASA_MODEL_API.buildingGroup=root;inventory();resizeStage();setView('global');assignHierarchyIds(CASA_ROOT,'casa_artlia');
 })();

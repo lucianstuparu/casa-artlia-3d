@@ -1,6 +1,6 @@
 # Casa Artlia 3D
 
-Working repository for the interactive Casa Artlia building model. Current baseline: **v12.7.1**.
+Working repository for the interactive Casa Artlia building model. Current baseline: **v12.7.2**.
 
 It includes the ERP **avant / après** switch, RDC and R+1 reconstruction, the original entrance and telescopic door, interior staircase, Ganser GTLE animation, exterior stairs and landing, neighbouring building context, source-plan/photo viewers, and first-person walking.
 
@@ -71,7 +71,7 @@ All coordinates are in centimetres: x across the entrance toward the long wing, 
 - **C01:** the incorrectly reconstructed partition across the upper stair exit was removed in both states.
 - **C02:** the stairs meet the full-height walls at x=0 and z=400, with the GTLE brackets attached to those walls. The false rear floor strip was removed and the adjacent room boundary registered locally to the measured enclosure.
 
-Printed ERP areas and dimensions are preserved separately from calculated traced areas. A01–A17 and the original outlines behind corrections remain in the data. Roof heights, unseen roof returns, private balcony and neighbouring interiors remain approximate. The v11 geometry was never treated as verified.
+Printed ERP areas and dimensions are preserved separately from calculated traced areas. A01–A18 and the original outlines behind corrections remain in the data. Roof heights, unseen roof returns, private balcony and neighbouring interiors remain approximate. The v11 geometry was never treated as verified.
 
 ## Reference material
 
@@ -106,3 +106,5 @@ The after-works state uses the July ERP 8a / 8b / 10a update: merged toilets, st
 Upper landing recess: photo-supported50cm width, with provisional depth/registrationA16. See [source and geometry notes](docs/landing-recess.md). It is available in both phases and as a first-person starting point.
 
 Street façade: C05 restores the continuous entrance/bookshop wall plane and painted entrance surround in both phases. See [correction notes](docs/street-facade.md).
+
+Main access: C06 places the big room door on the straight corridor wall in both phases; exact offset and swing remain A18. See [correction notes](docs/main-room-access.md).

@@ -1,6 +1,6 @@
 {
   "schema": "casa-artlia-full-building",
-  "version": "12.7.1",
+  "version": "12.7.2",
   "units": "cm",
   "coordinateSystem": {
     "origin": "v10 stair-side interior wall / street facade / RDC finished floor",
@@ -55,7 +55,8 @@
       "No wall crosses the upper interior stair exit; the misplaced reconstructed play_lower partition is removed in both states.",
       "Interior stairs are directly against the wall; no extra strip beside them; platform brackets attach to that wall.",
       "Space to the left at the top of the stairs: use the site photo, ignore the selling sign (C04).",
-      "Ruelle des Jardins façade is continuous: no depth step at the entrance/bookshop junction; grey edge is paint on the dividing wall (C05)."
+      "Ruelle des Jardins façade is continuous: no depth step at the entrance/bookshop junction; grey edge is paint on the dividing wall (C05).",
+      "The main access to the big room is on the straight wall going down from the corner in plan, not on the diagonal wall (C06)."
     ],
     "photoFolder": "https://drive.google.com/drive/folders/10rH8jbg-Uw-wkw7p1ta1iAuvNbpBhbjl",
     "photoEvidence": [
@@ -273,6 +274,12 @@
       "affects": "Façade continue côté rue",
       "status": "user_confirmed_alignment; backing_depth_assumed",
       "description": "Façade Ruelle des Jardins continue, sans décroché entre entrée et librairie. Entourage gris de la porte peint sur la maçonnerie, selon la photo et la précision utilisateur. Alignement visuel sur le plan extérieur v10 z=-4cm; épaisseur des murs voisins25cm et couche de rendu0,08cm supposées. C05 ajuste les faces rendues et masque les faux nez de dalle; contours ERP, niveaux et mécanismes conservés."
+    },
+    {
+      "id": "A18",
+      "affects": "Accès principal à la grande salle",
+      "status": "user_confirmed_wall; exact_offset_and_swing_assumed",
+      "description": "Porte principale de la grande salle déplacée du pan diagonal vers la cloison droite du dégagement, selon la correction utilisateur (C06), dans les deux états. Largeur nominale100cm et hauteur210cm conservées du modèle précédent; départ30cm après l’angle, position exacte, paumelles et débattement restent provisoires. Le pan diagonal est refermé; contours des salles et autres portes conservés."
     },
     {
       "id": "A15",
@@ -1407,22 +1414,8 @@
       ],
       "thicknessCm": 7,
       "state": "both",
-      "openings": [
-        {
-          "type": "door",
-          "from": 30,
-          "to": 130,
-          "widthCm": 100,
-          "heightCm": 210,
-          "sillCm": 0,
-          "id": "main_door",
-          "between": [
-            "circulation",
-            "main"
-          ]
-        }
-      ],
-      "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+      "openings": [],
+      "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed; C06 user confirms this diagonal is solid at the former door"
     },
     {
       "id": "main_corridor",
@@ -1436,8 +1429,25 @@
       ],
       "thicknessCm": 7,
       "state": "both",
-      "openings": [],
-      "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+      "openings": [
+        {
+          "type": "door",
+          "from": 30,
+          "to": 130,
+          "widthCm": 100,
+          "heightCm": 210,
+          "sillCm": 0,
+          "id": "main_door",
+          "between": [
+            "circulation",
+            "main"
+          ],
+          "locationSource": "user_confirmed_straight_corridor_wall",
+          "positionStatus": "A18 offset30cm and existing100cm nominal width provisional",
+          "role": "main_access_to_big_room"
+        }
+      ],
+      "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed; main access relocated here by C06; exact offset A18"
     },
     {
       "id": "atelier_top",
@@ -2409,6 +2419,73 @@
         "canonical ERP traces"
       ],
       "assumption": "A17"
+    },
+    {
+      "id": "C06_main_room_access",
+      "appliesTo": [
+        "avant",
+        "apres"
+      ],
+      "source": "user plan screenshot and explicit correction on24 October2026",
+      "sourceImage": "references/corrections/main-door-user-correction.png",
+      "action": "move_main_door_from_main_angle_to_main_corridor",
+      "originalWalls": [
+        {
+          "id": "main_angle",
+          "a": [
+            921.59,
+            293.44
+          ],
+          "b": [
+            774.87,
+            428.7
+          ],
+          "thicknessCm": 7,
+          "state": "both",
+          "openings": [
+            {
+              "type": "door",
+              "from": 30,
+              "to": 130,
+              "widthCm": 100,
+              "heightCm": 210,
+              "sillCm": 0,
+              "id": "main_door",
+              "between": [
+                "circulation",
+                "main"
+              ]
+            }
+          ],
+          "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+        },
+        {
+          "id": "main_corridor",
+          "a": [
+            774.87,
+            428.7
+          ],
+          "b": [
+            774.87,
+            584.59
+          ],
+          "thicknessCm": 7,
+          "state": "both",
+          "openings": [],
+          "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+        }
+      ],
+      "targetWall": "main_corridor",
+      "doorId": "main_door",
+      "assumptions": [
+        "A18"
+      ],
+      "preserved": [
+        "room polygons and printed areas",
+        "other doors and partitions",
+        "C01/C02/C03/C04/C05",
+        "stairs and GTLE"
+      ]
     },
     {
       "id": "C03_july_PMR_revision",
