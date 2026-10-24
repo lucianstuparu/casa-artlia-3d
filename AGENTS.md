@@ -5,7 +5,7 @@
 - Preserve avant/après switching, source viewers, orbit/plan views, first-person walking, drag look and the optional pointer-lock fallback.
 - Keep one centimetre coordinate system. RDC=0 and R+1=312. Do not shift the surveyed staircase to compensate for ERP registration conflicts.
 - Preserve C01 (clear upper stair exit) and C02 (walls at x0/z400 and full height580, with wall-mounted rail brackets). Source corrections are recorded in `src/model-data.cjs`.
-- Distinguish printed ERP dimensions/areas, measured v10 geometry, user-confirmed corrections and assumptions. Keep unverified geometry explicitly marked in A01–A18 or correction records.
+- Distinguish printed ERP dimensions/areas, measured v10 geometry, user-confirmed corrections and assumptions. Keep unverified geometry explicitly marked in A01–A19 or correction records.
 - Do not treat old HTML in `archive/releases/` as current verified geometry. The unavailable v11 HTML is not a geometric authority.
 - Use `npm test` for code/geometry changes and inspect meaningful changed views in a running browser. Geometry changes require both phase checks; preserve stair navigation and wall-mount contact. Do not add tests that merely repeat constant assignments.
 - The user authorized public GitHub Pages sharing on 24 October 2026, including a public repository if required. Publish only the reviewed generated dist tree to gh-pages. Preserve source/reference provenance; do not upload unrelated private material.
@@ -22,3 +22,5 @@
 - All release outputs must also be stored in the user's Drive KB. Follow docs/drive-archive.md: upload release HTML/data/notes/previews and a source/reference archive, preserve history, verify uploads, and update the KB artifact register.
 
 - Preserve C06: main_door is on main_corridor, the straight partition below the corner in plan. main_angle is closed at its former opening. Applies to both phases; offset and swing are A18.
+
+- Preserve C07: restore play_boundary_lower and its landing-side return/link. C01 excludes the original misplaced full-span wall, not the real room separator. Keep the surveyed landing clear; navigation turns into Dgt below the restored partition. Local registration is A19.

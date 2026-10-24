@@ -51,3 +51,7 @@ Live v12.7.1 verified after Pages deployment b2d9dda0424d6fe50ba0c70140684cc71cf
 ## v12.7.2 main access correction
 
 Reviewed [after plan](docs/images/main-door-apres-plan.png) and [before plan](docs/images/main-door-avant-plan.png). The diagonal is solid and the main door is on the straight wall. Actual door orientation, closed collision and bidirectional passage when open pass in both phases. Existing stair/GTLE/entrance,48 layout states,36 language states, PMR, recess and façade checks pass. Independent comparison confirms all room polygons, other walls, PMR and prior correction data unchanged. No JavaScript errors.
+
+## v12.7.3 Espace de jeu partition
+
+Reviewed both [after](docs/images/play-wall-apres-plan.png) and [before](docs/images/play-wall-avant-plan.png) plan views. The lower wall and return are present without entering the surveyed landing. Collision checks block passage through the wall; the existing play-room door still allows entry/return. Both-phase17-step stair routes and GTLE wall contacts pass. Other rooms, walls, PMR and prior correction data are unchanged. Existing responsive/language, façade, recess and C06 checks pass.
