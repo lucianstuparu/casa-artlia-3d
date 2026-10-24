@@ -33,3 +33,5 @@ Live v12.5.0 verified on GitHub Pages: published HTML matches the reviewed build
 [After works](docs/images/pmr-after.png) and [before works](docs/images/pmr-before.png) inspected in running Chrome. The selected PMR room opens in cutaway; floor accessibility zones are optional. Dedicated checks cover the dimensioned room/circle, physical83cm opening, sliding leaf/no swing, collision and walking both ways, source viewers and FR/RO/EN. See docs/erp-pmr-update.md for the A15 global-registration limitation.
 
 Final local v12.6.0: model checks, both-phase stair/lift/door navigation, 48 responsive layout states, 36 language viewport states and the PMR-specific geometry/door/source tests passed. An independent comparison against the model before applying C03 confirms the before-works room polygons, labels/areas, walls and openings are unchanged.
+
+Live v12.6.0 checked on GitHub Pages: HTML matches the reviewed build, PMR cutaway and sliding animation work, the detail viewer opens ERP8b, before works retains the separate WC, after works removes it, and the first-person toilet start is on R+1. No JavaScript errors.
