@@ -148,7 +148,7 @@ $('conceptView').onchange=e=>view(e.target.value);
 for(const id of['v1Furniture','v1People'])$(id).onchange=sync;
 function tour(){const id=current==='coffee'?'entrance':current==='overview'?'main':current;A.setPhase('apres');A.walk.start(id==='play'||id==='atelier'||id==='bureau3'?'main':id);if(current!=='overview')A.walk.setSpawn('v1_'+current);sync();}
 for(const b of document.querySelectorAll('[data-view=walk]'))b.onclick=tour;
-function language(){document.querySelector('.brand strong').textContent='Casa Artlia · V1';document.querySelector('.brand span').textContent=CASA_I18N.t('Un lieu à imaginer');document.title='Casa Artlia · '+CASA_I18N.t('Variante 1 · Maison de jeu & café');const z=V.zones.find(z=>z.id===current);if(z)$('conceptDescription').textContent=z.description[CASA_I18N.language];$('v1Base').href='index.html?lang='+CASA_I18N.language;}
+function language(){document.querySelector('.brand strong').textContent='Casa Artlia · V1';document.querySelector('.brand span').textContent=CASA_I18N.t('Un lieu à imaginer');document.title='Casa Artlia · '+CASA_I18N.t('Variante 1 · Maison de jeu & café');const z=V.zones.find(z=>z.id===current);$('conceptDescription').textContent=z?z.description[CASA_I18N.language]:({fr:'Jeu, création et moments partagés.',ro:'Joacă, creație și timp împreună.',en:'Play, creativity and time together.'})[CASA_I18N.language];$('v1Base').href='index.html?lang='+CASA_I18N.language;}
 addEventListener('casa-language-change',language);
 window.CASA_VARIANT={data:V,groups:{upper,ground,upperPeople,groundPeople,...groups},people,view,sync,get current(){return current;}};
 addEventListener('resize',()=>{if(!A.walk.active&&A.state.view==='room')view(current);});

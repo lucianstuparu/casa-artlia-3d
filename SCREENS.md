@@ -66,7 +66,7 @@ Reviewed both-phase closed and open entrance views in running Chrome ([before cl
 
 Full local v12.8.0 verification: all11 scripts passed individually using the trusted Node runtime (model, browser, layout, i18n, PMR, recess, facade, main door, play wall, hall, entrance). This includes both stair routes, GTLE mount contacts,48 responsive states and36 language states. Independent comparison confirms room/wall geometry and original v10 source unchanged. No browser JavaScript errors.
 
-## Separate Variant1 v1.0.0
+## Separate Variant1 v1.0.1
 
 The base v12.8.0 HTML, data and version are unchanged. Reviewed furnished [main room](docs/images/variant1-main.png), [coffee counter](docs/images/variant1-coffee.png), [overview](docs/images/variant1-overview.png), [phone](docs/images/variant1-375.png) and [eye-level house view](docs/images/variant1-walk-main.png). The user reference is interpreted as a raised house without a bed, with open floor play underneath. Other rooms follow the family-play programme from Drive; see docs/variant-1.md.
 
