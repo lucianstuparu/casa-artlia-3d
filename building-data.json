@@ -1,6 +1,6 @@
 {
   "schema": "casa-artlia-full-building",
-  "version": "12.7.0",
+  "version": "12.7.1",
   "units": "cm",
   "coordinateSystem": {
     "origin": "v10 stair-side interior wall / street facade / RDC finished floor",
@@ -54,7 +54,8 @@
       "All Casa Artlia windows share the original entrance upper-window rounded design.",
       "No wall crosses the upper interior stair exit; the misplaced reconstructed play_lower partition is removed in both states.",
       "Interior stairs are directly against the wall; no extra strip beside them; platform brackets attach to that wall.",
-      "Space to the left at the top of the stairs: use the site photo, ignore the selling sign (C04)."
+      "Space to the left at the top of the stairs: use the site photo, ignore the selling sign (C04).",
+      "Ruelle des Jardins façade is continuous: no depth step at the entrance/bookshop junction; grey edge is paint on the dividing wall (C05)."
     ],
     "photoFolder": "https://drive.google.com/drive/folders/10rH8jbg-Uw-wkw7p1ta1iAuvNbpBhbjl",
     "photoEvidence": [
@@ -266,6 +267,12 @@
       "affects": "Renfoncement à gauche du palier R+1",
       "status": "photo_supported_width; depth_and_registration_assumed",
       "description": "Photo20260710_140700: renfoncement longeant le garde-corps blanc, largeur annotée50cm. Plancher au niveau312cm, profondeur270cm supposée entre façade et retour du garde-corps. Position locale x379..429 interprétée; cloison voisine recalée, sans déplacer marches, palier ou GTLE. Lames du retour et plinthes simplifiées; panneau de vente et câble exclus. Surface ERP de la salle conservée comme cote source distincte du contour corrigé."
+    },
+    {
+      "id": "A17",
+      "affects": "Façade continue côté rue",
+      "status": "user_confirmed_alignment; backing_depth_assumed",
+      "description": "Façade Ruelle des Jardins continue, sans décroché entre entrée et librairie. Entourage gris de la porte peint sur la maçonnerie, selon la photo et la précision utilisateur. Alignement visuel sur le plan extérieur v10 z=-4cm; épaisseur des murs voisins25cm et couche de rendu0,08cm supposées. C05 ajuste les faces rendues et masque les faux nez de dalle; contours ERP, niveaux et mécanismes conservés."
     },
     {
       "id": "A15",
@@ -2386,6 +2393,24 @@
       ]
     },
     {
+      "id": "C05_continuous_street_facade",
+      "source": "https://drive.google.com/file/d/1UH6wZe1FLSu1YiI_cYSmNdk6nUUyWJVE/view",
+      "appliesTo": [
+        "avant",
+        "apres"
+      ],
+      "action": "align_street_wall_faces; remove_false_floor_edge_and_projecting_entrance_surround",
+      "userConfirmation": "Ruelle des Jardins has one continuous wall; grey entrance edge is painted on the divider between Casa Artlia and bookshop",
+      "preserved": [
+        "entrance aperture and arched profile",
+        "telescopic door and controls",
+        "stairs and GTLE",
+        "C01/C02/C03/C04",
+        "canonical ERP traces"
+      ],
+      "assumption": "A17"
+    },
+    {
       "id": "C03_july_PMR_revision",
       "appliesTo": [
         "apres"
@@ -2836,6 +2861,22 @@
       "temporary selling sign",
       "loose cable"
     ]
+  },
+  "streetFacade": {
+    "correction": "C05_continuous_street_facade",
+    "appliesTo": [
+      "avant",
+      "apres"
+    ],
+    "source": "https://drive.google.com/file/d/1UH6wZe1FLSu1YiI_cYSmNdk6nUUyWJVE/view",
+    "outerFaceZCm": -4,
+    "contextWallThicknessCm": 25,
+    "contextWallCentreZCm": 8.5,
+    "paintThicknessCm": 0.08,
+    "slabRenderInsetCm": 0.12,
+    "entranceSurroundFinish": "grey_paint_on_masonry; no_projecting_portal_frame",
+    "registrationStatus": "coplanarity and painted divider confirmed by user; local plane follows original entrance; backing thickness and render offsets assumed",
+    "scope": "render registration only: ERP traces, rooms, stair/GTLE coordinates and door motion retained"
   },
   "pmr": {
     "phase": "apres",
