@@ -35,3 +35,7 @@ Live v12.5.0 verified on GitHub Pages: published HTML matches the reviewed build
 Final local v12.6.0: model checks, both-phase stair/lift/door navigation, 48 responsive layout states, 36 language viewport states and the PMR-specific geometry/door/source tests passed. An independent comparison against the model before applying C03 confirms the before-works room polygons, labels/areas, walls and openings are unchanged.
 
 Live v12.6.0 checked on GitHub Pages: HTML matches the reviewed build, PMR cutaway and sliding animation work, the detail viewer opens ERP8b, before works retains the separate WC, after works removes it, and the first-person toilet start is on R+1. No JavaScript errors.
+
+## v12.7.0 upper landing recess
+
+C04 uses the 50 cm annotation on photo20260710_140700. The provisional recess depth/registration are explicit in A16. Verified first-person entry/return and actual mesh floor height, guard/partition containment, cutaway and first-person views in both phases. Existing17-step interior and exterior stair routes,17 GTLE wall contacts, door/lift animations,48 responsive states,36 language states, source-photo/assumption translations and C03 PMR checks passed. Independent comparison confirms all other room/wall records and PMR data are unchanged. No JavaScript errors. [Walk view](docs/images/landing-recess-walk.png), [cutaway](docs/images/landing-recess-cutaway.png).

@@ -1442,5 +1442,25 @@
   "Le détail8b du25/07/2026 gouverne les dimensions intérieures du sanitaire. Le tracé global8a et le relevé v10 ne concordent pas à la même échelle locale. Face intérieure de façade est et cloison nord conservées; limite nord du Local info raccordée localement, porte info maintenue en position. Les210cm du dégagement et22,14m² sont des cotes/surfaces source, distinctes du contour global calculé. Hauteur de porte210cm, détails des appareils et position exacte des zones restent interprétés; aucune certification de conformité.": {
     "ro": "Detaliul 8b din 25/07/2026 stabilește dimensiunile interioare ale grupului sanitar. Planul general 8a și releveul v10 nu corespund la aceeași scară locală. Fața interioară a fațadei estice și peretele nordic sunt păstrate; limita nordică a încăperii info este racordată local, iar ușa info rămâne pe poziție. Cei 210 cm ai circulației și 22,14 m² sunt valori din sursă, distincte de conturul general calculat. Înălțimea ușii de 210 cm, detaliile obiectelor sanitare și pozițiile exacte ale zonelor rămân interpretate; nu reprezintă o certificare a conformității.",
     "en": "Detail 8b dated 25/07/2026 governs the toilet’s internal dimensions. The overall 8a drawing and v10 survey do not agree at the same local scale. The east façade’s inner face and north partition are retained; the info room’s north boundary is connected locally and its door stays in place. The 210 cm corridor clearance and 22.14 m² are source values, distinct from the calculated overall outline. Door height 210 cm, fixture details and exact zone positions remain interpreted; this is not a compliance certification."
+  },
+  "Renfoncement du palier · R+1": {
+    "ro": "Nișa palierului · R+1",
+    "en": "Landing recess · R+1"
+  },
+  "Renfoncement du palier": {
+    "ro": "Nișa palierului",
+    "en": "Landing recess"
+  },
+  "Renfoncement à gauche du palier, largeur annotée 50 cm. Profondeur et calage provisoires (A16). Panneau de vente exclu du modèle.": {
+    "ro": "Nișa din stânga palierului, cu lățimea adnotată de 50 cm. Adâncimea și poziționarea sunt provizorii (A16). Panoul de vânzare este exclus din model.",
+    "en": "Recess to the left of the landing, annotated 50 cm wide. Depth and registration are provisional (A16). Selling sign excluded from the model."
+  },
+  "Renfoncement à gauche du palier R+1": {
+    "ro": "Nișa din stânga palierului R+1",
+    "en": "Recess to the left of the R+1 landing"
+  },
+  "Photo20260710_140700: renfoncement longeant le garde-corps blanc, largeur annotée50cm. Plancher au niveau312cm, profondeur270cm supposée entre façade et retour du garde-corps. Position locale x379..429 interprétée; cloison voisine recalée, sans déplacer marches, palier ou GTLE. Lames du retour et plinthes simplifiées; panneau de vente et câble exclus. Surface ERP de la salle conservée comme cote source distincte du contour corrigé.": {
+    "ro": "Fotografia20260710_140700: nișă de-a lungul balustradei albe, cu lățimea adnotată de50cm. Pardoseală la nivelul312cm; adâncimea de270cm dintre fațadă și întoarcerea balustradei este presupusă. Poziționarea locală x379..429 este interpretată; peretele alăturat este repoziționat fără mutarea treptelor, palierului sau GTLE. Lamelele balustradei și plintele sunt simplificate; panoul de vânzare și cablul sunt excluse. Suprafața ERP a încăperii rămâne o valoare sursă distinctă de conturul corectat.",
+    "en": "Photo20260710_140700: recess alongside the white balustrade, annotated50cm wide. Floor at level312cm; assumed270cm depth from facade to guard return. Local x379..429 position is interpreted; adjacent partition registered without moving treads, landing or GTLE. Return blades and skirting simplified; selling sign and cable excluded. Printed ERP room area retained separately from the corrected outline."
   }
 }

@@ -37,6 +37,17 @@ for(const o of oldRoomChildren){const q=o.geometry?.parameters;if(!q)continue;co
 boxTo(ROOM_GROUP,.7,50,400,mat(0x848b7d),-25.4,25,200,'stair_wall.exterior_plinth');boxTo(ROOM_GROUP,46,50,1,mat(0x848b7d),23,25,-4.6,'entrance.exterior_plinth');
 const slab=flat(shared,D.footprintCm,312,14,mat(0xb5ad9e),'r1.slab',[D.voidCm]);
 const apron=flat(shared,D.adapterCm,312.3,14,mat(0xc1b49b),'r1.landing_adapter');apron.userData.assumption='A02';
+// Narrow return beside the stairwell, separate from the wall-mounted rail side.
+const recess=D.landingRecess,landingRecessGroup=group(shared,'landing_recess');
+const recessFloor=flat(landingRecessGroup,recess.polygonCm,312.3,14,mat(0xb5916a),'landing_recess.floor');
+recessFloor.userData.assumption='A16';recessFloor.userData.source=recess.source;
+const guardWhite=mat(0xf2f1ec),guardSteel=mat(0xe2e3df),guardHeight=recess.guard.topY-recess.floorY,guardMiddle=(recess.guard.topY+recess.floorY)/2,guardLength=recess.guard.endZ;
+for(let z=14;z<guardLength;z+=27)boxTo(landingRecessGroup,5,guardHeight,10,guardWhite,recess.guard.centerX,guardMiddle,z,'landing_recess.guard_blade');
+for(const y of [330,378])boxTo(landingRecessGroup,recess.guard.thicknessCm,4.5,guardLength,guardSteel,recess.guard.centerX,y,guardLength/2,'landing_recess.guard_rail');
+boxTo(landingRecessGroup,7,guardHeight,7,guardSteel,recess.guard.centerX,guardMiddle,3.5,'landing_recess.end_post');
+boxTo(landingRecessGroup,1.5,8,270,white,428.25,316,135,'landing_recess.wall_skirting');
+boxTo(landingRecessGroup,50,8,1.5,white,404,316,.75,'landing_recess.end_skirting');
+landingRecessGroup.userData.assumption='A16';landingRecessGroup.userData.source=recess.source;
 // The connection is through a 120cm gap. No wall is added at the surveyed landing endpoint.
 text(shared,['Palier / raccord v10','312 cm · A02'],355,365,335,170,44,'#e2bb83','landing.label');
 text(shared,['Vide sur RDC','Contour raccordé · A02'],170,325,145,190,48,'#e2bb83','void.label');
@@ -225,7 +236,7 @@ $('differencesList').innerHTML=D.differences.map(t=>'<li>'+t+'</li>').join('');$
 for(const id of ['liftVisibilityBtn','dimBtn','listBtn']){const b=$(id);b.removeAttribute('style');$('originalControls').appendChild(b);}
 $('dims').style.cssText='display:none';$('originalControls').appendChild($('dims'));for(const el of $('dims').querySelectorAll('[style]')){el.style.color='';el.style.borderColor='var(--border)';}
 $('entranceDoorBtn').removeAttribute('style');$('entranceDoorBtn').className='doorAction';$('equipmentDock').appendChild($('entranceDoorBtn'));
-$('dataExport').onclick=()=>{const blob=new Blob([JSON.stringify({data:D,state,doors:doorStates.map(d=>({id:d.id,phase:d.phase,open:d.open}))},null,2)],{type:'application/json'}),a=document.createElement('a'),u=URL.createObjectURL(blob);a.href=u;a.download='casa_artlia_v12_6_building_data.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
+$('dataExport').onclick=()=>{const blob=new Blob([JSON.stringify({data:D,state,doors:doorStates.map(d=>({id:d.id,phase:d.phase,open:d.open}))},null,2)],{type:'application/json'}),a=document.createElement('a'),u=URL.createObjectURL(blob);a.href=u;a.download='casa_artlia_v12_7_building_data.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
 // Canvas-only interactions preserve v10 orbit controls and add orthographic pan / touch gestures.
 const cv=renderer.domElement,ray=new THREE.Raycaster(),mouse=new THREE.Vector2();let down=null,planDrag=null;
 $('workspace').prepend(cv);$('workspace').append($('walkCrosshair'),$('walkInteract'));
@@ -250,12 +261,13 @@ walk=(()=>{
  const cv=renderer.domElement,keys=new Set(),eye=165,bodyRadius=18,maxStep=24;
  const view=new THREE.PerspectiveCamera(76,stageRatio(),2,15000);view.rotation.order='YXZ';
  const fp={active:false,engaged:false,locked:false,fallback:true,lookMode:'drag',x:302,z:-120,feet:0,eyeY:165,yaw:Math.PI,pitch:0,location:'',saved:null};
- const spawns={toilet:{label:'Sanitaire · R+1',x:D.pmr.zones.turning.centerCm[0],z:D.pmr.zones.turning.centerCm[1],y:312,yaw:Math.PI/2},street:{label:'Devant l’entrée',x:302,z:-120,y:0,yaw:Math.PI},entrance:{label:'Entrée / café · RDC',x:302,z:160,y:0,yaw:1.7},landing:{label:'Palier intérieur · R+1',x:330,z:335,y:312,yaw:-Math.PI/2},main:{label:'Jeu principal · R+1',x:1389,z:230,y:312,yaw:2.0},outside:{label:'Palier extérieur · R+1',x:-250,z:830,y:312,yaw:-2.1}};
+ const spawns={recess:{label:'Renfoncement du palier · R+1',x:404,z:300,y:312,yaw:0,pitch:-.38},toilet:{label:'Sanitaire · R+1',x:D.pmr.zones.turning.centerCm[0],z:D.pmr.zones.turning.centerCm[1],y:312,yaw:Math.PI/2},street:{label:'Devant l’entrée',x:302,z:-120,y:0,yaw:Math.PI},entrance:{label:'Entrée / café · RDC',x:302,z:160,y:0,yaw:1.7},landing:{label:'Palier intérieur · R+1',x:330,z:335,y:312,yaw:-Math.PI/2},main:{label:'Jeu principal · R+1',x:1389,z:230,y:312,yaw:2.0},outside:{label:'Palier extérieur · R+1',x:-250,z:830,y:312,yaw:-2.1}};
  const floorPoly=D.footprintCm.map(([x,z])=>({x,z})),voidPoly=D.voidCm.map(([x,z])=>({x,z})),adapterPoly=D.adapterCm.map(([x,z])=>({x,z}));
+ const recessPoly=D.landingRecess.polygonCm.map(([x,z])=>({x,z}));
  const ground=flat(root,[[-750,-550],[2300,-550],[2300,1950],[-750,1950]],-6,0,mat(0x686b66),'navigation.provisional_ground');ground.visible=false;ground.userData.sourceStatus='navigation_backdrop_only; not_surveyed_site_geometry';
  const surfaceY=(x,z,current=fp.feet)=>{
   const p={x,z},heights=[];if(x>=-720&&x<=2270&&z>=-520&&z<=1920)heights.push(0);
-  if((pointInPoly(p,floorPoly)&&!pointInPoly(p,voidPoly))||pointInPoly(p,adapterPoly))heights.push(312);
+  if((pointInPoly(p,floorPoly)&&!pointInPoly(p,voidPoly))||pointInPoly(p,adapterPoly)||pointInPoly(p,recessPoly))heights.push(312);
   const stair=surfaceHeightAt(x,z);if(stair>0)heights.push(stair);
   const L=D.exterior.landing,E=D.exterior;
   if(x>=L.x0&&x<=L.x1&&z>=L.z0&&z<=L.z1)heights.push(312);
@@ -277,7 +289,7 @@ walk=(()=>{
   for(let i=0;i<n;i++){for(const [mx,mz] of [[dx,0],[0,dz]]){if(!mx&&!mz)continue;const y=surfaceY(fp.x+mx,fp.z+mz);if(y===null||hitsBody(fp.x,fp.z,y,mx,mz))continue;fp.x+=mx;fp.z+=mz;fp.feet=y;}}
  }
  function aim(){view.position.set(fp.x,fp.eyeY,fp.z);view.rotation.set(fp.pitch,fp.yaw,0,'YXZ');view.updateMatrixWorld(true);}
- function describeLocation(){if(fp.feet<200)return fp.x>=0&&fp.x<=372&&fp.z>=0&&fp.z<=400?'Entrée / café · RDC':'Extérieur · RDC';if(fp.x<0)return 'Palier / escalier extérieur';const room=D.rooms.find(r=>r.level==='R+1'&&r.kind!=='void'&&(r.state==='both'||r.state===state.phase)&&pointInPoly({x:fp.x,z:fp.z},r.polygonCm.map(([x,z])=>({x,z}))));return room?room.names[state.phase]+' · R+1':'Escalier / palier intérieur';}
+ function describeLocation(){if(fp.feet<200)return fp.x>=0&&fp.x<=372&&fp.z>=0&&fp.z<=400?'Entrée / café · RDC':'Extérieur · RDC';if(fp.x<0)return 'Palier / escalier extérieur';if(pointInPoly({x:fp.x,z:fp.z},recessPoly))return 'Renfoncement du palier · R+1';const room=D.rooms.find(r=>r.level==='R+1'&&r.kind!=='void'&&(r.state==='both'||r.state===state.phase)&&pointInPoly({x:fp.x,z:fp.z},r.polygonCm.map(([x,z])=>({x,z}))));return room?room.names[state.phase]+' · R+1':'Escalier / palier intérieur';}
  function interactables(){const meshes=[],actions=new Map();const add=(g,action)=>g.traverse(o=>{if(o.isMesh){meshes.push(o);actions.set(o,action);}});const entrance={name:'Porte d’entrée',get open(){return entranceDoor.target>.5;},toggle(){entranceDoor.target=entranceDoor.target>.5?0:1;}};add(entranceDoor.tail,entrance);add(entranceDoor.lead,entrance);for(const d of doorStates.filter(d=>d.phase===state.phase)){const action={name:'Porte R+1',get open(){return d.target>.5;},toggle(){d.target=d.target>.5?0:1;}};for(const leaf of pickDoors.filter(o=>o.userData.doorState===d))add(leaf,action);}return {meshes,actions};}
  function updateInteraction(){const {meshes,actions}=interactables();crossRay.setFromCamera({x:0,y:0},view);crossRay.far=230;const hit=crossRay.intersectObjects(meshes.filter(visible),false)[0];interaction=null;if(hit){const blockers=crossRay.intersectObjects(colliders.filter(c=>visible(c.o)&&c.box.distanceToPoint(view.position)<240).map(c=>c.o),false);if(!blockers.length||blockers[0].distance>=hit.distance-4)interaction=actions.get(hit.object);}const p=$('walkInteract');p.hidden=!interaction||!fp.engaged;if(interaction){p.textContent=(interaction.open?'Fermer':'Ouvrir')+' · '+(matchMedia('(pointer:coarse)').matches?'bouton Porte':'E / clic');$('walkCrosshair').classList.add('canInteract');}else $('walkCrosshair').classList.remove('canInteract');}
  function interact(){if(interaction){interaction.toggle();updateInteraction();}}
@@ -288,7 +300,7 @@ walk=(()=>{
  function sync(){const touch=matchMedia('(pointer:coarse)').matches;document.body.classList.toggle('walkMode',fp.active);document.body.classList.toggle('visitPaused',fp.active&&!fp.engaged);$('walkStart').hidden=!fp.active||fp.engaged;$('walkPause').hidden=!fp.active||!fp.engaged;$('walkHUD').hidden=!fp.active;$('walkWelcome').hidden=!fp.active||fp.engaged;$('walkCrosshair').hidden=!fp.active||!fp.engaged;$('walkMouseMode').value=fp.lookMode;$('walkStart').textContent=fp.lookMode==='capture'?'Capturer':'Explorer';$('walkIntro').innerHTML=touch?'Glisser dans la vue pour regarder.<br>Flèches à l’écran pour marcher · Porte pour ouvrir.':'Glisser pour regarder. Flèches ou WASD / ZQSD pour marcher.<br>E ou clic bref : porte. Maj : accélérer.';$('walkControlHint').textContent=fp.locked?'Souris : regarder · flèches / WASD / ZQSD : marcher':touch?'Glisser pour regarder · flèches pour marcher':'Glisser gauche / droit : regarder · flèches / WASD / ZQSD : marcher';$('walkLockState').textContent=fp.engaged?(fp.locked?'Souris capturée · Échap pour libérer':fp.lookMode==='capture'?'Capture en cours… · glisser possible':'Glisser pour regarder'):'En pause · souris libre';for(const id of ['levelSelect','wallMode'])$(id).disabled=fp.active;}
  function pause(){cancelLockRequest();fp.engaged=false;cancelLook();clearKeys();if(document.pointerLockElement===cv)document.exitPointerLock();sync();}
  function useDrag(engage=true){cancelLockRequest();fp.lookMode='drag';fp.fallback=true;fp.engaged=engage;cancelLook();clearKeys();if(document.pointerLockElement===cv)document.exitPointerLock();if(engage)cv.focus();sync();}
- function setSpawn(id){const p=spawns[id]||spawns.street;Object.assign(fp,{x:p.x,z:p.z,feet:p.y,eyeY:p.y+eye,yaw:p.yaw,pitch:0});$('walkSpawn').value=id;clearKeys();aim();fp.location=describeLocation();$('walkLocation').textContent=fp.location;updateInteraction();}
+ function setSpawn(id){const p=spawns[id]||spawns.street;Object.assign(fp,{x:p.x,z:p.z,feet:p.y,eyeY:p.y+eye,yaw:p.yaw,pitch:p.pitch||0});$('walkSpawn').value=id;clearKeys();aim();fp.location=describeLocation();$('walkLocation').textContent=fp.location;updateInteraction();}
  function start(id='street'){if(fp.active){pause();return;}fp.saved={state:Object.fromEntries(['view','level','walls','labels','upper','roof','bookshop','routes','changes','dimensions','ceiling'].map(k=>[k,state[k]])),camera:activeCamera};Object.assign(fp,{active:true,engaged:false,locked:false,fallback:true,lookMode:'drag'});liftState.follow=false;$('liftFollow').checked=false;state.view='walk';state.level='all';state.walls='full';state.labels=false;state.upper=true;state.roof=true;state.bookshop=true;state.routes=state.changes=state.dimensions=state.ceiling=false;
   for(const [id,key] of [['labelsCheck','labels'],['upperCheck','upper'],['roofCheck','roof'],['bookshopCheck','bookshop'],['routesCheck','routes'],['changesCheck','changes'],['dimensionsCheck','dimensions'],['ceilingCheck','ceiling']])$(id).checked=state[key];$('wallMode').value='full';$('levelSelect').value='all';activeCamera=view;ground.visible=true;apply();needsRefresh=true;updateBounds();setSpawn(id);sync();
  }
@@ -318,5 +330,5 @@ walk=(()=>{
 
 
 window.CASA_BUILDING={walk,data:D,state,root,phases,doors:doorStates,archedWindows:archWindows,context:{bookshop,upper,roof},stairSideWall,stairRearWall,get activeCamera(){return activeCamera;},setPhase:phaseChange,setView,selectRoom,apply,exteriorGroup:ext,tick(now){const ds=doorStates.filter(d=>d.phase===state.phase),label=ds.some(d=>d.target===0)?'Ouvrir les portes R+1':'Fermer les portes R+1';if($('allDoorsBtn').textContent!==CASA_I18N.t(label))$('allDoorsBtn').textContent=label;const dt=Math.min(.1,Math.max(0,(now-last)/1000));last=now;for(const d of doorStates){d.open+=Math.sign(d.target-d.open)*Math.min(Math.abs(d.target-d.open),dt*1.6);if(d.motion==='sliding')d.carriage.position.x=d.open*d.opening.slideTravelCm;else d.pivot.rotation.y=d.base-d.open*Math.PI/2;}walk.tick(dt);}};
-CASA_MODEL_API.modelVersion='12.6.0';CASA_MODEL_API.buildingData=D;CASA_MODEL_API.buildingGroup=root;inventory();resizeStage();setView('global');assignHierarchyIds(CASA_ROOT,'casa_artlia');
+CASA_MODEL_API.modelVersion='12.7.0';CASA_MODEL_API.buildingData=D;CASA_MODEL_API.buildingGroup=root;inventory();resizeStage();setView('global');assignHierarchyIds(CASA_ROOT,'casa_artlia');
 })();

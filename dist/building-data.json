@@ -1,6 +1,6 @@
 {
   "schema": "casa-artlia-full-building",
-  "version": "12.6.0",
+  "version": "12.7.0",
   "units": "cm",
   "coordinateSystem": {
     "origin": "v10 stair-side interior wall / street facade / RDC finished floor",
@@ -53,7 +53,8 @@
       "Bookshop below the extended wing: glazing toward Ruelle des Jardins, door in short end wall below Jeu principal.",
       "All Casa Artlia windows share the original entrance upper-window rounded design.",
       "No wall crosses the upper interior stair exit; the misplaced reconstructed play_lower partition is removed in both states.",
-      "Interior stairs are directly against the wall; no extra strip beside them; platform brackets attach to that wall."
+      "Interior stairs are directly against the wall; no extra strip beside them; platform brackets attach to that wall.",
+      "Space to the left at the top of the stairs: use the site photo, ignore the selling sign (C04)."
     ],
     "photoFolder": "https://drive.google.com/drive/folders/10rH8jbg-Uw-wkw7p1ta1iAuvNbpBhbjl",
     "photoEvidence": [
@@ -105,6 +106,13 @@
         "source": "https://drive.google.com/file/d/1aoDUAx2SAEwRD2TmEPUgxOvt9i0_k45-/view",
         "title": "Palier annoté",
         "observation": "Annotations600 et380; géométrie recalée sur la sortie R+1, implantation précise à confirmer."
+      },
+      {
+        "id": "1raxlf55wdqKQircqyUWGuToZ1HLSZAy_",
+        "name": "20260710_140700.jpg",
+        "title": "Renfoncement du palier",
+        "source": "https://drive.google.com/file/d/1raxlf55wdqKQircqyUWGuToZ1HLSZAy_/view",
+        "observation": "Renfoncement à gauche du palier, largeur annotée 50 cm. Profondeur et calage provisoires (A16). Panneau de vente exclu du modèle."
       }
     ],
     "updatedERP": {
@@ -254,6 +262,12 @@
       "description": "Mur plein entre escaliers rétabli à la face intérieurex0 surz0..400, désormais continu de y0 à580cm. Épaisseur25cm supposée. Mur de fond côté intérieur rétabli àz400 jusqu’à580cm; les marches aboutissent contre ce mur et les consoles murales du GTLE le touchent (C02). En coupe, les murs sont abaissés physiquement."
     },
     {
+      "id": "A16",
+      "affects": "Renfoncement à gauche du palier R+1",
+      "status": "photo_supported_width; depth_and_registration_assumed",
+      "description": "Photo20260710_140700: renfoncement longeant le garde-corps blanc, largeur annotée50cm. Plancher au niveau312cm, profondeur270cm supposée entre façade et retour du garde-corps. Position locale x379..429 interprétée; cloison voisine recalée, sans déplacer marches, palier ou GTLE. Lames du retour et plinthes simplifiées; panneau de vente et câble exclus. Surface ERP de la salle conservée comme cote source distincte du contour corrigé."
+    },
+    {
       "id": "A15",
       "affects": "Raccord du sanitaire révisé",
       "status": "explicit_dimensions_with_local_registration_conflict",
@@ -272,7 +286,7 @@
       "kind": "play",
       "polygonCm": [
         [
-          334,
+          436,
           0
         ],
         [
@@ -300,7 +314,7 @@
           270
         ],
         [
-          334,
+          436,
           270
         ]
       ],
@@ -309,7 +323,7 @@
         160.48
       ],
       "state": "both",
-      "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; floor trace only at former lower boundary, wall removed by user correction C01",
+      "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; floor trace only at former lower boundary, wall removed by user correction C01; left boundary locally registered to photographed recess C04/A16; printed ERP area retained",
       "areaStatus": "source_label_separate_from_computed_area",
       "sourceDimensionLabelsCm": {
         "widthAvant": 567,
@@ -317,7 +331,7 @@
         "depthLabel": 349
       },
       "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
-      "computedPolygonAreaM2": 19.67
+      "computedPolygonAreaM2": 16.92
     },
     {
       "id": "main",
@@ -926,11 +940,11 @@
           0
         ],
         [
-          334,
+          372,
           0
         ],
         [
-          334,
+          372,
           270
         ],
         [
@@ -951,10 +965,10 @@
         145
       ],
       "state": "both",
-      "geometryStatus": "Opening includes staircase; source void6.27m2 is a distinct free volume. A02.",
+      "geometryStatus": "Opening includes staircase; source void6.27m2 is a distinct free volume. A02.; free edge beside recess interpreted C04/A16",
       "sourceDimensionLabelsCm": {},
       "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
-      "computedPolygonAreaM2": 12.27
+      "computedPolygonAreaM2": 13.29
     },
     {
       "id": "toilet",
@@ -1318,17 +1332,17 @@
     {
       "id": "play_left",
       "a": [
-        332.41,
+        432.5,
         0
       ],
       "b": [
-        332.41,
-        270.52
+        432.5,
+        270
       ],
       "thicknessCm": 7,
       "state": "both",
       "openings": [],
-      "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+      "sourceStatus": "C04 photo-supported recess; partition position interpreted A16"
     },
     {
       "id": "play_angle",
@@ -1972,11 +1986,11 @@
       0
     ],
     [
-      334,
+      372,
       0
     ],
     [
-      334,
+      372,
       270
     ],
     [
@@ -2297,6 +2311,79 @@
       "wallHeightCm": 580,
       "originalFalseRearStripCm": 67.67,
       "interpretation": "Room boundary locally follows the restored wall; printed ERP dimensions/areas remain source references. The rail route and brackets keep their original coordinates."
+    },
+    {
+      "id": "C04_upper_landing_recess",
+      "source": "https://drive.google.com/file/d/1raxlf55wdqKQircqyUWGuToZ1HLSZAy_/view",
+      "photo": "20260710_140700.jpg",
+      "appliesTo": [
+        "avant",
+        "apres"
+      ],
+      "action": "add_floor_and_return_guard; locally_register_adjacent_partition",
+      "originalTracedPlayLeft": {
+        "id": "play_left",
+        "a": [
+          332.41,
+          0
+        ],
+        "b": [
+          332.41,
+          270.52
+        ],
+        "thicknessCm": 7,
+        "state": "both",
+        "openings": [],
+        "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+      },
+      "originalTracedPlayFloor": [
+        [
+          334,
+          0
+        ],
+        [
+          912.42,
+          0
+        ],
+        [
+          912.42,
+          293.44
+        ],
+        [
+          774.87,
+          428.7
+        ],
+        [
+          632.73,
+          337
+        ],
+        [
+          454,
+          337
+        ],
+        [
+          454,
+          270
+        ],
+        [
+          334,
+          270
+        ]
+      ],
+      "dimensionEvidence": {
+        "clearWidthCm": 50,
+        "status": "annotated_photo"
+      },
+      "assumptions": [
+        "A16"
+      ],
+      "preserved": [
+        "all original stair treads",
+        "original horizontal landing guard",
+        "upper landing",
+        "C02 wall-mounted GTLE",
+        "C03 after-works toilet"
+      ]
     },
     {
       "id": "C03_july_PMR_revision",
@@ -2682,6 +2769,73 @@
     "geometryEffect": "none; movement samples existing floor and stair surfaces",
     "limits": "approximate navigation collisions; excludes moving lift physics; provisional exterior ground backdrop is not surveyed geometry",
     "source": "existing model surfaces; no new building dimensions"
+  },
+  "landingRecess": {
+    "appliesTo": [
+      "avant",
+      "apres"
+    ],
+    "level": "R+1",
+    "floorY": 312,
+    "polygonCm": [
+      [
+        372,
+        0
+      ],
+      [
+        429,
+        0
+      ],
+      [
+        429,
+        270
+      ],
+      [
+        372,
+        270
+      ]
+    ],
+    "clearPolygonCm": [
+      [
+        379,
+        0
+      ],
+      [
+        429,
+        0
+      ],
+      [
+        429,
+        270
+      ],
+      [
+        379,
+        270
+      ]
+    ],
+    "clearWidthCm": 50,
+    "depthCm": 270,
+    "guard": {
+      "centerX": 375.5,
+      "thicknessCm": 7,
+      "topY": 454,
+      "endZ": 267.2
+    },
+    "partition": {
+      "centerX": 432.5,
+      "thicknessCm": 7,
+      "z0": 0,
+      "z1": 270
+    },
+    "source": "https://drive.google.com/file/d/1raxlf55wdqKQircqyUWGuToZ1HLSZAy_/view",
+    "photo": "20260710_140700.jpg",
+    "widthStatus": "50cm handwritten annotation on site photograph; not independently surveyed",
+    "depthStatus": "A16 assumed from facade to original guard at z270; no depth annotation",
+    "registrationStatus": "A16 local interpretation beside original guard end; original stairs and landing preserved",
+    "excludedObjects": [
+      "temporary selling sign",
+      "loose cable"
+    ]
   },
   "pmr": {
     "phase": "apres",

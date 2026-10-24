@@ -45,3 +45,5 @@ Rebuild with npm run build.
 Verification: npm test (tests/model.test.cjs and tests/browser.test.cjs).
 Earlier model snapshots are retained under archive/releases/.
 
+
+C04 / v12.7.0: upper landing recess restored in both phases, following the annotated50cm photo. Provisional270cm depth and local partition/void registration are A16. Temporary selling sign excluded. Original staircase, landing, wall-mount contacts and C03 retained. See docs/landing-recess.md.
