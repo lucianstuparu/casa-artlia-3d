@@ -1,6 +1,6 @@
 # Casa Artlia 3D
 
-Working repository for the interactive Casa Artlia building model. Current baseline: **v12.7.0**.
+Working repository for the interactive Casa Artlia building model. Current baseline: **v12.7.1**.
 
 It includes the ERP **avant / après** switch, RDC and R+1 reconstruction, the original entrance and telescopic door, interior staircase, Ganser GTLE animation, exterior stairs and landing, neighbouring building context, source-plan/photo viewers, and first-person walking.
 
@@ -71,7 +71,7 @@ All coordinates are in centimetres: x across the entrance toward the long wing, 
 - **C01:** the incorrectly reconstructed partition across the upper stair exit was removed in both states.
 - **C02:** the stairs meet the full-height walls at x=0 and z=400, with the GTLE brackets attached to those walls. The false rear floor strip was removed and the adjacent room boundary registered locally to the measured enclosure.
 
-Printed ERP areas and dimensions are preserved separately from calculated traced areas. A01–A16 and the original outlines behind corrections remain in the data. Roof heights, unseen roof returns, private balcony and neighbouring interiors remain approximate. The v11 geometry was never treated as verified.
+Printed ERP areas and dimensions are preserved separately from calculated traced areas. A01–A17 and the original outlines behind corrections remain in the data. Roof heights, unseen roof returns, private balcony and neighbouring interiors remain approximate. The v11 geometry was never treated as verified.
 
 ## Reference material
 
@@ -104,3 +104,5 @@ Edit src/i18n-catalog.json for Romanian/English wording keyed by the canonical F
 The after-works state uses the July ERP 8a / 8b / 10a update: merged toilets, stepped west wall, sliding door, fittings and optional accessibility spaces. Before works retains the earlier layout. See [source and registration notes](docs/erp-pmr-update.md). The detailed room uses explicit dimensions; local joins to the old overall trace remain A15 assumptions. Use Explorer → Pièces → Sanitaire adapté PMR to focus it, or choose the toilet starting point in walking settings. The source tab opens both the revised floor plan and dimensioned toilet detail.
 
 Upper landing recess: photo-supported50cm width, with provisional depth/registrationA16. See [source and geometry notes](docs/landing-recess.md). It is available in both phases and as a first-person starting point.
+
+Street façade: C05 restores the continuous entrance/bookshop wall plane and painted entrance surround in both phases. See [correction notes](docs/street-facade.md).

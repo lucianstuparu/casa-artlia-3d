@@ -22,3 +22,5 @@ GitHub Pages enabled at https://lucianstuparu.github.io/casa-artlia-3d/ on 24 Oc
 - v12.6.0: July ERP8a/8b/10a after-works PMR toilet revision. Merge two sanitary rooms, remove partition/old doors, add stepped wall and 90cm sliding leaf with83cm clear opening, dimensioned fixtures and optional access zones. Update source viewers, room areas, FR/RO/EN and walking start. Before-works geometry retained. Source-vs-trace joins explicitly recorded as A15/C03.
 
 - v12.7.0: C04 restores the photo-supported 50 cm recess to the left at the upper stair landing in both phases, with a floor, return guard and adjacent partition registration. Depth/position remain A16 assumptions. Original stairs, GTLE contacts and C03 PMR geometry preserved. Selling sign omitted.
+
+- v12.7.1: C05 aligns rendered street walls with the entrance, removes the projecting entrance surround in favour of grey paint, and covers false slab ledges. Original apertures, door motion, ERP traces, stairs, GTLE and C01–C04 preserved. Render/backing depths are A17.
