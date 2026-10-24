@@ -55,3 +55,7 @@ Reviewed [after plan](docs/images/main-door-apres-plan.png) and [before plan](do
 ## v12.7.3 Espace de jeu partition
 
 Reviewed both [after](docs/images/play-wall-apres-plan.png) and [before](docs/images/play-wall-avant-plan.png) plan views. The lower wall and return are present without entering the surveyed landing. Collision checks block passage through the wall; the existing play-room door still allows entry/return. Both-phase17-step stair routes and GTLE wall contacts pass. Other rooms, walls, PMR and prior correction data are unchanged. Existing responsive/language, façade, recess and C06 checks pass.
+
+## v12.7.4 hall connection
+
+Reviewed both-phase plans and cutaways ([after plan](docs/images/hall-apres-plan.png), [after cutaway](docs/images/hall-apres-cutaway.png)). Actual wall-face rays measure122cm, previously59.5cm. Upper and lower walking lanes pass; the workshop remains enclosed. Original stair/landing coordinates and GTLE mounts, PMR geometry, other doors/rooms and prior corrections are retained. Independent model comparison limits the change to the intended workshop/hall boundaries.

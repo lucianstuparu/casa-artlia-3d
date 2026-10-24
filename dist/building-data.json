@@ -1,6 +1,6 @@
 {
   "schema": "casa-artlia-full-building",
-  "version": "12.7.3",
+  "version": "12.7.4",
   "units": "cm",
   "coordinateSystem": {
     "origin": "v10 stair-side interior wall / street facade / RDC finished floor",
@@ -57,7 +57,8 @@
       "Space to the left at the top of the stairs: use the site photo, ignore the selling sign (C04).",
       "Ruelle des Jardins façade is continuous: no depth step at the entrance/bookshop junction; grey edge is paint on the dividing wall (C05).",
       "The main access to the big room is on the straight wall going down from the corner in plan, not on the diagonal wall (C06).",
-      "The horizontal wall below Espace de jeu shown in the ERP plan crop is missing and must be restored; C07 refines the overly broad C01 removal."
+      "The horizontal wall below Espace de jeu shown in the ERP plan crop is missing and must be restored; C07 refines the overly broad C01 removal.",
+      "The hall entry is too narrow; C08 restores the ERP122cm clearance without moving the surveyed staircase or its walls."
     ],
     "photoFolder": "https://drive.google.com/drive/folders/10rH8jbg-Uw-wkw7p1ta1iAuvNbpBhbjl",
     "photoEvidence": [
@@ -190,7 +191,7 @@
       "id": "A02",
       "affects": "Raccord escalier / étage",
       "status": "unresolved_source_conflict",
-      "description": "ERP et relevé v10 diffèrent près de l’escalier. Enveloppe mesurée de l’escalier conservée: intérieur372x400cm, murs jusqu’à580cm, face latéralex0 et fondz400. Le palier reprend204x130cm; la limite avant de la pièce arrière est recalée localement contre le mur de fond, sans bande de circulation ajoutée (C02). Absence de cloison dans le débouché confirmée par l’utilisateur (C01). Épaisseur7cm du fond et raccord local à l’ERP restent interprétés; surfaces imprimées distinctes des contours recalés."
+      "description": "ERP et relevé v10 diffèrent près de l’escalier. Cage mesurée conservée: intérieur372x400cm, murs jusqu’à580cm, facesx0/z400 et palier204x130cm. Débouché libre C01; cloison de l’atelier indépendante du mur arrière de la cage, avec dégagement1,22m C08. Retour local et raccord aux contours ERP interprétés en A20. Surfaces imprimées distinctes des contours recalés; autres contradictions ERP non résolues."
     },
     {
       "id": "A03",
@@ -286,7 +287,13 @@
       "id": "A19",
       "affects": "Cloison basse de l’espace de jeu",
       "status": "user_confirmed_partition; landing_side_registration_assumed",
-      "description": "La cloison horizontale indiquée sur le plan est rétablie dans les deux états. La suppression C01 était trop étendue: seul le passage au débouché de l’escalier doit rester libre. Épaisseur7cm reprise du plan; retour local raccordé au contour de la salle, hors du palier mesuré x250..454. Position du raccord interprétée avec A02/A16; la cote ERP1,22m reste une cote source, non une largeur vérifiée du raccord local. Porte de la salle et accès principal C06 conservés."
+      "description": "La cloison horizontale indiquée sur le plan est rétablie dans les deux états. La suppression C01 était trop étendue: seul le passage au débouché de l’escalier doit rester libre. Épaisseur7cm reprise du plan; retour local raccordé au contour de la salle, hors du palier mesuré x250..454. Position du raccord interprétée avec A02/A16; la cote ERP1,22m gouverne désormais la largeur locale par C08; le raccord à la cage reste interprété. Porte de la salle et accès principal C06 conservés."
+    },
+    {
+      "id": "A20",
+      "affects": "Raccord palier et dégagement",
+      "status": "explicit122cm_clearance; local_stepped_join_assumed",
+      "description": "La cote ERP1,22m est rétablie entre les faces finies des cloisons du dégagement: z340,5..462,5. La cloison de l’atelier avait été avancée à tort dans C02, ne laissant que59,5cm. Mur arrière de la cage conservé àz400 et consoles GTLE inchangées. Un retour local sépare atelier et hall hors de la cage; sa position reste interprétée. Planchers atelier/Dgt raccordés; autres pièces et géométrie PMR conservées. Les surfaces imprimées et le reste du calage ERP restent distincts du modèle."
     },
     {
       "id": "A15",
@@ -423,8 +430,16 @@
           407
         ],
         [
-          472.26,
+          365,
           407
+        ],
+        [
+          365,
+          469.5
+        ],
+        [
+          472.26,
+          469.5
         ],
         [
           472.26,
@@ -440,14 +455,14 @@
         641.9
       ],
       "state": "both",
-      "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; local front boundary registered to surveyed rear stair wall by C02; printed area unchanged",
+      "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; local front boundary registered to surveyed rear stair wall by C02; printed area unchanged; C08 stepped front boundary retains stair wall and represents122cm corridor beyond it",
       "areaStatus": "source_label_separate_from_computed_area",
       "sourceDimensionLabelsCm": {
         "width": 474,
         "depthLabel": 450
       },
       "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
-      "computedPolygonAreaM2": 19.76
+      "computedPolygonAreaM2": 19.085
     },
     {
       "id": "bureau3",
@@ -530,6 +545,14 @@
         ],
         [
           479.14,
+          462.5
+        ],
+        [
+          372,
+          462.5
+        ],
+        [
+          372,
           407
         ],
         [
@@ -542,11 +565,11 @@
         653.37
       ],
       "state": "avant",
-      "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; local landing boundary follows C02",
+      "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; local landing boundary follows C02; C08 landing-to-hall floor follows122cm connection outside stair core",
       "areaStatus": "source_label_separate_from_computed_area",
       "sourceDimensionLabelsCm": {},
       "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
-      "computedPolygonAreaM2": 20.18
+      "computedPolygonAreaM2": 20.776
     },
     {
       "id": "toilet",
@@ -1103,6 +1126,14 @@
         ],
         [
           479.14,
+          462.5
+        ],
+        [
+          372,
+          462.5
+        ],
+        [
+          372,
           407
         ],
         [
@@ -1115,13 +1146,13 @@
         653.37
       ],
       "state": "apres",
-      "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; local landing boundary follows C02; C03 dimensioned PMR revision, local registration A15",
+      "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; local landing boundary follows C02; C08 landing-to-hall floor follows122cm connection outside stair core; C03 dimensioned PMR revision, local registration A15",
       "areaStatus": "source_label_separate_from_computed_area",
       "sourceDimensionLabelsCm": {
         "residualCorridorWidth": 210
       },
       "dimensionStatus": "210cm clearance and22.14m2 are source values, not a claim that the unverified global trace reproduces them; A03/A15",
-      "computedPolygonAreaM2": 19.68
+      "computedPolygonAreaM2": 20.275
     },
     {
       "id": "info",
@@ -1459,23 +1490,23 @@
     {
       "id": "atelier_top",
       "a": [
-        372,
-        403.5
+        368.5,
+        466
       ],
       "b": [
         479.14,
-        403.5
+        466
       ],
       "thicknessCm": 7,
       "state": "both",
       "openings": [],
-      "sourceStatus": "continuation of original stair rear wall at inner face z400; thickness7cm interpretation"
+      "sourceStatus": "C08: 122cm finished corridor dimension governs workshop partition, separate from surveyed stair rear wall"
     },
     {
       "id": "atelier_right",
       "a": [
         479.14,
-        403.5
+        466
       ],
       "b": [
         479.14,
@@ -1484,7 +1515,7 @@
       "thicknessCm": 7,
       "state": "both",
       "openings": [],
-      "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed; front endpoint follows C02"
+      "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed; front endpoint follows C02; front endpoint follows C08"
     },
     {
       "id": "atelier_bureau3",
@@ -1896,6 +1927,21 @@
       "state": "both",
       "openings": [],
       "sourceStatus": "C07: lower partition confirmed by user ERP crop; landing-side return registered to existing local room outline, A19"
+    },
+    {
+      "id": "atelier_stair_return",
+      "a": [
+        368.5,
+        403.5
+      ],
+      "b": [
+        368.5,
+        466
+      ],
+      "thicknessCm": 7,
+      "state": "both",
+      "openings": [],
+      "sourceStatus": "C08/A20 stepped join: east face x372 outside the retained stair core; exact return registration interpreted"
     },
     {
       "id": "pmr_north",
@@ -2380,7 +2426,8 @@
       "sideInnerFaceX": 0,
       "wallHeightCm": 580,
       "originalFalseRearStripCm": 67.67,
-      "interpretation": "Room boundary locally follows the restored wall; printed ERP dimensions/areas remain source references. The rail route and brackets keep their original coordinates."
+      "interpretation": "Room boundary locally follows the restored wall; printed ERP dimensions/areas remain source references. The rail route and brackets keep their original coordinates.",
+      "refinedBy": "C08_hall_clearance: retain original stair walls; workshop partition has its own setback outside the stair core"
     },
     {
       "id": "C04_upper_landing_recess",
@@ -2582,18 +2629,88 @@
       ]
     },
     {
-      "id": "C03_july_PMR_revision",
+      "id": "C08_hall_clearance",
       "appliesTo": [
+        "avant",
         "apres"
       ],
-      "source": {
-        "folder": "https://drive.google.com/drive/folders/197evJeGbnI_7cGR3R8y6wHf2G_1grLCr",
-        "floor": "https://drive.google.com/file/d/13iDKXBmPUDx07YoeOx8Z2mP_ZeK9BOGT/view",
-        "detail": "https://drive.google.com/file/d/16cxmhmHztsbILyhYSHwjtHFROszrH4A8/view",
-        "note": "https://drive.google.com/file/d/1HAkXxrmgoFXWkKd0WE2OIZj5DNzRyLfU/view"
-      },
-      "action": "merge_toilets_remove_partition_replace_two_hinged_doors_with_west_sliding_door_and_widen_lower_wall",
+      "source": "user screenshot of pinched hall and ERP1.22m dimension",
+      "sourceImage": "references/corrections/hall-width-user-correction.png",
+      "action": "separate_workshop_partition_from_stair_rear_wall_and_restore122cm_hall",
+      "originalWalls": [
+        {
+          "id": "atelier_top",
+          "a": [
+            372,
+            403.5
+          ],
+          "b": [
+            479.14,
+            403.5
+          ],
+          "thicknessCm": 7,
+          "state": "both",
+          "openings": [],
+          "sourceStatus": "continuation of original stair rear wall at inner face z400; thickness7cm interpretation"
+        },
+        {
+          "id": "atelier_right",
+          "a": [
+            479.14,
+            403.5
+          ],
+          "b": [
+            479.14,
+            949.1
+          ],
+          "thicknessCm": 7,
+          "state": "both",
+          "openings": [],
+          "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed; front endpoint follows C02"
+        }
+      ],
       "originalRooms": [
+        {
+          "id": "atelier",
+          "level": "R+1",
+          "names": {
+            "avant": "Bureau 4 / Ateliers créatifs",
+            "apres": "Bureau 4 / Ateliers créatifs"
+          },
+          "printedAreaM2": 12.05,
+          "kind": "play",
+          "polygonCm": [
+            [
+              0,
+              407
+            ],
+            [
+              472.26,
+              407
+            ],
+            [
+              472.26,
+              825.31
+            ],
+            [
+              0,
+              825.31
+            ]
+          ],
+          "labelCm": [
+            224.67,
+            641.9
+          ],
+          "state": "both",
+          "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; local front boundary registered to surveyed rear stair wall by C02; printed area unchanged",
+          "areaStatus": "source_label_separate_from_computed_area",
+          "sourceDimensionLabelsCm": {
+            "width": 474,
+            "depthLabel": 450
+          },
+          "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
+          "computedPolygonAreaM2": 19.76
+        },
         {
           "id": "circulation",
           "level": "R+1",
@@ -2651,6 +2768,100 @@
           "sourceDimensionLabelsCm": {},
           "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
           "computedPolygonAreaM2": 20.18
+        }
+      ],
+      "clearWidthCm": 122,
+      "priorClearWidthCm": 59.5,
+      "assumptions": [
+        "A20"
+      ],
+      "preserved": [
+        "original stair core x0/z400",
+        "staircase/landing/GTLE wall mounting",
+        "play separator C07",
+        "main access C06",
+        "PMR geometry C03",
+        "other doors and rooms"
+      ]
+    },
+    {
+      "id": "C03_july_PMR_revision",
+      "appliesTo": [
+        "apres"
+      ],
+      "source": {
+        "folder": "https://drive.google.com/drive/folders/197evJeGbnI_7cGR3R8y6wHf2G_1grLCr",
+        "floor": "https://drive.google.com/file/d/13iDKXBmPUDx07YoeOx8Z2mP_ZeK9BOGT/view",
+        "detail": "https://drive.google.com/file/d/16cxmhmHztsbILyhYSHwjtHFROszrH4A8/view",
+        "note": "https://drive.google.com/file/d/1HAkXxrmgoFXWkKd0WE2OIZj5DNzRyLfU/view"
+      },
+      "action": "merge_toilets_remove_partition_replace_two_hinged_doors_with_west_sliding_door_and_widen_lower_wall",
+      "originalRooms": [
+        {
+          "id": "circulation",
+          "level": "R+1",
+          "names": {
+            "avant": "Dgt 2",
+            "apres": "Dgt 2"
+          },
+          "printedAreaM2": 22.57,
+          "kind": "circulation",
+          "polygonCm": [
+            [
+              270.52,
+              337
+            ],
+            [
+              632.73,
+              337
+            ],
+            [
+              774.87,
+              428.7
+            ],
+            [
+              774.87,
+              919.3
+            ],
+            [
+              625.86,
+              919.3
+            ],
+            [
+              625.86,
+              1066.02
+            ],
+            [
+              479.14,
+              1066.02
+            ],
+            [
+              479.14,
+              462.5
+            ],
+            [
+              372,
+              462.5
+            ],
+            [
+              372,
+              407
+            ],
+            [
+              270.52,
+              407
+            ]
+          ],
+          "labelCm": [
+            618.98,
+            653.37
+          ],
+          "state": "both",
+          "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; local landing boundary follows C02; C08 landing-to-hall floor follows122cm connection outside stair core",
+          "areaStatus": "source_label_separate_from_computed_area",
+          "sourceDimensionLabelsCm": {},
+          "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
+          "computedPolygonAreaM2": 20.776
         },
         {
           "id": "toilet",
@@ -3048,6 +3259,17 @@
     "entranceSurroundFinish": "grey_paint_on_masonry; no_projecting_portal_frame",
     "registrationStatus": "coplanarity and painted divider confirmed by user; local plane follows original entrance; backing thickness and render offsets assumed",
     "scope": "render registration only: ERP traces, rooms, stair/GTLE coordinates and door motion retained"
+  },
+  "hallConnection": {
+    "clearWidthCm": 122,
+    "widthSource": "ERP R+1 plan 1.22m dimension beside Espace de jeu",
+    "source": "references/plans/updates/plan.png",
+    "widthStatus": "explicit source dimension represented between finished wall faces",
+    "nearFaceZ": 340.5,
+    "farFaceZ": 462.5,
+    "priorClearWidthCm": 59.5,
+    "stairRearWallUnchangedZ": 400,
+    "registrationStatus": "A20 local stepped join; original stair survey and other rooms retained"
   },
   "pmr": {
     "phase": "apres",

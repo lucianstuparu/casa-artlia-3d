@@ -1,6 +1,6 @@
 # Casa Artlia 3D
 
-Working repository for the interactive Casa Artlia building model. Current baseline: **v12.7.3**.
+Working repository for the interactive Casa Artlia building model. Current baseline: **v12.7.4**.
 
 It includes the ERP **avant / après** switch, RDC and R+1 reconstruction, the original entrance and telescopic door, interior staircase, Ganser GTLE animation, exterior stairs and landing, neighbouring building context, source-plan/photo viewers, and first-person walking.
 
@@ -71,7 +71,7 @@ All coordinates are in centimetres: x across the entrance toward the long wing, 
 - **C01:** the incorrectly reconstructed partition across the upper stair exit was removed in both states.
 - **C02:** the stairs meet the full-height walls at x=0 and z=400, with the GTLE brackets attached to those walls. The false rear floor strip was removed and the adjacent room boundary registered locally to the measured enclosure.
 
-Printed ERP areas and dimensions are preserved separately from calculated traced areas. A01–A19 and the original outlines behind corrections remain in the data. Roof heights, unseen roof returns, private balcony and neighbouring interiors remain approximate. The v11 geometry was never treated as verified.
+Printed ERP areas and dimensions are preserved separately from calculated traced areas. A01–A20 and the original outlines behind corrections remain in the data. Roof heights, unseen roof returns, private balcony and neighbouring interiors remain approximate. The v11 geometry was never treated as verified.
 
 ## Reference material
 
@@ -110,3 +110,5 @@ Street façade: C05 restores the continuous entrance/bookshop wall plane and pai
 Main access: C06 places the big room door on the straight corridor wall in both phases; exact offset and swing remain A18. See [correction notes](docs/main-room-access.md).
 
 Espace de jeu partition: C07 restores the lower separator beyond the surveyed landing. Local registration remains A19. See [correction notes](docs/play-space-partition.md).
+
+Hall clearance: C08 restores122cm between finished faces outside the unchanged stair core. The stepped registration remains A20; see [correction notes](docs/hall-clearance.md).

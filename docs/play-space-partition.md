@@ -7,3 +7,5 @@ C07 restores the lower separator and a local return following the existing room 
 The partition thickness is 7 cm from the ERP convention. The local return is a registration assumption A19 because the ERP and surveyed staircase differ in this area (A02/A16). The printed 1.22 m ERP circulation dimension is retained as source information and is not claimed to be reproduced by the local connection.
 
 All original stairs and landing dimensions, GTLE wall contacts, the upper recess, PMR revision and C06 main access remain unchanged. Walking now leaves the landing into Dgt below the restored wall. Browser tests verify a solid room separator, no intrusion into the surveyed landing, and entry/return through the existing play-room door in both phases.
+
+C08 supersedes the earlier local hall-width interpretation: the ERP122cm clearance is now represented. See [hall correction](hall-clearance.md).

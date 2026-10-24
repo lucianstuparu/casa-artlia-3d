@@ -28,3 +28,5 @@ GitHub Pages enabled at https://lucianstuparu.github.io/casa-artlia-3d/ on 24 Oc
 - v12.7.2: C06 moves the main access to the big room from the diagonal to the straight corridor partition in both phases. The diagonal is closed. Existing nominal door width/height retained; precise offset and swing are A18 assumptions. Other room geometry and corrections preserved.
 
 - v12.7.3: C07 restores the missing lower Espace de jeu partition and local return in both phases. Refines the overly broad C01 deletion while preserving the surveyed stair landing and C06 main access. Local registration is A19.
+
+- v12.7.4: C08 corrects the59.5cm hall pinch to the ERP122cm clearance. Workshop front partition and floors form a stepped join beyond the unchanged stair core. C07 separator, C06 access, stair/GTLE positions and PMR geometry retained.
