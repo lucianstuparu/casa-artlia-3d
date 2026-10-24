@@ -16,3 +16,5 @@ For each future release, store the standalone HTML, building data, release/verif
 Archive tracked source/reference/build/documentation files plus user-facing loose outputs. Exclude dependency installs, Git internals, credentials, local browser profiles, test scratch files and temporary downloads. GitHub remains the development source of truth; Drive is the requested deliverable copy. This is a release workflow instruction, not an unattended scheduled sync.
 
 Separate furnishing study: Variant1 v1.0.1 — https://drive.google.com/drive/folders/1_93wAlnxau-BQDxzD9aAwAiDWor3slhv. Base v12.8.0 remains the current reconstruction.
+
+Current furnishing study: Variant1 v1.1.0 (RDC-only revision) — https://drive.google.com/drive/folders/1EJVyl-whP-kUA930vQGsq82UIAwOfEE7. Previous v1.0.1 and base archives are retained.

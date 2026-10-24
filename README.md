@@ -10,7 +10,7 @@ The repository is public, as authorized for sharing. GitHub Pages on the current
 
 ## Furnished Variant 1
 
-A separate playhouse-and-coffee concept: [open Variant 1](https://lucianstuparu.github.io/casa-artlia-3d/variant-1.html). The base model above stays unchanged. Use the room selector to explore, or walk at eye level. Furniture/people switches and concept limits are in the information panel. See docs/variant-1.md.
+A separate playhouse-and-coffee concept: [open Variant 1](https://lucianstuparu.github.io/casa-artlia-3d/variant-1.html). The base model above stays unchanged. Use the room selector to explore, or walk at eye level. The current downstairs study has a dual check-in/coffee counter and five/six-adult waiting comparison; upstairs is unchanged. Furniture/people switches and concept limits are in the information panel. See docs/variant-1.md.
 
 Build it separately with `node scripts/build-variant.cjs`; check it with `node tests/variant-1.test.cjs`.
 

@@ -1,0 +1,130 @@
+{
+  "version": "1.1.0",
+  "basis": "actual rendered adult bounds and local planning targets; not ERP certification",
+  "upstairsUnchanged": true,
+  "five": {
+    "waitingCustomers": 5,
+    "staff": 1,
+    "totalAdults": 6,
+    "adults": [
+      {
+        "id": "staff",
+        "heightCm": 176,
+        "widthCm": 54,
+        "depthCm": 36
+      },
+      {
+        "id": 1,
+        "heightCm": 172,
+        "widthCm": 54,
+        "depthCm": 36
+      },
+      {
+        "id": 2,
+        "heightCm": 182.99999999999997,
+        "widthCm": 52,
+        "depthCm": 34
+      },
+      {
+        "id": 3,
+        "heightCm": 188,
+        "widthCm": 58,
+        "depthCm": 40
+      },
+      {
+        "id": 4,
+        "heightCm": 162,
+        "widthCm": 50,
+        "depthCm": 34
+      },
+      {
+        "id": 5,
+        "heightCm": 176.99999999999997,
+        "widthCm": 56,
+        "depthCm": 38
+      },
+      {
+        "id": 6,
+        "heightCm": 184.00000000000003,
+        "widthCm": 58,
+        "depthCm": 42
+      }
+    ],
+    "bodyOverlap": false,
+    "turnTargetDiameterCm": 90,
+    "minimumTurnBodyDistanceCm": 53.90194025139087,
+    "turnClear": true,
+    "sidePassageCm": 97,
+    "counterFrontZCm": 258,
+    "staffAisleCm": 85,
+    "alcoveCeilingCm": 211.5,
+    "gateWidthCm": 60
+  },
+  "six": {
+    "waitingCustomers": 6,
+    "staff": 1,
+    "totalAdults": 7,
+    "adults": [
+      {
+        "id": "staff",
+        "heightCm": 176,
+        "widthCm": 54,
+        "depthCm": 36
+      },
+      {
+        "id": 1,
+        "heightCm": 172,
+        "widthCm": 54,
+        "depthCm": 36
+      },
+      {
+        "id": 2,
+        "heightCm": 182.99999999999997,
+        "widthCm": 52,
+        "depthCm": 34
+      },
+      {
+        "id": 3,
+        "heightCm": 188,
+        "widthCm": 58,
+        "depthCm": 40
+      },
+      {
+        "id": 4,
+        "heightCm": 162,
+        "widthCm": 50,
+        "depthCm": 34
+      },
+      {
+        "id": 5,
+        "heightCm": 176.99999999999997,
+        "widthCm": 56,
+        "depthCm": 38
+      },
+      {
+        "id": 6,
+        "heightCm": 184.00000000000003,
+        "widthCm": 58,
+        "depthCm": 42
+      }
+    ],
+    "bodyOverlap": false,
+    "turnTargetDiameterCm": 90,
+    "minimumTurnBodyDistanceCm": 35.47887323943662,
+    "turnClear": false,
+    "sidePassageCm": 96,
+    "counterFrontZCm": 258,
+    "staffAisleCm": 85,
+    "alcoveCeilingCm": 211.5,
+    "gateWidthCm": 60
+  },
+  "busyEntranceRoute": {
+    "entry": true,
+    "exit": true
+  },
+  "staffAccess": {
+    "into": true,
+    "back": true,
+    "feet": 0
+  }
+}

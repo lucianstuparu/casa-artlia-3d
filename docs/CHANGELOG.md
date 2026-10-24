@@ -36,3 +36,5 @@ GitHub Pages enabled at https://lucianstuparu.github.io/casa-artlia-3d/ on 24 Oc
 - Variant1 v1.0.0 (separate from base v12.8.0): furnished family-play concept, far-end raised house without a bed, coffee counter downstairs, parent seating and illustrative people. All base model files unchanged.
 
 - Variant1 v1.0.1: completes description translation when changing language in the whole-building overview.
+
+- Variant1 v1.1.0: RDC-only dual check-in/coffee counter, full-size waiting adults, five/six comparison, staff hatch and overhead footprint view. Five fit tightly; the sixth encroaches on the entrance-turn target. Base and upstairs geometry retained.

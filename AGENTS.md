@@ -30,3 +30,5 @@
 - C09 supersedes the initial A08 equipment overlay: avant uses the ERP-style100cm inward hinged entrance and has no visible platform/rails/brackets or active lift controls. Apres preserves the original v10 telescopic door and inclined GTLE. Fixed glazing registration is A21.
 
 - Variant1 is a separate furnishing study over v12.8.0: src/variant-1* and scripts/build-variant.cjs produce dist/variant-1* without editing the base HTML/data/version. Preserve that separation. V1-A01–A05 mark furnishing assumptions. Furniture appears after works only; retain base navigation, translations and controls. Run tests/variant-1.test.cjs and verify unchanged base hashes.
+
+- Variant1 v1.1.0 changes RDC only. src/variant-1-downstairs.js contains the dual counter and5/6 adult study. V1-A06/A07 distinguish the90cm local planning target from approved accessibility/occupancy. Clear waiting customers for GTLE boarding. tests/downstairs.test.cjs compares actual upstairs meshes with the v1.0.1 archive and checks adult scale, collision, staff access and passage.

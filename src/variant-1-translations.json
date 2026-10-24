@@ -130,5 +130,77 @@
   "UNE HISTOIRE, MILLE IDÉES": {
     "ro": "O POVESTE, O MIE DE IDEI",
     "en": "ONE STORY, A THOUSAND IDEAS"
+  },
+  "Attente": {
+    "ro": "Așteptare",
+    "en": "Waiting"
+  },
+  "5 clients + 1 équipier": {
+    "ro": "5 clienți + 1 angajat",
+    "en": "5 customers + 1 staff"
+  },
+  "6 clients + 1 équipier": {
+    "ro": "6 clienți + 1 angajat",
+    "en": "6 customers + 1 staff"
+  },
+  "Libérer pour la plateforme": {
+    "ro": "Eliberează pentru platformă",
+    "en": "Clear for platform use"
+  },
+  "Café en 3D": {
+    "ro": "Cafenea în 3D",
+    "en": "Coffee shop in 3D"
+  },
+  "Plan et emprises": {
+    "ro": "Plan și spații ocupate",
+    "en": "Plan and footprints"
+  },
+  "Espaces": {
+    "ro": "Spații",
+    "en": "Space"
+  },
+  "Accès équipe": {
+    "ro": "Acces personal",
+    "en": "Staff access"
+  },
+  "Aire libérée · déplacer la file pendant l’embarquement": {
+    "ro": "Spațiu liber · mută coada la îmbarcare",
+    "en": "Area cleared · move the queue for boarding"
+  },
+  "5 en attente · file serrée · plateforme : libérer l’entrée": {
+    "ro": "5 în așteptare · spațiu strâns · eliberează pentru platformă",
+    "en": "5 waiting · tight queue · clear entry for platform use"
+  },
+  "6 en attente · le virage d’entrée est encombré": {
+    "ro": "6 în așteptare · virajul de la intrare este îngustat",
+    "en": "6 waiting · entrance turn is crowded"
+  },
+  "ACCUEIL · CAFÉ": {
+    "ro": "RECEPȚIE · CAFEA",
+    "en": "CHECK-IN · COFFEE"
+  },
+  "INSCRIPTIONS": {
+    "ro": "ÎNSCRIERI",
+    "en": "CHECK-IN"
+  },
+  "CAFÉ · RETRAIT": {
+    "ro": "CAFEA · RIDICARE",
+    "en": "COFFEE · PICKUP"
+  },
+  "PASSAGE 90 cm": {
+    "ro": "TRECERE 90 cm",
+    "en": "90 cm PASSAGE"
+  },
+  "ACCUEIL": {
+    "ro": "RECEPȚIE",
+    "en": "CHECK-IN"
+  },
+  "CAFÉ": {
+    "ro": "CAFEA",
+    "en": "COFFEE"
+  },
+  "Un comptoir partagé : inscriptions à gauche, café à droite. Un équipier derrière, cinq clients dans deux files courtes. Le sixième encombre le virage d’entrée. Libérer la file pour utiliser la plateforme.": {
+    "ro": "Un blat comun: înscrieri în stânga, cafea în dreapta. Un angajat în spate, cinci clienți în două cozi scurte. Al șaselea aglomerează virajul de la intrare. Eliberează coada pentru folosirea platformei.",
+    "en": "One shared counter: check-in on the left, coffee on the right. One staff member behind it, five customers in two short queues. The sixth crowds the entrance turn. Clear the queue for platform use."
   }
 }

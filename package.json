@@ -24,7 +24,8 @@
     "test:hall": "node tests/hall.test.cjs",
     "test:entrance": "node tests/entrance-phases.test.cjs",
     "build:variant": "node scripts/build-variant.cjs",
-    "test:variant": "npm run build:variant && node tests/variant-1.test.cjs"
+    "test:variant": "npm run build:variant && node tests/variant-1.test.cjs",
+    "test:downstairs": "node tests/downstairs.test.cjs"
   },
   "devDependencies": {
     "playwright": "1.62.1"

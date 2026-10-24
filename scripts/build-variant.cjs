@@ -4,11 +4,12 @@ const base=read('dist/index.html'),hash=crypto.createHash('sha256').update(base)
 let html=base;
 const catalog={...JSON.parse(read('src/i18n-catalog.json')),...JSON.parse(read('src/variant-1-translations.json'))};
 html=html.replace('const CASA_TRANSLATIONS='+read('src/i18n-catalog.json'),'const CASA_TRANSLATIONS='+JSON.stringify(catalog));
-const spawn="v1_main:{label:'Jeu principal · R+1',x:1320,z:300,y:312,yaw:-Math.PI/2},v1_coffee:{label:'Entrée / café · RDC',x:245,z:110,y:0,yaw:-2.5},v1_play:{label:'Espace de jeu',x:680,z:270,y:312,yaw:Math.PI},v1_atelier:{label:'Ateliers créatifs',x:340,z:730,y:312,yaw:0},v1_bureau3:{label:'Bureau 3 / Espace jeu supp.',x:350,z:1320,y:312,yaw:Math.PI/2},";
+const spawn="v1_main:{label:'Jeu principal · R+1',x:1320,z:300,y:312,yaw:-Math.PI/2},v1_coffee:{label:'Entrée / café · RDC',x:175,z:110,y:0,yaw:Math.PI},v1_play:{label:'Espace de jeu',x:680,z:270,y:312,yaw:Math.PI},v1_atelier:{label:'Ateliers créatifs',x:340,z:730,y:312,yaw:0},v1_bureau3:{label:'Bureau 3 / Espace jeu supp.',x:350,z:1320,y:312,yaw:Math.PI/2},";
 if(!html.includes('const spawns={'))throw Error('Base walking integration changed');
+html=html.replace("entrance:{label:'Entrée / café · RDC',x:302,z:160","entrance:{label:'Entrée / café · RDC',x:175,z:110");
 html=html.replace('const spawns={','const spawns={'+spawn);
 html=html.replace('</head>','<style>'+read('src/variant-1.css')+'</style></head>');
-html=html.replace('</body>','<script>const CASA_VARIANT_DATA='+JSON.stringify({...v,baseHtmlSha256:hash})+';\n'+read('src/variant-1.js')+'</script></body>');
+html=html.replace('</body>','<script>const CASA_VARIANT_DATA='+JSON.stringify({...v,baseHtmlSha256:hash})+';\n'+read('src/variant-1.js').replace('/* Downstairs revision */',()=>read('src/variant-1-downstairs.js'))+'</script></body>');
 fs.writeFileSync(path.join(root,'dist/variant-1.html'),html.replace(/[ \t]+$/gm,''));
 fs.writeFileSync(path.join(root,'dist/variant-1-data.json'),JSON.stringify({...v,baseHtmlSha256:hash},null,2));
 fs.writeFileSync(path.join(root,'dist/variant-1-version.json'),JSON.stringify({variant:'1',version:v.version,baseVersion:v.baseVersion,baseHtmlSha256:hash},null,2));

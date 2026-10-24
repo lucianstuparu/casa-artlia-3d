@@ -31,3 +31,17 @@ body.walkMode #conceptNote,body.walkMode #conceptNav{display:none}
 @media(max-height:550px){#conceptNote{display:none}#conceptNav{padding-top:4px;padding-bottom:4px}}
 
 #conceptDialog .conceptSwitches{display:flex;gap:24px;padding:16px 0;border-bottom:1px solid var(--border);margin-bottom:16px}#conceptDialog .conceptSwitches label{display:flex;align-items:center;gap:8px}#conceptDialog .conceptSwitches input{width:18px;height:18px;accent-color:var(--accent)}
+
+/* Downstairs-only controls: reserved space below the scene. */
+#coffeeStudyControls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 0;pointer-events:auto;background:var(--base);border-bottom:1px solid var(--border);font-size:12px}
+#coffeeStudyControls>label{display:flex;align-items:center;gap:6px;color:var(--muted)}
+#coffeeStudyControls select{font-size:12px;min-height:40px;max-width:220px}
+#coffeeStudyControls button{font-size:12px;min-height:40px}
+#coffeeStudyControls .coffeeCheck{white-space:nowrap}
+#coffeeStudyControls input{width:17px;height:17px;accent-color:var(--accent)}
+#coffeeQueueStatus{flex:1;min-width:220px;color:var(--muted);line-height:1.4}
+#coffeeQueueStatus[data-crowded=true]{color:#9a4e30;font-weight:600}
+@media(max-width:600px){#coffeeStudyControls{padding:6px 0;gap:6px}#coffeeStudyControls>label{font-size:0}#coffeeStudyControls .coffeeCheck{font-size:12px}#coffeeStudyControls select{max-width:180px}#coffeeQueueStatus{font-size:11px;min-width:120px}#coffeeQueue{width:174px}#coffeeStudyView{width:150px}}
+@media(max-height:550px){#coffeeQueueStatus{display:none}#coffeeStudyControls{gap:4px;padding:4px 0}body.coffeeStudyActive #modelStatus{display:none}body:has(#liftPanel:not(.collapsed)) #coffeeStudyControls{display:none}}
+
+@media(max-height:550px) and (max-width:600px){#coffeeQueue{width:150px}#coffeeStudyView{width:120px}}
