@@ -1,0 +1,19 @@
+'use strict';
+const {chromium}=require('playwright'),assert=require('node:assert/strict'),path=require('path');
+(async()=>{const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_PATH});try{
+const p=await browser.newPage({viewport:{width:1440,height:900}}),errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto(process.env.MODEL_URL||require('node:url').pathToFileURL(path.resolve(__dirname,'../dist/index.html')).href);await p.waitForFunction(()=>!!window.CASA_BUILDING);
+const visible=await p.evaluate(()=>{const A=CASA_BUILDING;A.setPhase('avant');A.setView('rdc');CASA_MODEL_API.setLiftVisible(true);setLiftSystemVisible(true);const effective=o=>{for(let n=o;n;n=n.parent)if(!n.visible)return false;return true;};let liftMeshes=0;LIFT_SYSTEM_GROUP.traverse(o=>{if(o.isMesh&&effective(o))liftMeshes++;});return{lift:liftMeshes,root:LIFT_SYSTEM_GROUP.visible,parts:A.entrance.afterParts.filter(effective).length,before:A.entrance.before.group.visible,controls:getComputedStyle(document.querySelector('#equipmentToggle')).display,controller:getComputedStyle(document.querySelector('#liftController')).display,width:A.data.entrancePhases.avant.leafWidthCm};});
+assert.equal(visible.lift,0);assert.equal(visible.root,false);assert.equal(visible.parts,0);assert(visible.before);assert.equal(visible.controls,'none');assert.equal(visible.controller,'none');assert.equal(visible.width,100);
+for(const phase of ['avant','apres']){
+await p.evaluate(phase=>{const A=CASA_BUILDING;A.setPhase(phase);entranceDoor.open=entranceDoor.target=0;setEntranceDoorPose();A.walk.start('street');},phase);await p.waitForTimeout(100);
+const closed=await p.evaluate(()=>{const A=CASA_BUILDING,W=A.walk;for(let i=0;i<100;i++)W.step(0,3);return{x:W.state.x,z:W.state.z};});assert(closed.z<0,'Closed entrance blocks walking '+phase);
+await p.evaluate(()=>{entranceDoor.target=1;});await p.waitForFunction(()=>entranceDoor.open>.999);
+const open=await p.evaluate(()=>{const A=CASA_BUILDING,W=A.walk;for(let i=0;i<100;i++)W.step(0,3);const inside=W.state.z;for(let i=0;i<120;i++)W.step(0,-3);const outside=W.state.z;return{inside,outside,angle:A.entrance.before.pivot.rotation.y,tailX:entranceDoor.tail.position.x,stackX:DOOR_STACK_CX,lift:LIFT_SYSTEM_GROUP.visible};});assert(open.inside>100&&open.outside<-80,JSON.stringify({phase,...open}));if(phase==='avant'){assert(Math.abs(open.angle-Math.PI/2)<.01);assert(!open.lift);}else{assert(open.lift);assert(Math.abs(open.tailX-open.stackX)<.01);}
+await p.evaluate(()=>{CASA_BUILDING.walk.stop();CASA_BUILDING.setView('rdc');entranceDoor.target=0;});await p.waitForTimeout(850);await p.screenshot({path:path.resolve(__dirname,'../test-results/entrance-'+phase+'-closed.png')});
+await p.evaluate(()=>{entranceDoor.target=1;});await p.waitForFunction(()=>entranceDoor.open>.999);await p.screenshot({path:path.resolve(__dirname,'../test-results/entrance-'+phase+'-open.png')});
+console.log(phase,{closed,...open});
+}
+await p.evaluate(()=>{const A=CASA_BUILDING;setLiftSystemVisible(false);A.setPhase('avant');A.setPhase('apres');});assert.equal(await p.evaluate(()=>LIFT_SYSTEM_GROUP.visible),false);await p.evaluate(()=>setLiftSystemVisible(true));
+for(const lang of ['fr','ro','en']){await p.evaluate(lang=>{CASA_I18N.setLanguage(lang);CASA_BUILDING.setPhase('avant');},lang);await p.waitForTimeout(80);const text=await p.locator('#viewSelect option[value=rdc]').textContent();if(lang!=='fr')assert(!text.includes('Entrée'));assert(!(await p.locator('#differencesList').textContent()).includes('undefined'));}
+assert.deepEqual(errors,[]);console.log('Entrance phase checks passed: no before lift, correct hinged/sliding motion, closed collision, both-way walking, visibility preference and FR/RO/EN.');
+}finally{await browser.close();}})().catch(e=>{console.error(e);process.exit(1);});

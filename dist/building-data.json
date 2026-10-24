@@ -1,6 +1,6 @@
 {
   "schema": "casa-artlia-full-building",
-  "version": "12.7.4",
+  "version": "12.8.0",
   "units": "cm",
   "coordinateSystem": {
     "origin": "v10 stair-side interior wall / street facade / RDC finished floor",
@@ -58,7 +58,8 @@
       "Ruelle des Jardins façade is continuous: no depth step at the entrance/bookshop junction; grey edge is paint on the dividing wall (C05).",
       "The main access to the big room is on the straight wall going down from the corner in plan, not on the diagonal wall (C06).",
       "The horizontal wall below Espace de jeu shown in the ERP plan crop is missing and must be restored; C07 refines the overly broad C01 removal.",
-      "The hall entry is too narrow; C08 restores the ERP122cm clearance without moving the surveyed staircase or its walls."
+      "The hall entry is too narrow; C08 restores the ERP122cm clearance without moving the surveyed staircase or its walls.",
+      "Before works has a different main entrance door and no platform at all; C09 replaces the earlier equipment overlay in both phases."
     ],
     "photoFolder": "https://drive.google.com/drive/folders/10rH8jbg-Uw-wkw7p1ta1iAuvNbpBhbjl",
     "photoEvidence": [
@@ -226,8 +227,8 @@
     {
       "id": "A08",
       "affects": "Équipements dans les deux états",
-      "status": "explicit_user_override",
-      "description": "Façade, porte télescopique140cm et plateforme v10 gardées dans les DEUX états selon la demande. La porte avant ERP est différente; après ERP diffère aussi du dernier v10. Comparaison des distributions et usages, équipements v10 superposés."
+      "status": "explicit_user_phase_correction",
+      "description": "Après travaux: porte télescopique et plateforme inclinée GTLE v10 conservées. Avant travaux: porte battante vitrée et aucun équipement de plateforme, selon la précision utilisateur et le plan RDC initial (C09). Escalier et façade communs conservés; calage des vitrages avant en A21."
     },
     {
       "id": "A09",
@@ -294,6 +295,12 @@
       "affects": "Raccord palier et dégagement",
       "status": "explicit122cm_clearance; local_stepped_join_assumed",
       "description": "La cote ERP1,22m est rétablie entre les faces finies des cloisons du dégagement: z340,5..462,5. La cloison de l’atelier avait été avancée à tort dans C02, ne laissant que59,5cm. Mur arrière de la cage conservé àz400 et consoles GTLE inchangées. Un retour local sépare atelier et hall hors de la cage; sa position reste interprétée. Planchers atelier/Dgt raccordés; autres pièces et géométrie PMR conservées. Les surfaces imprimées et le reste du calage ERP restent distincts du modèle."
+    },
+    {
+      "id": "A21",
+      "affects": "Porte d’entrée avant travaux",
+      "status": "ERP100cm_hinged_door; fixed_glazing_registration_assumed",
+      "description": "Le RDC initial indique un vantail battant vers l’intérieur de1,00x2,10m, entre des vitrages fixes cotés1,40m et1,00m. Le v10 conserve une baie arquée de3,00m, distincte du total ERP3,40m. Vantail100cm et hauteur210cm représentés; vitrages fixes répartis proportionnellement dans les200cm restants (environ116,67/83,33cm). Cadres, seuil et calage supposés; pas de plateforme, rails ou consoles GTLE dans l’état avant."
     },
     {
       "id": "A15",
@@ -2171,6 +2178,7 @@
     "Entrée/Dgt1 devient Espace café; Bureaux1/2/3 deviennent espaces de jeu.",
     "Box1 et Box2: cloisons supprimées après travaux.",
     "Local et Cuisine réunis; surface imprimée12,50m².",
+    "Avant: porte battante vitrée1,00m et aucune plateforme. Après: porte télescopique1,40m et plateforme inclinée Ganser GTLE.",
     "Toilette et WC réunis en un sanitaire adapté PMR de4,55m²; cloison et deux portes supprimées.",
     "Décroché20cm sur215cm dans Dgt2; porte coulissante90cm, passage83cm. Dgt2:22,14m² au plan."
   ],
@@ -2785,6 +2793,26 @@
       ]
     },
     {
+      "id": "C09_phase_specific_entrance_equipment",
+      "appliesTo": [
+        "avant",
+        "apres"
+      ],
+      "source": "user clarification and ERP RDC initial/projected plans",
+      "action": "before_hinged_door_without_lift; preserve_after_telescopic_door_and_GTLE",
+      "supersedes": "A08 original equipment overlay in both phases",
+      "preserved": [
+        "original after-works facade aperture",
+        "after-works door/GTLE geometry and animations",
+        "stairs and upper landing",
+        "C01–C08",
+        "all upper-floor rooms and doors"
+      ],
+      "assumptions": [
+        "A21"
+      ]
+    },
+    {
       "id": "C03_july_PMR_revision",
       "appliesTo": [
         "apres"
@@ -3270,6 +3298,38 @@
     "priorClearWidthCm": 59.5,
     "stairRearWallUnchangedZ": 400,
     "registrationStatus": "A20 local stepped join; original stair survey and other rooms retained"
+  },
+  "entrancePhases": {
+    "avant": {
+      "doorType": "single_hinged_inward",
+      "leafWidthCm": 100,
+      "leafHeightCm": 210,
+      "sourceFixedPanelsCm": [
+        140,
+        100
+      ],
+      "sourceGlazedSpanCm": 340,
+      "retainedApertureCm": [
+        72,
+        372
+      ],
+      "registeredFixedPanelsCm": [
+        116.66666666666667,
+        83.33333333333333
+      ],
+      "hinge": "right_jamb",
+      "platformInstalled": false,
+      "source": "references/plans/previews/avant0.png",
+      "registration": "A21: retain original300cm facade opening and100cm door; fixed glazing proportions registered to remaining span"
+    },
+    "apres": {
+      "doorType": "original_v10_telescopic_sliding",
+      "leafClearWidthCm": 140,
+      "doorHeightCm": 214,
+      "platformInstalled": true,
+      "platform": "inclined_Ganser_GTLE",
+      "geometryChange": "none"
+    }
   },
   "pmr": {
     "phase": "apres",

@@ -3,7 +3,8 @@
 The user requested that all outputs also be stored in the Casa Artlia Drive KB on 24 October 2026.
 
 - Archive root: https://drive.google.com/drive/folders/1E2HgP5jpxQAc4wNfaoHBUEAWjmUty_Fx
-- Current release v12.7.4: https://drive.google.com/drive/folders/1pPsqspdFQHziOi246un8VK8yCtsroE0n
+- Current release v12.8.0: https://drive.google.com/drive/folders/11z-3P7qdyZ2NVp7l-Ouw2PPb0TyAorSs
+- Previous release v12.7.4: https://drive.google.com/drive/folders/1pPsqspdFQHziOi246un8VK8yCtsroE0n
 - Previous release v12.7.3: https://drive.google.com/drive/folders/1uFYweQEZAZxjIKAqRVRnwMYWJogjVO0_
 - Previous release v12.7.2: https://drive.google.com/drive/folders/1GDO9pyD2d_hSewgN95FZounS9sfDdkT3
 - Previous release v12.7.1: https://drive.google.com/drive/folders/1ruKGkS-tP0OO7o2wUp_-TXH2-AUTpkWi

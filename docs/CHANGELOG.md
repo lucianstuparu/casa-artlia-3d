@@ -30,3 +30,5 @@ GitHub Pages enabled at https://lucianstuparu.github.io/casa-artlia-3d/ on 24 Oc
 - v12.7.3: C07 restores the missing lower Espace de jeu partition and local return in both phases. Refines the overly broad C01 deletion while preserving the surveyed stair landing and C06 main access. Local registration is A19.
 
 - v12.7.4: C08 corrects the59.5cm hall pinch to the ERP122cm clearance. Workshop front partition and floors form a stepped join beyond the unchanged stair core. C07 separator, C06 access, stair/GTLE positions and PMR geometry retained.
+
+- v12.8.0: C09 separates entrance equipment by phase. Before works has the ERP-style100cm hinged glazed door and no lift system or lift controls. After works retains the original telescopic entrance and GTLE. Fixed glazing is registered to the retained facade aperture under A21.

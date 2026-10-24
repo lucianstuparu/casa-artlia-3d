@@ -1,8 +1,8 @@
 # Casa Artlia 3D
 
-Working repository for the interactive Casa Artlia building model. Current baseline: **v12.7.4**.
+Working repository for the interactive Casa Artlia building model. Current baseline: **v12.8.0**.
 
-It includes the ERP **avant / après** switch, RDC and R+1 reconstruction, the original entrance and telescopic door, interior staircase, Ganser GTLE animation, exterior stairs and landing, neighbouring building context, source-plan/photo viewers, and first-person walking.
+It includes the ERP **avant / après** switch, RDC and R+1 reconstruction, the before-works hinged entrance, original after-works telescopic door and Ganser GTLE animation, interior staircase, exterior stairs and landing, neighbouring building context, source-plan/photo viewers, and first-person walking.
 
 **Live model:** https://lucianstuparu.github.io/casa-artlia-3d/
 
@@ -27,6 +27,7 @@ Open <http://127.0.0.1:3000>. The preview server listens only on localhost.
 | File | Purpose |
 | --- | --- |
 | `src/model-data.cjs` | Room and wall geometry, source dimensions, assumptions, coordinates and correction history |
+| `src/entrance-phases.js` | Phase-specific hinged entrance and equipment visibility |
 | `src/building.js` | Three.js building geometry, interactions and first-person movement |
 | `src/building-ui.html` | Controls and dialogs |
 | `src/building.css` | App layout and styling |
@@ -71,7 +72,7 @@ All coordinates are in centimetres: x across the entrance toward the long wing, 
 - **C01:** the incorrectly reconstructed partition across the upper stair exit was removed in both states.
 - **C02:** the stairs meet the full-height walls at x=0 and z=400, with the GTLE brackets attached to those walls. The false rear floor strip was removed and the adjacent room boundary registered locally to the measured enclosure.
 
-Printed ERP areas and dimensions are preserved separately from calculated traced areas. A01–A20 and the original outlines behind corrections remain in the data. Roof heights, unseen roof returns, private balcony and neighbouring interiors remain approximate. The v11 geometry was never treated as verified.
+Printed ERP areas and dimensions are preserved separately from calculated traced areas. A01–A21 and the original outlines behind corrections remain in the data. Roof heights, unseen roof returns, private balcony and neighbouring interiors remain approximate. The v11 geometry was never treated as verified.
 
 ## Reference material
 

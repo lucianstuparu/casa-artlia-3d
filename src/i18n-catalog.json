@@ -1506,5 +1506,25 @@
   "ERP et relevé v10 diffèrent près de l’escalier. Cage mesurée conservée: intérieur372x400cm, murs jusqu’à580cm, facesx0/z400 et palier204x130cm. Débouché libre C01; cloison de l’atelier indépendante du mur arrière de la cage, avec dégagement1,22m C08. Retour local et raccord aux contours ERP interprétés en A20. Surfaces imprimées distinctes des contours recalés; autres contradictions ERP non résolues.": {
     "ro": "ERP și releveul v10 diferă în zona scării. Casa scării măsurată este păstrată: interior372x400cm, pereți până la580cm, fețe x0/z400 și palier204x130cm. Ieșire liberă C01; peretele atelierului este separat de peretele din spatele scării, cu racord de1,22m C08. Racordul local la contururile ERP este interpretat în A20. Suprafețele înscrise sunt distincte de contururile realiniate; celelalte contradicții ERP rămân nerezolvate.",
     "en": "ERP and v10 survey differ near the staircase. The measured stair core is retained:372x400cm inside, walls to580cm, faces x0/z400 and204x130cm landing. Clear stair exit C01; the workshop partition is separate from the stair rear wall, with1.22m clearance C08. The local stepped connection to ERP outlines remains interpreted in A20. Printed areas are separate from registered outlines; other ERP conflicts remain unresolved."
+  },
+  "Après travaux: porte télescopique et plateforme inclinée GTLE v10 conservées. Avant travaux: porte battante vitrée et aucun équipement de plateforme, selon la précision utilisateur et le plan RDC initial (C09). Escalier et façade communs conservés; calage des vitrages avant en A21.": {
+    "ro": "După lucrări: ușa telescopică și platforma înclinată GTLE v10 sunt păstrate. Înainte de lucrări: ușă vitrată batantă și niciun echipament de platformă, conform precizării utilizatorului și planului RDC inițial (C09). Scara și fațada comune sunt păstrate; poziționarea vitrajelor inițiale este A21.",
+    "en": "After works: the v10 telescopic door and inclined GTLE are retained. Before works: a hinged glazed door and no platform equipment, following the user clarification and original RDC plan (C09). Shared stairs and facade remain; before-works glazing registration is A21."
+  },
+  "Porte d’entrée avant travaux": {
+    "ro": "Ușa de intrare înainte de lucrări",
+    "en": "Before-works entrance door"
+  },
+  "Le RDC initial indique un vantail battant vers l’intérieur de1,00x2,10m, entre des vitrages fixes cotés1,40m et1,00m. Le v10 conserve une baie arquée de3,00m, distincte du total ERP3,40m. Vantail100cm et hauteur210cm représentés; vitrages fixes répartis proportionnellement dans les200cm restants (environ116,67/83,33cm). Cadres, seuil et calage supposés; pas de plateforme, rails ou consoles GTLE dans l’état avant.": {
+    "ro": "Planul RDC inițial arată un canat de1,00x2,10m cu deschidere spre interior, între vitraje fixe cotate1,40m și1,00m. V10 păstrează o deschidere arcuită de3,00m, diferită de totalul ERP de3,40m. Canatul de100cm și înălțimea de210cm sunt reprezentate; vitrajele fixe sunt distribuite proporțional în cei200cm rămași (aproximativ116,67/83,33cm). Ramele, pragul și poziționarea sunt presupuse; în varianta inițială nu există platformă, șine sau console GTLE.",
+    "en": "The initial RDC plan shows a1.00x2.10m inward-swinging leaf between fixed panes dimensioned1.40m and1.00m. V10 retains a3.00m arched aperture, unlike the ERP3.40m total. The100cm leaf and210cm height are represented; fixed panes are proportionally registered in the remaining200cm (about116.67/83.33cm). Frames, threshold and registration are assumed; no platform, GTLE rails or brackets appear before works."
+  },
+  "Avant: porte battante vitrée1,00m et aucune plateforme. Après: porte télescopique1,40m et plateforme inclinée Ganser GTLE.": {
+    "ro": "Înainte: ușă vitrată batantă de1,00m, fără platformă. După: ușă telescopică de1,40m și platformă înclinată Ganser GTLE.",
+    "en": "Before:1.00m hinged glazed door and no platform. After:1.40m telescopic door and inclined Ganser GTLE."
+  },
+  "Aucune plateforme avant travaux": {
+    "ro": "Fără platformă înainte de lucrări",
+    "en": "No platform before works"
   }
 }

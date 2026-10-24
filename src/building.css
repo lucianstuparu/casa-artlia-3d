@@ -160,3 +160,5 @@ dialog p{margin:0}#photoDialog>a{font-size:13px}
 #languageSelect{width:64px;padding:8px;font-size:16px;background:var(--surface)}
 .compactLabel{display:none}
 @media(max-width:520px){#equipmentToggle span:not(.compactLabel){display:none}#equipmentToggle .compactLabel{display:inline}.brand{min-width:74px}.headerActions{gap:8px}#languageSelect{width:64px}}
+
+#equipmentToggle[hidden],#liftController[hidden]{display:none!important}

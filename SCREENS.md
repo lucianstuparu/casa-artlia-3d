@@ -59,3 +59,9 @@ Reviewed both [after](docs/images/play-wall-apres-plan.png) and [before](docs/im
 ## v12.7.4 hall connection
 
 Reviewed both-phase plans and cutaways ([after plan](docs/images/hall-apres-plan.png), [after cutaway](docs/images/hall-apres-cutaway.png)). Actual wall-face rays measure122cm, previously59.5cm. Upper and lower walking lanes pass; the workshop remains enclosed. Original stair/landing coordinates and GTLE mounts, PMR geometry, other doors/rooms and prior corrections are retained. Independent model comparison limits the change to the intended workshop/hall boundaries.
+
+## v12.8.0 entrance phases
+
+Reviewed both-phase closed and open entrance views in running Chrome ([before closed](docs/images/entrance-avant-closed.png), [before open](docs/images/entrance-avant-open.png), [after closed](docs/images/entrance-apres-closed.png), [after open](docs/images/entrance-apres-open.png)). Before works has the100cm inward hinged leaf and no GTLE meshes/controls. After works retains the original telescopic door and inclined GTLE. Door collision, bidirectional walking, phase visibility APIs/preferences and FR/RO/EN pass. A21 makes the fixed glazing registration explicit; see docs/entrance-phases.md.
+
+Full local v12.8.0 verification: all11 scripts passed individually using the trusted Node runtime (model, browser, layout, i18n, PMR, recess, facade, main door, play wall, hall, entrance). This includes both stair routes, GTLE mount contacts,48 responsive states and36 language states. Independent comparison confirms room/wall geometry and original v10 source unchanged. No browser JavaScript errors.
