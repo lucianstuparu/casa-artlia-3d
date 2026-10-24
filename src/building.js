@@ -2,7 +2,7 @@
 'use strict';
 const D=JSON.parse(document.getElementById('building-data').textContent),$=id=>document.getElementById(id);
 let walk=null;
-const state={phase:'apres',level:'all',walls:'full',labels:true,exterior:true,routes:false,changes:false,ceiling:false,dimensions:false,bookshop:true,upper:true,roof:true,view:'global',selected:null};
+const state={phase:'apres',level:'all',walls:'full',labels:true,exterior:true,routes:false,changes:false,ceiling:false,dimensions:false,accessibility:true,bookshop:true,upper:true,roof:true,view:'global',selected:null};
 const root=new THREE.Group();root.name='Complete building ERP reconstruction';root.userData={semanticId:'building',subsystem:'building',version:D.version};CASA_ROOT.add(root);
 const shared=new THREE.Group(),ext=new THREE.Group(),dims=new THREE.Group(),routes=new THREE.Group(),changes=new THREE.Group(),ceiling=new THREE.Group();
 for(const [g,id] of [[shared,'shared'],[ext,'exterior'],[dims,'dimensions'],[routes,'connections'],[changes,'changes'],[ceiling,'ceiling']]){g.name='Building '+id;g.userData={semanticId:'building.'+id,subsystem:'building'};root.add(g);}
@@ -41,7 +41,7 @@ const apron=flat(shared,D.adapterCm,312.3,14,mat(0xc1b49b),'r1.landing_adapter')
 text(shared,['Palier / raccord v10','312 cm · A02'],355,365,335,170,44,'#e2bb83','landing.label');
 text(shared,['Vide sur RDC','Contour raccordé · A02'],170,325,145,190,48,'#e2bb83','void.label');
 function wallPart(parent,a,u,start,end,y0,h,t,m,id){if(end-start<.1||h<.1)return;const o=boxTo(parent,end-start,h,t,m,a[0]+u[0]*(start+end)/2,y0+h/2,a[1]+u[1]*(start+end)/2,id);o.rotation.y=-Math.atan2(u[1],u[0]);o.userData.level='R+1';return o;}
-function makeDoor(parent,w,opening,u){const a=w.a,from=opening.from,to=opening.to,width=to-from,base=-Math.atan2(u[1],u[0]);const pivot=group(parent,'door.'+state.phase+'.'+opening.id);pivot.position.set(a[0]+u[0]*from,312,a[1]+u[1]*from);pivot.rotation.y=base;
+function makeDoor(parent,w,opening,u){if(opening.motion==='sliding')return makeSlidingDoor(parent,w,opening,u);const a=w.a,from=opening.from,to=opening.to,width=to-from,base=-Math.atan2(u[1],u[0]);const pivot=group(parent,'door.'+state.phase+'.'+opening.id);pivot.position.set(a[0]+u[0]*from,312,a[1]+u[1]*from);pivot.rotation.y=base;
  const leaf=boxTo(pivot,width-3,207,3,doorMat,(width-3)/2,103.5,0,'door_leaf.'+opening.id,{opening:opening.id,widthCm:width,between:opening.between});pickDoors.push(leaf);leaf.userData.doorId=opening.id;
  boxTo(pivot,2,10,6,frameMat,width-10,103,-4,'handle.'+opening.id);
  const d={id:opening.id,pivot,base,open:0,target:0,phase:state.phase,opening};doorStates.push(d);leaf.userData.doorState=d;
@@ -81,16 +81,16 @@ function makeWall(parent,w){const dx=w.b[0]-w.a[0],dz=w.b[1]-w.a[1],L=Math.hypot
 }
 
 const trimMat=mat(0x667f5c),trimPath=[];for(let i=0;i<=40;i++){const t=i/40;trimPath.push([ARCH_IN_L+(ARCH_IN_R-ARCH_IN_L)*t,ARCH_IN_SPRING+4*(ARCH_IN_CROWN-ARCH_IN_SPRING)*t*(1-t),-5.5]);}for(let i=0;i<trimPath.length-1;i++)beam(ROOM_GROUP,trimPath[i],trimPath[i+1],1.8,1.8,trimMat,'entrance.photographic_green_trim');
+/* PMR geometry */
 const allPhaseNames=['avant','apres'];
 for(const phase of allPhaseNames){state.phase=phase;const g=group(root,'phase.'+phase),floors=group(g,'phase.'+phase+'.floors'),wallGroup=group(g,'phase.'+phase+'.walls'),roomLabels=group(g,'phase.'+phase+'.labels');phases[phase]={group:g,floors,walls:wallGroup,labels:roomLabels};
  for(const r of D.rooms.filter(r=>r.kind!=='void'&&(r.state==='both'||r.state===phase))){const color=phase==='avant'?(r.kind==='circulation'?0xaecfdb:r.kind==='service'?0x9bafb7:0xc9c1a6):(r.kind==='circulation'?0xa8d0df:r.kind==='service'?0x789aaa:0x8eabc6);const fm=mat(color);selectedMaterials.push(fm);const holes=(r.id==='main'&&phase==='avant')?D.rooms.filter(q=>['box1','box2'].includes(q.id)).map(q=>q.polygonCm):[];const floor=flat(floors,r.polygonCm,r.level==='RDC'?.65:313,0,fm,phase+'.room.'+r.id,holes);floor.userData.roomId=r.id;floor.userData.phase=phase;floor.userData.level=r.level;pickFloors.push(floor);
- const name=r.names[phase],parts=[name];parts.push(r.printedAreaM2.toFixed(2).replace('.',',')+' m² · plan');const small=['wc','box1','box2'].includes(r.id);const lbl=text(roomLabels,parts,r.labelCm[0],r.level==='RDC'?45:355,r.labelCm[1],small?125:210,small?32:parts.length>2?68:54,'#e6edf2',phase+'.label.'+r.id);lbl.userData.level=r.level;
+ const name=r.names[phase],parts=[name];parts.push(r.printedAreaM2.toFixed(2).replace('.',',')+' m² · plan');const small=['wc','box1','box2'].includes(r.id);const lbl=text(roomLabels,parts,r.labelCm[0],r.level==='RDC'?45:355,r.labelCm[1],small?125:210,small?32:parts.length>2?68:54,'#e6edf2',phase+'.label.'+r.id);lbl.userData.level=r.level;lbl.userData.roomId=r.id;
  }
  for(const w of D.walls.filter(w=>w.state==='both'||w.state===phase))makeWall(wallGroup,w);
  // May plan sanitary symbol; indicative fittings, no later layout substitution.
- const fit=group(g,'phase.'+phase+'.fittings');const xy=D.rooms.find(r=>r.id==='toilet').labelCm;
- boxTo(fit,38,43,62,white,xy[0]+36,333.5,xy[1]+47,'wc_fixture.'+phase,{sourceStatus:'indicative; A10'});boxTo(fit,50,12,37,white,xy[0]-42,386,xy[1]+45,'basin.'+phase);
- if(phase==='apres'){line(fit,[[xy[0]+5,357,xy[1]+40],[xy[0]+5,357,xy[1]+88]],0xcdd3d6,'grabrail');}
+ const fit=group(g,'phase.'+phase+'.fittings');
+ if(phase==='apres'){phases[phase].accessibility=makeAccessibleToilet(fit);}else{const xy=D.rooms.find(r=>r.id==='toilet'&&(r.state==='both'||r.state===phase)).labelCm;boxTo(fit,38,43,62,white,xy[0]+36,333.5,xy[1]+47,'wc_fixture.'+phase,{sourceStatus:'indicative; A10'});boxTo(fit,50,12,37,white,xy[0]-42,386,xy[1]+45,'basin.'+phase);}
  phases[phase].fittings=fit;
 }
 state.phase='apres';
@@ -169,8 +169,8 @@ function setView(v){if(v==='walk'){closeInspectors();walk.start();return;}if(wal
  else{target.set(750,470,650);theta=-1.16;phi=1.03;radius=2900*Math.max(1,1.1/stageRatio());}
  $('wallMode').value=state.walls;for(const key of ['bookshop','upper','roof'])$(key+'Check').checked=state[key];cam();apply();
 }
-function apply(){if(walk?.active)walk.invalidate();for(const w of [stairSideWall,stairRearWall])if(w){const h=state.walls==='cut'?(state.level==='rdc'?100:412):580;w.scale.y=h/580;w.position.y=h/2;}const contextVisible=state.level==='all';bookshop.visible=contextVisible&&state.bookshop;upper.visible=contextVisible&&state.upper;roof.visible=contextVisible&&state.roof;const obscured=contextVisible&&(state.upper||state.roof);clip.constant=state.walls==='full'?10000:412.5;root.updateMatrixWorld(true);for(const c of cutMeshes){const worldBase=c.o.parent.localToWorld(new THREE.Vector3(0,c.base,0)).y;const h=state.walls==='full'?c.h:Math.max(0,Math.min(c.h,412-worldBase));c.o.visible=h>0;c.o.scale.y=h/c.h;c.o.position.y=c.base+h/2;}for(const l of labels)l.visible=state.labels;if(obscured)for(const l of shared.children.filter(o=>o.isSprite&&o.name!=='street.label'))l.visible=false;
- for(const phase of allPhaseNames){const q=phases[phase];q.group.visible=phase===state.phase&&state.level!=='rdc';q.walls.visible=state.walls!=='none';q.labels.visible=state.labels&&!obscured;q.fittings.visible=state.walls!=='none';for(const f of q.floors.children)f.visible=f.userData.level!=='RDC';}
+function apply(){$('accessibilityCheck').disabled=state.phase==='avant';if(walk?.active)walk.invalidate();for(const w of [stairSideWall,stairRearWall])if(w){const h=state.walls==='cut'?(state.level==='rdc'?100:412):580;w.scale.y=h/580;w.position.y=h/2;}const contextVisible=state.level==='all';bookshop.visible=contextVisible&&state.bookshop;upper.visible=contextVisible&&state.upper;roof.visible=contextVisible&&state.roof;const obscured=contextVisible&&(state.upper||state.roof);clip.constant=state.walls==='full'?10000:412.5;root.updateMatrixWorld(true);for(const c of cutMeshes){const worldBase=c.o.parent.localToWorld(new THREE.Vector3(0,c.base,0)).y;const h=state.walls==='full'?c.h:Math.max(0,Math.min(c.h,412-worldBase));c.o.visible=h>0;c.o.scale.y=h/c.h;c.o.position.y=c.base+h/2;}for(const l of labels)l.visible=state.labels&&l.userData.roomId!==state.selected;if(obscured)for(const l of shared.children.filter(o=>o.isSprite&&o.name!=='street.label'))l.visible=false;
+ for(const phase of allPhaseNames){const q=phases[phase];q.group.visible=phase===state.phase&&state.level!=='rdc';q.walls.visible=state.walls!=='none';q.labels.visible=state.labels&&!obscured;q.fittings.visible=state.walls!=='none';if(q.accessibility)q.accessibility.visible=state.accessibility;for(const f of q.floors.children)f.visible=f.userData.level!=='RDC';}
  // RDC label / tint belongs to state but is lifted out of hidden R+1 root.
  for(const q of allPhaseNames){const phase=phases[q];for(const f of phase.floors.children){if(f.userData.level==='RDC'){f.visible=state.level!=='r1'&&q===state.phase;ROOM_GROUP.add(f);}}for(const s of phase.labels.children.slice()){if(s.userData.level==='RDC'){ROOM_GROUP.add(s);s.userData.phase=q;}}}
  for(const o of ROOM_GROUP.children){if(o.userData.level==='RDC')o.visible=state.level!=='r1'&&o.userData.phase===state.phase;if(o.isSprite&&o.userData.phase)o.visible=state.labels&&!obscured&&state.level!=='r1'&&o.userData.phase===state.phase;}
@@ -186,11 +186,13 @@ function apply(){if(walk?.active)walk.invalidate();for(const w of [stairSideWall
 function inventory(){const visible=D.rooms.filter(r=>r.state==='both'||r.state===state.phase);$('roomSelect').innerHTML='<option value="">Choisir…</option>';$('roomInventory').innerHTML='';for(const r of visible){const o=document.createElement('option');o.value=r.id;o.textContent=r.names[state.phase];$('roomSelect').appendChild(o);const b=document.createElement('button');b.className='roomRow';b.innerHTML='<span>'+r.names[state.phase]+'</span><span>'+r.printedAreaM2.toFixed(2).replace('.',',')+' m²</span>';b.onclick=()=>selectRoom(r.id,true);$('roomInventory').appendChild(b);}}
 function phaseChange(s){state.phase=s;state.selected=null;$('roomCard').hidden=true;for(const m of selectedMaterials)m.emissive?.setHex(0);inventory();apply();if($('planDialog').open)showSource();}
 function selectRoom(id,focus=false){if(focus&&walk?.active)walk.stop(false);const r=D.rooms.find(r=>r.id===id&&(r.state==='both'||r.state===state.phase));if(!r)return;state.selected=id;for(const m of selectedMaterials)m.emissive?.setHex(0);for(const o of pickFloors)if(o.userData.roomId===id&&o.userData.phase===state.phase)o.material.emissive.setHex(0x203440);
- $('roomCardContent').innerHTML='<h3>'+r.names[state.phase]+'</h3><p>'+r.level+' · '+(state.phase==='avant'?'Avant':'Après')+' travaux</p><p>Surface imprimée ERP : <b>'+r.printedAreaM2.toFixed(2)+' m²</b></p><p>'+ (r.kind==='void'?'Trémie, escalier inclus : ':'Contour reconstruit : ')+r.computedPolygonAreaM2.toFixed(2)+' m²</p><p class="amber">Ces valeurs peuvent différer : A02 / A03.<br>Position tracée, hauteurs et détails à confirmer.</p><p class="small">Centre repère x='+Math.round(r.labelCm[0])+' · z='+Math.round(r.labelCm[1])+' cm</p>';$('roomCard').hidden=false;
- if(focus){activeCamera=null;state.view='room';state.level=r.level==='RDC'?'rdc':'r1';$('levelSelect').value=state.level;target.set(r.labelCm[0],r.level==='RDC'?140:330,r.labelCm[1]);radius=r.level==='RDC'?680:850;theta=-1.65;phi=.55;cam();apply();}
+ $('roomCardContent').innerHTML='<h3>'+r.names[state.phase]+'</h3><p>'+r.level+' · '+(state.phase==='avant'?'Avant':'Après')+' travaux</p><p>Surface imprimée ERP : <b>'+r.printedAreaM2.toFixed(2)+' m²</b></p><p>'+ (r.kind==='void'?'Trémie, escalier inclus : ':'Contour reconstruit : ')+r.computedPolygonAreaM2.toFixed(2)+' m²</p><p class="amber">Ces valeurs peuvent différer : A02 / A03.<br>Position tracée, hauteurs et détails à confirmer.</p><p class="small">Centre repère x='+Math.round(r.labelCm[0])+' · z='+Math.round(r.labelCm[1])+' cm</p>';if(r.adaptedToilet)$('roomCardContent').insertAdjacentHTML('beforeend','<p>Dimensions intérieures : 1,50 / 1,70 × 2,75 m.</p><p>Porte coulissante : 90 cm · passage utile : 83 cm.</p><p class="small">Révision du 25 juillet 2026 · raccord local A15.</p>');$('roomCard').hidden=false;
+ if(focus){activeCamera=null;state.view='room';state.level=r.level==='RDC'?'rdc':'r1';$('levelSelect').value=state.level;target.set(r.labelCm[0],r.level==='RDC'?140:330,r.labelCm[1]);radius=r.level==='RDC'?680:850;theta=-1.65;phi=.55;if(r.adaptedToilet){state.walls='cut';$('wallMode').value='cut';radius=470;theta=-.4;phi=.3;}cam();apply();}
 }
-function showSource(){const i=$('planLevel').value;$('sourcePlan').src=ERP_DRAWINGS[state.phase+i];$('planTitle').textContent='ERP · '+(state.phase==='avant'?'Avant travaux':'Après travaux')+' · '+(i==='1'?'R+1':'RDC');$('planOriginalLink').href=D.sources[state.phase];}
-function openSource(){showSource();$('planDialog').showModal();}
+let sourceMode='floor';
+function showSource(){const i=$('planLevel').value,pmr=sourceMode==='pmr';if(pmr)$('planLevel').value='1';$('planLevel').disabled=pmr;$('sourcePlan').src=pmr?ERP_PMR_DRAWING:ERP_DRAWINGS[state.phase+i];$('planTitle').textContent=pmr?'Sanitaire adapté PMR · Après travaux · 25/07/2026':'ERP · '+(state.phase==='avant'?'Avant travaux':'Après travaux')+' · '+(i==='1'?'R+1':'RDC');$('planOriginalLink').href=pmr?D.pmr.source.detail:D.sources.planByPhaseLevel[state.phase+i];}
+function openSource(){sourceMode='floor';showSource();$('planDialog').showModal();}
+$('pmrPlanBtn').onclick=()=>{sourceMode='pmr';showSource();$('planDialog').showModal();};$('pmrNoticeLink').href=D.pmr.source.note;
 $('stateAvant').onclick=()=>phaseChange('avant');$('stateApres').onclick=()=>phaseChange('apres');
 for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>setView(b.dataset.view);
 $('viewSelect').onchange=e=>setView(e.target.value);
@@ -211,6 +213,7 @@ const systemTheme=matchMedia('(prefers-color-scheme: dark)');
 function setTheme(choice){const dark=choice==='dark'||choice==='auto'&&systemTheme.matches;document.documentElement.dataset.theme=dark?'dark':'light';scene.background.setHex(dark?0x303034:0xe9e9ed);$('themeSelect').value=choice;}
 let theme='light';try{theme=localStorage.getItem('casa-artlia-theme')||'light';}catch{}
 setTheme(theme);$('themeSelect').onchange=e=>{theme=e.target.value;setTheme(theme);try{localStorage.setItem('casa-artlia-theme',theme);}catch{}};systemTheme.addEventListener('change',()=>setTheme(theme));
+$('accessibilityCheck').onchange=e=>{state.accessibility=e.target.checked;apply();};
 $('levelSelect').onchange=e=>{state.level=e.target.value;apply();};$('wallMode').onchange=e=>{state.walls=e.target.value;apply();};
 for(const [id,key] of [['labelsCheck','labels'],['exteriorCheck','exterior'],['routesCheck','routes'],['changesCheck','changes'],['ceilingCheck','ceiling'],['dimensionsCheck','dimensions'],['bookshopCheck','bookshop'],['upperCheck','upper'],['roofCheck','roof']])$(id).onchange=e=>{state[key]=e.target.checked;apply();};
 $('roomSelect').onchange=e=>selectRoom(e.target.value,true);$('roomCardClose').onclick=()=>{$('roomCard').hidden=true;};
@@ -222,7 +225,7 @@ $('differencesList').innerHTML=D.differences.map(t=>'<li>'+t+'</li>').join('');$
 for(const id of ['liftVisibilityBtn','dimBtn','listBtn']){const b=$(id);b.removeAttribute('style');$('originalControls').appendChild(b);}
 $('dims').style.cssText='display:none';$('originalControls').appendChild($('dims'));for(const el of $('dims').querySelectorAll('[style]')){el.style.color='';el.style.borderColor='var(--border)';}
 $('entranceDoorBtn').removeAttribute('style');$('entranceDoorBtn').className='doorAction';$('equipmentDock').appendChild($('entranceDoorBtn'));
-$('dataExport').onclick=()=>{const blob=new Blob([JSON.stringify({data:D,state,doors:doorStates.map(d=>({id:d.id,phase:d.phase,open:d.open}))},null,2)],{type:'application/json'}),a=document.createElement('a'),u=URL.createObjectURL(blob);a.href=u;a.download='casa_artlia_v12_5_building_data.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
+$('dataExport').onclick=()=>{const blob=new Blob([JSON.stringify({data:D,state,doors:doorStates.map(d=>({id:d.id,phase:d.phase,open:d.open}))},null,2)],{type:'application/json'}),a=document.createElement('a'),u=URL.createObjectURL(blob);a.href=u;a.download='casa_artlia_v12_6_building_data.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
 // Canvas-only interactions preserve v10 orbit controls and add orthographic pan / touch gestures.
 const cv=renderer.domElement,ray=new THREE.Raycaster(),mouse=new THREE.Vector2();let down=null,planDrag=null;
 $('workspace').prepend(cv);$('workspace').append($('walkCrosshair'),$('walkInteract'));
@@ -247,7 +250,7 @@ walk=(()=>{
  const cv=renderer.domElement,keys=new Set(),eye=165,bodyRadius=18,maxStep=24;
  const view=new THREE.PerspectiveCamera(76,stageRatio(),2,15000);view.rotation.order='YXZ';
  const fp={active:false,engaged:false,locked:false,fallback:true,lookMode:'drag',x:302,z:-120,feet:0,eyeY:165,yaw:Math.PI,pitch:0,location:'',saved:null};
- const spawns={street:{label:'Devant l’entrée',x:302,z:-120,y:0,yaw:Math.PI},entrance:{label:'Entrée / café · RDC',x:302,z:160,y:0,yaw:1.7},landing:{label:'Palier intérieur · R+1',x:330,z:335,y:312,yaw:-Math.PI/2},main:{label:'Jeu principal · R+1',x:1389,z:230,y:312,yaw:2.0},outside:{label:'Palier extérieur · R+1',x:-250,z:830,y:312,yaw:-2.1}};
+ const spawns={toilet:{label:'Sanitaire · R+1',x:D.pmr.zones.turning.centerCm[0],z:D.pmr.zones.turning.centerCm[1],y:312,yaw:Math.PI/2},street:{label:'Devant l’entrée',x:302,z:-120,y:0,yaw:Math.PI},entrance:{label:'Entrée / café · RDC',x:302,z:160,y:0,yaw:1.7},landing:{label:'Palier intérieur · R+1',x:330,z:335,y:312,yaw:-Math.PI/2},main:{label:'Jeu principal · R+1',x:1389,z:230,y:312,yaw:2.0},outside:{label:'Palier extérieur · R+1',x:-250,z:830,y:312,yaw:-2.1}};
  const floorPoly=D.footprintCm.map(([x,z])=>({x,z})),voidPoly=D.voidCm.map(([x,z])=>({x,z})),adapterPoly=D.adapterCm.map(([x,z])=>({x,z}));
  const ground=flat(root,[[-750,-550],[2300,-550],[2300,1950],[-750,1950]],-6,0,mat(0x686b66),'navigation.provisional_ground');ground.visible=false;ground.userData.sourceStatus='navigation_backdrop_only; not_surveyed_site_geometry';
  const surfaceY=(x,z,current=fp.feet)=>{
@@ -314,6 +317,6 @@ walk=(()=>{
 })();
 
 
-window.CASA_BUILDING={walk,data:D,state,root,phases,doors:doorStates,archedWindows:archWindows,context:{bookshop,upper,roof},stairSideWall,stairRearWall,get activeCamera(){return activeCamera;},setPhase:phaseChange,setView,selectRoom,apply,exteriorGroup:ext,tick(now){const ds=doorStates.filter(d=>d.phase===state.phase),label=ds.some(d=>d.target===0)?'Ouvrir les portes R+1':'Fermer les portes R+1';if($('allDoorsBtn').textContent!==CASA_I18N.t(label))$('allDoorsBtn').textContent=label;const dt=Math.min(.1,Math.max(0,(now-last)/1000));last=now;for(const d of doorStates){d.open+=Math.sign(d.target-d.open)*Math.min(Math.abs(d.target-d.open),dt*1.6);d.pivot.rotation.y=d.base-d.open*Math.PI/2;}walk.tick(dt);}};
-CASA_MODEL_API.modelVersion='12.5.0';CASA_MODEL_API.buildingData=D;CASA_MODEL_API.buildingGroup=root;inventory();resizeStage();setView('global');assignHierarchyIds(CASA_ROOT,'casa_artlia');
+window.CASA_BUILDING={walk,data:D,state,root,phases,doors:doorStates,archedWindows:archWindows,context:{bookshop,upper,roof},stairSideWall,stairRearWall,get activeCamera(){return activeCamera;},setPhase:phaseChange,setView,selectRoom,apply,exteriorGroup:ext,tick(now){const ds=doorStates.filter(d=>d.phase===state.phase),label=ds.some(d=>d.target===0)?'Ouvrir les portes R+1':'Fermer les portes R+1';if($('allDoorsBtn').textContent!==CASA_I18N.t(label))$('allDoorsBtn').textContent=label;const dt=Math.min(.1,Math.max(0,(now-last)/1000));last=now;for(const d of doorStates){d.open+=Math.sign(d.target-d.open)*Math.min(Math.abs(d.target-d.open),dt*1.6);if(d.motion==='sliding')d.carriage.position.x=d.open*d.opening.slideTravelCm;else d.pivot.rotation.y=d.base-d.open*Math.PI/2;}walk.tick(dt);}};
+CASA_MODEL_API.modelVersion='12.6.0';CASA_MODEL_API.buildingData=D;CASA_MODEL_API.buildingGroup=root;inventory();resizeStage();setView('global');assignHierarchyIds(CASA_ROOT,'casa_artlia');
 })();

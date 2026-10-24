@@ -1,4 +1,4 @@
-Casa Artlia — v12.3.3 — stairs against wall and wall-mounted GTLE
+Casa Artlia — current v12.6.0\n\nOpen dist/index.html or https://lucianstuparu.github.io/casa-artlia-3d/ . The after-works toilet is revised from July ERP8a/8b/10a; see docs/erp-pmr-update.md and A15 for local registration limits. Before works is retained.\n\nHistorical C01/C02 verification and original measurements follow:\n\nCasa Artlia — v12.3.3 — stairs against wall and wall-mounted GTLE
 
 Open/reload casa_artlia_3d_full_building_v12_3_avant_apres.html. The same filename is retained for the already-open browser tab.
 

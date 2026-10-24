@@ -1382,5 +1382,65 @@
   "photo": {
     "ro": "fotografie",
     "en": "photo"
+  },
+  "Sanitaire adapté PMR": {
+    "ro": "Grup sanitar PMR adaptat",
+    "en": "Accessible toilet (PMR)"
+  },
+  "Espaces PMR": {
+    "ro": "Spații PMR",
+    "en": "Accessibility spaces"
+  },
+  "Plan coté du sanitaire PMR": {
+    "ro": "Plan cotat al grupului sanitar PMR",
+    "en": "Dimensioned accessible-toilet plan"
+  },
+  "Notice du sanitaire adapté": {
+    "ro": "Nota grupului sanitar adaptat",
+    "en": "Accessible-toilet design note"
+  },
+  "Avant travaux : dossier de mai 2026. Après travaux : sanitaire révisé en juillet 2026. Cotes, corrections et hypothèses restent distinguées.": {
+    "ro": "Înainte de lucrări: dosarul din mai 2026. După lucrări: grup sanitar revizuit în iulie 2026. Cotele, corecțiile și ipotezele rămân distincte.",
+    "en": "Before works: May 2026 dossier. After works: toilet revised in July 2026. Dimensions, corrections and assumptions remain distinct."
+  },
+  "Hypothèses de reconstruction (15)": {
+    "ro": "Ipoteze de reconstrucție (15)",
+    "en": "Reconstruction assumptions (15)"
+  },
+  "Dimensions intérieures : 1,50 / 1,70 × 2,75 m.": {
+    "ro": "Dimensiuni interioare: 1,50 / 1,70 × 2,75 m.",
+    "en": "Internal dimensions: 1.50 / 1.70 × 2.75 m."
+  },
+  "Porte coulissante : 90 cm · passage utile : 83 cm.": {
+    "ro": "Ușă culisantă: 90 cm · trecere liberă: 83 cm.",
+    "en": "Sliding door: 90 cm · clear opening: 83 cm."
+  },
+  "Révision du 25 juillet 2026 · raccord local A15.": {
+    "ro": "Revizuire din 25 iulie 2026 · racord local A15.",
+    "en": "Revision of 25 July 2026 · local connection A15."
+  },
+  "Raccord du sanitaire révisé": {
+    "ro": "Racordul grupului sanitar revizuit",
+    "en": "Revised-toilet connection"
+  },
+  "Toilette et WC réunis en un sanitaire adapté PMR de4,55m²; cloison et deux portes supprimées.": {
+    "ro": "Toaleta și WC-ul sunt unite într-un grup sanitar PMR de 4,55 m²; peretele și două uși sunt eliminate.",
+    "en": "Toilet and WC merged into one 4.55 m² accessible toilet; partition and two doors removed."
+  },
+  "Décroché20cm sur215cm dans Dgt2; porte coulissante90cm, passage83cm. Dgt2:22,14m² au plan.": {
+    "ro": "Decroș de 20 cm pe 215 cm în Circulația 2; ușă culisantă de 90 cm, trecere de 83 cm. Circulația 2: 22,14 m² în plan.",
+    "en": "20 cm offset over 215 cm into Circulation 2; 90 cm sliding door, 83 cm clear opening. Circulation 2: 22.14 m² on the plan."
+  },
+  "Sanitaire · R+1": {
+    "ro": "Grup sanitar · etaj 1",
+    "en": "Toilet · first floor"
+  },
+  "Après travaux: ERP8a/8b et notice10a révisent les deux sanitaires en un seul local PMR de4,55m². Cloison et deux anciennes portes supprimées; largeur150/170cm, profondeur275cm, décroché20cm sur215cm, porte coulissante90cm / passage83cm. Avant travaux conservé depuis le dossier de mai.": {
+    "ro": "După lucrări: ERP 8a/8b și nota 10a reunesc cele două grupuri sanitare într-un singur spațiu PMR de 4,55 m². Peretele și cele două uși vechi sunt eliminate; lățime 150/170 cm, adâncime 275 cm, decroș de 20 cm pe 215 cm, ușă culisantă de 90 cm / trecere de 83 cm. Varianta înainte de lucrări rămâne cea din dosarul din mai.",
+    "en": "After works: ERP 8a/8b and note 10a revise the two toilets into one 4.55 m² accessible room. Partition and two old doors removed; width 150/170 cm, depth 275 cm, 20 cm offset over 215 cm, 90 cm sliding door / 83 cm clear opening. Before works remains the May dossier layout."
+  },
+  "Le détail8b du25/07/2026 gouverne les dimensions intérieures du sanitaire. Le tracé global8a et le relevé v10 ne concordent pas à la même échelle locale. Face intérieure de façade est et cloison nord conservées; limite nord du Local info raccordée localement, porte info maintenue en position. Les210cm du dégagement et22,14m² sont des cotes/surfaces source, distinctes du contour global calculé. Hauteur de porte210cm, détails des appareils et position exacte des zones restent interprétés; aucune certification de conformité.": {
+    "ro": "Detaliul 8b din 25/07/2026 stabilește dimensiunile interioare ale grupului sanitar. Planul general 8a și releveul v10 nu corespund la aceeași scară locală. Fața interioară a fațadei estice și peretele nordic sunt păstrate; limita nordică a încăperii info este racordată local, iar ușa info rămâne pe poziție. Cei 210 cm ai circulației și 22,14 m² sunt valori din sursă, distincte de conturul general calculat. Înălțimea ușii de 210 cm, detaliile obiectelor sanitare și pozițiile exacte ale zonelor rămân interpretate; nu reprezintă o certificare a conformității.",
+    "en": "Detail 8b dated 25/07/2026 governs the toilet’s internal dimensions. The overall 8a drawing and v10 survey do not agree at the same local scale. The east façade’s inner face and north partition are retained; the info room’s north boundary is connected locally and its door stays in place. The 210 cm corridor clearance and 22.14 m² are source values, distinct from the calculated overall outline. Door height 210 cm, fixture details and exact zone positions remain interpreted; this is not a compliance certification."
   }
 }

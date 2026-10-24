@@ -27,3 +27,9 @@ FR / RO / EN checked in overview, inspector and active walking at 320Ã—480, 375Ã
 Latest language screenshots: [Romanian phone](docs/images/ui-ro-walk.png), [English desktop](docs/images/ui-en-walk.png). All model, navigation, layout and language checks passed on the final local v12.5.0 build.
 
 Live v12.5.0 verified on GitHub Pages: published HTML matches the reviewed build, all three languages switch correctly, translated room/source labels and the embedded plan viewer work, walking remains engaged through language changes, and the choice survives reload. No JavaScript errors in the live browser check.
+
+## v12.6.0 revised PMR toilet
+
+[After works](docs/images/pmr-after.png) and [before works](docs/images/pmr-before.png) inspected in running Chrome. The selected PMR room opens in cutaway; floor accessibility zones are optional. Dedicated checks cover the dimensioned room/circle, physical83cm opening, sliding leaf/no swing, collision and walking both ways, source viewers and FR/RO/EN. See docs/erp-pmr-update.md for the A15 global-registration limitation.
+
+Final local v12.6.0: model checks, both-phase stair/lift/door navigation, 48 responsive layout states, 36 language viewport states and the PMR-specific geometry/door/source tests passed. An independent comparison against the model before applying C03 confirms the before-works room polygons, labels/areas, walls and openings are unchanged.

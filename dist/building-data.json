@@ -1,6 +1,6 @@
 {
   "schema": "casa-artlia-full-building",
-  "version": "12.5.0",
+  "version": "12.6.0",
   "units": "cm",
   "coordinateSystem": {
     "origin": "v10 stair-side interior wall / street facade / RDC finished floor",
@@ -30,7 +30,7 @@
   },
   "sources": {
     "avant": "https://drive.google.com/file/d/1sPFVtmiHp2aJqWoavlixJRSGVYmcsfFs/view",
-    "apres": "https://drive.google.com/file/d/1gHmz615BZJjY9AiEEbRpAstT0qzWbzTo/view",
+    "apres": "https://drive.google.com/file/d/13iDKXBmPUDx07YoeOx8Z2mP_ZeK9BOGT/view",
     "notes": "https://docs.google.com/document/d/1S_UkXDujSQmS-V_wP57ikQi6tFZw5SpUl0u9mbHsNE0/edit",
     "folder": "https://drive.google.com/drive/folders/1BHYbGG0kDveUCYCFL33CF1Bk_rL4vC0_",
     "filingDateUserProvided": "2026-05-19",
@@ -106,7 +106,22 @@
         "title": "Palier annoté",
         "observation": "Annotations600 et380; géométrie recalée sur la sortie R+1, implantation précise à confirmer."
       }
-    ]
+    ],
+    "updatedERP": {
+      "folder": "https://drive.google.com/drive/folders/197evJeGbnI_7cGR3R8y6wHf2G_1grLCr",
+      "floor": "https://drive.google.com/file/d/13iDKXBmPUDx07YoeOx8Z2mP_ZeK9BOGT/view",
+      "detail": "https://drive.google.com/file/d/16cxmhmHztsbILyhYSHwjtHFROszrH4A8/view",
+      "note": "https://drive.google.com/file/d/1HAkXxrmgoFXWkKd0WE2OIZj5DNzRyLfU/view",
+      "detailDate": "2026-07-25",
+      "driveUploadDate": "2026-10-22"
+    },
+    "originalMayApres": "https://drive.google.com/file/d/1gHmz615BZJjY9AiEEbRpAstT0qzWbzTo/view",
+    "planByPhaseLevel": {
+      "avant0": "https://drive.google.com/file/d/1sPFVtmiHp2aJqWoavlixJRSGVYmcsfFs/view",
+      "avant1": "https://drive.google.com/file/d/1sPFVtmiHp2aJqWoavlixJRSGVYmcsfFs/view",
+      "apres0": "https://drive.google.com/file/d/1gHmz615BZJjY9AiEEbRpAstT0qzWbzTo/view",
+      "apres1": "https://drive.google.com/file/d/13iDKXBmPUDx07YoeOx8Z2mP_ZeK9BOGT/view"
+    }
   },
   "dimensions": {
     "survey": {
@@ -212,7 +227,7 @@
       "id": "A10",
       "affects": "Sanitaire après",
       "status": "source_scope",
-      "description": "Le plan de mai indique le sanitaire4,36m² adapté sans modifier son contour. Murs conservés; équipements sanitaires indicatifs. Les amendements de juillet ne remplacent pas les plans de mai demandés."
+      "description": "Après travaux: ERP8a/8b et notice10a révisent les deux sanitaires en un seul local PMR de4,55m². Cloison et deux anciennes portes supprimées; largeur150/170cm, profondeur275cm, décroché20cm sur215cm, porte coulissante90cm / passage83cm. Avant travaux conservé depuis le dossier de mai."
     },
     {
       "id": "A11",
@@ -237,6 +252,12 @@
       "affects": "Mur séparant les escaliers",
       "status": "photo_confirmed_wall; thickness_assumed",
       "description": "Mur plein entre escaliers rétabli à la face intérieurex0 surz0..400, désormais continu de y0 à580cm. Épaisseur25cm supposée. Mur de fond côté intérieur rétabli àz400 jusqu’à580cm; les marches aboutissent contre ce mur et les consoles murales du GTLE le touchent (C02). En coupe, les murs sont abaissés physiquement."
+    },
+    {
+      "id": "A15",
+      "affects": "Raccord du sanitaire révisé",
+      "status": "explicit_dimensions_with_local_registration_conflict",
+      "description": "Le détail8b du25/07/2026 gouverne les dimensions intérieures du sanitaire. Le tracé global8a et le relevé v10 ne concordent pas à la même échelle locale. Face intérieure de façade est et cloison nord conservées; limite nord du Local info raccordée localement, porte info maintenue en position. Les210cm du dégagement et22,14m² sont des cotes/surfaces source, distinctes du contour global calculé. Hauteur de porte210cm, détails des appareils et position exacte des zones restent interprétés; aucune certification de conformité."
     }
   ],
   "rooms": [
@@ -485,7 +506,7 @@
         618.98,
         653.37
       ],
-      "state": "both",
+      "state": "avant",
       "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; local landing boundary follows C02",
       "areaStatus": "source_label_separate_from_computed_area",
       "sourceDimensionLabelsCm": {},
@@ -523,7 +544,7 @@
         868.86,
         710.68
       ],
-      "state": "both",
+      "state": "avant",
       "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03",
       "areaStatus": "source_label_separate_from_computed_area",
       "sourceDimensionLabelsCm": {
@@ -564,7 +585,7 @@
         868.86,
         882.62
       ],
-      "state": "both",
+      "state": "avant",
       "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03",
       "areaStatus": "source_label_separate_from_computed_area",
       "sourceDimensionLabelsCm": {
@@ -604,7 +625,7 @@
         797.8,
         1066.02
       ],
-      "state": "both",
+      "state": "avant",
       "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03",
       "areaStatus": "source_label_separate_from_computed_area",
       "sourceDimensionLabelsCm": {
@@ -934,6 +955,179 @@
       "sourceDimensionLabelsCm": {},
       "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
       "computedPolygonAreaM2": 12.27
+    },
+    {
+      "id": "toilet",
+      "level": "R+1",
+      "names": {
+        "avant": "Toilette",
+        "apres": "Sanitaire adapté PMR"
+      },
+      "printedAreaM2": 4.55,
+      "kind": "service",
+      "polygonCm": [
+        [
+          809.53,
+          588.09
+        ],
+        [
+          959.53,
+          588.09
+        ],
+        [
+          959.53,
+          863.09
+        ],
+        [
+          789.53,
+          863.09
+        ],
+        [
+          789.53,
+          648.09
+        ],
+        [
+          809.53,
+          648.09
+        ]
+      ],
+      "labelCm": [
+        874.53,
+        741.09
+      ],
+      "state": "apres",
+      "geometryStatus": "ERP8b explicit finished internal dimensions; global placement locally registered, C03/A15",
+      "areaStatus": "source_label_separate_from_computed_area",
+      "sourceDimensionLabelsCm": {
+        "baseWidth": 150,
+        "widenedWidth": 170,
+        "depth": 275,
+        "westOffset": 20,
+        "offsetLength": 215,
+        "doorLeaf": 90,
+        "doorClear": 83,
+        "turningDiameter": 150
+      },
+      "dimensionStatus": "ERP8b explicit finished internal cm; globally registered at retained east inner face / north partition; A15",
+      "computedPolygonAreaM2": 4.555,
+      "adaptedToilet": true
+    },
+    {
+      "id": "circulation",
+      "level": "R+1",
+      "names": {
+        "avant": "Dgt 2",
+        "apres": "Dgt 2"
+      },
+      "printedAreaM2": 22.14,
+      "kind": "circulation",
+      "polygonCm": [
+        [
+          270.52,
+          337
+        ],
+        [
+          632.73,
+          337
+        ],
+        [
+          774.87,
+          428.7
+        ],
+        [
+          774.87,
+          581.09
+        ],
+        [
+          802.53,
+          581.09
+        ],
+        [
+          802.53,
+          641.09
+        ],
+        [
+          782.53,
+          641.09
+        ],
+        [
+          782.53,
+          863.09
+        ],
+        [
+          625.86,
+          863.09
+        ],
+        [
+          625.86,
+          1066.02
+        ],
+        [
+          479.14,
+          1066.02
+        ],
+        [
+          479.14,
+          407
+        ],
+        [
+          270.52,
+          407
+        ]
+      ],
+      "labelCm": [
+        618.98,
+        653.37
+      ],
+      "state": "apres",
+      "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; local landing boundary follows C02; C03 dimensioned PMR revision, local registration A15",
+      "areaStatus": "source_label_separate_from_computed_area",
+      "sourceDimensionLabelsCm": {
+        "residualCorridorWidth": 210
+      },
+      "dimensionStatus": "210cm clearance and22.14m2 are source values, not a claim that the unverified global trace reproduces them; A03/A15",
+      "computedPolygonAreaM2": 19.68
+    },
+    {
+      "id": "info",
+      "level": "R+1",
+      "names": {
+        "avant": "Local info",
+        "apres": "Local info"
+      },
+      "printedAreaM2": 5.42,
+      "kind": "service",
+      "polygonCm": [
+        [
+          625.86,
+          870.09
+        ],
+        [
+          962.86,
+          870.09
+        ],
+        [
+          962.86,
+          1169.18
+        ],
+        [
+          625.86,
+          1169.18
+        ]
+      ],
+      "labelCm": [
+        797.8,
+        1066.02
+      ],
+      "state": "apres",
+      "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; C03 dimensioned PMR revision, local registration A15; northern connection extended locally to dimensioned PMR south wall; original printed area retained",
+      "areaStatus": "source_label_separate_from_computed_area",
+      "sourceDimensionLabelsCm": {
+        "width": 269,
+        "depth": 235
+      },
+      "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
+      "computedPolygonAreaM2": 10.079
     }
   ],
   "walls": [
@@ -1352,7 +1546,7 @@
         584.59
       ],
       "thicknessCm": 7,
-      "state": "both",
+      "state": "avant",
       "openings": [
         {
           "type": "door",
@@ -1381,7 +1575,7 @@
         836.77
       ],
       "thicknessCm": 7,
-      "state": "both",
+      "state": "avant",
       "openings": [],
       "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
     },
@@ -1396,7 +1590,7 @@
         836.77
       ],
       "thicknessCm": 7,
-      "state": "both",
+      "state": "avant",
       "openings": [
         {
           "type": "door",
@@ -1425,7 +1619,7 @@
         928.47
       ],
       "thicknessCm": 7,
-      "state": "both",
+      "state": "avant",
       "openings": [],
       "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
     },
@@ -1440,7 +1634,7 @@
         1176.06
       ],
       "thicknessCm": 7,
-      "state": "both",
+      "state": "avant",
       "openings": [
         {
           "type": "door",
@@ -1619,6 +1813,131 @@
         }
       ],
       "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+    },
+    {
+      "id": "pmr_north",
+      "a": [
+        774.87,
+        584.59
+      ],
+      "b": [
+        972.03,
+        584.59
+      ],
+      "thicknessCm": 7,
+      "state": "apres",
+      "openings": [],
+      "sourceStatus": "ERP8b/10a finished dimensions; retained north/east registration A15"
+    },
+    {
+      "id": "pmr_west_upper",
+      "a": [
+        806.03,
+        584.59
+      ],
+      "b": [
+        806.03,
+        644.59
+      ],
+      "thicknessCm": 7,
+      "state": "apres",
+      "openings": [],
+      "sourceStatus": "ERP8b/10a finished dimensions; retained north/east registration A15"
+    },
+    {
+      "id": "pmr_west_step",
+      "a": [
+        786.03,
+        644.59
+      ],
+      "b": [
+        809.53,
+        644.59
+      ],
+      "thicknessCm": 7,
+      "state": "apres",
+      "openings": [],
+      "sourceStatus": "ERP8b/10a finished dimensions; retained north/east registration A15"
+    },
+    {
+      "id": "pmr_west_lower",
+      "a": [
+        786.03,
+        644.59
+      ],
+      "b": [
+        786.03,
+        866.59
+      ],
+      "thicknessCm": 7,
+      "state": "apres",
+      "openings": [
+        {
+          "id": "pmr_sliding_door",
+          "type": "door",
+          "motion": "sliding",
+          "from": 33.5,
+          "to": 123.5,
+          "widthCm": 90,
+          "nominalWidthCm": 90,
+          "clearWidthCm": 83,
+          "heightCm": 210,
+          "sillCm": 0,
+          "between": [
+            "circulation",
+            "toilet"
+          ],
+          "slideDirection": 1,
+          "slideTravelCm": 94,
+          "wallSide": "corridor",
+          "sourceStatus": "90cm nominal /83cm useful from8b/10a; vertical height210cm and frame detailing assumed A07/A15"
+        }
+      ],
+      "sourceStatus": "ERP8b/10a finished dimensions; retained north/east registration A15"
+    },
+    {
+      "id": "pmr_info_boundary",
+      "a": [
+        625.86,
+        866.59
+      ],
+      "b": [
+        972.03,
+        866.59
+      ],
+      "thicknessCm": 7,
+      "state": "apres",
+      "openings": [],
+      "sourceStatus": "ERP8b/10a finished dimensions; retained north/east registration A15"
+    },
+    {
+      "id": "info_left_apres",
+      "a": [
+        625.86,
+        866.59
+      ],
+      "b": [
+        625.86,
+        1176.06
+      ],
+      "thicknessCm": 7,
+      "state": "apres",
+      "openings": [
+        {
+          "type": "door",
+          "from": 75.88,
+          "to": 168.88,
+          "widthCm": 93,
+          "heightCm": 210,
+          "sillCm": 0,
+          "id": "info_door",
+          "between": [
+            "circulation",
+            "info"
+          ]
+        }
+      ],
+      "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed; C03 north endpoint reconciled locally, existing door world position retained"
     }
   ],
   "footprintCm": [
@@ -1723,7 +2042,8 @@
     "Entrée/Dgt1 devient Espace café; Bureaux1/2/3 deviennent espaces de jeu.",
     "Box1 et Box2: cloisons supprimées après travaux.",
     "Local et Cuisine réunis; surface imprimée12,50m².",
-    "Toilette marquée adaptée, contour conservé."
+    "Toilette et WC réunis en un sanitaire adapté PMR de4,55m²; cloison et deux portes supprimées.",
+    "Décroché20cm sur215cm dans Dgt2; porte coulissante90cm, passage83cm. Dgt2:22,14m² au plan."
   ],
   "connections": [
     {
@@ -1977,6 +2297,335 @@
       "wallHeightCm": 580,
       "originalFalseRearStripCm": 67.67,
       "interpretation": "Room boundary locally follows the restored wall; printed ERP dimensions/areas remain source references. The rail route and brackets keep their original coordinates."
+    },
+    {
+      "id": "C03_july_PMR_revision",
+      "appliesTo": [
+        "apres"
+      ],
+      "source": {
+        "folder": "https://drive.google.com/drive/folders/197evJeGbnI_7cGR3R8y6wHf2G_1grLCr",
+        "floor": "https://drive.google.com/file/d/13iDKXBmPUDx07YoeOx8Z2mP_ZeK9BOGT/view",
+        "detail": "https://drive.google.com/file/d/16cxmhmHztsbILyhYSHwjtHFROszrH4A8/view",
+        "note": "https://drive.google.com/file/d/1HAkXxrmgoFXWkKd0WE2OIZj5DNzRyLfU/view"
+      },
+      "action": "merge_toilets_remove_partition_replace_two_hinged_doors_with_west_sliding_door_and_widen_lower_wall",
+      "originalRooms": [
+        {
+          "id": "circulation",
+          "level": "R+1",
+          "names": {
+            "avant": "Dgt 2",
+            "apres": "Dgt 2"
+          },
+          "printedAreaM2": 22.57,
+          "kind": "circulation",
+          "polygonCm": [
+            [
+              270.52,
+              337
+            ],
+            [
+              632.73,
+              337
+            ],
+            [
+              774.87,
+              428.7
+            ],
+            [
+              774.87,
+              919.3
+            ],
+            [
+              625.86,
+              919.3
+            ],
+            [
+              625.86,
+              1066.02
+            ],
+            [
+              479.14,
+              1066.02
+            ],
+            [
+              479.14,
+              407
+            ],
+            [
+              270.52,
+              407
+            ]
+          ],
+          "labelCm": [
+            618.98,
+            653.37
+          ],
+          "state": "both",
+          "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03; local landing boundary follows C02",
+          "areaStatus": "source_label_separate_from_computed_area",
+          "sourceDimensionLabelsCm": {},
+          "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
+          "computedPolygonAreaM2": 20.18
+        },
+        {
+          "id": "toilet",
+          "level": "R+1",
+          "names": {
+            "avant": "Toilette",
+            "apres": "Toilette adaptée"
+          },
+          "printedAreaM2": 4.36,
+          "kind": "service",
+          "polygonCm": [
+            [
+              774.87,
+              584.59
+            ],
+            [
+              962.86,
+              584.59
+            ],
+            [
+              962.86,
+              827.6
+            ],
+            [
+              774.87,
+              827.6
+            ]
+          ],
+          "labelCm": [
+            868.86,
+            710.68
+          ],
+          "state": "both",
+          "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03",
+          "areaStatus": "source_label_separate_from_computed_area",
+          "sourceDimensionLabelsCm": {
+            "width": 188,
+            "depth": 180
+          },
+          "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
+          "computedPolygonAreaM2": 4.57
+        },
+        {
+          "id": "wc",
+          "level": "R+1",
+          "names": {
+            "avant": "WC",
+            "apres": "WC"
+          },
+          "printedAreaM2": 1.65,
+          "kind": "service",
+          "polygonCm": [
+            [
+              774.87,
+              836.77
+            ],
+            [
+              962.86,
+              836.77
+            ],
+            [
+              962.86,
+              919.3
+            ],
+            [
+              774.87,
+              919.3
+            ]
+          ],
+          "labelCm": [
+            868.86,
+            882.62
+          ],
+          "state": "both",
+          "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03",
+          "areaStatus": "source_label_separate_from_computed_area",
+          "sourceDimensionLabelsCm": {
+            "depth": 88
+          },
+          "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
+          "computedPolygonAreaM2": 1.55
+        },
+        {
+          "id": "info",
+          "level": "R+1",
+          "names": {
+            "avant": "Local info",
+            "apres": "Local info"
+          },
+          "printedAreaM2": 5.42,
+          "kind": "service",
+          "polygonCm": [
+            [
+              625.86,
+              928.47
+            ],
+            [
+              962.86,
+              928.47
+            ],
+            [
+              962.86,
+              1169.18
+            ],
+            [
+              625.86,
+              1169.18
+            ]
+          ],
+          "labelCm": [
+            797.8,
+            1066.02
+          ],
+          "state": "both",
+          "geometryStatus": "ERP_outline_trace_at_uniform_scale; A03",
+          "areaStatus": "source_label_separate_from_computed_area",
+          "sourceDimensionLabelsCm": {
+            "width": 269,
+            "depth": 235
+          },
+          "dimensionStatus": "Cotes ERP transcrites; les contradictions avec le contour trace sont conservees (A03).",
+          "computedPolygonAreaM2": 8.11
+        }
+      ],
+      "originalWalls": [
+        {
+          "id": "toilet_top",
+          "a": [
+            774.87,
+            584.59
+          ],
+          "b": [
+            972.03,
+            584.59
+          ],
+          "thicknessCm": 7,
+          "state": "both",
+          "openings": [
+            {
+              "type": "door",
+              "from": 92,
+              "to": 180,
+              "widthCm": 88,
+              "heightCm": 210,
+              "sillCm": 0,
+              "id": "toilet_door",
+              "between": [
+                "circulation",
+                "toilet"
+              ]
+            }
+          ],
+          "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+        },
+        {
+          "id": "toilet_left",
+          "a": [
+            774.87,
+            584.59
+          ],
+          "b": [
+            774.87,
+            836.77
+          ],
+          "thicknessCm": 7,
+          "state": "both",
+          "openings": [],
+          "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+        },
+        {
+          "id": "toilet_wc",
+          "a": [
+            774.87,
+            836.77
+          ],
+          "b": [
+            972.03,
+            836.77
+          ],
+          "thicknessCm": 7,
+          "state": "both",
+          "openings": [
+            {
+              "type": "door",
+              "from": 6,
+              "to": 84,
+              "widthCm": 78,
+              "heightCm": 210,
+              "sillCm": 0,
+              "id": "wc_door",
+              "between": [
+                "circulation",
+                "wc"
+              ]
+            }
+          ],
+          "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+        },
+        {
+          "id": "wc_info",
+          "a": [
+            625.86,
+            928.47
+          ],
+          "b": [
+            972.03,
+            928.47
+          ],
+          "thicknessCm": 7,
+          "state": "both",
+          "openings": [],
+          "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+        },
+        {
+          "id": "info_left",
+          "a": [
+            625.86,
+            928.47
+          ],
+          "b": [
+            625.86,
+            1176.06
+          ],
+          "thicknessCm": 7,
+          "state": "both",
+          "openings": [
+            {
+              "type": "door",
+              "from": 14,
+              "to": 107,
+              "widthCm": 93,
+              "heightCm": 210,
+              "sillCm": 0,
+              "id": "info_door",
+              "between": [
+                "circulation",
+                "info"
+              ]
+            }
+          ],
+          "sourceStatus": "ERP_outline_trace; partition7cm_dimensioned; exterior25cm_assumed"
+        }
+      ],
+      "registration": {
+        "eastInnerFaceFixed": true,
+        "northPartitionFixed": true,
+        "wallThicknessCm": 7,
+        "infoNorthAdjustmentCm": -61.88,
+        "globalCorridorWidthReproduced": false,
+        "status": "A15: dimensional detail governs toilet; adjacent floor connections remain interpreted"
+      },
+      "preserved": [
+        "avant May layout",
+        "v10 entrance/stairs/GTLE",
+        "façade/east wall",
+        "C01/C02",
+        "info door world position"
+      ]
     }
   ],
   "stairEnclosure": {
@@ -2033,5 +2682,136 @@
     "geometryEffect": "none; movement samples existing floor and stair surfaces",
     "limits": "approximate navigation collisions; excludes moving lift physics; provisional exterior ground backdrop is not surveyed geometry",
     "source": "existing model surfaces; no new building dimensions"
+  },
+  "pmr": {
+    "phase": "apres",
+    "source": {
+      "folder": "https://drive.google.com/drive/folders/197evJeGbnI_7cGR3R8y6wHf2G_1grLCr",
+      "floor": "https://drive.google.com/file/d/13iDKXBmPUDx07YoeOx8Z2mP_ZeK9BOGT/view",
+      "detail": "https://drive.google.com/file/d/16cxmhmHztsbILyhYSHwjtHFROszrH4A8/view",
+      "note": "https://drive.google.com/file/d/1HAkXxrmgoFXWkKd0WE2OIZj5DNzRyLfU/view"
+    },
+    "documentDate": "2026-07-25",
+    "internal": {
+      "northZ": 588.09,
+      "southZ": 863.09,
+      "eastX": 959.53,
+      "westBaseX": 809.53,
+      "westWidenedX": 789.53,
+      "stepZ": 648.09,
+      "baseWidthCm": 150,
+      "widenedWidthCm": 170,
+      "depthCm": 275,
+      "offsetCm": 20,
+      "offsetLengthCm": 215
+    },
+    "door": {
+      "id": "pmr_sliding_door",
+      "northZ": 678.09,
+      "southZ": 768.09,
+      "nominalWidthCm": 90,
+      "clearWidthCm": 83,
+      "heightCm": 210,
+      "heightStatus": "assumed A07",
+      "slideTravelCm": 94
+    },
+    "fixtures": {
+      "toilet": {
+        "centerCm": [
+          932.03,
+          618.09
+        ],
+        "sizeCm": [
+          55,
+          40
+        ],
+        "seatHeightCm": 47.5,
+        "seatHeightRangeCm": [
+          45,
+          50
+        ],
+        "placementSource": "east wall; axis30cm from north, ERP8b/10a"
+      },
+      "basin": {
+        "centerCm": [
+          939.53,
+          843.09
+        ],
+        "sizeCm": [
+          40,
+          40
+        ],
+        "topHeightCm": 85,
+        "placementStatus": "south-east corner from8b; simplified body/tap assumed"
+      },
+      "grabRail": {
+        "heightCm": 75,
+        "heightRangeCm": [
+          70,
+          80
+        ],
+        "placementStatus": "east wall per source; elbow detail simplified"
+      }
+    },
+    "zones": {
+      "turning": {
+        "centerCm": [
+          874.53,
+          743.09
+        ],
+        "diameterCm": 150,
+        "placementStatus": "traced relative placement from8b; dimensions explicit"
+      },
+      "toiletUsageCm": [
+        [
+          829.53,
+          638.09
+        ],
+        [
+          959.53,
+          638.09
+        ],
+        [
+          959.53,
+          718.09
+        ],
+        [
+          829.53,
+          718.09
+        ]
+      ],
+      "basinUsageCm": [
+        [
+          829.53,
+          783.09
+        ],
+        [
+          959.53,
+          783.09
+        ],
+        [
+          959.53,
+          863.09
+        ],
+        [
+          829.53,
+          863.09
+        ]
+      ]
+    },
+    "printed": {
+      "toiletAreaM2": 4.55,
+      "circulationAreaM2": 22.14,
+      "residualCorridorWidthCm": 210
+    },
+    "registration": {
+      "eastInnerFaceFixed": true,
+      "northPartitionFixed": true,
+      "wallThicknessCm": 7,
+      "infoNorthAdjustmentCm": -61.88,
+      "globalCorridorWidthReproduced": false,
+      "status": "A15: dimensional detail governs toilet; adjacent floor connections remain interpreted"
+    },
+    "complianceStatus": "source design represented; not a compliance certification"
   }
 }

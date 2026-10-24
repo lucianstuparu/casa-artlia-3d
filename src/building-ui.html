@@ -21,16 +21,16 @@
     <section id="displayPane" role="tabpanel" aria-labelledby="tabDisplay" hidden>
      <label class="field">Niveau<select id="levelSelect"><option value="all">RDC + R+1</option><option value="r1">R+1</option><option value="rdc">RDC / entrée</option></select></label>
      <label class="field">Parois<select id="wallMode"><option value="full">Hauteur entrée · 5,80 m</option><option value="cut">Coupe à 1 m</option><option value="none">Sans parois</option></select></label>
-     <div class="layerGrid"><label><input id="labelsCheck" type="checkbox" checked>Noms des pièces</label><label><input id="exteriorCheck" type="checkbox" checked>Escalier extérieur</label><label><input id="routesCheck" type="checkbox">Connexions</label><label><input id="changesCheck" type="checkbox">Travaux en couleur</label><label><input id="bookshopCheck" type="checkbox" checked>Librairie</label><label><input id="upperCheck" type="checkbox" checked>Combles / balcon privé</label><label><input id="roofCheck" type="checkbox" checked>Toiture</label><label><input id="ceilingCheck" type="checkbox">Plafond d’étude</label><label><input id="dimensionsCheck" type="checkbox">Cotes bâtiment</label></div>
+     <div class="layerGrid"><label><input id="labelsCheck" type="checkbox" checked>Noms des pièces</label><label><input id="exteriorCheck" type="checkbox" checked>Escalier extérieur</label><label><input id="accessibilityCheck" type="checkbox" checked>Espaces PMR</label><label><input id="routesCheck" type="checkbox">Connexions</label><label><input id="changesCheck" type="checkbox">Travaux en couleur</label><label><input id="bookshopCheck" type="checkbox" checked>Librairie</label><label><input id="upperCheck" type="checkbox" checked>Combles / balcon privé</label><label><input id="roofCheck" type="checkbox" checked>Toiture</label><label><input id="ceilingCheck" type="checkbox">Plafond d’étude</label><label><input id="dimensionsCheck" type="checkbox">Cotes bâtiment</label></div>
      <label class="field">Interface<select id="themeSelect"><option value="light">Claire</option><option value="dark">Sombre</option><option value="auto">Selon l’appareil</option></select></label>
      <details><summary>Commandes d’origine</summary><div id="originalControls"></div></details>
      <p class="small">Glisser pour tourner, molette pour zoomer. Maj + glisser pour déplacer. Sur écran tactile, pincer pour zoomer.</p>
     </section>
     <section id="sourcesPane" role="tabpanel" aria-labelledby="tabSources" hidden>
-     <p class="small">Plans déposés en mai 2026. Les cotes relevées, les corrections confirmées et les hypothèses restent distinguées dans les données.</p>
+     <p class="small">Avant travaux : dossier de mai 2026. Après travaux : sanitaire révisé en juillet 2026. Cotes, corrections et hypothèses restent distinguées.</p>
      <button id="planSourceBtn" class="wide">Voir le plan source</button>
-     <details><summary>Photographies du site</summary><div id="photoButtons"></div></details>
-     <details id="assumptionsDetail"><summary>Hypothèses de reconstruction (14)</summary><div id="assumptionsList"></div><div class="sourceLinks"></div></details>
+     <button id="pmrPlanBtn" class="wide">Plan coté du sanitaire PMR</button><p class="small"><a id="pmrNoticeLink" target="_blank" rel="noopener">Notice du sanitaire adapté</a></p><details><summary>Photographies du site</summary><div id="photoButtons"></div></details>
+     <details id="assumptionsDetail"><summary>Hypothèses de reconstruction (15)</summary><div id="assumptionsList"></div><div class="sourceLinks"></div></details>
      <button id="dataExport" class="wide">Exporter les données</button>
     </section>
    </div>
@@ -51,7 +51,7 @@
    </div>
    <div id="walkTouch" aria-label="Marcher"><button data-key="ArrowUp" aria-label="Avancer"><svg viewBox="0 0 24 24"><path d="m5 14 7-7 7 7"/></svg></button><button data-key="ArrowLeft" aria-label="Aller à gauche"><svg viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></svg></button><button data-key="ArrowDown" aria-label="Reculer"><svg viewBox="0 0 24 24"><path d="m5 10 7 7 7-7"/></svg></button><button data-key="ArrowRight" aria-label="Aller à droite"><svg viewBox="0 0 24 24"><path d="m10 5 7 7-7 7"/></svg></button><button id="walkTouchDoor" aria-label="Ouvrir ou fermer la porte visée">Porte</button></div>
    <div id="walkSettings" hidden>
-    <label class="field">Départ<select id="walkSpawn"><option value="street">Devant l’entrée</option><option value="entrance">Entrée / café · RDC</option><option value="landing">Palier intérieur · R+1</option><option value="main">Jeu principal · R+1</option><option value="outside">Palier extérieur · R+1</option></select></label>
+    <label class="field">Départ<select id="walkSpawn"><option value="street">Devant l’entrée</option><option value="entrance">Entrée / café · RDC</option><option value="landing">Palier intérieur · R+1</option><option value="main">Jeu principal · R+1</option><option value="outside">Palier extérieur · R+1</option><option value="toilet">Sanitaire · R+1</option></select></label>
     <label class="field">Regard<select id="walkMouseMode"><option value="drag">Glisser (gauche ou droit)</option><option value="capture">Souris capturée · FPS</option></select></label><span id="walkControlHint" class="small"></span>
    </div>
   </aside>

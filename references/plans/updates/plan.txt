@@ -1,0 +1,90 @@
+PAGE 1
+GSPublisherVersion 0.0.100.100
+Note : Document ne pouvant servir à l’exécution des travaux
+AP Annexe - Aménagement intérieur
+Echelle : 1:125
+Maitre d'Ouvrage
+Lucian STUPARU
+201 Impasse du Saugy, 01210 ORNEX
+Adresse du projet
+1 B Ruelle des Jardins, 01210 FERNEY-VOLTAIRE
+Parcelle n°: AE 247
+Format papier :
+A4
+4,60
+7
+7
+3,34 7 7
+9,70
+7 7
+7
+3,40
+1,20
+3,56 1,00
+1,20
+3,81 1,00
+1,20
+3,82 1,00
+1,20
+3,11
+2,11 1,00
+1,20
+2,13
+9,70
+10,15
+10,11
+3,60 1,00
+1,20
+92 2,00
+2,10
+1,88 1,00
+1,20
+6,01
+1,40
+2,35
+2,06
+1,22
+47
+4,49
+2,50
+1,75
+4,83
+13,82
+2,75
+1,50
+2,69
+2,003,70
+6,10
+4,66
+4,50
+6,27
+Jeu Principal
+S:45,78 m2
+Bureau 4/Ateliers créatifs
+S: 12,05 m2
+Bureau 3/Esp jeu supp
+S: 26,60 m2
+Cuisine/Local
+S: 12,50 m2
+S:
+Sanitaire
+adapté
+S: 4,55 m2
+Vide
+S: 6,27 m2
+Dgt 2
+S:22,14 m2
+Local info
+S:5,42 m2
+Espace de jeu
+S:11,84 m2
+N
+Plan R+1 projeté
+78
+Ruelle des Jardins
+Palier d'arrivée
+R+1
+1,10
+3,10
+escalier extérieur
+1,70

@@ -1,6 +1,6 @@
 # Casa Artlia 3D
 
-Working repository for the interactive Casa Artlia building model. Current baseline: **v12.5.0**.
+Working repository for the interactive Casa Artlia building model. Current baseline: **v12.6.0**.
 
 It includes the ERP **avant / après** switch, RDC and R+1 reconstruction, the original entrance and telescopic door, interior staircase, Ganser GTLE animation, exterior stairs and landing, neighbouring building context, source-plan/photo viewers, and first-person walking.
 
@@ -71,7 +71,7 @@ All coordinates are in centimetres: x across the entrance toward the long wing, 
 - **C01:** the incorrectly reconstructed partition across the upper stair exit was removed in both states.
 - **C02:** the stairs meet the full-height walls at x=0 and z=400, with the GTLE brackets attached to those walls. The false rear floor strip was removed and the adjacent room boundary registered locally to the measured enclosure.
 
-Printed ERP areas and dimensions are preserved separately from calculated traced areas. A01–A14 and the original outlines behind corrections remain in the data. Roof heights, unseen roof returns, private balcony and neighbouring interiors remain approximate. The v11 geometry was never treated as verified.
+Printed ERP areas and dimensions are preserved separately from calculated traced areas. A01–A15 and the original outlines behind corrections remain in the data. Roof heights, unseen roof returns, private balcony and neighbouring interiors remain approximate. The v11 geometry was never treated as verified.
 
 ## Reference material
 
@@ -98,3 +98,7 @@ Use FR / RO / EN in the header to choose French, Romanian or English. The choice
 Controls, room names, 3D labels, dimensions, walking instructions, live lift diagnostics, tooltips, accessibility labels, photo observations and reconstruction assumptions are translated. Original plan/photo pixels and source geometry records remain unchanged. All translations are embedded in the standalone HTML and work offline; no translation service is used.
 
 Edit src/i18n-catalog.json for Romanian/English wording keyed by the canonical French text. src/i18n.js binds source DOM text and attributes, repaints registered label textures on language changes, and handles persistence. src/dimension-label.js adapts the original dimension labels at build time while preserving base-v10.html. New dynamic source text must have both translations. Run npm run test:i18n (or node tests/i18n.test.cjs directly on the affected Windows host).
+
+## Revised adapted toilet
+
+The after-works state uses the July ERP 8a / 8b / 10a update: merged toilets, stepped west wall, sliding door, fittings and optional accessibility spaces. Before works retains the earlier layout. See [source and registration notes](docs/erp-pmr-update.md). The detailed room uses explicit dimensions; local joins to the old overall trace remain A15 assumptions. Use Explorer → Pièces → Sanitaire adapté PMR to focus it, or choose the toilet starting point in walking settings. The source tab opens both the revised floor plan and dimensioned toilet detail.

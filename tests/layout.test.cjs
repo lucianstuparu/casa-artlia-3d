@@ -18,9 +18,9 @@ try{
   await page.click('[data-view=walk]');await check('walking paused');await page.click('#walkStart');await check('walking active');
   if([375,1440].includes(w))await page.screenshot({path:path.join(results,'ui-'+w+'-walk.png')});
   await page.click('#walkSettingsToggle');await check('walking settings');await page.click('#walkSettingsToggle');await page.click('#walkPause');await page.click('#walkExit');
-  await page.selectOption('#viewSelect','plan');
+  await page.selectOption('#viewSelect','plan');await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
   const p=await page.evaluate(()=>{const A=CASA_BUILDING,r=A.data.rooms.find(r=>r.names.apres==='Jeu principal'),v=new THREE.Vector3(r.labelCm[0],312,r.labelCm[1]).project(A.activeCamera),b=renderer.domElement.getBoundingClientRect();return{id:r.id,x:b.x+(v.x+1)*b.width/2,y:b.y+(1-v.y)*b.height/2};});
-  await page.mouse.click(p.x,p.y);assert.equal(await page.evaluate(()=>CASA_BUILDING.state.selected),p.id,'Plan picking must account for header/stage bounds');
+  await page.mouse.click(p.x,p.y);const picked=await page.evaluate(()=>CASA_BUILDING.state.selected);if(picked!==p.id){await page.screenshot({path:path.join(results,'plan-picking-failure.png')});console.log({w,h,p,picked,rect:await page.locator('canvas').first().boundingBox()});}assert.equal(picked,p.id,'Plan picking must account for header/stage bounds at '+w+'x'+h);
   assert.equal(errors.length,0,errors.join('\n'));await page.close();
  }
  const big=await browser.newPage({viewport:{width:390,height:844},hasTouch:true});await big.goto(url);await big.waitForFunction(()=>!!window.CASA_BUILDING);await big.addStyleTag({content:'button,select,label,.small{font-size:20px!important}'});await big.click('#buildingToggle');await big.click('#tabDisplay');assert.equal(await big.evaluate(()=>document.documentElement.scrollWidth),390);await big.screenshot({path:path.join(results,'ui-large-text.png')});await big.close();
