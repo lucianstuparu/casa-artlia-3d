@@ -18,3 +18,5 @@
 - Preserve C04: the 50cm upper-landing recess, return guard and walkable floor in both phases. Width is annotated on photo20260710_140700; depth/position are A16 assumptions. It is distinct from the false rail-side strip removed by C02. Retain original stair/landing geometry and C03.
 
 - Preserve C05: continuous street facade at original entrance plane z=-4; grey entrance arch is a thin painted finish. Context render registration covers false slab ledges. ERP room/wall traces stay canonical; backing depths are A17.
+
+- All release outputs must also be stored in the user's Drive KB. Follow docs/drive-archive.md: upload release HTML/data/notes/previews and a source/reference archive, preserve history, verify uploads, and update the KB artifact register.

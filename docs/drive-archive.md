@@ -1,0 +1,12 @@
+# Google Drive deliverable archive
+
+The user requested that all outputs also be stored in the Casa Artlia Drive KB on 24 October 2026.
+
+- Archive root: https://drive.google.com/drive/folders/1E2HgP5jpxQAc4wNfaoHBUEAWjmUty_Fx
+- Current release v12.7.1: https://drive.google.com/drive/folders/1ruKGkS-tP0OO7o2wUp_-TXH2-AUTpkWi
+- Earlier outputs v12.0 to v12.3: https://drive.google.com/drive/folders/1_qLARpeXIM96VZtmcVoJvzk7l3OVkLFR
+- KB artifact register: https://docs.google.com/document/d/1W06W5Vs7D0dR6M3tI6IQmllhxi0jmYUmmITAl6AsKOo/edit
+
+For each future release, store the standalone HTML, building data, release/verification notes and useful previews in Drive, together with a source/reference archive. Include earlier deliverables in archival coverage and preserve them as historical, unverified geometry. Verify destination parents, file sizes and provider checksums where available. Record Drive IDs and update the artifact register. Reuse existing exact-name/version files on retries instead of creating duplicates.
+
+Archive tracked source/reference/build/documentation files plus user-facing loose outputs. Exclude dependency installs, Git internals, credentials, local browser profiles, test scratch files and temporary downloads. GitHub remains the development source of truth; Drive is the requested deliverable copy. This is a release workflow instruction, not an unattended scheduled sync.
