@@ -52,10 +52,10 @@ for(const p of U.rooms.main.children.filter(p=>p.pose==='sit'))stool(upper,p.x,p
 rug(upper,1065,225,150,150,0xc7cfb8);
 recordFurniture(shelf(upper,1530,37,70,70,34,0),'main','main.toy_shelf',[1495,1565,20,54]);
 wallSigns.push(sign(upper,'IMAGINER · JOUER · GRANDIR',230,27,1370,500,14,0));
-// Preserve the existing playhouse and slide. Its upper deck is not extra usable room area.
-recordFurniture(house,'main','playhouse',[1695,1930,64,346]);
-recordFurniture(stairs,'main','house_stairs',[1580,1710,70,135]);
-recordFurniture(slide,'main','slide',[1510,1760,241,313]);
+// Shallower playhouse; steps and slide retain full dimensions and follow the front. Its upper deck is not extra usable room area.
+recordFurniture(house,'main','playhouse',[1808,1928,64,346]);
+recordFurniture(stairs,'main','house_stairs',[1685,1815,70,135]);
+recordFurniture(slide,'main','slide',[1615,1865,241,313]);
 const village=group(upper,'village');groups.play=village;
 const kitchenToy=group(village,'pretend_kitchen',495,312,180);kitchenToy.rotation.y=-Math.PI/2;
 box(kitchenToy,140,68,42,'oak',0,34,0,'kitchen.base');rounded(kitchenToy,144,4,46,1,'cream',0,70,0,'kitchen.top');
@@ -105,8 +105,8 @@ function upstairsMetrics(){
  return{children:bodies.filter(a=>a.role==='child').length,parents:bodies.filter(a=>a.role==='parent').length,staff:3,adultSeats:adultSeats.length,printedRoomAreaM2:U.printedActivityAreaM2,tracedRoomAreaM2:U.tracedActivityAreaM2,compactStudyAreaM2:Object.values(U.rooms).reduce((n,r)=>n+(r.compactRect[1]-r.compactRect[0])*(r.compactRect[3]-r.compactRect[2])/10000,0),grossPrintedM2PerVisitor:U.printedActivityAreaM2/(upperPairs*2),rooms:Object.fromEntries(Object.entries(U.rooms).map(([id,r])=>[id,{children:roomLimit(id),parents:roomLimit(id),adultSeats:r.seats.length,printedAreaM2:r.printedAreaM2,tracedAreaM2:r.tracedAreaM2}])),overlaps,outside,bodies,verdict:'busy_conditional_study; site areas and final fitout require verification'};
 }
 const upperUi=document.createElement('div');upperUi.id='upperStudyControls';upperUi.hidden=true;
-upperUi.innerHTML='<label>Fréquentation<select id="upperOccupancy"><option value="30">30 enfants + 30 parents</option><option value="24">24 enfants + 24 parents</option><option value="20">20 enfants + 20 parents</option></select></label><label>Vue<select id="upperStudyView"><option value="3d">Espaces en 3D</option><option value="plan">Plan et parcours</option></select></label><label class="upperCheck"><input id="upperMarks" type="checkbox">Emprises</label><button id="upperSummary">Répartition et surfaces</button><span id="upperOccupancyStatus" role="status"></span>';
-const upperDialog=document.createElement('dialog');upperDialog.id='upperStudyDialog';upperDialog.innerHTML='<div class="dialogHead"><h2>30 enfants et leurs parents</h2><button id="upperDialogClose">Fermer</button></div><div class="conceptContent"><p>Les adultes sont des parents accompagnants. Trois équipiers à l’étage sont comptés en plus.</p><div id="upperRoomTable"></div><p class="areaCaution">Les quatre salles font 96,27 m² au plan, contre 129,41 m² dans le tracé actuel. Les rectangles pointillés limitent l’étude du mobilier à des surfaces inférieures aux surfaces imprimées. Ils ne remplacent pas un relevé du bâtiment.</p><p>Soixante visiteurs constituent une configuration chargée. Comparer avec 20 ou 24 familles ; ce modèle ne certifie ni le confort quotidien ni l’effectif autorisé à l’ouverture.</p><p>Les couloirs, le sanitaire et le palier extérieur restent sans places d’attente. La cabane est conservée ; son étage ne crée pas de surface supplémentaire dans ce calcul.</p><a href="https://drive.google.com/file/d/1Qj401UmMJVD3-M9Kdfd2UkMioZepjgdw/view" target="_blank" rel="noopener">Décision ERP du 18 septembre 2026</a></div>';
+upperUi.innerHTML='<label>Fréquentation<select id="upperOccupancy"><option value="30">Pic : 30 enfants + 30 parents</option><option value="24">24 enfants + 24 parents</option><option value="20">20 enfants + 20 parents</option></select></label><label>Vue<select id="upperStudyView"><option value="3d">Espaces en 3D</option><option value="plan">Plan et parcours</option></select></label><label class="upperCheck"><input id="upperMarks" type="checkbox">Emprises</label><button id="upperSummary">Répartition et surfaces</button><span id="upperOccupancyStatus" role="status"></span>';
+const upperDialog=document.createElement('dialog');upperDialog.id='upperStudyDialog';upperDialog.innerHTML='<div class="dialogHead"><h2>30 enfants par jour, avec une pointe possible</h2><button id="upperDialogClose">Fermer</button></div><div class="conceptContent"><p>Objectif : 30 enfants par jour, répartis dans la journée. Le sélecteur représente les personnes présentes simultanément ; 30 familles est une pointe possible. Trois équipiers à l’étage sont comptés en plus.</p><div id="upperRoomTable"></div><p class="areaCaution">Les quatre salles font 96,27 m² au plan, contre 129,41 m² dans le tracé actuel. Les rectangles pointillés limitent l’étude du mobilier à des surfaces inférieures aux surfaces imprimées. Ils ne remplacent pas un relevé du bâtiment.</p><p>Le scénario de pointe montre 30 enfants et 30 parents présents en même temps. Les scénarios 20 et 24 sont des comparaisons, pas une prévision de fréquentation. Le modèle ne certifie ni le confort ni l’effectif autorisé à l’ouverture.</p><p>Les couloirs, le sanitaire et le palier extérieur restent sans places d’attente. La cabane est conservée ; son étage ne crée pas de surface supplémentaire dans ce calcul.</p><a href="https://drive.google.com/file/d/1Qj401UmMJVD3-M9Kdfd2UkMioZepjgdw/view" target="_blank" rel="noopener">Décision ERP du 18 septembre 2026</a></div>';
 document.body.append(upperDialog);
 const upperOrtho=new T.OrthographicCamera(-1100,1100,900,-900,1,4000);upperOrtho.position.set(960,2000,800);upperOrtho.up.set(0,0,-1);upperOrtho.lookAt(960,312,800);
 const cameraBeforeUpper=Object.getOwnPropertyDescriptor(A,'activeCamera').get;
@@ -124,7 +124,7 @@ function updateUpstairsStudy(){
  const active=new Set(visibleUpActors()),show=$('v1People').checked&&$('v1Furniture').checked&&A.state.phase==='apres'&&A.state.level!=='rdc';
  for(const a of upActors){a.group.visible=active.has(a);a.proxy.visible=active.has(a)&&show;}
  upperStudyLayer.visible=visible&&upperMarks;
- $('upperOccupancyStatus').textContent=upperPairs+' enfants · '+upperPairs+' parents assis · 3 équipiers · surfaces à confirmer';
+ $('upperOccupancyStatus').textContent='30 enfants/jour · '+upperPairs+' enfants · '+upperPairs+' parents assis · 3 équipiers · surfaces à confirmer';
  upperTable();A.walk.invalidate();
 }
 function setUpperPairs(n){upperPairs=[20,24,30].includes(Number(n))?Number(n):30;$('upperOccupancy').value=String(upperPairs);upperLastKey='';updateUpstairsStudy();}

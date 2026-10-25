@@ -1,6 +1,6 @@
 {
   "id": "variant-1",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "baseVersion": "12.8.0",
   "units": "cm",
   "phase": "apres",
@@ -64,7 +64,7 @@
     },
     {
       "id": "V1-A08",
-      "description": "Upstairs 30 children +30 accompanying adults, plus 3 staff. The four activity-room areas printed on ERP total 96.27 m2, versus 129.405 m2 in the retained trace. Compact furniture/people rectangles individually stay within those printed areas; their shape/registration is a furnishing assumption, not surveyed walls. Geometry A03 remains unresolved."
+      "description": "30 children per day is the user target. 30 children +30 accompanying adults is an occasional peak study, with3 illustrative staff additional. The four activity-room areas printed on ERP total96.27m2, versus129.405m2 in the retained trace. Inset furnishing rectangles do not replace surveyed walls. Geometry A03 remains unresolved."
     },
     {
       "id": "V1-A09",
@@ -73,6 +73,10 @@
     {
       "id": "V1-A10",
       "description": "20/24/30-family comparisons change visible counts without resizing figures. The target of 60 visitors plus 3 upstairs staff is not certified daily comfort or a new opening authorisation. The signed 18 September 2026 record states 100 public +4 staff for the establishment and conditions remain applicable."
+    },
+    {
+      "id": "V1-A11",
+      "description": "User requested roughly half the playhouse depth. Depth is interpreted as projection into the room along X:210 to105cm, retaining270cm width along Z and the115cm deck. Back edge stays x1920; front moves x1710 to1815. Stairs and slide translate105cm without shrinking their treads, width or incline. Posts, roof, deck, panels and lower rug are rebuilt to the shallower depth. No construction suitability is certified."
     }
   ],
   "zones": [
@@ -84,9 +88,9 @@
         "en": "The main room"
       },
       "description": {
-        "fr": "14 enfants, 14 parents assis et un équipier dans le scénario complet.",
-        "ro": "14 copii, 14 părinți așezați și un angajat în scenariul complet.",
-        "en": "14 children,14 seated parents and one staff member in the full scenario."
+        "fr": "Pointe possible : 14 enfants, 14 parents assis et un équipier. Cabane moins profonde.",
+        "ro": "Vârf posibil: 14 copii, 14 părinți așezați și un angajat. Căsuță mai puțin adâncă.",
+        "en": "Possible peak:14 children,14 seated parents and one staff member. Shallower playhouse."
       }
     },
     {
@@ -158,7 +162,7 @@
       "id": "playhouse",
       "room": "main",
       "bounds": [
-        1710,
+        1815,
         1920,
         70,
         340
@@ -169,8 +173,8 @@
       "id": "house-stairs",
       "room": "main",
       "bounds": [
-        1580,
-        1710,
+        1685,
+        1815,
         70,
         135
       ],
@@ -180,8 +184,8 @@
       "id": "house-slide",
       "room": "main",
       "bounds": [
-        1510,
-        1760,
+        1615,
+        1865,
         245,
         309
       ],
@@ -431,7 +435,7 @@
     }
   },
   "upstairs": {
-    "revision": "thirty_children_thirty_parents",
+    "revision": "daily_target_and_peak_comparison",
     "requestedChildren": 30,
     "requestedAdults": 30,
     "staff": 3,
@@ -587,21 +591,21 @@
             "pose": "stand"
           },
           {
-            "x": 1815,
+            "x": 1867.5,
             "z": 150,
             "h": 90,
             "pose": "floor",
             "location": "under_house"
           },
           {
-            "x": 1815,
+            "x": 1867.5,
             "z": 265,
             "h": 105,
             "pose": "floor",
             "location": "under_house"
           },
           {
-            "x": 1800,
+            "x": 1870,
             "z": 220,
             "h": 95,
             "pose": "stand",
@@ -883,7 +887,7 @@
     "adultSeatHeightCm": 44,
     "childSeatHeightCm": 30,
     "assumptions": [
-      "30 adults means accompanying parents;3 upstairs staff are additional. Current downstairs queue and operator are separate.",
+      "User target: 30 children per day, not normally simultaneous. The 30-child +30-parent layout represents a possible peak; concurrent demand is unspecified. Three illustrative upstairs staff and the downstairs queue/operator are separate.",
       "Child standing statures90–138cm are illustrative for the1–9 programme; poses are seated, floor-sitting or standing. Adult standing statures160–188cm, independently sized widths50–58cm; seated pose height is not stretched to standing stature.",
       "Compact furnishing rectangles sum to about93.25m² and individually do not exceed the printed activity-room areas. They are an inset furnishing/people study, not surveyed replacement walls or proof of continuous accessibility.",
       "All30 adult places are seats; corridors, toilet, service rooms and exterior landing provide no overflow seating. The loft contributes no additional room area and remains an unverified play-equipment concept.",
@@ -977,6 +981,19 @@
         ],
         "width": 80
       }
-    ]
+    ],
+    "dailyChildrenTarget": 30,
+    "expectedConcurrentChildren": null,
+    "concurrentCountStatus": "30 children per day is user target; 30 children simultaneously is possible peak, not everyday average. Lower scenarios are comparisons, not attendance forecasts."
+  },
+  "playhouse": {
+    "widthCm": 270,
+    "depthCm": 105,
+    "previousDepthCm": 210,
+    "heightAndDeckUnchanged": true,
+    "depthAxis": "X; projects from far end wall towards room",
+    "backEdgeX": 1920,
+    "frontEdgeX": 1815,
+    "status": "user_requested_half_depth; construction detailing provisional V1-A11"
   }
 }

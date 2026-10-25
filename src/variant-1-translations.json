@@ -294,5 +294,25 @@
   "surfaces à confirmer": {
     "ro": "suprafețe de confirmat",
     "en": "areas to verify"
+  },
+  "Pic : 30 enfants + 30 parents": {
+    "ro": "Vârf: 30 copii + 30 părinți",
+    "en": "Peak: 30 children + 30 parents"
+  },
+  "30 enfants par jour, avec une pointe possible": {
+    "ro": "30 de copii pe zi, cu un posibil vârf",
+    "en": "30 children per day, with a possible peak"
+  },
+  "Objectif : 30 enfants par jour, répartis dans la journée. Le sélecteur représente les personnes présentes simultanément ; 30 familles est une pointe possible. Trois équipiers à l’étage sont comptés en plus.": {
+    "ro": "Obiectiv: 30 de copii pe zi, distribuiți pe parcursul zilei. Selectorul arată persoanele prezente simultan; 30 de familii reprezintă un posibil vârf. Trei angajați de la etaj sunt numărați separat.",
+    "en": "Target: 30 children per day, spread through the day. The selector shows people present simultaneously; 30 families is a possible peak. Three upstairs staff are additional."
+  },
+  "Le scénario de pointe montre 30 enfants et 30 parents présents en même temps. Les scénarios 20 et 24 sont des comparaisons, pas une prévision de fréquentation. Le modèle ne certifie ni le confort ni l’effectif autorisé à l’ouverture.": {
+    "ro": "Scenariul de vârf arată 30 de copii și 30 de părinți prezenți simultan. Scenariile 20 și 24 sunt comparații, nu prognoze de participare. Modelul nu certifică nici confortul, nici capacitatea autorizată la deschidere.",
+    "en": "The peak scenario shows 30 children and 30 parents present together. The 20 and 24 scenarios are comparisons, not attendance forecasts. The model certifies neither comfort nor opening occupancy."
+  },
+  "enfants/jour": {
+    "ro": "copii/zi",
+    "en": "children/day"
   }
 }

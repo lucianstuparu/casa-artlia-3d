@@ -20,3 +20,5 @@ Separate furnishing study: Variant1 v1.0.1 — https://drive.google.com/drive/fo
 Current furnishing study: Variant1 v1.1.0 (RDC-only revision) — https://drive.google.com/drive/folders/1EJVyl-whP-kUA930vQGsq82UIAwOfEE7. Previous v1.0.1 and base archives are retained.
 
 Current furnishing study: Variant1 v1.2.0 (upstairs 30 children +30 parents +3 staff; RDC preserved) — https://drive.google.com/drive/folders/1H_5D9ETEAC7A2yrxjFIZtUG3Lti70JHN. v1.1.0 is retained as the previous downstairs iteration.
+
+Current furnishing study: Variant1 v1.2.1 — shallower playhouse and30-children-per-day clarification: https://drive.google.com/drive/folders/1YjRBIl4ZpWDl6GOjoTwQ2P34u1f0Py5s. Previous v1.2.0 archive is retained.

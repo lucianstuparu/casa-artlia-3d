@@ -44,31 +44,31 @@ for(const g of[A.phases.apres.floors,ROOM_GROUP])g.traverse(o=>{if(o.isMesh&&o.u
 A.phases.apres.walls.traverse(o=>{if(o.isMesh&&/solid|wall/.test(o.name)&&!o.name.includes('glass')){o.material=o.material.clone();o.material.color.setHex(0xf2eee3);}});
 /* Downstairs revision */
 // Main room: raised playhouse at the far end, open alcove below instead of a bed.
-const house=group(upper,'house',1710,312,70);groups.house=house;
+const house=group(upper,'house',1815,312,70);groups.house=house;
 
-for(const x of[8,202])for(const z of[8,262])rounded(house,10,225,10,2,'cream',x,112.5,z,'house.post');
-box(house,210,8,270,'oak',105,111,135,'house.deck');
-for(let z=0;z<270;z+=13)box(house,206,1,1,'cream',105,115.5,z,'house.deck_joint');
-box(house,7,108,270,'cream',206,170,135,'house.back');
-box(house,210,109,6,'cream',105,170,4,'house.side');box(house,135,109,6,'cream',142.5,170,266,'house.side');
+for(const x of[8,97])for(const z of[8,262])rounded(house,10,225,10,2,'cream',x,112.5,z,'house.post');
+box(house,105,8,270,'oak',52.5,111,135,'house.deck');
+for(let z=0;z<270;z+=13)box(house,101,1,1,'cream',52.5,115.5,z,'house.deck_joint');
+box(house,7,108,270,'cream',101,170,135,'house.back');
+box(house,105,109,6,'cream',52.5,170,4,'house.side');box(house,30,109,6,'cream',90,170,266,'house.side');
 for(const z of[68,170,264])box(house,7,109,6,'cream',1,170,z,'house.front_post');
 for(const z of[118]){
  box(house,7,23,90,'cream',1,127,z,'house.sill_panel');box(house,7,18,108,'cream',1,215,z,'house.top_panel');
  for(const zz of[z-44,z+44,z])box(house,10,64,5,z<100?'sage':'butter',-1,171,zz,'house.window_vertical');
  for(const yy of[142,171,201])box(house,10,5,92,z<100?'sage':'butter',-1,yy,z,'house.window_horizontal');
 }
-cyl(house,22,8,'sage',105,4,80,'house.floor_cushion');cyl(house,22,8,'terra',115,4,195,'house.floor_cushion');
-rounded(house,130,3,180,1,'sage',105,2,136,'house.alcove_rug');
+cyl(house,22,8,'sage',52.5,4,80,'house.floor_cushion');cyl(house,22,8,'terra',52.5,4,195,'house.floor_cushion');
+rounded(house,65,3,180,1,'sage',52.5,2,136,'house.alcove_rug');
 sign(house,'LA CABANE',120,20,-5,221,135,-Math.PI/2,'#f5f0df','#596d54');
 // Pitched roof runs along x. Muted rainbow slats echo the attached reference.
-const roofColors=['terra','pink','butter','sage','green','blue'];for(let i=0;i<18;i++){const x=-8+i*13;for(const side of[-1,1]){const o=box(house,12.5,5,146,roofColors[Math.floor(i/3)%6],x,233.5,135+side*68,'house.roof_slat');o.rotation.x=side*.19;}}
-box(house,14,26,18,'cream',135,237,90,'house.chimney');
-const stairs=group(upper,'house.stairs',1580,312,70);for(let i=0;i<6;i++){const h=(i+1)*115/6;box(stairs,130/6,h,65,i%2?'sage':'oak',(i+.5)*130/6,h/2,32.5,'house.step');}
+const roofColors=['terra','pink','butter','sage','green','blue'];for(let i=0;i<12;i++){const x=-2+i*10;for(const side of[-1,1]){const o=box(house,9.5,5,146,roofColors[Math.floor(i/2)%6],x,233.5,135+side*68,'house.roof_slat');o.rotation.x=side*.19;}}
+box(house,14,26,18,'cream',67.5,237,90,'house.chimney');
+const stairs=group(upper,'house.stairs',1685,312,70);for(let i=0;i<6;i++){const h=(i+1)*115/6;box(stairs,130/6,h,65,i%2?'sage':'oak',(i+.5)*130/6,h/2,32.5,'house.step');}
 for(const z of[4,61]){rod(stairs,[0,50,z],[130,165,z],2.5,'butter','house.stair_rail');for(const x of[10,65,120])rod(stairs,[x,x/130*115,z],[x,x/130*115+50,z],2,'cream','house.stair_post');}
-const slide=group(upper,'house.slide');const slideShape=new T.Shape();slideShape.moveTo(1510,0);slideShape.lineTo(1510,7);slideShape.bezierCurveTo(1570,4,1600,35,1650,75);slideShape.lineTo(1735,115);slideShape.lineTo(1760,115);slideShape.lineTo(1760,108);slideShape.lineTo(1660,66);slideShape.bezierCurveTo(1600,24,1560,-1,1510,0);
+const slide=group(upper,'house.slide',105,0,0);const slideShape=new T.Shape();slideShape.moveTo(1510,0);slideShape.lineTo(1510,7);slideShape.bezierCurveTo(1570,4,1600,35,1650,75);slideShape.lineTo(1735,115);slideShape.lineTo(1760,115);slideShape.lineTo(1760,108);slideShape.lineTo(1660,66);slideShape.bezierCurveTo(1600,24,1560,-1,1510,0);
 const slideGeo=new T.ExtrudeGeometry(slideShape,{depth:64,bevelEnabled:false,curveSegments:24});slideGeo.translate(0,312,245);const slideMesh=new T.Mesh(slideGeo,mats.sage);slideMesh.name='v1.house.slide.bed';slide.add(slideMesh);
 for(const z of[245,309]){rod(slide,[1515,323,z],[1575,336,z],3.3,'butter','slide.edge');rod(slide,[1575,336,z],[1660,396,z],3.3,'butter','slide.edge');rod(slide,[1660,396,z],[1760,437,z],3.3,'butter','slide.edge');}
-rug(upper,1470,277,100,110,0xdcbf90);
+rug(upper,1575,277,100,110,0xdcbf90);
 /* Upstairs furnishing study */
 // Back-of-house remains recognisable and intentionally quiet.
 const back=group(upper,'back_of_house');shelf(back,900,1020,210,100,45,Math.PI/2);table(back,765,1090,130,50,74);
