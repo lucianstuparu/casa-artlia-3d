@@ -5,13 +5,14 @@ const A=CASA_BUILDING,V=CASA_VARIANT_DATA,T=THREE,$=id=>document.getElementById(
 const groups={},people=[],wallSigns=[],palette={oak:0xcda572,cream:0xf5f0df,sage:0x81967a,green:0x557765,butter:0xe4c66f,terra:0xc98469,charcoal:0x333b39,pink:0xd8aaa1,blue:0x8eacb6};
 const mats={};for(const[k,color]of Object.entries(palette))mats[k]=new T.MeshLambertMaterial({color});
 const skin=[0xd4a47b,0x94694b,0xe7bea1,0xb88162],hair=[0x4a3428,0x2e2926,0x94724e];
+/* Visual quality foundation */
 let visibilityKey='';
 const allPeople=new T.Group();allPeople.name='Variant1 illustrative people';A.root.add(allPeople);
 function group(parent,id,x=0,y=0,z=0){const g=new T.Group();g.name='v1.'+id;g.position.set(x,y,z);g.userData={concept:true,id};parent.add(g);return g;}
 const upper=group(A.phases.apres.fittings,'furniture.r1'),ground=group(ROOM_GROUP,'furniture.rdc');ground.userData.level='RDC';ground.userData.phase='apres';
 const upperPeople=group(allPeople,'people.r1'),groundPeople=group(allPeople,'people.rdc');
 function box(g,w,h,d,m,x,y,z,id){const o=new T.Mesh(new T.BoxGeometry(w,h,d),typeof m==='string'?mats[m]:m);o.position.set(x,y,z);o.name='v1.'+id;o.userData={concept:true};g.add(o);return o;}
-function rounded(g,w,h,d,r,m,x,y,z,id){r=Math.min(r,w/2-.1,h/2-.1);const s=new T.Shape();s.moveTo(-w/2+r,-h/2);s.lineTo(w/2-r,-h/2);s.quadraticCurveTo(w/2,-h/2,w/2,-h/2+r);s.lineTo(w/2,h/2-r);s.quadraticCurveTo(w/2,h/2,w/2-r,h/2);s.lineTo(-w/2+r,h/2);s.quadraticCurveTo(-w/2,h/2,-w/2,h/2-r);s.lineTo(-w/2,-h/2+r);s.quadraticCurveTo(-w/2,-h/2,-w/2+r,-h/2);const geo=new T.ExtrudeGeometry(s,{depth:d-2,bevelEnabled:true,bevelSize:1,bevelThickness:1,bevelSegments:2,steps:1,curveSegments:5});geo.translate(0,0,-(d-2)/2);const o=new T.Mesh(geo,typeof m==='string'?mats[m]:m);o.position.set(x,y,z);o.name='v1.'+id;o.userData={concept:true};g.add(o);return o;}
+function rounded(g,w,h,d,r,m,x,y,z,id){const o=new T.Mesh(softBoxGeometry(w+2,h+2,d,r),typeof m==='string'?mats[m]:m);o.position.set(x,y,z);o.name='v1.'+id;o.userData={concept:true};g.add(o);return o;}
 function cyl(g,r,h,m,x,y,z,id,r2=r){const o=new T.Mesh(new T.CylinderGeometry(r2,r,h,20),typeof m==='string'?mats[m]:m);o.position.set(x,y,z);o.name='v1.'+id;o.userData={concept:true};g.add(o);return o;}
 function sphere(g,r,m,x,y,z,id,scale=[1,1,1]){const o=new T.Mesh(new T.SphereGeometry(r,16,12),typeof m==='string'?mats[m]:m);o.scale.set(...scale);o.position.set(x,y,z);o.name='v1.'+id;o.userData={concept:true};g.add(o);return o;}
 function rod(g,a,b,r,m,id){const av=new T.Vector3(...a),bv=new T.Vector3(...b),o=cyl(g,r,av.distanceTo(bv),m,...av.clone().lerp(bv,.5).toArray(),id);o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),bv.sub(av).normalize());return o;}
@@ -27,21 +28,7 @@ function chair(g,x,z,rot=0){const q=group(g,'chair',x,312,z);q.rotation.y=rot;ro
 function sofa(g,x,z,w,rot=0){const q=group(g,'sofa',x,312,z);q.rotation.y=rot;rounded(q,w,34,75,10,'sage',0,29,0,'base');rounded(q,w,58,18,8,'sage',0,63,31,'back');for(const xx of[-w/2+10,w/2-10])rounded(q,20,44,75,8,'sage',xx,46,0,'arm');for(let i=0;i<3;i++){rounded(q,(w-46)/3-2,13,53,5,'cream',-w/3+24+i*(w-46)/3,49,-5,'cushion');}return q;}
 function shelf(g,x,z,w,h=82,d=34,rot=0){const q=group(g,'shelf',x,312,z);q.rotation.y=rot;box(q,w,h,3,'oak',0,h/2,d/2,'back');for(const y of[3,h/2,h-3])box(q,w,4,d,'oak',0,y,0,'shelf');for(const xx of[-w/2,w/2,0])box(q,4,h,d,'oak',xx,h/2,0,'side');for(let i=0;i<4;i++)rounded(q,w/2-12,23,d-5,3,i%2?'butter':'sage',(i%2-.5)*w/2,i<2?16:h/2+14,-1,'basket');return q;}
 function plant(g,x,z,y=312,scale=1){const q=group(g,'plant',x,y,z);q.scale.setScalar(scale);cyl(q,15,25,'terra',0,12.5,0,'pot',12);for(let i=0;i<5;i++){const a=i*2.4,r=12+4*(i%2);rod(q,[0,20,0],[Math.sin(a)*r,52+i*4,Math.cos(a)*r],.8,'green','stem');const leaf=sphere(q,15,'sage',Math.sin(a)*r,54+i*4,Math.cos(a)*r,'leaf',[.5,1.5,.75]);leaf.rotation.z=Math.sin(a)*.6;}return q;}
-function person(parent,x,z,height,shirt,index,pose='stand',yaw=0,y=312){
- const q=group(parent,'person.'+index,x,y,z);q.rotation.y=yaw;q.scale.setScalar(height/168);
- const skinMat=new T.MeshLambertMaterial({color:skin[index%skin.length]}),hairMat=new T.MeshLambertMaterial({color:hair[index%hair.length]});
- const seated=pose==='sit',hip=seated?54:88,shoulder=hip+43,headY=hip+65;
- rounded(q,37,47,23,8,shirt,0,hip+22,0,'torso');sphere(q,15,skinMat,0,headY,0,'head',[.87,1.03,.9]);sphere(q,15,hairMat,0,headY+6,3,'hair',[.9,.75,.9]);cyl(q,5,10,skinMat,0,hip+48,0,'neck');
- for(const side of[-1,1]){
-  const knee=[side*10,seated?46:45,seated?-32:2],foot=[side*11,4,seated?-37:0];rod(q,[side*10,hip,0],knee,6.5,'charcoal','thigh');rod(q,knee,foot,5.3,'charcoal','calf');rounded(q,13,8,24,3,'cream',foot[0],4,foot[2]-7,'shoe');
-  const elbow=[side*26,shoulder-20,pose==='reach'?-20:seated?-20:0],hand=[side*22,shoulder-40,pose==='reach'?-46:seated?-35:-4];rod(q,[side*21,shoulder,0],elbow,5.3,shirt,'sleeve');rod(q,elbow,hand,3.8,skinMat,'forearm');sphere(q,4,skinMat,...hand,'hand');
- }
- people.push(q);return q;
-}
-// Warm floor finishes only in this separate concept. No base model data is edited.
-const woodCanvas=document.createElement('canvas');woodCanvas.width=256;woodCanvas.height=256;const wc=woodCanvas.getContext('2d');wc.fillStyle='#d9bd94';wc.fillRect(0,0,256,256);for(let i=0;i<8;i++){wc.fillStyle=i%2?'#d4bd9a':'#d8c2a2';wc.fillRect(i*32,0,31,256);wc.strokeStyle='#c7aa80';wc.beginPath();wc.moveTo(i*32,0);wc.lineTo(i*32,256);wc.stroke();for(let k=0;k<8;k++){wc.strokeStyle='rgba(117,88,52,.10)';wc.beginPath();wc.moveTo(i*32+4+k*3,0);wc.bezierCurveTo(i*32+k*3,80,i*32+8+k*3,170,i*32+4+k*3,256);wc.stroke();}}const wood=new T.CanvasTexture(woodCanvas);wood.wrapS=wood.wrapT=T.RepeatWrapping;wood.repeat.set(.006,.006);
-for(const g of[A.phases.apres.floors,ROOM_GROUP])g.traverse(o=>{if(o.isMesh&&o.userData.roomId&&o.userData.phase==='apres'){o.material=o.material.clone();o.material.color.setHex(0xd6cfc1);o.material.map=wood;}});
-A.phases.apres.walls.traverse(o=>{if(o.isMesh&&/solid|wall/.test(o.name)&&!o.name.includes('glass')){o.material=o.material.clone();o.material.color.setHex(0xf2eee3);}});
+function person(parent,x,z,height,shirt,index,pose='stand',yaw=0,y=312,role='adult'){const q=group(parent,'person.'+index,x,y,z);q.rotation.y=yaw;buildHuman(q,{stature:height,index,shirt,pose,role});people.push(q);return q;}
 /* Downstairs revision */
 // Main room: raised playhouse at the far end, open alcove below instead of a bed.
 const house=group(upper,'house',1815,312,70);groups.house=house;
@@ -75,7 +62,7 @@ const back=group(upper,'back_of_house');shelf(back,900,1020,210,100,45,Math.PI/2
 box(back,55,90,245,'cream',918,357,1410,'office.kitchen_units');box(back,60,5,250,'oak',915,405,1410,'office.worktop');rounded(back,62,170,64,4,'cream',910,397,1230,'office.fridge');
 function sync(){const key=[A.state.phase,A.state.level,A.state.walls,$('v1Furniture')?.checked,$('v1People')?.checked].join(':');if(key===visibilityKey)return;visibilityKey=key;for(const o of wallSigns)o.visible=A.state.walls==='full';const furnishing=$('v1Furniture')?.checked??true,showPeople=$('v1People')?.checked??true;upper.visible=ground.visible=furnishing&&A.state.phase==='apres';ground.visible=ground.visible&&A.state.level!=='r1';upperPeople.visible=showPeople&&furnishing&&A.state.phase==='apres'&&A.state.level!=='rdc';groundPeople.visible=showPeople&&furnishing&&A.state.phase==='apres'&&A.state.level!=='r1';A.walk.invalidate();}
 const oldApply=A.apply;A.apply=function(){oldApply();sync();};
-const oldTick=A.tick;A.tick=function(now){oldTick(now);sync();updateCoffeeStudy();updateUpstairsStudy();};
+const oldTick=A.tick;A.tick=function(now){oldTick(now);sync();updateCoffeeStudy();updateUpstairsStudy();updateVisualShadows();};
 const oldSetPhase=A.setPhase;A.setPhase=function(p){oldSetPhase(p);sync();};
 // Occupied figures on both levels have body-sized collision proxies.
 const ui=document.createElement('nav');ui.id='conceptNav';ui.setAttribute('aria-label','Variante 1');
@@ -94,7 +81,7 @@ function tour(){const id=current==='coffee'?'entrance':current==='overview'?'mai
 for(const b of document.querySelectorAll('[data-view=walk]'))b.onclick=tour;
 function language(){document.querySelector('.brand strong').textContent='Casa Artlia · V1';document.querySelector('.brand span').textContent=CASA_I18N.t('Un lieu à imaginer');document.title='Casa Artlia · '+CASA_I18N.t('Variante 1 · Maison de jeu & café');const z=V.zones.find(z=>z.id===current);$('conceptDescription').textContent=z?z.description[CASA_I18N.language]:({fr:'Jeu, création et moments partagés.',ro:'Joacă, creație și timp împreună.',en:'Play, creativity and time together.'})[CASA_I18N.language];$('v1Base').href='index.html?lang='+CASA_I18N.language;}
 addEventListener('casa-language-change',language);
-window.CASA_VARIANT={upstairs:{metrics:upstairsMetrics,setPairs:setUpperPairs,setView:upperCamera,actors:upActors,seats:adultSeats,furniture:upFurniture},downstairs:{metrics:downstairsMetrics,setQueue:setCoffeeQueue,setView:coffeeCamera,adults:adultBoxes,get count(){return downstairsCount;}},data:V,groups:{upper,ground,upperPeople,groundPeople,...groups},people,view,sync,get current(){return current;}};
+window.CASA_VARIANT={visuals:visualAudit,upstairs:{metrics:upstairsMetrics,setPairs:setUpperPairs,setView:upperCamera,actors:upActors,seats:adultSeats,furniture:upFurniture},downstairs:{metrics:downstairsMetrics,setQueue:setCoffeeQueue,setView:coffeeCamera,adults:adultBoxes,get count(){return downstairsCount;}},data:V,groups:{upper,ground,upperPeople,groundPeople,...groups},people,view,sync,get current(){return current;}};
 addEventListener('resize',()=>{if(!A.walk.active&&A.state.view==='room')view(current);});
-installCoffeeStudy();installUpstairsStudy();view('overview');language();
+finishVisuals();installCoffeeStudy();installUpstairsStudy();view('overview');language();
 })();

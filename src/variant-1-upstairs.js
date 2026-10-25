@@ -1,5 +1,5 @@
 
-// Occupied upstairs furnishing study. Downstairs code and geometry stay unchanged.
+// Occupied upstairs furnishing study. Room layout and occupied-body envelopes stay unchanged.
 const U=V.upstairs,upActors=[],adultSeats=[],upFurniture=[],upperBodies=group(upper,'upstairs.body_collisions'),upperStudyLayer=group(upper,'upstairs.space_study');
 const invisibleBody=new T.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false});
 let upperPairs=30,upperMode='3d',upperMarks=false,upperLastKey='';
@@ -21,16 +21,7 @@ function parentBench(room,positions,id){
 function occupiedPerson(spec){
  const {x,z,stature,width,room,role,pose='stand',yaw=0}=spec,y=spec.y??312,k=stature/(role==='child'?115:175),isChild=role==='child',sitting=pose==='sit',floor=pose==='floor';
  const g=group(upperPeople,'upstairs.'+role+'.'+upActors.length,x,0,z);
- const sk=new T.MeshLambertMaterial({color:skin[(upActors.length+1)%skin.length]}),ha=new T.MeshLambertMaterial({color:hair[upActors.length%hair.length]}),shirt=['sage','terra','blue','butter','cream','green','pink'][upActors.length%7];
- const seat=isChild?30:44,hip=floor?10:sitting?seat+(isChild?4:6):stature*.5,torsoH=stature*(isChild?.28:.26),shoulder=hip+torsoH,headR=isChild?13*Math.sqrt(stature/110):stature*.085,headY=shoulder+stature*.105;
- rounded(g,isChild?27:37,torsoH,18+(isChild?0:5),6,shirt,0,hip+torsoH/2,0,'body');
- sphere(g,headR,sk,0,headY,0,'head',[.87,1,.9]);sphere(g,headR,ha,0,headY+headR*.4,3,'hair',[.9,.65,.9]);cyl(g,4.5*k,9*k,sk,0,shoulder+4*k,0,'neck');
- for(const side of[-1,1]){
-  const thigh=isChild?4.5:6.5,legX=isChild?8:10,knee=[side*legX,floor?8:sitting?seat-3:hip*.5,floor?-15:sitting?-34:0],foot=[side*(floor?15:legX),4,floor?-16:sitting?-40:0];
-  rod(g,[side*legX,hip,0],knee,thigh,'charcoal','thigh');rod(g,knee,foot,thigh*.8,'charcoal','shin');rounded(g,isChild?10:13,8,isChild?19:24,3,'cream',foot[0],4,foot[2]-7,'shoe');
-  const elbow=[side*(isChild?20:27),shoulder-torsoH*.45,sitting||floor?-18:0],hand=[side*(isChild?16:22),sitting||floor?hip+6:hip+5,sitting||floor?-31:-4];
-  rod(g,[side*(isChild?16:21),shoulder-4,0],elbow,isChild?4:5,shirt,'sleeve');rod(g,elbow,hand,isChild?3:3.8,sk,'arm');sphere(g,isChild?3.2:4,sk,...hand,'hand');
- }
+ buildHuman(g,{stature,isChild,pose,index:upActors.length,shirt:['sage','terra','blue','butter','cream','green','pink'][upActors.length%7],role});
  g.updateMatrixWorld(true);const original=new T.Box3().setFromObject(g),size=original.getSize(new T.Vector3());
  const depth=pose==='stand'?(isChild?27:36):floor?48:isChild?50:74;
  g.scale.set(width/size.x,pose==='stand'?stature/size.y:1,depth/size.z);g.position.y=y-original.min.y*g.scale.y;g.rotation.y=yaw;

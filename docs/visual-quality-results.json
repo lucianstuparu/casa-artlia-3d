@@ -1,0 +1,4117 @@
+{
+  "version": "1.3.0",
+  "visual": {
+    "passed": true,
+    "measured": {
+      "floors": [
+        {
+          "id": "play",
+          "standard": true,
+          "texture": 1024,
+          "error": 2.7550591319425166e-7
+        },
+        {
+          "id": "main",
+          "standard": true,
+          "texture": 1024,
+          "error": 2.1192762567068257e-7
+        },
+        {
+          "id": "atelier",
+          "standard": true,
+          "texture": 1024,
+          "error": 2.1192762567068257e-7
+        },
+        {
+          "id": "bureau3",
+          "standard": true,
+          "texture": 1024,
+          "error": 1.5894571969710114e-7
+        },
+        {
+          "id": "kitchen_merged",
+          "standard": true,
+          "texture": 1024,
+          "error": 2.2252400722067023e-7
+        },
+        {
+          "id": "toilet",
+          "standard": true,
+          "texture": 1024,
+          "error": 4.2385525134136515e-7
+        },
+        {
+          "id": "circulation",
+          "standard": true,
+          "texture": 1024,
+          "error": 4.4504801444134046e-7
+        },
+        {
+          "id": "info",
+          "standard": true,
+          "texture": 1024,
+          "error": 1.5894571969710114e-7
+        }
+      ],
+      "human": [
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        },
+        {
+          "head": true,
+          "face": "SphereGeometry",
+          "shirt": "BufferGeometry",
+          "clothUV": true
+        }
+      ],
+      "audit": {
+        "version": "1.3.0",
+        "proceduralTextures": true,
+        "doorDetails": 20,
+        "peopleDetailed": 70,
+        "floorPlankWidthCm": 18,
+        "floorPlankLengthCm": 240,
+        "materials": "oak, woven upholstery, plaster, ceramic, brushed metal"
+      },
+      "renderer": {
+        "shadows": true,
+        "drawCalls": 3319,
+        "triangles": 954564
+      }
+    },
+    "hardware": [
+      {
+        "id": "exterior_exit",
+        "distance": 157.14657170934393,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "play_door",
+        "distance": 117.6054633084705,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "main_door",
+        "distance": 117.60546330847049,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "atelier_door",
+        "distance": 100.6729606200195,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "bureau3_door",
+        "distance": 117.60546330847046,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "kitchen_door",
+        "distance": 117.60546330847055,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "toilet_door",
+        "distance": 100.67296062001951,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "wc_door",
+        "distance": 86.57392794600462,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "info_door",
+        "distance": 107.72671442126136,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "local_door",
+        "distance": 107.72671442126128,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "box1_door",
+        "distance": 86.57392794600457,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "box2_door",
+        "distance": 86.57392794600455,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "exterior_exit",
+        "distance": 157.14657170934393,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "play_door",
+        "distance": 117.6054633084705,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "main_door",
+        "distance": 117.60546330847049,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "atelier_door",
+        "distance": 100.6729606200195,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "bureau3_door",
+        "distance": 117.60546330847046,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "kitchen_door",
+        "distance": 117.60546330847055,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "pmr_sliding_door",
+        "distance": 94,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      },
+      {
+        "id": "info_door",
+        "distance": 107.72671442126136,
+        "sameParent": true,
+        "clipped": true,
+        "localStable": true
+      }
+    ],
+    "errors": []
+  },
+  "upstairs": {
+    "passed": true,
+    "version": "1.3.0",
+    "baseUnchanged": true,
+    "downstairsLayoutUnchanged": true,
+    "shallowerHouse": true,
+    "playhouseMeasured": {
+      "deck": {
+        "min": [
+          1815,
+          419,
+          70
+        ],
+        "max": [
+          1920,
+          427,
+          340
+        ],
+        "size": [
+          105,
+          8,
+          270
+        ]
+      },
+      "post": {
+        "min": [
+          1817,
+          311,
+          73
+        ],
+        "max": [
+          1829,
+          538,
+          83
+        ],
+        "size": [
+          12,
+          227,
+          10
+        ]
+      },
+      "stairs": {
+        "min": [
+          1683.3435644778185,
+          311.99999872843426,
+          70
+        ],
+        "max": [
+          1816.6564355221815,
+          478.8724921286682,
+          135
+        ],
+        "size": [
+          133.31287104436296,
+          166.87249340023396,
+          65
+        ]
+      },
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "daily": 30,
+      "concurrent": null
+    },
+    "metrics": {
+      "children": 30,
+      "parents": 30,
+      "staff": 3,
+      "adultSeats": 30,
+      "printedRoomAreaM2": 96.27,
+      "tracedRoomAreaM2": 129.405,
+      "compactStudyAreaM2": 93.249,
+      "grossPrintedM2PerVisitor": 1.6045,
+      "rooms": {
+        "main": {
+          "children": 14,
+          "parents": 14,
+          "adultSeats": 14,
+          "printedAreaM2": 45.78,
+          "tracedAreaM2": 56.37
+        },
+        "play": {
+          "children": 4,
+          "parents": 4,
+          "adultSeats": 4,
+          "printedAreaM2": 11.84,
+          "tracedAreaM2": 16.92
+        },
+        "atelier": {
+          "children": 4,
+          "parents": 4,
+          "adultSeats": 4,
+          "printedAreaM2": 12.05,
+          "tracedAreaM2": 19.085
+        },
+        "bureau3": {
+          "children": 8,
+          "parents": 8,
+          "adultSeats": 8,
+          "printedAreaM2": 26.6,
+          "tracedAreaM2": 37.03
+        }
+      },
+      "overlaps": [],
+      "outside": [],
+      "bodies": [
+        {
+          "x": 1015,
+          "z": 55,
+          "yaw": 3.141592653589793,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 1,
+          "stature": 167,
+          "width": 52,
+          "y": 312,
+          "min": [
+            989,
+            312,
+            42.03649635036496
+          ],
+          "max": [
+            1041,
+            432.28008500000004,
+            116.03649635036496
+          ],
+          "poseHeightCm": 120.28008500000004
+        },
+        {
+          "x": 1075,
+          "z": 55,
+          "yaw": 3.141592653589793,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 2,
+          "stature": 174,
+          "width": 54,
+          "y": 312,
+          "min": [
+            1048,
+            312,
+            38.52361999767184
+          ],
+          "max": [
+            1102,
+            435.16937,
+            112.52361999767183
+          ],
+          "poseHeightCm": 123.16937000000001
+        },
+        {
+          "x": 1135,
+          "z": 55,
+          "yaw": 3.141592653589793,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 3,
+          "stature": 181,
+          "width": 56,
+          "y": 312,
+          "min": [
+            1107,
+            312,
+            42.03649635036496
+          ],
+          "max": [
+            1163,
+            438.05865500000004,
+            116.03649635036496
+          ],
+          "poseHeightCm": 126.05865500000004
+        },
+        {
+          "x": 1195,
+          "z": 55,
+          "yaw": 3.141592653589793,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 4,
+          "stature": 188,
+          "width": 58,
+          "y": 312,
+          "min": [
+            1166,
+            312,
+            42.03649635036496
+          ],
+          "max": [
+            1224,
+            440.94794,
+            116.03649635036496
+          ],
+          "poseHeightCm": 128.94794000000002
+        },
+        {
+          "x": 1255,
+          "z": 55,
+          "yaw": 3.141592653589793,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 5,
+          "stature": 166,
+          "width": 50,
+          "y": 312,
+          "min": [
+            1230,
+            312,
+            42.03649635036496
+          ],
+          "max": [
+            1280,
+            431.86733000000004,
+            116.03649635036496
+          ],
+          "poseHeightCm": 119.86733000000004
+        },
+        {
+          "x": 1315,
+          "z": 55,
+          "yaw": 3.141592653589793,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 6,
+          "stature": 173,
+          "width": 52,
+          "y": 312,
+          "min": [
+            1289,
+            312,
+            38.46918770138947
+          ],
+          "max": [
+            1341,
+            434.756615,
+            112.46918770138947
+          ],
+          "poseHeightCm": 122.75661500000001
+        },
+        {
+          "x": 1375,
+          "z": 55,
+          "yaw": 3.141592653589793,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 7,
+          "stature": 180,
+          "width": 54,
+          "y": 312,
+          "min": [
+            1348,
+            312,
+            42.03649635036496
+          ],
+          "max": [
+            1402,
+            437.64590000000004,
+            116.03649635036496
+          ],
+          "poseHeightCm": 125.64590000000004
+        },
+        {
+          "x": 1435,
+          "z": 55,
+          "yaw": 3.141592653589793,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 8,
+          "stature": 187,
+          "width": 56,
+          "y": 312,
+          "min": [
+            1407,
+            312,
+            42.03649635036496
+          ],
+          "max": [
+            1463,
+            440.535185,
+            116.03649635036496
+          ],
+          "poseHeightCm": 128.535185
+        },
+        {
+          "x": 1015,
+          "z": 370,
+          "yaw": 0,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 9,
+          "stature": 165,
+          "width": 58,
+          "y": 312,
+          "min": [
+            986.0000000000001,
+            312,
+            308.9635036496351
+          ],
+          "max": [
+            1044,
+            431.45457500000003,
+            382.963503649635
+          ],
+          "poseHeightCm": 119.45457500000003
+        },
+        {
+          "x": 1075,
+          "z": 370,
+          "yaw": 0,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 10,
+          "stature": 172,
+          "width": 50,
+          "y": 312,
+          "min": [
+            1050,
+            312,
+            312.45650823194717
+          ],
+          "max": [
+            1100,
+            434.34386000000006,
+            386.45650823194717
+          ],
+          "poseHeightCm": 122.34386000000006
+        },
+        {
+          "x": 1135,
+          "z": 370,
+          "yaw": 0,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 11,
+          "stature": 179,
+          "width": 52,
+          "y": 312,
+          "min": [
+            1109,
+            312,
+            308.9635036496351
+          ],
+          "max": [
+            1161,
+            437.23314500000004,
+            382.963503649635
+          ],
+          "poseHeightCm": 125.23314500000004
+        },
+        {
+          "x": 1195,
+          "z": 370,
+          "yaw": 0,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 12,
+          "stature": 186,
+          "width": 54,
+          "y": 312,
+          "min": [
+            1167.9999999999998,
+            312,
+            308.9635036496351
+          ],
+          "max": [
+            1222.0000000000002,
+            440.12243,
+            382.963503649635
+          ],
+          "poseHeightCm": 128.12243
+        },
+        {
+          "x": 1255,
+          "z": 370,
+          "yaw": 0,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 13,
+          "stature": 164,
+          "width": 56,
+          "y": 312,
+          "min": [
+            1227,
+            312,
+            308.9635036496351
+          ],
+          "max": [
+            1283,
+            431.04182000000003,
+            382.963503649635
+          ],
+          "poseHeightCm": 119.04182000000003
+        },
+        {
+          "x": 1315,
+          "z": 370,
+          "yaw": 0,
+          "room": "main",
+          "role": "parent",
+          "pose": "sit",
+          "number": 14,
+          "stature": 171,
+          "width": 58,
+          "y": 312,
+          "min": [
+            1285.9999999999998,
+            312,
+            312.25470399105365
+          ],
+          "max": [
+            1344.0000000000002,
+            433.93110500000006,
+            386.25470399105365
+          ],
+          "poseHeightCm": 121.93110500000006
+        },
+        {
+          "x": 1175,
+          "z": 145,
+          "h": 108,
+          "pose": "sit",
+          "yaw": 3.141592653589793,
+          "stature": 108,
+          "room": "main",
+          "role": "child",
+          "number": 1,
+          "localNumber": 1,
+          "width": 30,
+          "y": 312,
+          "min": [
+            1160,
+            312,
+            137.3173899965086
+          ],
+          "max": [
+            1190,
+            402.9005,
+            187.31738999650858
+          ],
+          "poseHeightCm": 90.90050000000002
+        },
+        {
+          "x": 1285,
+          "z": 145,
+          "h": 116,
+          "pose": "sit",
+          "yaw": 3.141592653589793,
+          "stature": 116,
+          "room": "main",
+          "role": "child",
+          "number": 2,
+          "localNumber": 2,
+          "width": 33,
+          "y": 312,
+          "min": [
+            1268.5,
+            312,
+            137.26249684131568
+          ],
+          "max": [
+            1301.5,
+            405.36350000000004,
+            187.2624968413157
+          ],
+          "poseHeightCm": 93.36350000000004
+        },
+        {
+          "x": 1175,
+          "z": 275,
+          "h": 124,
+          "pose": "sit",
+          "yaw": 0,
+          "stature": 124,
+          "room": "main",
+          "role": "child",
+          "number": 3,
+          "localNumber": 3,
+          "width": 36,
+          "y": 312,
+          "min": [
+            1157,
+            312,
+            232.51106374530775
+          ],
+          "max": [
+            1193,
+            407.8265,
+            282.51106374530775
+          ],
+          "poseHeightCm": 95.82650000000001
+        },
+        {
+          "x": 1285,
+          "z": 275,
+          "h": 132,
+          "pose": "sit",
+          "yaw": 0,
+          "stature": 132,
+          "room": "main",
+          "role": "child",
+          "number": 4,
+          "localNumber": 4,
+          "width": 39,
+          "y": 312,
+          "min": [
+            1265.5,
+            312,
+            236.2130266768183
+          ],
+          "max": [
+            1304.5,
+            410.28950000000003,
+            286.2130266768183
+          ],
+          "poseHeightCm": 98.28950000000003
+        },
+        {
+          "x": 1030,
+          "z": 190,
+          "h": 98,
+          "pose": "floor",
+          "stature": 98,
+          "room": "main",
+          "role": "child",
+          "number": 5,
+          "localNumber": 5,
+          "width": 30,
+          "y": 312,
+          "min": [
+            1015,
+            312,
+            151.42832237883377
+          ],
+          "max": [
+            1045,
+            376.4815844877176,
+            199.42832237883377
+          ],
+          "poseHeightCm": 64.48158448771761
+        },
+        {
+          "x": 1100,
+          "z": 190,
+          "h": 108,
+          "pose": "floor",
+          "stature": 108,
+          "room": "main",
+          "role": "child",
+          "number": 6,
+          "localNumber": 6,
+          "width": 33,
+          "y": 312,
+          "min": [
+            1083.5,
+            312,
+            151.84384345566573
+          ],
+          "max": [
+            1116.5,
+            379.56033448771757,
+            199.84384345566573
+          ],
+          "poseHeightCm": 67.56033448771757
+        },
+        {
+          "x": 1030,
+          "z": 260,
+          "h": 116,
+          "pose": "floor",
+          "stature": 116,
+          "room": "main",
+          "role": "child",
+          "number": 7,
+          "localNumber": 7,
+          "width": 36,
+          "y": 312,
+          "min": [
+            1012,
+            312,
+            221.90987631508796
+          ],
+          "max": [
+            1047.9999999999998,
+            382.02333448771753,
+            269.90987631508796
+          ],
+          "poseHeightCm": 70.02333448771753
+        },
+        {
+          "x": 1100,
+          "z": 260,
+          "h": 104,
+          "pose": "floor",
+          "stature": 104,
+          "room": "main",
+          "role": "child",
+          "number": 8,
+          "localNumber": 8,
+          "width": 39,
+          "y": 312,
+          "min": [
+            1080.5,
+            312,
+            225.8060250077854
+          ],
+          "max": [
+            1119.5,
+            378.3288344877176,
+            273.8060250077854
+          ],
+          "poseHeightCm": 66.32883448771759
+        },
+        {
+          "x": 1370,
+          "z": 180,
+          "h": 120,
+          "pose": "stand",
+          "stature": 120,
+          "room": "main",
+          "role": "child",
+          "number": 9,
+          "localNumber": 9,
+          "width": 30,
+          "y": 312,
+          "min": [
+            1355,
+            312.00000000000006,
+            163.60520865991307
+          ],
+          "max": [
+            1385,
+            432,
+            190.60520865991307
+          ],
+          "poseHeightCm": 119.99999999999994
+        },
+        {
+          "x": 1450,
+          "z": 180,
+          "h": 130,
+          "pose": "stand",
+          "stature": 130,
+          "room": "main",
+          "role": "child",
+          "number": 10,
+          "localNumber": 10,
+          "width": 33,
+          "y": 312,
+          "min": [
+            1433.5,
+            312,
+            163.98667929342892
+          ],
+          "max": [
+            1466.5,
+            442,
+            190.98667929342895
+          ],
+          "poseHeightCm": 130
+        },
+        {
+          "x": 1867.5,
+          "z": 150,
+          "h": 90,
+          "pose": "floor",
+          "location": "under_house",
+          "stature": 90,
+          "room": "main",
+          "role": "child",
+          "number": 11,
+          "localNumber": 11,
+          "width": 36,
+          "y": 312,
+          "min": [
+            1849.5,
+            312,
+            111.69442915103568
+          ],
+          "max": [
+            1885.5,
+            374.0185844877176,
+            159.69442915103565
+          ],
+          "poseHeightCm": 62.01858448771759
+        },
+        {
+          "x": 1867.5,
+          "z": 265,
+          "h": 105,
+          "pose": "floor",
+          "location": "under_house",
+          "stature": 105,
+          "room": "main",
+          "role": "child",
+          "number": 12,
+          "localNumber": 12,
+          "width": 39,
+          "y": 312,
+          "min": [
+            1848,
+            312,
+            230.9155913901482
+          ],
+          "max": [
+            1887,
+            378.6367094877176,
+            278.91559139014817
+          ],
+          "poseHeightCm": 66.63670948771761
+        },
+        {
+          "x": 1870,
+          "z": 220,
+          "h": 95,
+          "pose": "stand",
+          "y": 427,
+          "location": "loft",
+          "stature": 95,
+          "room": "main",
+          "role": "child",
+          "number": 13,
+          "localNumber": 13,
+          "width": 30,
+          "min": [
+            1855,
+            427.00000000000006,
+            203.74814748945707
+          ],
+          "max": [
+            1885,
+            522,
+            230.74814748945707
+          ],
+          "poseHeightCm": 94.99999999999994
+        },
+        {
+          "x": 1550,
+          "z": 200,
+          "h": 138,
+          "pose": "stand",
+          "stature": 138,
+          "room": "main",
+          "role": "child",
+          "number": 14,
+          "localNumber": 14,
+          "width": 33,
+          "y": 312,
+          "min": [
+            1533.5,
+            312,
+            183.72475840049958
+          ],
+          "max": [
+            1566.5,
+            450.00000000000006,
+            210.72475840049958
+          ],
+          "poseHeightCm": 138.00000000000006
+        },
+        {
+          "x": 540,
+          "z": 55,
+          "yaw": 3.141592653589793,
+          "room": "play",
+          "role": "parent",
+          "pose": "sit",
+          "number": 15,
+          "stature": 178,
+          "width": 50,
+          "y": 312,
+          "min": [
+            515,
+            312,
+            42.03649635036496
+          ],
+          "max": [
+            565,
+            436.82039000000003,
+            116.03649635036496
+          ],
+          "poseHeightCm": 124.82039000000003
+        },
+        {
+          "x": 620,
+          "z": 55,
+          "yaw": 3.141592653589793,
+          "room": "play",
+          "role": "parent",
+          "pose": "sit",
+          "number": 16,
+          "stature": 185,
+          "width": 52,
+          "y": 312,
+          "min": [
+            593.9999999999999,
+            312,
+            37.59227816116177
+          ],
+          "max": [
+            646.0000000000001,
+            439.70967500000006,
+            111.59227816116177
+          ],
+          "poseHeightCm": 127.70967500000006
+        },
+        {
+          "x": 700,
+          "z": 55,
+          "yaw": 3.141592653589793,
+          "room": "play",
+          "role": "parent",
+          "pose": "sit",
+          "number": 17,
+          "stature": 163,
+          "width": 54,
+          "y": 312,
+          "min": [
+            673,
+            312,
+            42.03649635036496
+          ],
+          "max": [
+            727,
+            430.629065,
+            116.03649635036496
+          ],
+          "poseHeightCm": 118.62906500000003
+        },
+        {
+          "x": 780,
+          "z": 55,
+          "yaw": 3.141592653589793,
+          "room": "play",
+          "role": "parent",
+          "pose": "sit",
+          "number": 18,
+          "stature": 170,
+          "width": 56,
+          "y": 312,
+          "min": [
+            752,
+            312,
+            42.03649635036496
+          ],
+          "max": [
+            808,
+            433.51835,
+            116.03649635036496
+          ],
+          "poseHeightCm": 121.51835
+        },
+        {
+          "x": 565,
+          "z": 180,
+          "h": 95,
+          "pose": "stand",
+          "yaw": 1.5707963267948966,
+          "stature": 95,
+          "room": "play",
+          "role": "child",
+          "number": 15,
+          "localNumber": 1,
+          "width": 30,
+          "y": 312,
+          "min": [
+            548.5652173913044,
+            312.00000000000006,
+            164.99999999999997
+          ],
+          "max": [
+            575.5652173913044,
+            407,
+            195.00000000000003
+          ],
+          "poseHeightCm": 94.99999999999994
+        },
+        {
+          "x": 775,
+          "z": 180,
+          "h": 116,
+          "pose": "stand",
+          "yaw": -1.5707963267948966,
+          "stature": 116,
+          "room": "play",
+          "role": "child",
+          "number": 16,
+          "localNumber": 2,
+          "width": 33,
+          "y": 312,
+          "min": [
+            760.7934388078261,
+            312,
+            163.5
+          ],
+          "max": [
+            787.7934388078262,
+            428,
+            196.5
+          ],
+          "poseHeightCm": 116
+        },
+        {
+          "x": 645,
+          "z": 235,
+          "h": 103,
+          "pose": "floor",
+          "stature": 103,
+          "room": "play",
+          "role": "child",
+          "number": 17,
+          "localNumber": 3,
+          "width": 36,
+          "y": 312,
+          "min": [
+            627,
+            312,
+            196.80245652950467
+          ],
+          "max": [
+            663,
+            378.02095948771756,
+            244.80245652950467
+          ],
+          "poseHeightCm": 66.02095948771756
+        },
+        {
+          "x": 685,
+          "z": 155,
+          "h": 125,
+          "pose": "stand",
+          "stature": 125,
+          "room": "play",
+          "role": "child",
+          "number": 18,
+          "localNumber": 4,
+          "width": 39,
+          "y": 312,
+          "min": [
+            665.5,
+            312,
+            139.2366405094788
+          ],
+          "max": [
+            704.5,
+            437.00000000000006,
+            166.2366405094788
+          ],
+          "poseHeightCm": 125.00000000000006
+        },
+        {
+          "x": 85,
+          "z": 550,
+          "yaw": 3.141592653589793,
+          "room": "atelier",
+          "role": "parent",
+          "pose": "sit",
+          "number": 19,
+          "stature": 177,
+          "width": 58,
+          "y": 312,
+          "min": [
+            56,
+            312,
+            537.0364963503649
+          ],
+          "max": [
+            114,
+            436.407635,
+            611.0364963503649
+          ],
+          "poseHeightCm": 124.40763500000003
+        },
+        {
+          "x": 145,
+          "z": 550,
+          "yaw": 3.141592653589793,
+          "room": "atelier",
+          "role": "parent",
+          "pose": "sit",
+          "number": 20,
+          "stature": 184,
+          "width": 50,
+          "y": 312,
+          "min": [
+            120,
+            312,
+            532.9701111986806
+          ],
+          "max": [
+            170,
+            439.29692,
+            606.9701111986806
+          ],
+          "poseHeightCm": 127.29692
+        },
+        {
+          "x": 205,
+          "z": 550,
+          "yaw": 3.141592653589793,
+          "room": "atelier",
+          "role": "parent",
+          "pose": "sit",
+          "number": 21,
+          "stature": 162,
+          "width": 52,
+          "y": 312,
+          "min": [
+            179,
+            312,
+            537.0364963503649
+          ],
+          "max": [
+            231,
+            430.21631,
+            611.0364963503649
+          ],
+          "poseHeightCm": 118.21631000000002
+        },
+        {
+          "x": 265,
+          "z": 550,
+          "yaw": 3.141592653589793,
+          "room": "atelier",
+          "role": "parent",
+          "pose": "sit",
+          "number": 22,
+          "stature": 169,
+          "width": 54,
+          "y": 312,
+          "min": [
+            238,
+            312,
+            537.0364963503649
+          ],
+          "max": [
+            292,
+            433.105595,
+            611.0364963503649
+          ],
+          "poseHeightCm": 121.105595
+        },
+        {
+          "x": 105,
+          "z": 630,
+          "h": 108,
+          "pose": "sit",
+          "yaw": -1.5707963267948966,
+          "stature": 108,
+          "room": "atelier",
+          "role": "child",
+          "number": 19,
+          "localNumber": 1,
+          "width": 30,
+          "y": 312,
+          "min": [
+            97.31738999650861,
+            312,
+            615
+          ],
+          "max": [
+            147.31738999650858,
+            402.9005,
+            645
+          ],
+          "poseHeightCm": 90.90050000000002
+        },
+        {
+          "x": 105,
+          "z": 690,
+          "h": 118,
+          "pose": "sit",
+          "yaw": -1.5707963267948966,
+          "stature": 118,
+          "room": "atelier",
+          "role": "child",
+          "number": 20,
+          "localNumber": 2,
+          "width": 33,
+          "y": 312,
+          "min": [
+            93.80406483055214,
+            312,
+            673.5
+          ],
+          "max": [
+            143.80406483055208,
+            405.97925000000004,
+            706.5
+          ],
+          "poseHeightCm": 93.97925000000004
+        },
+        {
+          "x": 305,
+          "z": 630,
+          "h": 124,
+          "pose": "sit",
+          "yaw": 1.5707963267948966,
+          "stature": 124,
+          "room": "atelier",
+          "role": "child",
+          "number": 21,
+          "localNumber": 3,
+          "width": 36,
+          "y": 312,
+          "min": [
+            262.20652999869867,
+            312,
+            612
+          ],
+          "max": [
+            312.20652999869867,
+            407.8265,
+            648
+          ],
+          "poseHeightCm": 95.82650000000001
+        },
+        {
+          "x": 305,
+          "z": 690,
+          "h": 134,
+          "pose": "sit",
+          "yaw": 1.5707963267948966,
+          "stature": 134,
+          "room": "atelier",
+          "role": "child",
+          "number": 22,
+          "localNumber": 4,
+          "width": 39,
+          "y": 312,
+          "min": [
+            262.57714795958026,
+            312,
+            670.5
+          ],
+          "max": [
+            312.5771479595803,
+            410.9052500000001,
+            709.5
+          ],
+          "poseHeightCm": 98.90525000000008
+        },
+        {
+          "x": 55,
+          "z": 1350,
+          "yaw": -1.5707963267948966,
+          "room": "bureau3",
+          "role": "parent",
+          "pose": "sit",
+          "number": 23,
+          "stature": 176,
+          "width": 56,
+          "y": 312,
+          "min": [
+            42.036496350364956,
+            312,
+            1322
+          ],
+          "max": [
+            116.03649635036496,
+            435.9948800000001,
+            1378
+          ],
+          "poseHeightCm": 123.99488000000008
+        },
+        {
+          "x": 55,
+          "z": 1410,
+          "yaw": -1.5707963267948966,
+          "room": "bureau3",
+          "role": "parent",
+          "pose": "sit",
+          "number": 24,
+          "stature": 183,
+          "width": 58,
+          "y": 312,
+          "min": [
+            37.73656660082254,
+            312,
+            1381
+          ],
+          "max": [
+            111.73656660082248,
+            438.88416500000005,
+            1439
+          ],
+          "poseHeightCm": 126.88416500000005
+        },
+        {
+          "x": 55,
+          "z": 1470,
+          "yaw": -1.5707963267948966,
+          "room": "bureau3",
+          "role": "parent",
+          "pose": "sit",
+          "number": 25,
+          "stature": 161,
+          "width": 50,
+          "y": 312,
+          "min": [
+            42.036496350364956,
+            312,
+            1445
+          ],
+          "max": [
+            116.03649635036496,
+            429.803555,
+            1495
+          ],
+          "poseHeightCm": 117.80355500000002
+        },
+        {
+          "x": 55,
+          "z": 1530,
+          "yaw": -1.5707963267948966,
+          "room": "bureau3",
+          "role": "parent",
+          "pose": "sit",
+          "number": 26,
+          "stature": 168,
+          "width": 52,
+          "y": 312,
+          "min": [
+            42.036496350364956,
+            312,
+            1504
+          ],
+          "max": [
+            116.03649635036496,
+            432.69284000000005,
+            1556
+          ],
+          "poseHeightCm": 120.69284000000005
+        },
+        {
+          "x": 415,
+          "z": 1350,
+          "yaw": 1.5707963267948966,
+          "room": "bureau3",
+          "role": "parent",
+          "pose": "sit",
+          "number": 27,
+          "stature": 175,
+          "width": 54,
+          "y": 312,
+          "min": [
+            353.963503649635,
+            312,
+            1323
+          ],
+          "max": [
+            427.963503649635,
+            435.582125,
+            1377
+          ],
+          "poseHeightCm": 123.58212500000002
+        },
+        {
+          "x": 415,
+          "z": 1410,
+          "yaw": 1.5707963267948966,
+          "room": "bureau3",
+          "role": "parent",
+          "pose": "sit",
+          "number": 28,
+          "stature": 182,
+          "width": 56,
+          "y": 312,
+          "min": [
+            358.191012917345,
+            312,
+            1382
+          ],
+          "max": [
+            432.19101291734495,
+            438.47141,
+            1438
+          ],
+          "poseHeightCm": 126.47140999999999
+        },
+        {
+          "x": 415,
+          "z": 1470,
+          "yaw": 1.5707963267948966,
+          "room": "bureau3",
+          "role": "parent",
+          "pose": "sit",
+          "number": 29,
+          "stature": 160,
+          "width": 58,
+          "y": 312,
+          "min": [
+            353.963503649635,
+            312,
+            1441
+          ],
+          "max": [
+            427.963503649635,
+            429.3908,
+            1499
+          ],
+          "poseHeightCm": 117.39080000000001
+        },
+        {
+          "x": 415,
+          "z": 1530,
+          "yaw": 1.5707963267948966,
+          "room": "bureau3",
+          "role": "parent",
+          "pose": "sit",
+          "number": 30,
+          "stature": 167,
+          "width": 50,
+          "y": 312,
+          "min": [
+            353.963503649635,
+            312,
+            1505
+          ],
+          "max": [
+            427.963503649635,
+            432.28008500000004,
+            1555
+          ],
+          "poseHeightCm": 120.28008500000004
+        },
+        {
+          "x": 190,
+          "z": 1110,
+          "h": 106,
+          "pose": "sit",
+          "yaw": 3.141592653589793,
+          "stature": 106,
+          "room": "bureau3",
+          "role": "child",
+          "number": 23,
+          "localNumber": 1,
+          "width": 30,
+          "y": 312,
+          "min": [
+            175,
+            312,
+            1102.857142857143
+          ],
+          "max": [
+            205,
+            402.28475000000003,
+            1152.857142857143
+          ],
+          "poseHeightCm": 90.28475000000003
+        },
+        {
+          "x": 280,
+          "z": 1110,
+          "h": 114,
+          "pose": "sit",
+          "yaw": 3.141592653589793,
+          "stature": 114,
+          "room": "bureau3",
+          "role": "child",
+          "number": 24,
+          "localNumber": 2,
+          "width": 33,
+          "y": 312,
+          "min": [
+            263.5,
+            312,
+            1098.8419621804806
+          ],
+          "max": [
+            296.5,
+            404.74775,
+            1148.8419621804806
+          ],
+          "poseHeightCm": 92.74775
+        },
+        {
+          "x": 190,
+          "z": 1290,
+          "h": 125,
+          "pose": "sit",
+          "stature": 125,
+          "room": "bureau3",
+          "role": "child",
+          "number": 25,
+          "localNumber": 3,
+          "width": 36,
+          "y": 312,
+          "min": [
+            171.99999999999997,
+            312,
+            1247.799087979125
+          ],
+          "max": [
+            208.00000000000003,
+            408.13437500000003,
+            1297.7990879791248
+          ],
+          "poseHeightCm": 96.13437500000003
+        },
+        {
+          "x": 280,
+          "z": 1290,
+          "h": 136,
+          "pose": "sit",
+          "stature": 136,
+          "room": "bureau3",
+          "role": "child",
+          "number": 26,
+          "localNumber": 4,
+          "width": 39,
+          "y": 312,
+          "min": [
+            260.5,
+            312,
+            1247.8741150068372
+          ],
+          "max": [
+            299.5,
+            411.521,
+            1297.874115006837
+          ],
+          "poseHeightCm": 99.52100000000002
+        },
+        {
+          "x": 155,
+          "z": 1420,
+          "h": 90,
+          "pose": "floor",
+          "stature": 90,
+          "room": "bureau3",
+          "role": "child",
+          "number": 27,
+          "localNumber": 5,
+          "width": 30,
+          "y": 312,
+          "min": [
+            140,
+            312,
+            1381.3636206512103
+          ],
+          "max": [
+            170,
+            374.0185844877176,
+            1429.3636206512103
+          ],
+          "poseHeightCm": 62.01858448771759
+        },
+        {
+          "x": 300,
+          "z": 1420,
+          "h": 105,
+          "pose": "floor",
+          "stature": 105,
+          "room": "bureau3",
+          "role": "child",
+          "number": 28,
+          "localNumber": 6,
+          "width": 33,
+          "y": 312,
+          "min": [
+            283.5,
+            312,
+            1385.6876807675126
+          ],
+          "max": [
+            316.5,
+            378.6367094877176,
+            1433.6876807675126
+          ],
+          "poseHeightCm": 66.63670948771761
+        },
+        {
+          "x": 155,
+          "z": 1510,
+          "h": 116,
+          "pose": "floor",
+          "stature": 116,
+          "room": "bureau3",
+          "role": "child",
+          "number": 29,
+          "localNumber": 7,
+          "width": 36,
+          "y": 312,
+          "min": [
+            137,
+            312,
+            1471.5731119191028
+          ],
+          "max": [
+            173,
+            382.02333448771753,
+            1519.5731119191025
+          ],
+          "poseHeightCm": 70.02333448771753
+        },
+        {
+          "x": 300,
+          "z": 1510,
+          "h": 128,
+          "pose": "floor",
+          "stature": 128,
+          "room": "bureau3",
+          "role": "child",
+          "number": 30,
+          "localNumber": 8,
+          "width": 39,
+          "y": 312,
+          "min": [
+            280.5,
+            312,
+            1472.0084981782252
+          ],
+          "max": [
+            319.5,
+            385.71783448771754,
+            1520.008498178225
+          ],
+          "poseHeightCm": 73.71783448771754
+        },
+        {
+          "room": "main",
+          "x": 1380,
+          "z": 360,
+          "h": 178,
+          "yaw": 0,
+          "stature": 178,
+          "width": 54,
+          "role": "staff",
+          "number": 1,
+          "pose": "stand",
+          "y": 312,
+          "min": [
+            1353,
+            312,
+            339.1578947368421
+          ],
+          "max": [
+            1407,
+            489.99999999999994,
+            375.1578947368421
+          ],
+          "poseHeightCm": 177.99999999999994
+        },
+        {
+          "room": "atelier",
+          "x": 100,
+          "z": 745,
+          "h": 174,
+          "yaw": 3.141592653589793,
+          "stature": 174,
+          "width": 54,
+          "role": "staff",
+          "number": 2,
+          "pose": "stand",
+          "y": 312,
+          "min": [
+            72.99999999999999,
+            312,
+            727.1744824710064
+          ],
+          "max": [
+            127.00000000000001,
+            486.0000000000001,
+            763.1744824710064
+          ],
+          "poseHeightCm": 174.0000000000001
+        },
+        {
+          "room": "bureau3",
+          "x": 380,
+          "z": 1095,
+          "h": 180,
+          "yaw": 1.5707963267948966,
+          "stature": 180,
+          "width": 54,
+          "role": "staff",
+          "number": 3,
+          "pose": "stand",
+          "y": 312,
+          "min": [
+            359.1578947368421,
+            312,
+            1068
+          ],
+          "max": [
+            395.1578947368421,
+            492,
+            1122
+          ],
+          "poseHeightCm": 180
+        }
+      ],
+      "verdict": "busy_conditional_study; site areas and final fitout require verification"
+    },
+    "actorMeasurements": [
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 167,
+        "width": 52,
+        "actual": [
+          52,
+          120.28008500000004,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000022973633235778834
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 174,
+        "width": 54,
+        "actual": [
+          54,
+          123.16937000000001,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000025585937351024768
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 181,
+        "width": 56,
+        "actual": [
+          56,
+          126.05865500000004,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 2.148437943105821e-7
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 188,
+        "width": 58,
+        "actual": [
+          58,
+          128.94794000000002,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000029882812668802217
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 166,
+        "width": 50,
+        "actual": [
+          50,
+          119.86733000000004,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.000002458496055623982
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 173,
+        "width": 52,
+        "actual": [
+          52,
+          122.75661500000001,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 3.149414169456577e-7
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 180,
+        "width": 54,
+        "actual": [
+          54,
+          125.64590000000004,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000030883789463587163
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 187,
+        "width": 56,
+        "actual": [
+          56,
+          128.535185,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000017675781123216439
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 165,
+        "width": 58,
+        "actual": [
+          57.999999999999886,
+          119.45457500000003,
+          73.99999999999994
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 4.150390964241913e-7
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 172,
+        "width": 50,
+        "actual": [
+          50,
+          122.34386000000006,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.000003188476625837211
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 179,
+        "width": 52,
+        "actual": [
+          52,
+          125.23314500000004,
+          73.99999999999994
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.000001667480432843151
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 186,
+        "width": 54,
+        "actual": [
+          54.000000000000455,
+          128.12243,
+          73.99999999999994
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.000006523437491523526
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 164,
+        "width": 56,
+        "actual": [
+          56,
+          119.04182000000003,
+          73.99999999999994
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000032885742484722877
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 171,
+        "width": 58,
+        "actual": [
+          58.000000000000455,
+          121.93110500000006,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000015673827533647206
+      },
+      {
+        "role": "child",
+        "pose": "sit",
+        "stature": 108,
+        "width": 30,
+        "actual": [
+          30,
+          90.90050000000002,
+          49.99999999999997
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.00000256347658478262
+      },
+      {
+        "role": "child",
+        "pose": "sit",
+        "stature": 116,
+        "width": 33,
+        "actual": [
+          33,
+          93.36350000000004,
+          50.00000000000003
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.00000250244136168476
+      },
+      {
+        "role": "child",
+        "pose": "sit",
+        "stature": 124,
+        "width": 36,
+        "actual": [
+          36,
+          95.82650000000001,
+          50
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 6.103516625444172e-8
+      },
+      {
+        "role": "child",
+        "pose": "sit",
+        "stature": 132,
+        "width": 39,
+        "actual": [
+          39,
+          98.28950000000003,
+          50
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.000002624511751037062
+      },
+      {
+        "role": "child",
+        "pose": "floor",
+        "stature": 98,
+        "width": 30,
+        "actual": [
+          30,
+          64.48158448771761,
+          48
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000018461160493643547
+      },
+      {
+        "role": "child",
+        "pose": "floor",
+        "stature": 108,
+        "width": 33,
+        "actual": [
+          33,
+          67.56033448771757,
+          48
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000012357644436633564
+      },
+      {
+        "role": "child",
+        "pose": "floor",
+        "stature": 116,
+        "width": 36,
+        "actual": [
+          35.99999999999977,
+          70.02333448771753,
+          48
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000037992409716025712
+      },
+      {
+        "role": "child",
+        "pose": "floor",
+        "stature": 104,
+        "width": 39,
+        "actual": [
+          39,
+          66.32883448771759,
+          48.00000000000003
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 4.5973820306261876e-8
+      },
+      {
+        "role": "child",
+        "pose": "stand",
+        "stature": 120,
+        "width": 30,
+        "actual": [
+          30,
+          119.99999999999994,
+          27
+        ],
+        "base": 312.00000000000006,
+        "targetBase": 312,
+        "proxy": 5.684341886080802e-14
+      },
+      {
+        "role": "child",
+        "pose": "stand",
+        "stature": 130,
+        "width": 33,
+        "actual": [
+          33,
+          130,
+          27.00000000000003
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 2.842170943040401e-14
+      },
+      {
+        "role": "child",
+        "pose": "floor",
+        "stature": 90,
+        "width": 36,
+        "actual": [
+          36,
+          62.01858448771759,
+          47.99999999999997
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 7.173605354182666e-7
+      },
+      {
+        "role": "child",
+        "pose": "floor",
+        "stature": 105,
+        "width": 39,
+        "actual": [
+          39,
+          66.63670948771761,
+          47.99999999999997
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000016328878587046351
+      },
+      {
+        "role": "child",
+        "pose": "stand",
+        "stature": 95,
+        "width": 30,
+        "actual": [
+          30,
+          94.99999999999994,
+          27
+        ],
+        "base": 427.00000000000006,
+        "targetBase": 427,
+        "proxy": 5.684341886080802e-14
+      },
+      {
+        "role": "child",
+        "pose": "stand",
+        "stature": 138,
+        "width": 33,
+        "actual": [
+          33,
+          138.00000000000006,
+          27
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 5.684341886080802e-14
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 178,
+        "width": 50,
+        "actual": [
+          50,
+          124.82039000000003,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000012060547192049853
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 185,
+        "width": 52,
+        "actual": [
+          52.00000000000023,
+          127.70967500000006,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000036499022826319632
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 163,
+        "width": 54,
+        "actual": [
+          54,
+          118.62906500000003,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000014672851307295787
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 170,
+        "width": 56,
+        "actual": [
+          56,
+          121.51835,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000013061523418400611
+      },
+      {
+        "role": "child",
+        "pose": "stand",
+        "stature": 95,
+        "width": 30,
+        "actual": [
+          27,
+          94.99999999999994,
+          30.000000000000057
+        ],
+        "base": 312.00000000000006,
+        "targetBase": 312,
+        "proxy": 9.19745837535342e-14
+      },
+      {
+        "role": "child",
+        "pose": "stand",
+        "stature": 116,
+        "width": 33,
+        "actual": [
+          27.000000000000114,
+          116,
+          33
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 1.1368683772161603e-13
+      },
+      {
+        "role": "child",
+        "pose": "floor",
+        "stature": 103,
+        "width": 36,
+        "actual": [
+          36,
+          66.02095948771756,
+          48
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.000001540940218092146
+      },
+      {
+        "role": "child",
+        "pose": "stand",
+        "stature": 125,
+        "width": 39,
+        "actual": [
+          39,
+          125.00000000000006,
+          27
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 5.684341886080802e-14
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 177,
+        "width": 58,
+        "actual": [
+          58,
+          124.40763500000003,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000035498046599968802
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 184,
+        "width": 50,
+        "actual": [
+          50,
+          127.29692,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 7.763671874272404e-7
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 162,
+        "width": 52,
+        "actual": [
+          52,
+          118.21631000000002,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000014062500213185558
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 169,
+        "width": 54,
+        "actual": [
+          54,
+          121.105595,
+          74
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000034497070373618044
+      },
+      {
+        "role": "child",
+        "pose": "sit",
+        "stature": 108,
+        "width": 30,
+        "actual": [
+          49.99999999999997,
+          90.90050000000002,
+          30
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.00000256347658478262
+      },
+      {
+        "role": "child",
+        "pose": "sit",
+        "stature": 118,
+        "width": 33,
+        "actual": [
+          49.99999999999994,
+          93.97925000000004,
+          33
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000019531250359250416
+      },
+      {
+        "role": "child",
+        "pose": "sit",
+        "stature": 124,
+        "width": 36,
+        "actual": [
+          50,
+          95.82650000000001,
+          36
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 6.103516625444172e-8
+      },
+      {
+        "role": "child",
+        "pose": "sit",
+        "stature": 134,
+        "width": 39,
+        "actual": [
+          50.00000000000006,
+          98.90525000000008,
+          39
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 5.493163257597248e-7
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 176,
+        "width": 56,
+        "actual": [
+          74,
+          123.99488000000008,
+          56
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 6.762694511053269e-7
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 183,
+        "width": 58,
+        "actual": [
+          73.99999999999994,
+          126.88416500000005,
+          58
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000020971680214643138
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 161,
+        "width": 50,
+        "actual": [
+          74,
+          117.80355500000002,
+          50
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000033496093578833097
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 168,
+        "width": 52,
+        "actual": [
+          74,
+          120.69284000000005,
+          52
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 5.761718284702511e-7
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 175,
+        "width": 54,
+        "actual": [
+          74,
+          123.58212500000002,
+          54
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000021972656440993887
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 182,
+        "width": 56,
+        "actual": [
+          73.99999999999994,
+          126.47140999999999,
+          56
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000026586914145809727
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 160,
+        "width": 58,
+        "actual": [
+          74,
+          117.39080000000001,
+          58
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 4.7607420583517523e-7
+      },
+      {
+        "role": "parent",
+        "pose": "sit",
+        "stature": 167,
+        "width": 50,
+        "actual": [
+          74,
+          120.28008500000004,
+          50
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000022973633235778834
+      },
+      {
+        "role": "child",
+        "pose": "sit",
+        "stature": 106,
+        "width": 30,
+        "actual": [
+          30,
+          90.28475000000003,
+          50
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000018920898128271801
+      },
+      {
+        "role": "child",
+        "pose": "sit",
+        "stature": 114,
+        "width": 33,
+        "actual": [
+          33,
+          92.74775,
+          50
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 6.713867151120212e-7
+      },
+      {
+        "role": "child",
+        "pose": "sit",
+        "stature": 125,
+        "width": 36,
+        "actual": [
+          36.00000000000006,
+          96.13437500000003,
+          49.99999999999977
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000015258788721439836
+      },
+      {
+        "role": "child",
+        "pose": "sit",
+        "stature": 136,
+        "width": 39,
+        "actual": [
+          39,
+          99.52100000000002,
+          49.99999999999977
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000037231445162433514
+      },
+      {
+        "role": "child",
+        "pose": "floor",
+        "stature": 90,
+        "width": 30,
+        "actual": [
+          30,
+          62.01858448771759,
+          48
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 7.173605354182655e-7
+      },
+      {
+        "role": "child",
+        "pose": "floor",
+        "stature": 105,
+        "width": 33,
+        "actual": [
+          33,
+          66.63670948771761,
+          48
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000016328878587046347
+      },
+      {
+        "role": "child",
+        "pose": "floor",
+        "stature": 116,
+        "width": 36,
+        "actual": [
+          36,
+          70.02333448771753,
+          47.99999999999977
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0.0000037992409716025712
+      },
+      {
+        "role": "child",
+        "pose": "floor",
+        "stature": 128,
+        "width": 39,
+        "actual": [
+          39,
+          73.71783448771754,
+          47.99999999999977
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 1.50612891082111e-8
+      },
+      {
+        "role": "staff",
+        "pose": "stand",
+        "stature": 178,
+        "width": 54,
+        "actual": [
+          54,
+          177.99999999999994,
+          36
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 5.684341886080802e-14
+      },
+      {
+        "role": "staff",
+        "pose": "stand",
+        "stature": 174,
+        "width": 54,
+        "actual": [
+          54.00000000000003,
+          174.0000000000001,
+          36
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 1.1718571004216928e-13
+      },
+      {
+        "role": "staff",
+        "pose": "stand",
+        "stature": 180,
+        "width": 54,
+        "actual": [
+          36,
+          180,
+          54
+        ],
+        "base": 312,
+        "targetBase": 312,
+        "proxy": 0
+      }
+    ],
+    "navigation": {
+      "main": {
+        "ok": true,
+        "back": true,
+        "feet": 312,
+        "reached": [
+          [
+            400,
+            335
+          ],
+          [
+            400,
+            440
+          ],
+          [
+            650,
+            480
+          ],
+          [
+            810,
+            510
+          ],
+          [
+            1000,
+            480
+          ],
+          [
+            1450,
+            435
+          ],
+          [
+            1900,
+            420
+          ]
+        ]
+      },
+      "play": {
+        "ok": true,
+        "back": true,
+        "feet": 312,
+        "reached": [
+          [
+            400,
+            335
+          ],
+          [
+            400,
+            440
+          ],
+          [
+            650,
+            480
+          ],
+          [
+            680,
+            420
+          ],
+          [
+            700,
+            380
+          ],
+          [
+            720,
+            320
+          ],
+          [
+            720,
+            270
+          ]
+        ]
+      },
+      "bureau3": {
+        "ok": true,
+        "back": true,
+        "feet": 312,
+        "reached": [
+          [
+            400,
+            335
+          ],
+          [
+            400,
+            440
+          ],
+          [
+            650,
+            480
+          ],
+          [
+            550,
+            700
+          ],
+          [
+            550,
+            900
+          ],
+          [
+            600,
+            900
+          ],
+          [
+            600,
+            1030
+          ],
+          [
+            550,
+            1003
+          ],
+          [
+            440,
+            1003
+          ],
+          [
+            260,
+            985
+          ],
+          [
+            260,
+            1040
+          ]
+        ]
+      },
+      "atelier": {
+        "ok": true,
+        "back": true,
+        "feet": 312,
+        "reached": [
+          [
+            400,
+            335
+          ],
+          [
+            400,
+            440
+          ],
+          [
+            650,
+            480
+          ],
+          [
+            550,
+            700
+          ],
+          [
+            550,
+            900
+          ],
+          [
+            600,
+            900
+          ],
+          [
+            600,
+            1030
+          ],
+          [
+            550,
+            1003
+          ],
+          [
+            440,
+            1003
+          ],
+          [
+            260,
+            985
+          ],
+          [
+            260,
+            850
+          ],
+          [
+            260,
+            810
+          ],
+          [
+            380,
+            755
+          ],
+          [
+            380,
+            560
+          ]
+        ]
+      },
+      "toilet": {
+        "ok": true,
+        "back": true,
+        "feet": 312,
+        "reached": [
+          [
+            400,
+            335
+          ],
+          [
+            400,
+            440
+          ],
+          [
+            650,
+            480
+          ],
+          [
+            700,
+            700
+          ],
+          [
+            750,
+            723
+          ],
+          [
+            830,
+            723
+          ]
+        ]
+      },
+      "exterior": {
+        "ok": true,
+        "back": true,
+        "feet": 312,
+        "reached": [
+          [
+            400,
+            335
+          ],
+          [
+            400,
+            440
+          ],
+          [
+            650,
+            480
+          ],
+          [
+            550,
+            700
+          ],
+          [
+            550,
+            900
+          ],
+          [
+            600,
+            900
+          ],
+          [
+            600,
+            1030
+          ],
+          [
+            550,
+            1003
+          ],
+          [
+            440,
+            1003
+          ],
+          [
+            260,
+            985
+          ],
+          [
+            60,
+            967.93
+          ],
+          [
+            -75,
+            967.93
+          ]
+        ]
+      }
+    },
+    "errors": []
+  },
+  "downstairs": {
+    "passed": true,
+    "measure": [
+      {
+        "number": 0,
+        "expected": {
+          "x": 286,
+          "z": 355,
+          "height": 176,
+          "width": 54,
+          "depth": 36,
+          "yaw": 0,
+          "color": "charcoal",
+          "role": "operator"
+        },
+        "actual": [
+          54,
+          175.99999999999997,
+          35.99999999999994
+        ],
+        "base": 0,
+        "proxy": 7.77637290383322e-14,
+        "bounds": [
+          [
+            259,
+            0,
+            336.5998337451347
+          ],
+          [
+            313,
+            175.99999999999997,
+            372.5998337451346
+          ]
+        ]
+      },
+      {
+        "number": 1,
+        "expected": {
+          "number": 1,
+          "x": 260,
+          "z": 225,
+          "height": 172,
+          "width": 54,
+          "depth": 36,
+          "yaw": 3.141592653589793,
+          "color": "terra",
+          "role": "check_in"
+        },
+        "actual": [
+          54,
+          171.99999999999997,
+          36
+        ],
+        "base": 0,
+        "proxy": 4.263256414560601e-14,
+        "bounds": [
+          [
+            233,
+            0,
+            209.8421052631579
+          ],
+          [
+            287,
+            171.99999999999997,
+            245.8421052631579
+          ]
+        ]
+      },
+      {
+        "number": 2,
+        "expected": {
+          "number": 2,
+          "x": 339,
+          "z": 225,
+          "height": 183,
+          "width": 52,
+          "depth": 34,
+          "yaw": 3.141592653589793,
+          "color": "green",
+          "role": "coffee"
+        },
+        "actual": [
+          52,
+          183,
+          34
+        ],
+        "base": 4.440892098500626e-16,
+        "proxy": 4.440892098500626e-16,
+        "bounds": [
+          [
+            313,
+            4.440892098500626e-16,
+            210.68421052631578
+          ],
+          [
+            365,
+            183,
+            244.68421052631578
+          ]
+        ]
+      },
+      {
+        "number": 3,
+        "expected": {
+          "number": 3,
+          "x": 339,
+          "z": 162,
+          "height": 188,
+          "width": 58,
+          "depth": 40,
+          "yaw": 3.141592653589793,
+          "color": "blue",
+          "role": "coffee"
+        },
+        "actual": [
+          58,
+          188.00000000000006,
+          40
+        ],
+        "base": 0,
+        "proxy": 5.684341886080802e-14,
+        "bounds": [
+          [
+            310,
+            0,
+            145.1578947368421
+          ],
+          [
+            368,
+            188.00000000000006,
+            185.1578947368421
+          ]
+        ]
+      },
+      {
+        "number": 4,
+        "expected": {
+          "number": 4,
+          "x": 339,
+          "z": 100,
+          "height": 162,
+          "width": 50,
+          "depth": 34,
+          "yaw": 3.141592653589793,
+          "color": "pink",
+          "role": "coffee"
+        },
+        "actual": [
+          50,
+          162.00000000000003,
+          33.999999999999986
+        ],
+        "base": 0,
+        "proxy": 4.8518892901556326e-14,
+        "bounds": [
+          [
+            314,
+            0,
+            83.46295588374143
+          ],
+          [
+            364,
+            162.00000000000003,
+            117.46295588374142
+          ]
+        ]
+      },
+      {
+        "number": 5,
+        "expected": {
+          "number": 5,
+          "x": 260,
+          "z": 162,
+          "height": 177,
+          "width": 56,
+          "depth": 38,
+          "yaw": 3.141592653589793,
+          "color": "butter",
+          "role": "check_in"
+        },
+        "actual": [
+          56,
+          177,
+          38
+        ],
+        "base": 0,
+        "proxy": 0,
+        "bounds": [
+          [
+            232,
+            0,
+            146
+          ],
+          [
+            288,
+            177,
+            184
+          ]
+        ]
+      },
+      {
+        "number": 6,
+        "expected": {
+          "number": 6,
+          "x": 260,
+          "z": 100,
+          "height": 184,
+          "width": 58,
+          "depth": 42,
+          "yaw": 3.141592653589793,
+          "color": "sage",
+          "role": "check_in"
+        },
+        "actual": [
+          58,
+          184.00000000000006,
+          42
+        ],
+        "base": 0,
+        "proxy": 5.684341886080802e-14,
+        "bounds": [
+          [
+            231,
+            0,
+            82.3157894736842
+          ],
+          [
+            289,
+            184.00000000000006,
+            124.3157894736842
+          ]
+        ]
+      }
+    ],
+    "five": {
+      "waitingCustomers": 5,
+      "staff": 1,
+      "totalAdults": 6,
+      "adults": [
+        {
+          "id": "staff",
+          "heightCm": 175.99999999999997,
+          "widthCm": 54,
+          "depthCm": 36
+        },
+        {
+          "id": 1,
+          "heightCm": 171.99999999999997,
+          "widthCm": 54,
+          "depthCm": 36
+        },
+        {
+          "id": 2,
+          "heightCm": 183,
+          "widthCm": 52,
+          "depthCm": 34
+        },
+        {
+          "id": 3,
+          "heightCm": 188.00000000000006,
+          "widthCm": 58,
+          "depthCm": 40
+        },
+        {
+          "id": 4,
+          "heightCm": 162.00000000000003,
+          "widthCm": 50,
+          "depthCm": 34
+        },
+        {
+          "id": 5,
+          "heightCm": 177,
+          "widthCm": 56,
+          "depthCm": 38
+        },
+        {
+          "id": 6,
+          "heightCm": 184.00000000000006,
+          "widthCm": 58,
+          "depthCm": 42
+        }
+      ],
+      "bodyOverlap": false,
+      "turnTargetDiameterCm": 90,
+      "minimumTurnBodyDistanceCm": 53.37039418361682,
+      "turnClear": true,
+      "sidePassageCm": 97,
+      "counterFrontZCm": 258,
+      "staffAisleCm": 85,
+      "alcoveCeilingCm": 211.5,
+      "gateWidthCm": 60
+    },
+    "six": {
+      "waitingCustomers": 6,
+      "staff": 1,
+      "totalAdults": 7,
+      "adults": [
+        {
+          "id": "staff",
+          "heightCm": 175.99999999999997,
+          "widthCm": 54,
+          "depthCm": 36
+        },
+        {
+          "id": 1,
+          "heightCm": 171.99999999999997,
+          "widthCm": 54,
+          "depthCm": 36
+        },
+        {
+          "id": 2,
+          "heightCm": 183,
+          "widthCm": 52,
+          "depthCm": 34
+        },
+        {
+          "id": 3,
+          "heightCm": 188.00000000000006,
+          "widthCm": 58,
+          "depthCm": 40
+        },
+        {
+          "id": 4,
+          "heightCm": 162.00000000000003,
+          "widthCm": 50,
+          "depthCm": 34
+        },
+        {
+          "id": 5,
+          "heightCm": 177,
+          "widthCm": 56,
+          "depthCm": 38
+        },
+        {
+          "id": 6,
+          "heightCm": 184.00000000000006,
+          "widthCm": 58,
+          "depthCm": 42
+        }
+      ],
+      "bodyOverlap": false,
+      "turnTargetDiameterCm": 90,
+      "minimumTurnBodyDistanceCm": 37.315789473684205,
+      "turnClear": false,
+      "sidePassageCm": 96,
+      "counterFrontZCm": 258,
+      "staffAisleCm": 85,
+      "alcoveCeilingCm": 211.5,
+      "gateWidthCm": 60
+    },
+    "navigation": {
+      "entry": true,
+      "exit": true
+    },
+    "hatch": {
+      "into": true,
+      "back": true,
+      "feet": 0
+    },
+    "errors": []
+  },
+  "language": {
+    "passed": true,
+    "canvasLabels": 65,
+    "languageViewportStates": 36,
+    "errors": []
+  },
+  "layout": {
+    "passed": true,
+    "checks": [
+      {
+        "viewport": [
+          320,
+          480
+        ],
+        "state": "overview",
+        "stageHeight": 124
+      },
+      {
+        "viewport": [
+          320,
+          480
+        ],
+        "state": "inspector",
+        "stageHeight": 124
+      },
+      {
+        "viewport": [
+          320,
+          480
+        ],
+        "state": "equipment",
+        "stageHeight": 121
+      },
+      {
+        "viewport": [
+          320,
+          480
+        ],
+        "state": "walking paused",
+        "stageHeight": 194
+      },
+      {
+        "viewport": [
+          320,
+          480
+        ],
+        "state": "walking active",
+        "stageHeight": 194
+      },
+      {
+        "viewport": [
+          320,
+          480
+        ],
+        "state": "walking settings",
+        "stageHeight": 103
+      },
+      {
+        "viewport": [
+          360,
+          640
+        ],
+        "state": "overview",
+        "stageHeight": 175
+      },
+      {
+        "viewport": [
+          360,
+          640
+        ],
+        "state": "inspector",
+        "stageHeight": 175
+      },
+      {
+        "viewport": [
+          360,
+          640
+        ],
+        "state": "equipment",
+        "stageHeight": 295
+      },
+      {
+        "viewport": [
+          360,
+          640
+        ],
+        "state": "walking paused",
+        "stageHeight": 344
+      },
+      {
+        "viewport": [
+          360,
+          640
+        ],
+        "state": "walking active",
+        "stageHeight": 380
+      },
+      {
+        "viewport": [
+          360,
+          640
+        ],
+        "state": "walking settings",
+        "stageHeight": 263
+      },
+      {
+        "viewport": [
+          375,
+          812
+        ],
+        "state": "overview",
+        "stageHeight": 347
+      },
+      {
+        "viewport": [
+          375,
+          812
+        ],
+        "state": "inspector",
+        "stageHeight": 347
+      },
+      {
+        "viewport": [
+          375,
+          812
+        ],
+        "state": "equipment",
+        "stageHeight": 467
+      },
+      {
+        "viewport": [
+          375,
+          812
+        ],
+        "state": "walking paused",
+        "stageHeight": 516
+      },
+      {
+        "viewport": [
+          375,
+          812
+        ],
+        "state": "walking active",
+        "stageHeight": 552
+      },
+      {
+        "viewport": [
+          375,
+          812
+        ],
+        "state": "walking settings",
+        "stageHeight": 435
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "state": "overview",
+        "stageHeight": 379
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "state": "inspector",
+        "stageHeight": 379
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "state": "equipment",
+        "stageHeight": 507
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "state": "walking paused",
+        "stageHeight": 548
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "state": "walking active",
+        "stageHeight": 584
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "state": "walking settings",
+        "stageHeight": 467
+      },
+      {
+        "viewport": [
+          844,
+          390
+        ],
+        "state": "overview",
+        "stageHeight": 152
+      },
+      {
+        "viewport": [
+          844,
+          390
+        ],
+        "state": "inspector",
+        "stageHeight": 152
+      },
+      {
+        "viewport": [
+          844,
+          390
+        ],
+        "state": "equipment",
+        "stageHeight": 201
+      },
+      {
+        "viewport": [
+          844,
+          390
+        ],
+        "state": "walking paused",
+        "stageHeight": 252
+      },
+      {
+        "viewport": [
+          844,
+          390
+        ],
+        "state": "walking active",
+        "stageHeight": 252
+      },
+      {
+        "viewport": [
+          844,
+          390
+        ],
+        "state": "walking settings",
+        "stageHeight": 175
+      },
+      {
+        "viewport": [
+          768,
+          1024
+        ],
+        "state": "overview",
+        "stageHeight": 639
+      },
+      {
+        "viewport": [
+          768,
+          1024
+        ],
+        "state": "inspector",
+        "stageHeight": 639
+      },
+      {
+        "viewport": [
+          768,
+          1024
+        ],
+        "state": "equipment",
+        "stageHeight": 719
+      },
+      {
+        "viewport": [
+          768,
+          1024
+        ],
+        "state": "walking paused",
+        "stageHeight": 825
+      },
+      {
+        "viewport": [
+          768,
+          1024
+        ],
+        "state": "walking active",
+        "stageHeight": 838
+      },
+      {
+        "viewport": [
+          768,
+          1024
+        ],
+        "state": "walking settings",
+        "stageHeight": 759
+      },
+      {
+        "viewport": [
+          1280,
+          720
+        ],
+        "state": "overview",
+        "stageHeight": 414
+      },
+      {
+        "viewport": [
+          1280,
+          720
+        ],
+        "state": "inspector",
+        "stageHeight": 414
+      },
+      {
+        "viewport": [
+          1280,
+          720
+        ],
+        "state": "equipment",
+        "stageHeight": 473
+      },
+      {
+        "viewport": [
+          1280,
+          720
+        ],
+        "state": "walking paused",
+        "stageHeight": 560
+      },
+      {
+        "viewport": [
+          1280,
+          720
+        ],
+        "state": "walking active",
+        "stageHeight": 566
+      },
+      {
+        "viewport": [
+          1280,
+          720
+        ],
+        "state": "walking settings",
+        "stageHeight": 489
+      },
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "state": "overview",
+        "stageHeight": 594
+      },
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "state": "inspector",
+        "stageHeight": 594
+      },
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "state": "equipment",
+        "stageHeight": 653
+      },
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "state": "walking paused",
+        "stageHeight": 740
+      },
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "state": "walking active",
+        "stageHeight": 746
+      },
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "state": "walking settings",
+        "stageHeight": 669
+      }
+    ]
+  }
+}

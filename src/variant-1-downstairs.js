@@ -46,7 +46,7 @@ for(let i=0;i<10;i++)cyl(cafe,3.7,8,'cream',223+i*13,190,393,'back.cup');
 const hatchBody=box(cafeBodies,60,81,55,clearMaterial,235,40.5,285.5,'staff_hatch.standing_collision');
 const staffBodies=[],adultBoxes=[];
 function adult(spec,parent,index){
- const q=person(parent,spec.x,spec.z,168,spec.color,index,'stand',0,0);
+ const q=person(parent,spec.x,spec.z,168,spec.color,index,'stand',0,0,spec.role);
  // Normalize actual mesh bounds independently: stature does not determine breadth.
  q.scale.setScalar(1);q.updateMatrixWorld(true);
  const b=new T.Box3().setFromObject(q),size=b.getSize(new T.Vector3());
@@ -54,10 +54,6 @@ function adult(spec,parent,index){
  q.position.y=-b.min.y*q.scale.y;q.rotation.y=spec.yaw;
  Object.assign(q.userData,{role:spec.role||'waiting_customer',heightCm:spec.height,widthCm:spec.width,depthCm:spec.depth,queueNumber:spec.number});
  q.name='v1.coffee.'+(spec.role||'customer')+'.'+(spec.number||0);
- // A simple face and apron make the scale figures read as customers and a barista.
- const faceMat=new T.MeshLambertMaterial({color:0x3c3028});
- for(const x of[-4.5,4.5])sphere(q,.8,faceMat,x,154,-13,'face.eye');
- if(spec.role==='operator')rounded(q,29,39,1.2,1,'green',0,105,-12.6,'barista.apron');
  q.updateMatrixWorld(true);const bodyBox=new T.Box3().setFromObject(q),bodySize=bodyBox.getSize(new T.Vector3()),bodyCenter=bodyBox.getCenter(new T.Vector3());
  const proxy=box(cafeBodies,bodySize.x,bodySize.y,bodySize.z,clearMaterial,bodyCenter.x,bodyCenter.y,bodyCenter.z,'person.collision');proxy.userData.role=spec.role||'waiting_customer';
  scene.updateMatrixWorld(true);const measured=new T.Box3().setFromObject(q);

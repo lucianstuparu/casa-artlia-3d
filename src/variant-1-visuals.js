@@ -1,0 +1,80 @@
+// Variant-only material and shape library. Dimensions remain in centimetres.
+const visualAudit={version:'1.3.0',proceduralTextures:true,doorDetails:0,peopleDetailed:0};
+function seeded(seed){let n=seed;return()=>{n=(Math.imul(1664525,n)+1013904223)>>>0;return n/4294967296;};}
+function canvasMap(size,draw,color=true){const c=document.createElement('canvas');c.width=c.height=size;draw(c.getContext('2d'),size,seeded(size+31));const t=new T.CanvasTexture(c);t.wrapS=t.wrapT=T.RepeatWrapping;t.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());if(color)t.encoding=T.sRGBEncoding;return t;}
+const grainMap=canvasMap(512,(c,s,r)=>{c.fillStyle='#d8b987';c.fillRect(0,0,s,s);for(let i=0;i<1400;i++){const x=r()*s;c.strokeStyle='rgba('+(r()>.55?'255,244,219':'105,74,43')+','+(.025+r()*.065)+')';c.lineWidth=.35+r()*1.2;c.beginPath();c.moveTo(x,0);c.bezierCurveTo(x+Math.sin(i)*7,170,x+Math.cos(i)*10,340,x,s);c.stroke();}for(let i=0;i<10;i++){const x=r()*s,y=r()*s;c.strokeStyle='rgba(113,81,48,.09)';for(let k=0;k<5;k++){c.beginPath();c.ellipse(x,y,2+k*2,12+k*7,.02,0,Math.PI*2);c.stroke();}}});
+const plankMap=canvasMap(1024,(c,s,r)=>{c.fillStyle='#cfb58e';c.fillRect(0,0,s,s);const n=5,w=s/n;for(let i=0;i<n;i++){c.fillStyle=['#d1bb99','#d9c3a2','#cbb38e','#d5bd99','#d8c3a4'][i];c.fillRect(i*w,0,w,s);c.save();c.beginPath();c.rect(i*w+2,0,w-4,s);c.clip();for(let j=0;j<210;j++){const x=i*w+r()*w;c.strokeStyle='rgba('+(r()>.5?'250,239,214':'112,85,52')+','+(.025+r()*.055)+')';c.lineWidth=.5+r();c.beginPath();c.moveTo(x,0);c.bezierCurveTo(x+6,350,x-8,650,x,s);c.stroke();}c.restore();c.fillStyle='rgba(75,57,35,.18)';c.fillRect(i*w,0,1.3,s);const seam=(i%3+.35)/3*s;c.fillRect(i*w,seam,w,1.5);c.fillStyle='rgba(255,255,255,.24)';c.fillRect(i*w+1.3,0,1,s);}});
+const weaveMap=canvasMap(256,(c,s,r)=>{c.fillStyle='#e2e2e2';c.fillRect(0,0,s,s);for(let y=0;y<s;y+=4)for(let x=0;x<s;x+=4){const v=186+Math.floor(r()*48);c.fillStyle='rgb('+v+','+v+','+v+')';c.fillRect(x,y,3,3);c.fillStyle='rgba(255,255,255,.22)';c.fillRect(x,y,1,3);}},false);
+const plasterMap=canvasMap(256,(c,s,r)=>{const im=c.createImageData(s,s);for(let i=0;i<im.data.length;i+=4){const v=220+Math.floor(r()*30);im.data[i]=im.data[i+1]=im.data[i+2]=v;im.data[i+3]=255;}c.putImageData(im,0,0);},false);
+const stoneMap=canvasMap(512,(c,s,r)=>{c.fillStyle='#c8c5b9';c.fillRect(0,0,s,s);for(let i=0;i<3200;i++){const x=r()*s,y=r()*s,n=1+r()*3;c.fillStyle=['#dad7ca','#a6aaa0','#c0b7a7','#ece8dd'][i%4];c.beginPath();c.ellipse(x,y,n,n*.65,r()*3,0,Math.PI*2);c.fill();}});
+const softEnv=new T.CubeTexture(Array.from({length:6},(_,i)=>{const c=document.createElement('canvas');c.width=c.height=128;const ctx=c.getContext('2d'),g=ctx.createLinearGradient(0,0,0,128);g.addColorStop(0,'#fff9ec');g.addColorStop(.45,i===2?'#ffffff':'#c9d5db');g.addColorStop(1,'#817a6d');ctx.fillStyle=g;ctx.fillRect(0,0,128,128);return c;}));softEnv.encoding=T.sRGBEncoding;softEnv.needsUpdate=true;
+function finishMaterial(color,kind='paint',more={}){return new T.MeshStandardMaterial({color:new T.Color(color).convertSRGBToLinear(),roughness:kind==='metal'?.3:kind==='fabric'?.93:kind==='ceramic'?.24:kind==='wood'?.57:.8,metalness:kind==='metal'?.72:0,envMap:softEnv,envMapIntensity:kind==='metal'?.6:.12,...(kind==='wood'?{map:grainMap,bumpMap:grainMap,bumpScale:.08}:kind==='fabric'?{bumpMap:weaveMap,bumpScale:.065}:{}),...more});}
+for(const[k,color]of Object.entries(palette))mats[k]=finishMaterial(k==='oak'?0xffffff:color,k==='oak'?'wood':'paint');
+const metalFinish=finishMaterial(0xaab0b0,'metal'),blackMetal=finishMaterial(0x313939,'metal'),fabricCache=new Map();
+function cloth(color){const key=typeof color==='string'?palette[color]:color;if(!fabricCache.has(key))fabricCache.set(key,finishMaterial(key,'fabric'));return fabricCache.get(key);}
+const geometryCache=new Map();
+function softBoxGeometry(w,h,d,r){r=Math.max(.01,Math.min(r,w/2-.001,h/2-.001,d/2-.001));const key=[w,h,d,r].join(':');if(geometryCache.has(key))return geometryCache.get(key);const g=new T.BoxGeometry(1,1,1,9,9,9),p=g.attributes.position,n=g.attributes.normal,half=[w/2,h/2,d/2];const coords=half.map(a=>[-a,-a+r*.08,-a+r*.3,-a+r*.62,-a+r,a-r,a-r*.62,a-r*.3,a-r*.08,a]);for(let i=0;i<p.count;i++){const raw=[p.getX(i),p.getY(i),p.getZ(i)],q=raw.map((t,j)=>coords[j][Math.round((t+.5)*9)]),core=q.map((v,j)=>Math.max(-half[j]+r,Math.min(half[j]-r,v))),v=new T.Vector3(q[0]-core[0],q[1]-core[1],q[2]-core[2]).normalize();p.setXYZ(i,core[0]+v.x*r,core[1]+v.y*r,core[2]+v.z*r);n.setXYZ(i,v.x,v.y,v.z);}g.parameters={width:w,height:h,depth:d,radius:r};g.computeBoundingBox();geometryCache.set(key,g);return g;}
+function physicalWoodUV(o){const g=o.geometry.clone(),p=g.attributes.position,n=g.attributes.normal,uv=g.attributes.uv;if(!uv||!n)return;for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i),z=p.getZ(i),nx=Math.abs(n.getX(i)),ny=Math.abs(n.getY(i)),nz=Math.abs(n.getZ(i));if(ny>=nx&&ny>=nz)uv.setXY(i,z/55,x/160);else if(nx>nz)uv.setXY(i,z/55,y/160);else uv.setXY(i,x/55,y/160);}uv.needsUpdate=true;g.parameters=o.geometry.parameters;o.geometry=g;}
+function garment(g,width,height,depth,x,y,z,m,id){const levels=[[0,.83],[.12,.96],[.42,.88],[.8,1],[.93,.93],[1,.62]],pos=[],idx=[],uvs=[],N=20;for(const[t,r]of levels)for(let i=0;i<=N;i++){const a=i/N*Math.PI*2;pos.push(x+Math.cos(a)*width/2*r,y+t*height,z+Math.sin(a)*depth/2*r);uvs.push(i/N*4,t*4);}for(let j=0;j<levels.length-1;j++)for(let i=0;i<N;i++){const a=j*(N+1)+i,b=a+N+1;idx.push(a,b,a+1,b,b+1,a+1);}const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(pos,3));geo.setAttribute('uv',new T.Float32BufferAttribute(uvs,2));geo.setIndex(idx);geo.computeVertexNormals();const mesh=new T.Mesh(geo,m);mesh.name='v1.human.'+id;g.add(mesh);return mesh;}
+function taperedLimb(g,a,b,r0,r1,m,id){const av=new T.Vector3(...a),bv=new T.Vector3(...b),o=new T.Mesh(new T.CylinderGeometry(r1,r0,av.distanceTo(bv),12),m);o.position.copy(av.clone().lerp(bv,.5));o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),bv.sub(av).normalize());o.name='v1.human.'+id;g.add(o);return o;}
+function buildHuman(g,{stature=175,isChild=false,pose='stand',index=0,shirt='sage',role='adult'}){
+ const sit=pose==='sit',floor=pose==='floor',seat=isChild?30:44,hip=floor?10:sit?seat+(isChild?4:6):stature*.525,torsoH=stature*(isChild?.28:.26),shoulder=hip+torsoH,headH=isChild?20+stature*.025:stature*.137,headY=shoulder+headH*.60;
+ const sk=finishMaterial(skin[index%skin.length],'paint',{roughness:.82}),ha=finishMaterial(hair[index%hair.length],'paint',{roughness:.9}),shirtMat=cloth(shirt),pants=cloth([0x424a4b,0x606d75,0x71685b,0x44494d][index%4]);
+ garment(g,isChild?27:38,torsoH,isChild?18:24,0,hip,0,shirtMat,'shirt');sphere(g,1,pants,0,hip,0,'human.hip',[isChild?13:17,isChild?6:8,isChild?9:12]);cyl(g,isChild?3.2:4,9,sk,0,shoulder+3,0,'human.neck');
+ const head=group(g,'human.head',0,headY,0);head.rotation.y=(index%5-2)*.055;const hr=headH/2;sphere(head,1,sk,0,0,0,'human.face',[hr*.75,hr,hr*.77]);
+ const cap=new T.Mesh(new T.SphereGeometry(1,20,12,0,Math.PI*2,0,Math.PI*.39),ha);cap.scale.set(hr*.78,hr*1.03,hr*.8);cap.position.set(0,.6,.4);cap.name='v1.human.hair';head.add(cap);
+ if(index%4===1)sphere(head,1,ha,0,3,hr*.92,'human.hair_tie',[hr*.36,hr*.42,hr*.42]);
+ for(const side of[-1,1]){sphere(head,1,sk,side*hr*.75,-.6,.1,'human.ear',[1.35,2.1,1.25]);sphere(head,1,finishMaterial(0xf5f0e8),side*hr*.27,hr*.12,-hr*.71,'human.eye_white',[1.15,.75,.38]);sphere(head,.48,blackMetal,side*hr*.27,hr*.12,-hr*.75,'human.eye');rod(head,[side*hr*.16,hr*.25,-hr*.73],[side*hr*.37,hr*.27,-hr*.68],.35,ha,'human.brow');}
+ sphere(head,1,sk,0,-hr*.06,-hr*.76,'human.nose',[1.1,1.65,1.5]);const lip=finishMaterial(index%2?0x996e60:0xa57766);rod(head,[-1.8,-hr*.38,-hr*.71],[1.8,-hr*.38,-hr*.71],.28,lip,'human.mouth');
+ for(const side of[-1,1]){const lx=isChild?7:9,th=isChild?5.2:7.5,knee=[side*(floor?19:lx),floor?7:sit?seat-3:hip*.5,floor?-12:sit?-34:0],foot=[side*(floor?-10:lx),4,floor?-24:sit?-40:0];taperedLimb(g,[side*lx,hip,0],knee,th,th*.8,pants,'thigh');sphere(g,th*.82,pants,...knee,'human.knee',[1,1,1]);taperedLimb(g,knee,foot,th*.8,th*.55,pants,'calf');rounded(g,isChild?9:12,6,isChild?18:23,2,'cream',foot[0],4,foot[2]-5,'human.shoe');rounded(g,isChild?9:12,1.5,isChild?18:23,.6,'charcoal',foot[0],1,foot[2]-5,'human.sole');
+ const elbow=[side*(isChild?19:25),shoulder-torsoH*.45,sit||floor?-14:1],hand=[side*(isChild?15:21),sit||floor?hip+7:hip+5,sit||floor?-29:-4],arm=[side*(isChild?13:19),shoulder-5,0];sphere(g,isChild?5:6.4,shirtMat,...arm,'human.shoulder');taperedLimb(g,arm,elbow,isChild?4.7:5.8,isChild?3.6:4.4,shirtMat,'sleeve');taperedLimb(g,elbow,hand,isChild?3.4:4,isChild?2.4:2.8,sk,'forearm');sphere(g,1,sk,...hand,'human.hand',[isChild?2.7:3.4,isChild?4:5,isChild?2:2.5]);}
+ if(role==='operator'){rounded(g,28,37,1.5,2,cloth('green'),0,hip+16,-13,'barista.apron');rounded(g,17,11,1,1,cloth(0x647d64),0,hip+10,-14.2,'barista.pocket');for(const side of[-1,1])rod(g,[side*8,shoulder-1,-9],[side*11,hip+31,-13],1,cloth('green'),'barista.strap');}
+ visualAudit.peopleDetailed++;
+}
+function finishVisuals(){
+ // Physical-scale UVs prevent grain and fabric from stretching across entire rooms.
+ for(const phase of Object.values(A.phases))phase.floors.traverse(o=>{if(!o.isMesh||!o.userData.roomId)return;const g=o.geometry.clone(),p=g.attributes.position,uv=g.attributes.uv;if(uv){for(let i=0;i<p.count;i++)uv.setXY(i,p.getX(i)/90,p.getY(i)/240);uv.needsUpdate=true;}o.geometry=g;const old=o.material;o.material=finishMaterial(0xffffff,'wood',{map:plankMap,bumpMap:plankMap,bumpScale:.045,side:old.side,clippingPlanes:old.clippingPlanes});o.receiveShadow=true;});
+ const all=[];for(const root of[upper,ground,upperPeople,groundPeople])root.traverse(o=>{if(o.isMesh&&!o.material.transparent)all.push(o);});
+ for(const o of all){const name=o.name,parent=o.parent?.name||'',old=o.material;
+  if(o.geometry.type==='BoxGeometry'&&o.userData.concept){const p=o.geometry.parameters;o.geometry=softBoxGeometry(p.width,p.height,p.depth,Math.min(.65,p.width*.08,p.height*.08,p.depth*.08));}
+  if(/cushion|rug|basket|parent_bench.back/.test(name))o.material=cloth(old.color?.getHex()||palette.cream);
+  else if(/espresso\.(tray|controls|steam_wand)|rinser|POS.stand|fridge.handle/.test(name))o.material=metalFinish;
+  else if(/cup$|warming_cup|back.cup|pot$/.test(name))o.material=finishMaterial(old.color?.getHex()||palette.cream,'ceramic');
+  else if(!old.isMeshStandardMaterial&&!old.isMeshBasicMaterial)o.material=finishMaterial(old.color?.getHex()||palette.cream,'paint',{side:old.side});
+  if(o.material===mats.oak)physicalWoodUV(o);
+  o.castShadow=true;o.receiveShadow=true;
+  // Subtle stitching lies inside the existing seat footprint.
+  if(/cushion/.test(name)&&o.geometry.parameters.width){const {width:w,height:h,depth:d}=o.geometry.parameters;const pts=[],r=3;for(let k=0;k<4;k++){const cx=(k===0||k===3?1:-1)*(w/2-r-1.5),cz=(k<2?1:-1)*(d/2-r-1.5);for(let j=0;j<=5;j++){const a=(k+j/5)*Math.PI/2;pts.push(new T.Vector3(cx+Math.cos(a)*r,h/2-.4,cz+Math.sin(a)*r));}}pts.push(pts[0]);const seam=new T.Line(new T.BufferGeometry().setFromPoints(pts),new T.LineBasicMaterial({color:0xd8cfb9}));seam.name='v1.upholstery.stitch';o.add(seam);}
+  if(/basket$/.test(name)){const p=o.geometry.parameters;const pull=new T.Mesh(softBoxGeometry(12,3,1, .45),mats.oak);pull.position.set(0,1,-p.depth/2-.1);pull.name='v1.basket.pull';o.add(pull);}
+ }
+ // RDC terrazzo retains the original single floor mesh and its bounds.
+ ROOM_GROUP.traverse(o=>{if(!o.isMesh)return;const p=o.geometry.parameters;if(p?.width===372&&p?.height===4&&p?.depth===400){o.material=finishMaterial(0xffffff,'paint',{map:stoneMap,bumpMap:stoneMap,bumpScale:.025,roughness:.72});physicalWoodUV(o);o.receiveShadow=true;}});
+ // Walls keep their original geometry and shared cutaway clipping planes.
+ for(const phase of Object.values(A.phases))phase.walls.traverse(o=>{if(!o.isMesh||o.material.transparent||/glass/i.test(o.name))return;const old=o.material;o.material=finishMaterial(0xeeeae0,'paint',{bumpMap:plasterMap,bumpScale:.045,side:old.side,clippingPlanes:old.clippingPlanes});o.receiveShadow=true;});
+ for(const d of A.doors){const leaf=d.pivot.getObjectByName('door_leaf.'+d.id);if(!leaf)continue;const old=leaf.material;leaf.material=finishMaterial(0xffffff,'wood',{clippingPlanes:old.clippingPlanes,side:old.side});physicalWoodUV(leaf);leaf.castShadow=true;leaf.receiveShadow=true;
+  const parent=leaf.parent,w=leaf.geometry.parameters.width,h=207,cx=leaf.position.x,cz=leaf.position.z,mat=finishMaterial(0xaab0af,'metal',{clippingPlanes:old.clippingPlanes}),dark=finishMaterial(0x79694e,'paint',{clippingPlanes:old.clippingPlanes});
+  const detail=new T.Group();detail.name='v1.door.details.'+d.id;parent.add(detail);
+  // The details follow the unchanged pivot or sliding carriage, not the cutaway-scaled leaf.
+  for(const side of[-1,1]){const z=cz+side*1.65;
+   for(const x of[cx-w/2+10,cx+w/2-10])box(detail,.5,174,.15,dark,x,104,z,'door.panel_reveal');
+   for(const y of[17,191])box(detail,w-20,.5,.15,dark,cx,y,z,'door.panel_reveal');
+   const x=cx+w/2-9;
+   if(d.carriage){rod(detail,[x,92,z+side*2],[x,114,z+side*2],.85,mat,'door.pull');for(const y of[92,114])rod(detail,[x,y,z],[x,y,z+side*2],.7,mat,'door.pull_mount');}
+   else{const rose=cyl(detail,2.7,.6,mat,x,103,z+side*.5,'door.rose');rose.rotation.x=Math.PI/2;rod(detail,[x,103,z],[x,103,z+side*3.5],.8,mat,'door.spindle');rod(detail,[x,103,z+side*3.5],[x-10,103,z+side*3.5],.85,mat,'door.lever');}
+  }
+  if(!d.carriage)for(const y of[28,103,179])cyl(detail,.9,7,mat,cx-w/2, y,cz+2,'door.hinge');
+  parent.children.filter(o=>o!==detail&&o!==leaf&&o.isMesh&&o.geometry.parameters.width===2&&[10,12].includes(o.geometry.parameters.height)).forEach(o=>{o.visible=false;o.material=o.material.clone();o.material.visible=false;});
+  detail.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}});visualAudit.doorDetails++;
+ }
+ // Cup rims and coffee surfaces make the tiny equipment legible at eye level.
+ for(const o of all.filter(o=>/espresso.cup$|warming_cup|back.cup$/.test(o.name))){const p=o.geometry.parameters;if(!p.radiusTop)continue;const r=p.radiusTop;const coffee=new T.Mesh(new T.CircleGeometry(r*.78,24),finishMaterial(0x5a3521,'ceramic'));coffee.rotation.x=-Math.PI/2;coffee.position.y=p.height/2+.03;coffee.name='v1.cup.coffee';o.add(coffee);const rim=new T.Mesh(new T.TorusGeometry(r-.35,.35,6,24),o.material);rim.rotation.x=Math.PI/2;rim.position.y=p.height/2;rim.name='v1.cup.rim';o.add(rim);}
+ renderer.outputEncoding=T.sRGBEncoding;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.88;
+ const ambient=scene.children.find(o=>o.isAmbientLight);if(ambient)ambient.intensity=.28;
+ scene.add(new T.HemisphereLight(0xe9f2ff,0xb2a18b,.45));
+ const lights=scene.children.filter(o=>o.isDirectionalLight);if(lights[0]){const l=lights[0];l.intensity=.95;l.position.set(600,1800,-400);l.target.position.set(900,312,650);scene.add(l.target);l.castShadow=true;l.shadow.mapSize.set(2048,2048);Object.assign(l.shadow.camera,{left:-1350,right:1350,top:1300,bottom:-1300,near:1,far:4500});l.shadow.camera.updateProjectionMatrix();l.shadow.bias=-.00012;l.shadow.normalBias=.5;l.shadow.radius=3;}if(lights[1])lights[1].intensity=.27;
+ renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;
+ // Exclude opaque proxy volumes and ceilings from shadow casting.
+ visualAudit.floorPlankWidthCm=18;visualAudit.floorPlankLengthCm=240;visualAudit.materials='oak, woven upholstery, plaster, ceramic, brushed metal';
+}
+let visualShadowKey='';
+function updateVisualShadows(){const key=[A.state.phase,A.state.level,A.state.walls,upperPairs,downstairsCount,staffGateOpen,upper.visible,upperPeople.visible,groundPeople.visible,Math.round(registerTop.rotation.z*100),...A.doors.map(d=>Math.round(d.open*50))].join(':');if(key!==visualShadowKey){visualShadowKey=key;renderer.shadowMap.needsUpdate=true;}}

@@ -50,3 +50,7 @@ Inspected main room, coffee counter, room overview, workshop, pretend-play and c
 The variant also passed the existing48-state layout checks,36-state language checks and both-phase entrance checks. Physical-device touch and construction suitability remain unverified.
 
 The previous v1.0.1 concept remains archived: https://drive.google.com/drive/folders/1_93wAlnxau-BQDxzD9aAwAiDWor3slhv
+
+## Visual revision v1.3.0
+
+Materials, rounded furniture, door hardware and human figures are refined on both floors. This supersedes the earlier rendered-downstairs freeze; layout and dimensions remain preserved. See [visual quality](visual-quality.md). V1-A12 records these finishes as proposed.

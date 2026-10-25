@@ -91,3 +91,11 @@ Previews: [overview](docs/images/upstairs-overview.png), [main room](docs/images
 Reviewed the new main-room cutaway, plan, overview and eye-level views in running Chrome. Playhouse deck measures105×270cm versus210×270cm; back edge remainsx1920, front moves105cm towards it. Full-size stairs and slide follow the front. Frame, posts, roof, deck, panels and lower rug are rebuilt without flattening the people or reducing stair treads. Actual post geometry and stair profiles compare unchanged with the earlier concept. Population remains real scale and non-overlapping; six two-way routes, both-phase stairs, phases, three languages and five sizes pass.
 
 Target is now explicitly30 children per day;30 children+30parents is a possible simultaneous peak.20/24 are comparison scenes rather than a demand forecast. Base and downstairs are unchanged. Updated previews use the upstairs-* image links above.
+
+## Variant1 v1.3.0 — visual quality
+
+Reviewed [main room](docs/images/quality-main.png), [café](docs/images/quality-coffee.png), [overview](docs/images/quality-overview.png), [workshop](docs/images/quality-atelier.png), [eye level](docs/images/quality-eye.png), [door](docs/images/quality-door.png), [furniture](docs/images/quality-furniture.png) and [phone](docs/images/quality-phone.png). Physical-scale oak grain, terrazzo, textiles, rounded furniture, articulated people, working metal door hardware and contact shadows are variant-only refinements. Base geometry and v1.2.1 layout/data are unchanged.
+
+Variant, downstairs, upstairs and visual checks pass: actual body envelopes, seat/standing heights, 105cm house depth, six two-way routes, crowded entry/staff hatch, moving hardware and cutaway planes, materials/UVs, renderer budget, both-phase stairs, languages and screen sizes. See docs/visual-quality.md.
+
+Final responsive checks passed48 states across8 viewports; language checks passed36 states and65 canvas labels. Both-phase entrance checks passed with queue cleared, including avant without lift and apres with the unchanged telescopic door/GTLE.
