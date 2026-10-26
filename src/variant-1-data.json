@@ -1,6 +1,6 @@
 {
   "id": "variant-1",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "baseVersion": "12.8.0",
   "units": "cm",
   "phase": "apres",
@@ -81,6 +81,10 @@
     {
       "id": "V1-A12",
       "description": "Visual finishes are illustrative: procedural oak, plaster, woven upholstery, terrazzo, metal hardware and detailed scale figures. These are not surveyed material specifications. Cosmetic geometry retains the v1.2.1 layout, body envelopes, house depth and circulation assumptions."
+    },
+    {
+      "id": "V1-A13",
+      "description": "Exterior-only warm ochre render #d2b477 is visually matched to local source photos 20260419_160037 and 20260419_155842 and user feedback (26 October 2026). Photographic colour is approximate, not a measured paint specification. Interior finishes, grey surrounds, lighting and geometry are unchanged."
     }
   ],
   "zones": [

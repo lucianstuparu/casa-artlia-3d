@@ -99,3 +99,7 @@ Reviewed [main room](docs/images/quality-main.png), [café](docs/images/quality-
 Variant, downstairs, upstairs and visual checks pass: actual body envelopes, seat/standing heights, 105cm house depth, six two-way routes, crowded entry/staff hatch, moving hardware and cutaway planes, materials/UVs, renderer budget, both-phase stairs, languages and screen sizes. See docs/visual-quality.md.
 
 Final responsive checks passed48 states across8 viewports; language checks passed36 states and65 canvas labels. Both-phase entrance checks passed with queue cleared, including avant without lift and apres with the unchanged telescopic door/GTLE.
+
+## Variant1 v1.3.1 — exterior ochre
+
+Reviewed exterior in both phases against entrance and stair-elevation photographs. Stronger ochre is assigned only to outward masonry faces; inside wall colours, grey surrounds, lighting, furnishings and original base files are retained. Previews: docs/images/exterior-colour-avant.png and docs/images/exterior-colour-apres.png.

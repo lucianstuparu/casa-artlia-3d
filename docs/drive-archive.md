@@ -24,3 +24,5 @@ Current furnishing study: Variant1 v1.2.0 (upstairs 30 children +30 parents +3 s
 Current furnishing study: Variant1 v1.2.1 — shallower playhouse and30-children-per-day clarification: https://drive.google.com/drive/folders/1YjRBIl4ZpWDl6GOjoTwQ2P34u1f0Py5s. Previous v1.2.0 archive is retained.
 
 Current furnishing study: Variant1 v1.3.0 — visual materials and furniture: https://drive.google.com/drive/folders/1a9Ya83nqMDx3T0UeLlTsDCfz0OfZ0bFY. Earlier variant archives and base v12.8.0 are retained.
+
+Current furnishing study: Variant1 v1.3.1 — exterior colour: https://drive.google.com/drive/folders/1TRGuW8DmAjgn9SU-7Menh3qCqDT48KEW. v1.3.0 remains archived.

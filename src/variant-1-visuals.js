@@ -1,5 +1,5 @@
 // Variant-only material and shape library. Dimensions remain in centimetres.
-const visualAudit={version:'1.3.0',proceduralTextures:true,doorDetails:0,peopleDetailed:0};
+const visualAudit={version:'1.3.1',proceduralTextures:true,doorDetails:0,peopleDetailed:0};
 function seeded(seed){let n=seed;return()=>{n=(Math.imul(1664525,n)+1013904223)>>>0;return n/4294967296;};}
 function canvasMap(size,draw,color=true){const c=document.createElement('canvas');c.width=c.height=size;draw(c.getContext('2d'),size,seeded(size+31));const t=new T.CanvasTexture(c);t.wrapS=t.wrapT=T.RepeatWrapping;t.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());if(color)t.encoding=T.sRGBEncoding;return t;}
 const grainMap=canvasMap(512,(c,s,r)=>{c.fillStyle='#d8b987';c.fillRect(0,0,s,s);for(let i=0;i<1400;i++){const x=r()*s;c.strokeStyle='rgba('+(r()>.55?'255,244,219':'105,74,43')+','+(.025+r()*.065)+')';c.lineWidth=.35+r()*1.2;c.beginPath();c.moveTo(x,0);c.bezierCurveTo(x+Math.sin(i)*7,170,x+Math.cos(i)*10,340,x,s);c.stroke();}for(let i=0;i<10;i++){const x=r()*s,y=r()*s;c.strokeStyle='rgba(113,81,48,.09)';for(let k=0;k<5;k++){c.beginPath();c.ellipse(x,y,2+k*2,12+k*7,.02,0,Math.PI*2);c.stroke();}}});
@@ -32,6 +32,8 @@ function buildHuman(g,{stature=175,isChild=false,pose='stand',index=0,shirt='sag
  visualAudit.peopleDetailed++;
 }
 function finishVisuals(){
+ // Capture the original yellow masonry before applying the interior palette.
+ const exteriorMasonry=[];scene.traverse(o=>{if(o.isMesh&&o.material?.color?.getHex()===0xe1cf9b)exteriorMasonry.push(o);});
  // Physical-scale UVs prevent grain and fabric from stretching across entire rooms.
  for(const phase of Object.values(A.phases))phase.floors.traverse(o=>{if(!o.isMesh||!o.userData.roomId)return;const g=o.geometry.clone(),p=g.attributes.position,uv=g.attributes.uv;if(uv){for(let i=0;i<p.count;i++)uv.setXY(i,p.getX(i)/90,p.getY(i)/240);uv.needsUpdate=true;}o.geometry=g;const old=o.material;o.material=finishMaterial(0xffffff,'wood',{map:plankMap,bumpMap:plankMap,bumpScale:.045,side:old.side,clippingPlanes:old.clippingPlanes});o.receiveShadow=true;});
  const all=[];for(const root of[upper,ground,upperPeople,groundPeople])root.traverse(o=>{if(o.isMesh&&!o.material.transparent)all.push(o);});
@@ -66,6 +68,11 @@ function finishVisuals(){
   parent.children.filter(o=>o!==detail&&o!==leaf&&o.isMesh&&o.geometry.parameters.width===2&&[10,12].includes(o.geometry.parameters.height)).forEach(o=>{o.visible=false;o.material=o.material.clone();o.material.visible=false;});
   detail.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}});visualAudit.doorDetails++;
  }
+ // Photo-guided warm ochre, confined to outward faces of the retained masonry.
+ for(const o of exteriorMasonry){const old=o.material,exterior=finishMaterial(0xd2b477,'paint',{roughness:.93,bumpMap:plasterMap,bumpScale:.08,side:old.side,clippingPlanes:old.clippingPlanes});const geo=o.geometry.clone(),n=geo.attributes.normal,index=geo.index,count=index?index.count:n.count,axis=o.userData.semanticId==='room.staircase.solid_exterior_divider'?'x':'z',column=o.name==='context.private_balcony.support';geo.parameters=o.geometry.parameters;geo.clearGroups();let last=-1,start=0;for(let i=0;i<count;i+=3){const a=index?index.getX(i):i,normal=axis==='x'?n.getX(a):n.getZ(a),mi=column||normal<-.5?1:0;if(mi!==last){if(i)geo.addGroup(start,i-start,last);start=i;last=mi;}}geo.addGroup(start,count-start,last);o.geometry=geo;o.material=[old,exterior];o.userData.exteriorFinish='photo-guided ochre #d2b477; outward face only';
+  const clipped=studyMaterials.find(v=>v.o===o);if(clipped){clipped.original=o.material;clipped.clipped=o.material.map(m=>{const c=m.clone();c.clippingPlanes=[coffeeClip];return c;});}
+ }
+ visualAudit.exteriorMasonryMeshes=exteriorMasonry.length;
  // Cup rims and coffee surfaces make the tiny equipment legible at eye level.
  for(const o of all.filter(o=>/espresso.cup$|warming_cup|back.cup$/.test(o.name))){const p=o.geometry.parameters;if(!p.radiusTop)continue;const r=p.radiusTop;const coffee=new T.Mesh(new T.CircleGeometry(r*.78,24),finishMaterial(0x5a3521,'ceramic'));coffee.rotation.x=-Math.PI/2;coffee.position.y=p.height/2+.03;coffee.name='v1.cup.coffee';o.add(coffee);const rim=new T.Mesh(new T.TorusGeometry(r-.35,.35,6,24),o.material);rim.rotation.x=Math.PI/2;rim.position.y=p.height/2;rim.name='v1.cup.rim';o.add(rim);}
  renderer.outputEncoding=T.sRGBEncoding;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.88;
