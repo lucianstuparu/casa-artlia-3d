@@ -10,6 +10,7 @@ html=html.replace("entrance:{label:'Entrée / café · RDC',x:302,z:160","entran
 html=html.replace('const spawns={','const spawns={'+spawn);
 html=html.replace('</head>','<style>'+read('src/variant-1.css')+'</style></head>');
 html=html.replace('</body>','<script>const CASA_VARIANT_DATA='+JSON.stringify({...v,baseHtmlSha256:hash})+';\n'+read('src/variant-1.js').replace('/* Visual quality foundation */',()=>read('src/variant-1-visuals.js')).replace('/* Downstairs revision */',()=>read('src/variant-1-downstairs.js')).replace('/* Upstairs furnishing study */',()=>read('src/variant-1-upstairs.js'))+'</script></body>');
+html=html.replace('</head>','<style>'+read('src/variant-1-interface.css')+'</style></head>').replace('</body>',read('src/variant-1-interface.html')+'<script>'+read('src/variant-1-interface.js')+'</script></body>');
 fs.writeFileSync(path.join(root,'dist/variant-1.html'),html.replace(/[ \t]+$/gm,''));
 fs.writeFileSync(path.join(root,'dist/variant-1-data.json'),JSON.stringify({...v,baseHtmlSha256:hash},null,2));
 fs.writeFileSync(path.join(root,'dist/variant-1-version.json'),JSON.stringify({variant:'1',version:v.version,baseVersion:v.baseVersion,baseHtmlSha256:hash},null,2));

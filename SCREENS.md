@@ -103,3 +103,7 @@ Final responsive checks passed48 states across8 viewports; language checks passe
 ## Variant1 v1.3.1 — exterior ochre
 
 Reviewed exterior in both phases against entrance and stair-elevation photographs. Stronger ochre is assigned only to outward masonry faces; inside wall colours, grey surrounds, lighting, furnishings and original base files are retained. Previews: docs/images/exterior-colour-avant.png and docs/images/exterior-colour-apres.png.
+
+## Variant 1 v1.4.0 — explorer interface
+
+Reviewed desktop, phone, settings, GTLE and touch walking in Chrome. Light header, reserved bottom navigation, contextual map/card and one settings drawer implement design study 01. Controls remain available for the café, upstairs comparisons, all building layers, original source dialogs and inclined GTLE. Base and furnishing geometry are unchanged. Screens: docs/images/interface-desktop.png, interface-phone.png, interface-settings.png, interface-lift.png and interface-walk-phone.png. See docs/interface-v1.4.0.md and tests/interface.test.cjs.
