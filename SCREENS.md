@@ -107,3 +107,7 @@ Reviewed exterior in both phases against entrance and stair-elevation photograph
 ## Variant 1 v1.4.0 — explorer interface
 
 Reviewed desktop, phone, settings, GTLE and touch walking in Chrome. Light header, reserved bottom navigation, contextual map/card and one settings drawer implement design study 01. Controls remain available for the café, upstairs comparisons, all building layers, original source dialogs and inclined GTLE. Base and furnishing geometry are unchanged. Screens: docs/images/interface-desktop.png, interface-phone.png, interface-settings.png, interface-lift.png and interface-walk-phone.png. See docs/interface-v1.4.0.md and tests/interface.test.cjs.
+
+## Variant 1 v1.4.1 — full building shortcut
+
+Added Entire building / Clădirea întreagă / Bâtiment entier as the first bottom shortcut. One click restores full-height walls, bookshop, upper context and roof. Works in both phases; Walk starts outside the entrance, and room shortcuts return to the furnished cutaway. Geometry unchanged.

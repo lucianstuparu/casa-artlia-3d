@@ -28,3 +28,5 @@ Current furnishing study: Variant1 v1.3.0 — visual materials and furniture: ht
 Current furnishing study: Variant1 v1.3.1 — exterior colour: https://drive.google.com/drive/folders/1TRGuW8DmAjgn9SU-7Menh3qCqDT48KEW. v1.3.0 remains archived.
 
 Current furnishing study: Variant1 v1.4.0 — approved explorer interface: https://drive.google.com/drive/folders/1C7JqW7GcTdxAwt2unI31gErLFsYA7b2g. Previous v1.3.1 and the separate design-study archive are retained.
+
+Current furnishing study: Variant1 v1.4.1 — direct full-building shortcut: https://drive.google.com/drive/folders/1wIqVEPTdtsTrbYw1NoC8mnaHHwSXfwRR. Previous v1.4.0 retained.
